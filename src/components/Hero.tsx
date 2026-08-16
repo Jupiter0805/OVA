@@ -16,7 +16,7 @@ export function Hero() {
           <Button
             variant="primary"
             size="lg"
-            className="bg-white text-unicoc-red hover:bg-gray-100"
+            className="!bg-white !text-unicoc-red hover:!bg-gray-100"
           >
             Acceder al OVA
           </Button>
@@ -24,7 +24,7 @@ export function Hero() {
           <Button
             variant="secondary"
             size="lg"
-            className="border-white text-white hover:bg-white hover:text-unicoc-red"
+            className="!border-white !text-white hover:!bg-white hover:!text-unicoc-red"
           >
             Ver Características
           </Button>

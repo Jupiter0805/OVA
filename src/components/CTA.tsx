@@ -15,7 +15,7 @@ export function CTA() {
         <Button
           variant="primary"
           size="lg"
-          className="bg-white text-unicoc-red hover:bg-gray-100"
+          className="!bg-white !text-unicoc-red hover:!bg-gray-100"
         >
           Acceder al OVA
         </Button>
