@@ -138,7 +138,7 @@
 
 @media (min-width: 768px) {
   .evidence-cards {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 }
 
@@ -248,6 +248,153 @@
   border-left-color: white;
   background: rgba(255, 255, 255, 0.1);
   color: white;
+}
+
+/* Decision tree (Lesson 5: Stage assignment algorithm) */
+.decision-tree {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 1.5rem 1.5rem 1.5rem 1rem;
+  margin: 1.5rem 0;
+}
+
+.decision-tree ul {
+  list-style: none;
+  margin: 0.5rem 0 0.5rem 1rem;
+  border-left: 2px solid var(--unicoc-red-light);
+  padding-left: 1.25rem;
+}
+
+.decision-tree li {
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+
+.decision-tree li::before {
+  content: '';
+  position: absolute;
+  left: -1.25rem;
+  top: 0.6em;
+  width: 0.85rem;
+  height: 2px;
+  background: var(--unicoc-red-light);
+}
+
+.decision-tree .outcome {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--unicoc-red);
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* RBL calculator (Lesson 6) */
+.calc-box {
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.06), rgba(255, 107, 107, 0.06));
+  border: 2px solid var(--unicoc-red-light);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.calc-box .formula {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--unicoc-red);
+  background: white;
+  border-radius: 10px;
+  padding: 0.85rem 1.25rem;
+  margin: 0.75rem 0;
+  display: inline-block;
+}
+
+.calc-box .result {
+  font-weight: 700;
+  color: var(--unicoc-red-dark);
+}
+
+/* Grade modifiers (Lesson 6: smoking / diabetes) */
+.modifier-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .modifier-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.modifier-box {
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.modifier-box h4 {
+  color: var(--unicoc-red);
+  margin-top: 0;
+}
+
+.modifier-box ul {
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+}
+
+.modifier-box li {
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.modifier-box li:last-child {
+  border-bottom: none;
+}
+
+/* Clinical photo placeholders */
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  background: var(--bg-light);
+  border: 2px dashed var(--border-light);
+  border-radius: 16px;
+  padding: 2rem 1rem;
+  margin: 1.25rem 0;
+  color: var(--text-light);
+}
+
+.photo-placeholder .icon {
+  font-size: 2rem;
+}
+
+.photo-placeholder .caption {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Shared */
