@@ -11,7 +11,7 @@ export function Hero() {
       transition={{ duration: 0.8 }}
     >
       {/* Overlay de marca: deja ver la foto pero mantiene el título como protagonista */}
-      <div className="absolute inset-0 gradient-hero opacity-80" />
+      <div className="absolute inset-0 gradient-hero opacity-55" />
 
       {/* Elementos decorativos animados */}
       <motion.div
