@@ -4,11 +4,15 @@ export function Hero() {
   return (
     <motion.section
       id="inicio"
-      className="gradient-hero text-white py-32 md:py-48 relative overflow-hidden"
+      className="text-white py-32 md:py-48 relative overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: "url('/odontologia.png')" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
+      {/* Overlay de marca: deja ver la foto pero mantiene el título como protagonista */}
+      <div className="absolute inset-0 gradient-hero opacity-80" />
+
       {/* Elementos decorativos animados */}
       <motion.div
         className="absolute top-10 left-10 w-72 h-72 bg-unicoc-red-light rounded-full mix-blend-multiply filter blur-3xl opacity-20"
