@@ -144,7 +144,7 @@ export function ChapterPage() {
         animate={{ opacity: 1 }}
         className="bg-gradient-to-r from-unicoc-red to-unicoc-red-dark text-white py-8"
       >
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="w-full lg:w-[85%] xl:w-[75%] 2xl:w-[70%] mx-auto px-6">
           <motion.button
             whileHover={{ x: -4 }}
             onClick={() => navigate('/dashboard')}
@@ -159,7 +159,7 @@ export function ChapterPage() {
         </div>
       </motion.div>
 
-      <div className="max-w-5xl mx-auto px-6 py-12">
+      <div className="w-full lg:w-[85%] xl:w-[75%] 2xl:w-[70%] mx-auto px-6 py-12">
         {!hasInteractiveContent ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
