@@ -51,7 +51,6 @@ h1, h2, h3 {
 /* Utility classes */
 .container {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -59,6 +58,26 @@ h1, h2, h3 {
 @media (max-width: 768px) {
   .container {
     padding: 0 16px;
+  }
+}
+
+/* Matches the ChapterPage lesson container: full width up to lg, then
+   tapers toward ~70% on large screens so margins grow proportionally. */
+@media (min-width: 1024px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    width: 70%;
   }
 }
 

@@ -71,7 +71,7 @@ export function DashboardPage() {
         animate={{ opacity: 1, y: 0 }}
         className="bg-white shadow-lg sticky top-0 z-40"
       >
-        <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+        <div className="w-full lg:w-[85%] xl:w-[75%] 2xl:w-[70%] mx-auto px-6 py-6 flex justify-between items-center">
           <div className="flex-1">
             <h1 className="text-4xl font-bold text-unicoc-red mb-2">
               Bienvenido, {user?.user_metadata?.full_name || user?.email?.split('@')[0]}
@@ -91,7 +91,7 @@ export function DashboardPage() {
         </div>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="w-full lg:w-[85%] xl:w-[75%] 2xl:w-[70%] mx-auto px-6 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

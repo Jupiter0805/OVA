@@ -23,13 +23,12 @@ export function Hero() {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          Aprende Periodontitis<br />
-          <span className="text-white">AAP/EFP 2018</span>
+          Objeto virtual de aprendizaje para la enseñanza de la clasificación de periodontitis AAP/EFP 2018
         </motion.h1>
 
         <motion.p
