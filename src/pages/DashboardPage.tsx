@@ -7,7 +7,7 @@ import { chaptersService } from '../services/chaptersService';
 import type { Chapter, UserProgress } from '../services/chaptersService';
 
 export function DashboardPage() {
-  const { user, signOut } = useAuth();
+  const { user, isAdmin, signOut } = useAuth();
   const navigate = useNavigate();
   const [chapters, setChapters] = useState<Chapter[]>([]);
   const [progressMap, setProgressMap] = useState<Map<string, UserProgress | null>>(new Map());
@@ -80,14 +80,26 @@ export function DashboardPage() {
               {chapters.length} capítulos disponibles • {globalProgress.completed} completados
             </p>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleLogout}
-            className="bg-unicoc-red text-white px-8 py-3 rounded-lg font-bold hover:bg-unicoc-red-dark transition shadow-lg"
-          >
-            Salir
-          </motion.button>
+          <div className="flex items-center gap-3">
+            {isAdmin && (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/admin')}
+                className="border-2 border-unicoc-red text-unicoc-red px-8 py-3 rounded-lg font-bold hover:bg-unicoc-red hover:text-white transition"
+              >
+                Admin
+              </motion.button>
+            )}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleLogout}
+              className="bg-unicoc-red text-white px-8 py-3 rounded-lg font-bold hover:bg-unicoc-red-dark transition shadow-lg"
+            >
+              Salir
+            </motion.button>
+          </div>
         </div>
       </motion.div>
 
