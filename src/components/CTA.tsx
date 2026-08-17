@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export function CTA() {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  const handleAccess = () => navigate(isAuthenticated ? '/dashboard' : '/login');
+
   return (
     <motion.section
       className="gradient-hero text-white py-32 relative overflow-hidden"
@@ -34,6 +40,7 @@ export function CTA() {
         <motion.button
           whileHover={{ scale: 1.08, boxShadow: '0 30px 60px rgba(0,0,0,0.3)' }}
           whileTap={{ scale: 0.95 }}
+          onClick={handleAccess}
           className="bg-white text-unicoc-red px-10 py-5 rounded-xl font-bold text-xl shadow-xl"
         >
           Acceder al OVA

@@ -1,6 +1,16 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export function Hero() {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+
+  const handleAccess = () => navigate(isAuthenticated ? '/dashboard' : '/login');
+  const handleSeeFeatures = () => {
+    document.getElementById('caracteristicas')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <motion.section
       id="inicio"
@@ -53,6 +63,7 @@ export function Hero() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleAccess}
             className="bg-white text-unicoc-red px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-2xl transition"
           >
             Acceder al OVA
@@ -61,6 +72,7 @@ export function Hero() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleSeeFeatures}
             className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-unicoc-red transition"
           >
             Ver Características
