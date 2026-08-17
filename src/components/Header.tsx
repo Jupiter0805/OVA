@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 
 export function Header() {
-  const { isAuthenticated, signOut } = useAuth();
+  const { isAuthenticated, isAdmin, signOut } = useAuth();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -64,6 +64,15 @@ export function Header() {
               >
                 Dashboard
               </motion.button>
+              {isAdmin && (
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => navigate('/admin')}
+                  className="text-text-dark hover:text-unicoc-red transition font-medium"
+                >
+                  Admin
+                </motion.button>
+              )}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -128,6 +137,14 @@ export function Header() {
               >
                 Dashboard
               </button>
+              {isAdmin && (
+                <button
+                  onClick={() => { setIsOpen(false); navigate('/admin'); }}
+                  className="text-text-dark hover:text-unicoc-red transition font-medium text-left"
+                >
+                  Admin
+                </button>
+              )}
               <button
                 onClick={() => { setIsOpen(false); handleLogout(); }}
                 className="bg-unicoc-red text-white px-8 py-3 rounded-xl hover:bg-unicoc-red-dark transition font-semibold"
