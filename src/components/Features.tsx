@@ -1,38 +1,89 @@
+import { motion } from 'framer-motion';
+
 export function Features() {
   const features = [
     {
       icon: '📚',
       title: 'Pedagogía Clara',
-      description: 'Aprende paso a paso. Microlearning de 45 minutos por capítulo. Sin complicaciones innecesarias.',
+      description: 'Aprende paso a paso. Microlearning de 45 minutos por capítulo.',
     },
     {
       icon: '🎯',
       title: 'Casos Reales',
-      description: '5-7 casos clínicos de artículos médicos. Diagnostica, clasifica, aprende de la realidad.',
+      description: '5-7 casos clínicos de artículos médicos.',
     },
     {
       icon: '⚡',
       title: 'Flexible',
-      description: 'Pregrado: ruta básica. Máster: análisis crítico avanzado. Tu ritmo, tu nivel.',
+      description: 'Pregrado o Máster. Tu ritmo, tu nivel.',
     },
   ];
 
-  return (
-    <section id="caracteristicas" className="py-20 md:py-32 bg-bg-light">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-unicoc-red">
-          ¿Por Qué Este OVA?
-        </h2>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
 
-        <div className="grid md:grid-cols-3 gap-8">
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
+  return (
+    <section id="caracteristicas" className="py-24 md:py-32 gradient-subtle relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.h2
+          className="text-4xl md:text-6xl font-bold text-center mb-4 text-unicoc-red"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          ¿Por Qué Este OVA?
+        </motion.h2>
+
+        <motion.div
+          className="w-20 h-1 bg-unicoc-red mx-auto mb-16 rounded-full"
+          initial={{ width: 0 }}
+          whileInView={{ width: 80 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        />
+
+        <motion.div
+          className="grid md:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
           {features.map((feature, idx) => (
-            <div key={idx} className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-2xl font-bold mb-4 text-text-dark">{feature.title}</h3>
-              <p className="text-text-light">{feature.description}</p>
-            </div>
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              whileHover={{ y: -8 }}
+              className="glassmorphism p-8 rounded-2xl card-hover group"
+            >
+              <motion.div
+                className="text-6xl mb-6 inline-block"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+              >
+                {feature.icon}
+              </motion.div>
+              <h3 className="text-2xl font-bold mb-4 text-text-dark group-hover:text-unicoc-red transition">
+                {feature.title}
+              </h3>
+              <p className="text-text-light leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

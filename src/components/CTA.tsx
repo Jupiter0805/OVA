@@ -1,25 +1,44 @@
-import { Button } from './Button';
+import { motion } from 'framer-motion';
 
 export function CTA() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-r from-unicoc-red to-unicoc-red-dark text-white text-center">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          ¿Listo Para Aprender Periodontitis de Verdad?
-        </h2>
+    <motion.section
+      className="gradient-hero text-white py-32 relative overflow-hidden"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <div className="container mx-auto px-6 text-center relative z-10">
+        <motion.h2
+          className="text-5xl md:text-6xl font-bold mb-6"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          ¿Listo Para Aprender<br />
+          <span className="text-white">Periodontitis de Verdad?</span>
+        </motion.h2>
 
-        <p className="text-xl mb-12 text-gray-100">
+        <motion.p
+          className="text-2xl mb-12 text-gray-100"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           Solo toma 4 horas. Comienza hoy.
-        </p>
+        </motion.p>
 
-        <Button
-          variant="primary"
-          size="lg"
-          className="!bg-white !text-unicoc-red hover:!bg-gray-100"
+        <motion.button
+          whileHover={{ scale: 1.08, boxShadow: '0 30px 60px rgba(0,0,0,0.3)' }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-white text-unicoc-red px-10 py-5 rounded-xl font-bold text-xl shadow-xl"
         >
           Acceder al OVA
-        </Button>
+        </motion.button>
       </div>
-    </section>
+    </motion.section>
   );
 }
