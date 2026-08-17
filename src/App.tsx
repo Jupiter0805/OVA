@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { LoginPage } from './pages/LoginPage';
 import { SignupPage } from './pages/SignupPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { ChapterPage } from './pages/ChapterPage';
 import './App.css';
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
@@ -40,6 +41,14 @@ function AppRoutes() {
         element={
           <ProtectedRoute>
             <DashboardPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/chapter/:chapterId"
+        element={
+          <ProtectedRoute>
+            <ChapterPage />
           </ProtectedRoute>
         }
       />
