@@ -13,6 +13,7 @@ export default {
         'text-dark': '#1F2937',
         'text-light': '#6B7280',
         'bg-light': '#F9FAFB',
+        'border-light': '#E5E7EB',
       },
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],

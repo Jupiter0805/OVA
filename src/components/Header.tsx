@@ -1,14 +1,11 @@
-import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-
-const NAV_ITEMS = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Características', href: '#caracteristicas' },
-  { label: 'Cómo Funciona', href: '#como-funciona' },
-  { label: 'Contacto', href: '#contacto' },
-];
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { motion } from 'framer-motion';
 
 export function Header() {
+  const { isAuthenticated, signOut } = useAuth();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,6 +16,11 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogout = async () => {
+    await signOut();
+    navigate('/');
+  };
 
   return (
     <motion.header
@@ -34,36 +36,63 @@ export function Header() {
       <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className="flex items-center"
+          className="flex items-center cursor-pointer"
+          onClick={() => navigate('/')}
         >
-          <img
-            src="/logo.png"
-            alt="UNICOC"
-            className="h-10"
-          />
+          <img src="/logo.png" alt="UNICOC" className="h-10" />
         </motion.div>
 
         <div className="hidden md:flex gap-8">
-          {NAV_ITEMS.map((item) => (
-            <motion.a
-              key={item.label}
-              href={item.href}
-              className="text-text-dark hover:text-unicoc-red transition font-medium"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {item.label}
-            </motion.a>
-          ))}
+          <a href="/#inicio" className="text-text-dark hover:text-unicoc-red transition font-medium">
+            Inicio
+          </a>
+          <a href="/#caracteristicas" className="text-text-dark hover:text-unicoc-red transition font-medium">
+            Características
+          </a>
+          <a href="/#como-funciona" className="text-text-dark hover:text-unicoc-red transition font-medium">
+            Cómo Funciona
+          </a>
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="hidden md:block bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold shadow-lg hover:shadow-xl"
-        >
-          Acceder
-        </motion.button>
+        <div className="hidden md:flex gap-4">
+          {isAuthenticated ? (
+            <>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                onClick={() => navigate('/dashboard')}
+                className="text-text-dark hover:text-unicoc-red transition font-medium"
+              >
+                Dashboard
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleLogout}
+                className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold shadow-lg"
+              >
+                Salir
+              </motion.button>
+            </>
+          ) : (
+            <>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                onClick={() => navigate('/login')}
+                className="text-text-dark hover:text-unicoc-red transition px-4 py-2 font-medium"
+              >
+                Iniciar Sesión
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/signup')}
+                className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold shadow-lg"
+              >
+                Registrarse
+              </motion.button>
+            </>
+          )}
+        </div>
 
         <motion.button
           className="md:hidden text-2xl"
@@ -82,19 +111,46 @@ export function Header() {
           exit={{ opacity: 0, height: 0 }}
           className="md:hidden flex flex-col gap-4 px-6 pb-4 bg-white/95 backdrop-blur-lg"
         >
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-text-dark hover:text-unicoc-red transition font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
-          <button className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold">
-            Acceder
-          </button>
+          <a href="/#inicio" className="text-text-dark hover:text-unicoc-red transition font-medium" onClick={() => setIsOpen(false)}>
+            Inicio
+          </a>
+          <a href="/#caracteristicas" className="text-text-dark hover:text-unicoc-red transition font-medium" onClick={() => setIsOpen(false)}>
+            Características
+          </a>
+          <a href="/#como-funciona" className="text-text-dark hover:text-unicoc-red transition font-medium" onClick={() => setIsOpen(false)}>
+            Cómo Funciona
+          </a>
+          {isAuthenticated ? (
+            <>
+              <button
+                onClick={() => { setIsOpen(false); navigate('/dashboard'); }}
+                className="text-text-dark hover:text-unicoc-red transition font-medium text-left"
+              >
+                Dashboard
+              </button>
+              <button
+                onClick={() => { setIsOpen(false); handleLogout(); }}
+                className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold"
+              >
+                Salir
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => { setIsOpen(false); navigate('/login'); }}
+                className="text-text-dark hover:text-unicoc-red transition font-medium text-left"
+              >
+                Iniciar Sesión
+              </button>
+              <button
+                onClick={() => { setIsOpen(false); navigate('/signup'); }}
+                className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold"
+              >
+                Registrarse
+              </button>
+            </>
+          )}
         </motion.div>
       )}
     </motion.header>
