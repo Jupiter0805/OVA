@@ -33,16 +33,16 @@ export function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="container mx-auto px-6 md:px-10 min-h-[8vh] flex items-center justify-between gap-6">
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className="flex items-center cursor-pointer"
+          className="flex items-center cursor-pointer shrink-0"
           onClick={() => navigate('/')}
         >
-          <img src="/logo.png" alt="UNICOC" className="h-10" />
+          <img src="/logo.png" alt="UNICOC" className="h-12 md:h-16 w-auto" />
         </motion.div>
 
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex items-center gap-8">
           <a href="/#inicio" className="text-text-dark hover:text-unicoc-red transition font-medium">
             Inicio
           </a>
@@ -54,7 +54,7 @@ export function Header() {
           </a>
         </div>
 
-        <div className="hidden md:flex gap-4">
+        <div className="hidden md:flex items-center gap-6">
           {isAuthenticated ? (
             <>
               <motion.button
@@ -68,7 +68,7 @@ export function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleLogout}
-                className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold shadow-lg"
+                className="bg-unicoc-red text-white px-8 py-3 rounded-xl hover:bg-unicoc-red-dark transition font-semibold shadow-lg"
               >
                 Salir
               </motion.button>
@@ -86,7 +86,7 @@ export function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate('/signup')}
-                className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold shadow-lg"
+                className="bg-unicoc-red text-white px-8 py-3 rounded-xl hover:bg-unicoc-red-dark transition font-semibold shadow-lg"
               >
                 Registrarse
               </motion.button>
@@ -130,7 +130,7 @@ export function Header() {
               </button>
               <button
                 onClick={() => { setIsOpen(false); handleLogout(); }}
-                className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold"
+                className="bg-unicoc-red text-white px-8 py-3 rounded-xl hover:bg-unicoc-red-dark transition font-semibold"
               >
                 Salir
               </button>
@@ -145,7 +145,7 @@ export function Header() {
               </button>
               <button
                 onClick={() => { setIsOpen(false); navigate('/signup'); }}
-                className="bg-unicoc-red text-white px-6 py-2 rounded-lg hover:bg-unicoc-red-dark transition font-semibold"
+                className="bg-unicoc-red text-white px-8 py-3 rounded-xl hover:bg-unicoc-red-dark transition font-semibold"
               >
                 Registrarse
               </button>
