@@ -1,5 +1,4 @@
 /* Importing globals */
 @import './variables.css';
 @import './globals.css';
-
-/* Component-specific styles if needed */
+@import './lessonContent.css';
