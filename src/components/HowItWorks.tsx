@@ -5,7 +5,7 @@ export function HowItWorks() {
     { number: 1, title: 'REGÍSTRATE', description: 'Crea cuenta con email @unicoc.edu.co' },
     { number: 2, title: 'ELIGE NIVEL', description: 'Pregrado o Máster - rutas adaptadas' },
     { number: 3, title: 'COMIENZA', description: '4 capítulos, 20+ tests, 7 casos clínicos' },
-    { number: 4, title: 'CERTIFÍCATE', description: 'Obtén certificado digital al terminar' },
+    { number: 4, title: 'REFUERZA TU CRITERIO', description: 'Pretest, lecciones y posttest en cada capítulo' },
   ];
 
   return (
