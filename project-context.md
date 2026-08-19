@@ -123,25 +123,35 @@ one (this bit DashboardPage once already: the link existed in code but only in
 | Chapter | DB row | Lessons | Pretest | Posttest |
 |---|---|---|---|---|
 | 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
-| 2 — Diagnosticando en 3 pasos | ✅ | **0** | — | — |
+| 2 — Diagnosticando en 3 pasos | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
 | 3 — Clasificando: Estadio y Grado | ✅ | **0** | — | — |
 | 4 — Casos reales | ✅ | **0** | — | — |
 
-Only Chapter 1 has any lesson/test content. Chapters 2-4 exist as rows (so they
-show up on the dashboard) but `ChapterPage` falls back to a static
-"próximamente" placeholder for any chapter with no lessons — that's intentional,
-not a bug.
+Chapters 3-4 still exist only as rows (so they show up on the dashboard) but
+`ChapterPage` falls back to a static "próximamente" placeholder for any
+chapter with no lessons — that's intentional, not a bug.
 
-Chapter 1's content has been **fully regenerated three times** now via
-`scripts/insertChapter1.js`/`chapter1Content.js` (original 4-lesson placeholder
-→ 8-lesson version → current postgrado-depth version sourced from
-`MEGA_PROMPT_CAPITULO_1_DENSO.md`, pasted 2026-08-19: full immunopathogenesis,
-biofilm/microbiology, RANK/RANKL, 5 risk modifiers instead of 2, 2 fully
-worked integrated cases). Each regeneration reset every user's
-`user_progress` for that chapter, since lesson counts/content changed and old
-`lessons_completed` counts stopped meaning anything — check with whoever's
-testing before regenerating again, it wipes real progress every time.
-`chapters.estimated_time_minutes` for Chapter 1 was bumped 45 → 75 to match.
+The user is pasting one chapter's source doc at a time and reviewing each
+before the next; verify completeness (no bracketed placeholders) before
+inserting, the same way Chapter 1's combined 1-4 doc turned out incomplete
+for 2-4 but each chapter's own dedicated doc (`MEGA_PROMPT_CAPITULO_1_DENSO.md`,
+`MEGA_PROMPT_CAPITULO_2_DIAGNOSTICO.md`) has so far been fully written, no
+placeholders. Neither of those two dedicated docs included pretest/posttest
+questions — both chapters' question sets were authored from scratch based on
+the lesson content, not copied from source material.
+
+Seeding infra: `scripts/lib/insertChapterCore.js` holds the shared
+delete-old/insert-new/validate/reset-progress logic (parameterized by
+`chapterNumber`); `scripts/chapterNContent.js` + `scripts/insertChapterN.js`
+are thin per-chapter wrappers (`npm run insert:chapterN`). Adding chapter 3
+means: write `chapter3Content.js`, copy `insertChapter2.js` and swap the
+number twice, add the npm script.
+
+Each regeneration **deletes and resets every user's `user_progress`** for
+that chapter (lesson counts/content change, so old `lessons_completed`
+counts stop meaning anything) — check with whoever's testing before
+regenerating, it wipes real progress every time. `chapters.estimated_time_minutes`
+gets bumped to match each source doc's stated duration (Ch1: 45→75, Ch2: 45→90).
 
 An earlier, broader source (`OVA_CAPITULOS_1-4_MEGA_PROMPT.md`, also pasted
 2026-08-19) covers Chapters 1-4 but is itself incomplete for 2-4 (Chapter 2
