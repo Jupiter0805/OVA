@@ -4,7 +4,7 @@ Landing page + learning platform (OVA = Objeto Virtual de Aprendizaje) teaching 
 AAP/EFP 2018 periodontitis classification (Stage/Grade) to UNICOC dental students.
 Client: Universidad Cooperativa de Colombia.
 
-Last updated: 2026-08-19.
+Last updated: 2026-08-19 (Chapter 3 content added).
 
 ## Stack
 
@@ -124,7 +124,7 @@ one (this bit DashboardPage once already: the link existed in code but only in
 |---|---|---|---|---|
 | 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
 | 2 — Diagnosticando en 3 pasos | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
-| 3 — Clasificando: Estadio y Grado | ✅ | **0** | — | — |
+| 3 — Clasificando: Estadio y Grado | ✅ | **8/8**, full Stage×Grade prognostic matrix (12 combos) | 4 Q | 8 Q (≥70% to pass) |
 | 4 — Casos reales | ✅ | **0** | — | — |
 
 Chapters 3-4 still exist only as rows (so they show up on the dashboard) but
@@ -135,23 +135,25 @@ The user is pasting one chapter's source doc at a time and reviewing each
 before the next; verify completeness (no bracketed placeholders) before
 inserting, the same way Chapter 1's combined 1-4 doc turned out incomplete
 for 2-4 but each chapter's own dedicated doc (`MEGA_PROMPT_CAPITULO_1_DENSO.md`,
-`MEGA_PROMPT_CAPITULO_2_DIAGNOSTICO.md`) has so far been fully written, no
-placeholders. Neither of those two dedicated docs included pretest/posttest
-questions — both chapters' question sets were authored from scratch based on
-the lesson content, not copied from source material.
+`MEGA_PROMPT_CAPITULO_2_DIAGNOSTICO.md`, `MEGA_PROMPT_CAPITULO_3_CLASIFICANDO.md`)
+has so far been fully written, no placeholders. None of those three dedicated
+docs included pretest/posttest questions — every chapter's question set was
+authored from scratch based on the lesson content, not copied from source
+material.
 
 Seeding infra: `scripts/lib/insertChapterCore.js` holds the shared
 delete-old/insert-new/validate/reset-progress logic (parameterized by
 `chapterNumber`); `scripts/chapterNContent.js` + `scripts/insertChapterN.js`
-are thin per-chapter wrappers (`npm run insert:chapterN`). Adding chapter 3
-means: write `chapter3Content.js`, copy `insertChapter2.js` and swap the
+are thin per-chapter wrappers (`npm run insert:chapterN`). Adding chapter 4
+means: write `chapter4Content.js`, copy `insertChapter3.js` and swap the
 number twice, add the npm script.
 
 Each regeneration **deletes and resets every user's `user_progress`** for
 that chapter (lesson counts/content change, so old `lessons_completed`
 counts stop meaning anything) — check with whoever's testing before
 regenerating, it wipes real progress every time. `chapters.estimated_time_minutes`
-gets bumped to match each source doc's stated duration (Ch1: 45→75, Ch2: 45→90).
+gets bumped to match each source doc's stated duration (Ch1: 45→75, Ch2: 45→90,
+Ch3: 45→90).
 
 An earlier, broader source (`OVA_CAPITULOS_1-4_MEGA_PROMPT.md`, also pasted
 2026-08-19) covers Chapters 1-4 but is itself incomplete for 2-4 (Chapter 2
@@ -230,16 +232,15 @@ delete whenever), there are **3 real student signups**:
 
 ## Known gaps / open items
 
-- **Chapters 2, 3, 4 have no lesson/test content at all.** A candidate source
-  document (`OVA_CAPITULOS_1-4_MEGA_PROMPT.md`) was pasted 2026-08-19 but is
-  itself incomplete: Chapter 2 only has 4 of 9 promised lessons written
-  (2.5-2.9 are bracketed placeholders), Chapter 3 has **zero** real content
-  (all 7 cases are `[Contenido denso...]` placeholders), Chapter 4's lessons
-  4.5/4.6 are single bullets, not full lessons, and it only provides one
-  generic pre/post-test rather than one per chapter. Decision on how to handle
-  the gap (insert only what's real / user supplies the rest / this operator
-  authors the rest) was pending when this doc was written — check the
-  conversation before assuming a direction was chosen.
+- **Chapter 4 ("Casos reales") still has no lesson/test content.** Chapters
+  1-3 are done via their own dedicated source docs (see "Content status"
+  above). An earlier candidate document (`OVA_CAPITULOS_1-4_MEGA_PROMPT.md`,
+  pasted 2026-08-19) covers all 4 chapters but is itself incomplete for
+  Chapter 4 (lessons 4.5/4.6 are single bullets, not full lessons, and it
+  only provides one generic pre/post-test rather than one per chapter) — do
+  not use it for Chapter 4; wait for the user's dedicated Chapter 4 doc, the
+  same pattern as Chapters 1-3, and verify it for placeholders before
+  building anything.
 - `npm run build` warns about a >500kB JS chunk (no code-splitting yet) —
   known, not yet addressed, low priority.
 - Two leftover throwaway test accounts (`test.ova.*@unicoc.edu.co`, both
