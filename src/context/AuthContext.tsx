@@ -61,13 +61,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [user?.id]);
 
   const signUp = async (email: string, password: string, fullName: string) => {
-    if (!email.endsWith('@unicoc.edu.co')) {
-      return {
-        data: { user: null, session: null },
-        error: { message: 'Por favor usa tu email de UNICOC (@unicoc.edu.co)' },
-      };
-    }
-
     return supabase.auth.signUp({
       email,
       password,

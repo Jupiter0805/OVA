@@ -194,8 +194,12 @@ pattern needs a matching CSS rule added there first, or it'll render unstyled.
 
 ## Auth
 
-- Email/password only, via `supabase.auth`. Signup enforces `@unicoc.edu.co`
-  domain client-side in `AuthContext.signUp`.
+- Email/password only, via `supabase.auth`. The `@unicoc.edu.co` domain
+  restriction on signup (was client-side in `AuthContext.signUp` +
+  `SignupPage.tsx`) was removed 2026-08-19 at the user's request — signup is
+  now open to any email domain. No server-side/RLS enforcement of the domain
+  ever existed, so this was a pure UI change (label/placeholder copy in
+  `LoginPage.tsx`/`SignupPage.tsx`/`HowItWorks.tsx` updated to match).
 - Email confirmation: was required early on; at some point during
   development it stopped being enforced (a fresh signup got a usable session
   immediately) — current project setting, not something this codebase
@@ -212,9 +216,11 @@ pattern needs a matching CSS rule added there first, or it'll render unstyled.
 ## Real users (as of this doc)
 
 Besides the master account and this operator's own throwaway test/probe
-accounts (`test.ova.*`, `trigger.test.*` — harmless, `student` role, safe to
-delete whenever), there are **3 real student signups**:
-`m.leamus@unicoc.edu.co`, `v.garcia@unicoc.edu.co`, `s.lozada@unicoc.edu.co`.
+accounts (`test.ova.*`, `trigger.test.*`, `test.ova.norestriction@gmail.com`
+— harmless, `student` role, safe to delete whenever), there are **3 real
+student signups**: `m.leamus@unicoc.edu.co`, `v.garcia@unicoc.edu.co`,
+`s.lozada@unicoc.edu.co`. Now that the domain restriction is removed, future
+signups are not guaranteed to be `@unicoc.edu.co` addresses.
 
 ## Design conventions
 

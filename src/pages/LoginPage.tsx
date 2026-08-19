@@ -58,7 +58,7 @@ export function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full px-4 py-3 border-2 border-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-unicoc-red focus:border-transparent transition"
-                placeholder="tu@unicoc.edu.co"
+                placeholder="tu@email.com"
               />
             </div>
 

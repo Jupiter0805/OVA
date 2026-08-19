@@ -19,12 +19,6 @@ export function SignupPage() {
     setError('');
     setLoading(true);
 
-    if (!email.endsWith('@unicoc.edu.co')) {
-      setError('Por favor usa tu email de UNICOC (@unicoc.edu.co)');
-      setLoading(false);
-      return;
-    }
-
     const { error } = await signUp(email, password, fullName);
 
     if (error) {
@@ -104,7 +98,7 @@ export function SignupPage() {
 
             <div>
               <label className="block text-sm font-semibold text-text-dark mb-2">
-                Email UNICOC
+                Email
               </label>
               <motion.input
                 whileFocus={{ scale: 1.02 }}
@@ -113,11 +107,8 @@ export function SignupPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full px-4 py-3 border-2 border-border-light rounded-lg focus:outline-none focus:ring-2 focus:ring-unicoc-red focus:border-transparent transition"
-                placeholder="juan.perez@unicoc.edu.co"
+                placeholder="juan.perez@email.com"
               />
-              <p className="text-xs text-text-light mt-1">
-                ⚠️ Debes usar tu email de UNICOC (@unicoc.edu.co)
-              </p>
             </div>
 
             <div>
