@@ -428,6 +428,32 @@
   font-size: 1.1rem;
 }
 
+/* Embedded academic figures (real images, not the dashed placeholder above) */
+.embedded-figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.embedded-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.embedded-figure figcaption {
+  margin-top: 0.75rem;
+  padding: 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-align: left;
+  line-height: 1.5;
+}
+
+.embedded-figure figcaption strong {
+  color: var(--unicoc-red);
+}
+
 /* Shared */
 .reference {
   margin-top: 1.5rem;

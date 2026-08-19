@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
@@ -12,7 +12,16 @@ import { PreTestComponent } from '../components/tests/PreTestComponent';
 import { PostTestComponent } from '../components/tests/PostTestComponent';
 import { LessonsFlow } from '../components/lessons/LessonsFlow';
 
-type PageState = 'pretest' | 'lessons' | 'posttest' | 'completed';
+// Lazy-loaded: react-pdf + pdfjs-dist add ~1MB, only worth paying for
+// once a user actually reaches Chapter 1's PDF step, not on every page load.
+const PDFViewer = lazy(() =>
+  import('../components/lessons/PDFViewer').then((m) => ({ default: m.PDFViewer })),
+);
+
+type PageState = 'pretest' | 'pdf-resource' | 'lessons' | 'posttest' | 'completed';
+
+const CATON_2018_PDF_URL =
+  'https://jaghsnjjklrorojbtkpr.supabase.co/storage/v1/object/public/academic-papers/J%20Clinic%20Periodontology%20-%202018%20-%20Caton%20-%20A%20new%20classification%20scheme%20for%20periodontal.pdf';
 
 export function ChapterPage() {
   const { chapterId } = useParams<{ chapterId: string }>();
@@ -80,7 +89,11 @@ export function ChapterPage() {
     loadData();
   }, [chapterId, user?.id]);
 
-  const handlePreTestComplete = () => setPageState('lessons');
+  const handlePreTestComplete = () => {
+    setPageState(chapter?.chapter_number === 1 ? 'pdf-resource' : 'lessons');
+  };
+
+  const handlePdfResourceContinue = () => setPageState('lessons');
 
   const handleLessonComplete = (lessonsCompleted: number) => {
     if (!user?.id || !chapterId) return;
@@ -199,6 +212,45 @@ export function ChapterPage() {
           <>
             {pageState === 'pretest' && pretest && (
               <PreTestComponent test={pretest} questions={pretestQuestions} onComplete={handlePreTestComplete} />
+            )}
+
+            {pageState === 'pdf-resource' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-unicoc-red-light/10 border-l-4 border-unicoc-red rounded-2xl p-6"
+              >
+                <h3 className="text-2xl font-bold text-unicoc-red mb-2">📄 Recurso: Paper Original AAP/EFP 2018</h3>
+                <p className="text-text-dark mb-6">
+                  Antes de empezar las lecciones, este es el paper original que define la clasificación que vas a
+                  aprender en este capítulo. Léelo directamente aquí o descárgalo para tu referencia personal.
+                </p>
+
+                <Suspense
+                  fallback={
+                    <div className="bg-white rounded-2xl p-8 text-center border-2 border-border-light">
+                      <div className="animate-spin h-8 w-8 border-4 border-unicoc-red border-t-transparent rounded-full mx-auto mb-4" />
+                      <p className="text-text-light">Cargando visor de PDF...</p>
+                    </div>
+                  }
+                >
+                  <PDFViewer
+                    url={CATON_2018_PDF_URL}
+                    title="A new classification scheme for periodontal and peri-implant diseases and conditions"
+                    author="Caton JG, Armitage G, Berglundh T, et al. (2018) — J Clin Periodontol. 2018;45(S20):S1-S8"
+                    downloadName="Caton_2018_Classification.pdf"
+                  />
+                </Suspense>
+
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handlePdfResourceContinue}
+                  className="mt-6 bg-gradient-to-r from-unicoc-red to-unicoc-red-dark text-white px-8 py-3 rounded-lg font-bold hover:shadow-lg transition"
+                >
+                  Continuar a las lecciones →
+                </motion.button>
+              </motion.div>
             )}
 
             {pageState === 'lessons' && (

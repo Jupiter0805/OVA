@@ -146,13 +146,99 @@ one (this bit DashboardPage once already: the link existed in code but only in
 
 | Chapter | DB row | Lessons | Pretest | Posttest |
 |---|---|---|---|---|
-| 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
+| 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth + 3 real figures | 4 Q | 9 Q (≥70% to pass) |
 | 2 — Diagnosticando en 3 pasos | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
 | 3 — Clasificando: Estadio y Grado | ✅ | **8/8**, full Stage×Grade prognostic matrix (12 combos) | 4 Q | 8 Q (≥70% to pass) |
 | 4 — Casos reales | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 4 Q | 8 Q (≥70% to pass) |
 
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
+
+### Chapter 1 revision (2026-08-19) — from two external prompt docs
+
+The user pasted two prep docs (`IMPLEMENTACION_PASOS_2_7_URL_LISTA.md`,
+`PROMPT_CAPITULO_1_REVISADO_FINAL.md`) with "execute these" instructions.
+Both were checked against the live codebase/DB and against the real AAP/EFP
+2018 framework before applying — several of their instructions turned out
+to be stale, technically wrong for this codebase, or medically inaccurate,
+and were **not** applied as written:
+
+- **Applied:** removed all `~` approximation symbols from Chapter 1 prose;
+  added the 3 real figures (`public/*.jpeg`, now committed — they existed
+  in the working tree but were never in git) into Lesson 2 with accurate
+  captions (the source doc's caption for `piramide-socransky.jpeg` was
+  wrong — it's the full 5-complex Socransky pyramid, not an immune-response
+  diagram; corrected and repositioned next to `microbiota-complejos.jpeg`
+  where it thematically belongs); added an "Extensión" (localizada
+  &lt;30% / generalizada ≥30% / patrón molar-incisivo) subsection to Lesson
+  4 plus one new posttest question (posttest is now 9 Q, not 8 — the only
+  chapter that isn't exactly 8); added a "gingivitis en periodonto
+  reducido" note to Lesson 1.
+- **Not applied — Estadio I-IV table "copied from `OVA_LISTO_PARA_MONTAR.docx`
+  páginas 19-20":** never had that file. More importantly, that doc's table
+  (and its proposed posttest question 7) encodes **RBL &gt;50% for Stage
+  III / &gt;66% for Stage IV** — the same inaccuracy already identified and
+  rejected earlier this project (see the Chapter 3/4 "critical analysis"
+  correction pass above). The real Tonetti et al. 2018 framework uses the
+  **same** RBL criterion for Stage III and IV ("extending to mid-third of
+  root and beyond", ≈&gt;33%) — Stage IV is distinguished by tooth loss
+  (≥5 teeth) or complex-rehab need, not a higher bone-loss percentage.
+  Chapter 1's own existing Stage table (`Lección 4`) already had this
+  right (`≥33%` for both III and IV) before this revision pass — it was
+  left untouched rather than made worse.
+- **Not applied — terminology swap** (Stage→Estadio, Grade→Grado, SRP→RAR,
+  PPD→PPS) **in Chapter 1 only:** Chapters 2-4 (75% of the course, all
+  built this project) consistently use Stage/Grade/SRP/PPD/CAL throughout
+  every lesson and every pretest/posttest question. Swapping only Chapter 1
+  would fragment the course's vocabulary mid-curriculum, which is worse
+  than the anglicized-but-consistent terminology already in place. Flagged
+  to the user; not done without an explicit go-ahead. If this is wanted,
+  it needs to be a single pass across all 4 chapters, not a Chapter-1-only
+  change.
+- **Not applied — replacing the pretest/posttest wholesale:** the doc
+  proposed a different 4+5 question set. Chapter 1's existing 4+8(+1=9)
+  questions already cover the same ground (RANK/RANKL, the RBL/age
+  velocity-proxy formula, tobacco/diabetes Grade thresholds, Stage
+  stability post-therapy) with tighter integration to the actual lesson
+  content, so they were kept; only the genuinely new "extensión" question
+  was added on top.
+- **Already true, no change needed:** the RBL/age formula
+  (`RBL = %bone loss ÷ edad`) and the per-Grade re-evaluation-interval
+  guidance the doc asked for were already present in Lessons 5 and 8
+  respectively. The "admin can reset their own progress" ask was already
+  true — `AdminPage`'s "Reiniciar Progreso" button was never gated by the
+  self/master `canManage()` check added for the role-change/delete actions.
+
+### PDF viewer (Caton 2018 paper) — Chapter 1 only
+
+After the Chapter 1 pretest, before the lessons, there's now a `PDFViewer`
+(`src/components/lessons/PDFViewer.tsx`, `react-pdf`) showing the actual
+Caton et al. 2018 paper from Supabase Storage (public bucket
+`academic-papers`, already uploaded by the user before this was built —
+verified via the storage API, not assumed). Implementation notes:
+
+- This required a different integration approach than the source doc
+  assumed: lesson `content_html` is raw HTML (`dangerouslySetInnerHTML`,
+  see "Lesson content HTML" below), so a real React component can't live
+  inside it. Instead, `ChapterPage.tsx` got a new `pageState` step
+  (`'pdf-resource'`) between `'pretest'` and `'lessons'`, gated on
+  `chapter.chapter_number === 1` — every other chapter's flow is
+  unaffected.
+- The source doc's worker setup (`cdnjs.cloudflare.com/.../pdf.worker.min.js`)
+  is wrong for the pdfjs-dist version react-pdf 10.4.1 actually ships
+  (5.x, ESM-only, `.mjs` not `.js`) — would have 404'd. Used Vite's
+  recommended local-bundling pattern instead
+  (`new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url)`),
+  which also avoids depending on a third-party CDN staying up.
+  `PDFViewer` is `React.lazy()`-loaded from `ChapterPage.tsx` — react-pdf +
+  pdfjs-dist add about 470KB, only worth it for users who actually reach
+  Chapter 1's PDF step, not on every page load.
+- Restyled from the source doc's generic blue/green palette to the actual
+  `unicoc-red` brand colors.
+- Verified end-to-end with a real PDF render (not just that it compiles) —
+  correct title page, working page-forward navigation into page 2, no
+  console errors — via a throwaway dev-only route that was added and then
+  removed before committing.
 
 Chapters 3-4 still exist only as rows (so they show up on the dashboard) but
 `ChapterPage` falls back to a static "próximamente" placeholder for any

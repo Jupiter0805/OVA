@@ -85,6 +85,10 @@ export const lessons = [
     </tr>
   </table>
 
+  <div class="definition-box">
+    <p><strong>⚠️ Nota clínica importante — gingivitis en periodonto reducido:</strong> la gingivitis puede coexistir con periodontitis. En un paciente con periodontitis previamente tratada, la gingivitis inducida por biofilm puede reaparecer en sitios con profundidad de sondaje ≤3mm (periodonto reducido pero sano), sin que esto niegue el antecedente de periodontitis ni cambie la clasificación del caso como periodontitis resuelta. La clave para diferenciarlo de una recurrencia real: hay sangrado al sondaje, pero el CAL permanece estable (sin nueva pérdida de inserción).</p>
+  </div>
+
   <div class="reference">
     📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Chapple et al. 2018 (J Clin Periodontol)
   </div>
@@ -139,11 +143,25 @@ export const lessons = [
     </div>
   </div>
 
+  <figure class="embedded-figure">
+    <img src="/microbiota-complejos.jpeg" alt="Formación progresiva de los complejos bacterianos de Socransky" />
+    <figcaption><strong>Figura 1.</strong> Formación progresiva del biofilm subgingival. Los complejos de color naranja (<em>Prevotella intermedia, Fusobacterium nucleatum</em>) y rojo (<em>P. gingivalis, T. forsythia, T. denticola</em>) están asociados con enfermedad periodontal progresiva. El complejo amarillo representa bacterias colonizadoras tempranas (<em>Actinomyces, Streptococcus</em>).</figcaption>
+  </figure>
+
+  <p>El modelo original de Socransky (1998) también describe dos complejos de colonizadores muy tempranos — verde y azul — que preparan el ambiente para los complejos posteriores. La figura siguiente muestra la pirámide completa, con el gradiente desde salud (colonizadores iniciales) hasta enfermedad (complejo rojo, patógenos tardíos):</p>
+
+  <figure class="embedded-figure">
+    <img src="/piramide-socransky.jpeg" alt="Pirámide completa de los complejos bacterianos de Socransky" />
+    <figcaption><strong>Figura 2.</strong> Pirámide de Socransky. Los cinco complejos bacterianos según su rol en la formación del biofilm y su asociación con la salud o la enfermedad periodontal: azul y verde (colonizadores iniciales, asociados a salud), amarillo (colonizadores tempranos), naranja (especies puente) y rojo (patógenos tardíos, mayor asociación con periodontitis avanzada).</figcaption>
+  </figure>
+
   <div class="definition-box">
     <p><strong>Disbiosis ≠ disfunción:</strong> no significa que cada bacteria sea patógena, sino que la estructura de la comunidad favorece metabolitos y productos inflamatorios que perjudican al huésped.</p>
   </div>
 
   <h3>Fase 2: Inmunopatogénesis — el papel paradójico de la inmunidad</h3>
+  <p>La respuesta inmunológica del hospedador ante el biofilm patógeno es graduada y progresiva: pasa de una inmunidad innata predominante en las primeras semanas (neutrófilos, macrófagos) a una respuesta adaptativa cada vez más presente conforme la enfermedad avanza (linfocitos T y B), lo que explica la persistencia y cronicidad del proceso.</p>
+
   <div class="evidence-cards">
     <div class="card">
       <h3>Neutrófilos (PMN)</h3>
@@ -180,11 +198,16 @@ export const lessons = [
   <div class="calc-box">
     <p><strong>El eje RANK/RANKL — el nexo inmuno-óseo</strong></p>
     <p><strong>RANKL</strong> (fibroblastos del ligamento, células Th1/Th17, osteoblastos) se une a <strong>RANK</strong> en precursores osteoclásticos → diferenciación de osteoclastos maduros.</p>
-    <p>TNF-α, IL-1β, IL-17 y PGE2 <strong>aumentan</strong> RANKL. La <strong>osteoprotegerina (OPG)</strong> compite con RANK por RANKL — en salud la razón RANKL/OPG es ~0.1:1; en periodontitis sube a <span class="result">~10:1</span>, lo que dispara la resorción ósea.</p>
+    <p>TNF-α, IL-1β, IL-17 y PGE2 <strong>aumentan</strong> RANKL. La <strong>osteoprotegerina (OPG)</strong> compite con RANK por RANKL — en salud la razón RANKL/OPG es de aproximadamente 0.1:1; en periodontitis sube a <span class="result">aproximadamente 10:1</span>, lo que dispara la resorción ósea.</p>
   </div>
 
   <h3>Fase 3: destrucción tisular progresiva</h3>
-  <p>La pérdida de inserción clínica ocurre por degradación de la matriz extracelular (activación de MMPs), migración apical del epitelio de unión, y muerte de fibroblastos del ligamento (apoptosis inducida por TNF-α).</p>
+  <p>La pérdida de inserción clínica ocurre por degradación de la matriz extracelular (activación de MMPs), migración apical del epitelio de unión, y muerte de fibroblastos del ligamento (apoptosis inducida por TNF-α). La destrucción ósea puede manifestarse en distintos patrones radiográficos, cada uno con implicaciones diagnósticas y terapéuticas diferentes.</p>
+
+  <figure class="embedded-figure">
+    <img src="/destruccion-tisular-patron-h-v.jpeg" alt="Radiografías comparando el patrón de destrucción ósea horizontal y vertical" />
+    <figcaption><strong>Figura 3.</strong> Comparación radiográfica de los dos patrones principales de pérdida ósea. Izquierda — patrón horizontal: pérdida uniforme entre dientes adyacentes. Derecha — patrón vertical: defecto angular localizado, más profundo en un sitio que en los adyacentes. (El patrón circunferencial, no mostrado aquí, se describe más abajo.)</figcaption>
+  </figure>
 
   <div class="evidence-cards">
     <div class="card">
@@ -201,7 +224,7 @@ export const lessons = [
     </div>
   </div>
 
-  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Nota radiográfica:</strong> pérdida &lt;1mm rara vez es visible radiográficamente (sensibilidad ~30%); &gt;2-3mm es claramente diagnosticable.</p>
+  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Nota radiográfica:</strong> pérdida &lt;1mm rara vez es visible radiográficamente (sensibilidad de aproximadamente 30%); &gt;2-3mm es claramente diagnosticable.</p>
 
   <div class="reference">
     📚 Basado en: Kornman &amp; Papapanou 2020; Tonetti et al. 2018; revisión de inmunopatogénesis periodontal (workshop 2017)
@@ -277,9 +300,9 @@ export const lessons = [
   <h3>Distribución trimodal de progresión (Reynolds/Lang/Billings)</h3>
   <table>
     <tr><th>Grupo</th><th>Velocidad</th><th>% población</th><th>Pérdida dentaria en 20 años</th></tr>
-    <tr><td>A — Lento</td><td>&lt;0.1 mm/año</td><td>~35-40%</td><td>0-2 dientes</td></tr>
-    <tr><td>B — Moderado</td><td>0.2-0.5 mm/año</td><td>~45%</td><td>3-8 dientes</td></tr>
-    <tr><td>C — Rápido</td><td>&gt;0.7 mm/año</td><td>~15-20%</td><td>&gt;8 dientes, riesgo de edentulismo</td></tr>
+    <tr><td>A — Lento</td><td>&lt;0.1 mm/año</td><td>35-40%</td><td>0-2 dientes</td></tr>
+    <tr><td>B — Moderado</td><td>0.2-0.5 mm/año</td><td>45%</td><td>3-8 dientes</td></tr>
+    <tr><td>C — Rápido</td><td>&gt;0.7 mm/año</td><td>15-20%</td><td>&gt;8 dientes, riesgo de edentulismo</td></tr>
   </table>
   <p style="font-size:0.9rem;color:var(--text-light);"><strong>Hallazgo crítico:</strong> los tres grupos aparecían DENTRO de ambas categorías de 1999 — tanto "chronic" como "aggressive" tenían esta misma distribución trimodal. Por eso el sistema 2018 separó severidad (Stage) de velocidad (Grade) como dimensiones independientes.</p>
 
@@ -346,6 +369,16 @@ export const lessons = [
     </div>
   </div>
 
+  <h3>Extensión: el descriptor que acompaña al Stage</h3>
+  <p>Además del Stage, cada caso se reporta con su <strong>extensión</strong> — qué proporción de la dentición está afectada. Es independiente del Stage y del Grade: describe distribución, no severidad ni velocidad.</p>
+  <table>
+    <tr><th>Extensión</th><th>Definición</th></tr>
+    <tr><td><strong>Localizada</strong></td><td>&lt;30% de los dientes presentan el nivel de CAL/RBL que define el Stage</td></tr>
+    <tr><td><strong>Generalizada</strong></td><td>≥30% de los dientes afectados</td></tr>
+    <tr><td><strong>Patrón molar-incisivo</strong></td><td>Afectación concentrada en primeros molares e incisivos, con relativa preservación de caninos y premolares</td></tr>
+  </table>
+  <p style="font-size:0.9rem;color:var(--text-light);">Ejemplo de formato de diagnóstico completo: "Periodontitis Stage III, Grade B, generalizada".</p>
+
   <div class="decision-tree">
     <h3>🧭 Árbol de decisión — asignación de Stage</h3>
     <p><strong>¿CAL &gt;5mm o RBL &gt;50%?</strong></p>
@@ -408,12 +441,12 @@ export const lessons = [
   <div class="cases">
     <div class="case-card">
       <h3>Grade A — ejemplo</h3>
-      <p>Mujer 42a, fumadora social (&lt;5 cig/semana), diabetes bien controlada (HbA1c 6.8%). CAL 4-5mm, RBL 20-25% (Stage II). Radiografías estables en 2 años.</p>
+      <p>Mujer 42a, fumadora social (menos de 5 cig/semana), diabetes bien controlada (HbA1c 6.8%). CAL 4-5mm, RBL 20-25% (Stage II). Radiografías estables en 2 años.</p>
       <p><strong>Diagnóstico:</strong> Stage II, Grade A. Plan: SRP estándar, seguimiento a 6 meses.</p>
     </div>
     <div class="case-card">
       <h3>Grade B — ejemplo</h3>
-      <p>Varón 48a, fumador activo (7-8 cig/día), sin comorbilidades. CAL 4-5mm, RBL 25-30% (Stage II). Progresión de ~2mm RBL en 2 años (~3-4% anual).</p>
+      <p>Varón 48a, fumador activo (7-8 cig/día), sin comorbilidades. CAL 4-5mm, RBL 25-30% (Stage II). Progresión de 2mm RBL en 2 años (aproximadamente 3-4% anual).</p>
       <p><strong>Diagnóstico:</strong> Stage II, Grade B. Plan: SRP + consejería de cesación; monitoreo cada 4 meses.</p>
     </div>
     <div class="case-card">
@@ -497,7 +530,7 @@ export const lessons = [
         <li>TNF-α -308G/A: asociación moderada</li>
         <li>FcγRIIa R131: menor afinidad de opsonización, mayor riesgo</li>
       </ul>
-      <p style="font-size:0.85rem;color:var(--text-light);">No es determinante único (~30% con genotipo "de riesgo" no desarrolla enfermedad severa) — predispone, no determina. Genotipado no es práctica estándar hoy.</p>
+      <p style="font-size:0.85rem;color:var(--text-light);">No es determinante único (aproximadamente 30% con genotipo "de riesgo" no desarrolla enfermedad severa) — predispone, no determina. Genotipado no es práctica estándar hoy.</p>
     </div>
   </div>
 
@@ -593,8 +626,8 @@ export const lessons = [
         <summary>Ver historia, examen y diagnóstico completo</summary>
         <p><strong>Motivo de consulta:</strong> "Sangramiento cuando cepillo y movilidad en inferior".</p>
         <p><strong>Antecedentes:</strong> diabetes tipo 2 hace 5 años, HbA1c 7.2% (control moderado-bueno); no fuma; estrés laboral moderado; flossing inconsistente.</p>
-        <p><strong>Examen:</strong> CAL máxima 5mm (diente 26); PPD máxima 6mm; movilidad Grado 1 (diente 46); furcación Grado 1 en 17 y 36. RBL 30-35%, patrón horizontal. Progresión estimada: ~2mm RBL en 3 años (~6% anual). Microbiología: Pg+ (25%), Tf+ (15%).</p>
-        <p><strong>Diagnóstico:</strong> Stage II (CAL 5mm, RBL 30-35%, sin defectos angulares significativos), Grade B (progresión ~6% anual, diabetes moderadamente controlada, sexo femenino).</p>
+        <p><strong>Examen:</strong> CAL máxima 5mm (diente 26); PPD máxima 6mm; movilidad Grado 1 (diente 46); furcación Grado 1 en 17 y 36. RBL 30-35%, patrón horizontal. Progresión estimada: 2mm RBL en 3 años (aproximadamente 6% anual). Microbiología: Pg+ (25%), Tf+ (15%).</p>
+        <p><strong>Diagnóstico:</strong> Stage II (CAL 5mm, RBL 30-35%, sin defectos angulares significativos), Grade B (progresión de aproximadamente 6% anual, diabetes moderadamente controlada, sexo femenino).</p>
         <p><strong>Plan:</strong> SRP en 3 sesiones + educación de higiene + clorhexidina 2 semanas + referencia para optimizar HbA1c &lt;7%. Reevaluación a 6-8 semanas; cirugía de acceso si PPD residual persiste en posteriores. Mantenimiento cada 4 meses el primer año, luego cada 6 meses.</p>
         <p><strong>Pronóstico:</strong> excelente (85-90%) si mejora el control glucémico y el flossing.</p>
       </details>
@@ -708,7 +741,7 @@ export const posttestQuestions = [
       { key: 'd', text: 'Mide la profundidad de sondaje' },
     ],
     correct_answer: 'b',
-    explanation: 'RANKL (aumentado por citocinas proinflamatorias) se une a RANK en precursores osteoclásticos y dispara la diferenciación a osteoclastos maduros — la razón RANKL/OPG sube de ~0.1:1 en salud a ~10:1 en periodontitis.',
+    explanation: 'RANKL (aumentado por citocinas proinflamatorias) se une a RANK en precursores osteoclásticos y dispara la diferenciación a osteoclastos maduros — la razón RANKL/OPG sube de aproximadamente 0.1:1 en salud a aproximadamente 10:1 en periodontitis.',
     order_index: 2,
   },
   {
@@ -778,5 +811,18 @@ export const posttestQuestions = [
     correct_answer: 'b',
     explanation: 'Stage I + Grade C es la "bomba de tiempo": enfermedad leve ahora, pero riesgo alto exige actuar ya — es la combinación que mejor ilustra por qué separar severidad de riesgo cambia la práctica clínica.',
     order_index: 8,
+  },
+  {
+    question_text: '¿A partir de qué porcentaje de dientes afectados se reporta la extensión de un caso como "generalizada"?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: '≥10%' },
+      { key: 'b', text: '≥30%' },
+      { key: 'c', text: '≥50%' },
+      { key: 'd', text: 'La extensión no se reporta en la clasificación 2018' },
+    ],
+    correct_answer: 'b',
+    explanation: 'La extensión se reporta como "generalizada" cuando ≥30% de los dientes presentan el nivel de CAL/RBL que define el Stage; por debajo de ese umbral se reporta "localizada". Es un descriptor independiente del Stage y del Grade.',
+    order_index: 9,
   },
 ];
