@@ -52,6 +52,9 @@ export function Header() {
           <a href="/#como-funciona" className="text-text-dark hover:text-unicoc-red transition font-medium">
             Cómo Funciona
           </a>
+          <a href="/#faq" className="text-text-dark hover:text-unicoc-red transition font-medium">
+            FAQ
+          </a>
         </div>
 
         <div className="hidden md:flex items-center gap-6">
@@ -128,6 +131,9 @@ export function Header() {
           </a>
           <a href="/#como-funciona" className="text-text-dark hover:text-unicoc-red transition font-medium" onClick={() => setIsOpen(false)}>
             Cómo Funciona
+          </a>
+          <a href="/#faq" className="text-text-dark hover:text-unicoc-red transition font-medium" onClick={() => setIsOpen(false)}>
+            FAQ
           </a>
           {isAuthenticated ? (
             <>

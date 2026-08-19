@@ -21,18 +21,18 @@ export function WhyThis() {
               <div>
                 <h3 className="text-xl font-bold text-text-dark mb-2">✅ OVA Periodontitis</h3>
                 <ul className="text-text-light space-y-1 ml-6">
-                  <li>• Interactivo, adaptado</li>
-                  <li>• Casos reales de artículos</li>
-                  <li>• Pregrado Y Máster diferenciados</li>
-                  <li>• 4 horas = aprendes en serio</li>
+                  <li>• Interactivo, con lecciones y evaluaciones por capítulo</li>
+                  <li>• 8 casos clínicos reales con seguimiento a 24 meses</li>
+                  <li>• Profundidad de posgrado y especialización</li>
+                  <li>• 6-8 horas de estudio real, no superficial</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <div className="bg-unicoc-red-light p-12 rounded-lg text-center">
-            <p className="text-5xl font-bold text-unicoc-red mb-4">4h</p>
-            <p className="text-xl text-text-dark font-semibold">Para dominar la clasificación AAP/EFP 2018</p>
+            <p className="text-5xl font-bold text-unicoc-red mb-4">6-8h</p>
+            <p className="text-xl text-text-dark font-semibold">Para dominar la clasificación AAP/EFP 2018 a nivel de especialista</p>
           </div>
         </div>
       </div>

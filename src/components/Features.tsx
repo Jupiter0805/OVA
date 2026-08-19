@@ -1,21 +1,46 @@
 import { motion } from 'framer-motion';
 
 export function Features() {
-  const features = [
+  const cards = [
     {
       icon: '📚',
-      title: 'Pedagogía Clara',
-      description: 'Aprende paso a paso. Microlearning de 45 minutos por capítulo.',
+      title: 'Contenido Académico Denso',
+      points: [
+        '14,000+ palabras de contenido académico en 32 lecciones',
+        'Basado en Tonetti et al. (2018), Kornman et al. (2020), guías AAP/EFP',
+        'Cubre fundamentos, diagnóstico, clasificación y casos clínicos',
+        'Diseñado para residentes de periodoncia y especialistas',
+      ],
+    },
+    {
+      icon: '🏥',
+      title: '8 Casos Clínicos Reales',
+      points: [
+        '8 casos clínicos, 4 con seguimiento mes a mes hasta los 24 meses',
+        'Complicaciones reales y cómo se manejaron',
+        'Evolución clínica y radiográfica documentada',
+        'Decisiones genuinas: preservación vs. extracción, cirugía, mantenimiento',
+      ],
     },
     {
       icon: '🎯',
-      title: 'Casos Reales',
-      description: '5-7 casos clínicos de artículos médicos.',
+      title: 'Herramientas de Decisión Clínica',
+      points: [
+        'Matriz Stage × Grade con 12 combinaciones de pronóstico y plan terapéutico',
+        'Algoritmo de decisión terapéutica paso a paso',
+        '+50 casos clínicos breves distribuidos en los 4 capítulos',
+        'Checklists diagnósticos y de manejo clínico',
+      ],
     },
     {
-      icon: '⚡',
-      title: 'Flexible',
-      description: 'Pregrado o Máster. Tu ritmo, tu nivel.',
+      icon: '🔬',
+      title: 'Clasificación Moderna AAP/EFP 2018',
+      points: [
+        'Stage I-IV: severidad, desde incipiente hasta avanzada',
+        'Grade A-C: velocidad de progresión de la enfermedad',
+        'Modificadores integrados: tabaquismo, diabetes, genética, estrés',
+        'Reclasificación post-terapia: cómo cambia el Grade cuando el paciente mejora',
+      ],
     },
   ];
 
@@ -24,7 +49,7 @@ export function Features() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       },
     },
   };
@@ -44,7 +69,7 @@ export function Features() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          ¿Por Qué Este OVA?
+          Por Qué Usar Este OVA
         </motion.h2>
 
         <motion.div
@@ -56,13 +81,13 @@ export function Features() {
         />
 
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {features.map((feature, idx) => (
+          {cards.map((card, idx) => (
             <motion.div
               key={idx}
               variants={itemVariants}
@@ -70,17 +95,22 @@ export function Features() {
               className="glassmorphism p-8 rounded-2xl card-hover group"
             >
               <motion.div
-                className="text-6xl mb-6 inline-block"
+                className="text-5xl mb-4 inline-block"
                 whileHover={{ scale: 1.2, rotate: 10 }}
               >
-                {feature.icon}
+                {card.icon}
               </motion.div>
               <h3 className="text-2xl font-bold mb-4 text-text-dark group-hover:text-unicoc-red transition">
-                {feature.title}
+                {card.title}
               </h3>
-              <p className="text-text-light leading-relaxed">
-                {feature.description}
-              </p>
+              <ul className="space-y-2">
+                {card.points.map((point, pidx) => (
+                  <li key={pidx} className="flex gap-2 text-text-light leading-relaxed">
+                    <span className="text-unicoc-red font-bold shrink-0">✓</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </motion.div>
