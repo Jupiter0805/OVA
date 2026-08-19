@@ -1,0 +1,681 @@
+// Content for Chapter 2 ("Diagnosticando en 3 pasos"), based on
+// MEGA_PROMPT_CAPITULO_2_DIAGNOSTICO.md. Consumed by insertChapter2.js.
+
+export const lessons = [
+  {
+    lesson_number: 1,
+    order_index: 1,
+    title: 'La tríada diagnóstica y la anamnesis',
+    content_html: `<div class="lesson-container">
+  <h2>🔍 Diagnosticar en 3 pasos</h2>
+  <p>El diagnóstico correcto de periodontitis no es solo "examen clínico + radiografía". Es un proceso sistemático de tres pasos:</p>
+
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>1. Anamnesis</h3>
+      <p>¿Quién es el paciente y qué riesgos tiene? Historia y factores modificables.</p>
+    </div>
+    <div class="card">
+      <h3>2. Examen clínico exhaustivo</h3>
+      <p>¿Qué hallazgos periodontales tengo? Sondaje, CAL, BOP, furcación, movilidad.</p>
+    </div>
+    <div class="card">
+      <h3>3. Evaluación radiográfica</h3>
+      <p>¿Confirmación de destrucción ósea? RBL, patrones, dinámica temporal.</p>
+    </div>
+  </div>
+
+  <div class="key-principle">
+    <h3>🎯 Principio clave</h3>
+    <p>Un diagnóstico incorrecto → tratamiento incorrecto → pronóstico pobre. La precisión diagnóstica es responsabilidad clínica máxima.</p>
+  </div>
+
+  <h3>Estructura de entrevista recomendada</h3>
+  <p><strong>Abrir con preguntas amplias:</strong> "¿Cuál es tu mayor preocupación con tus dientes hoy?", "¿Has notado cambios recientes en tus encías?", "¿Alguien te ha dicho que tengas problemas de encías?"</p>
+
+  <p><strong>Profundizar con preguntas específicas:</strong></p>
+  <table>
+    <tr><th>Área</th><th>Pregunta clínica</th><th>Por qué importa</th></tr>
+    <tr><td>Síntomas</td><td>¿Sangrado al cepillar? ¿Espontáneo?</td><td>Indica actividad inflamatoria actual</td></tr>
+    <tr><td></td><td>¿Movilidad dentaria progresiva?</td><td>Signo de destrucción avanzada</td></tr>
+    <tr><td></td><td>¿Halitosis?</td><td>Metabolitos anaerobios; presencia de Pg probable</td></tr>
+    <tr><td>Historia dental</td><td>¿Tratamiento periodontal previo? ¿Problemas persistentes tras la terapia?</td><td>Posible Grade C</td></tr>
+    <tr><td>Higiene oral</td><td>¿Cepillado? ¿Floss? ¿Enjuague?</td><td>Baseline de control de biofilm</td></tr>
+    <tr><td>Familiares</td><td>¿Familiares con "problemas de encías"? ¿Perdieron dientes?</td><td>Susceptibilidad genética</td></tr>
+    <tr><td>Salud sistémica</td><td>Diabetes (pedir HbA1c reciente), hipertensión, autoinmunes, VIH</td><td>Modificadores críticos de Grade</td></tr>
+    <tr><td>Medicaciones</td><td>Ciclosporina, nifedipina (hiperplasia), bisfosfonatos (riesgo ONJ)</td><td>Efectos secundarios relevantes</td></tr>
+    <tr><td>Tabaquismo</td><td>¿Cigarrillos/día? ¿Años? ¿Deseo de dejar?</td><td>Modificador #1; dosis-respuesta</td></tr>
+    <tr><td>Estrés</td><td>¿Cambios recientes en la vida? ¿Depresión/ansiedad diagnosticada?</td><td>Estrés crónico → citocinas; escalada de Grade</td></tr>
+    <tr><td>Embarazo</td><td>¿Posibilidad de embarazo próximo?</td><td>Cambios hormonales; planificación de terapia</td></tr>
+  </table>
+
+  <h3>Puntuación informal de riesgo periodontal</h3>
+  <table>
+    <tr><th>Score</th><th>Nivel</th><th>Ejemplo</th></tr>
+    <tr><td>0</td><td>Bajo riesgo</td><td>No fuma, sin diabetes, sin antecedente familiar, buena higiene</td></tr>
+    <tr><td>1</td><td>Riesgo moderado</td><td>Un modificador presente (ex-fumador, diabetes bien controlada)</td></tr>
+    <tr><td>2</td><td>Riesgo alto</td><td>Dos o más modificadores (fumador actual + diabetes)</td></tr>
+    <tr><td>3</td><td>Riesgo muy alto</td><td>Múltiples modificadores severos (fumador &gt;15/día + HbA1c &gt;8% + estrés severo)</td></tr>
+  </table>
+  <p style="font-size:0.9rem;color:var(--text-light);">Valor clínico: guía la intensidad del monitoreo post-terapia y la expectativa de pronóstico.</p>
+
+  <h3>🚩 Red flags que requieren referencia urgente</h3>
+  <div class="cases">
+    <div class="case-card">
+      <h3>Hallazgos de alarma inmediata</h3>
+      <ul>
+        <li><strong>Sangrado espontáneo</strong> de encías — posible periodontitis muy activa</li>
+        <li><strong>Supuración subgingival</strong> — absceso periodontal, alta carga bacteriana</li>
+        <li><strong>Ulceración gingival necrótica</strong> — enfermedad necrotizante, posible VIH</li>
+        <li><strong>Edad &lt;30 con CAL detectable</strong> — early-onset, probable Grade C</li>
+        <li><strong>Múltiples pérdidas dentarias recientes</strong> — progresión rápida, Grade C probable</li>
+        <li><strong>Discrepancia edad/daño</strong> — joven con Stage IV, o mayor con Stage I inusualmente severo para su edad</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reference">
+    📚 Basado en: Tonetti et al. 2018; Kornman &amp; Papapanou 2020; guías de anamnesis periodontal AAP/EFP
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 2,
+    order_index: 2,
+    title: 'Sondaje periodontal: técnica de precisión para PPD y CAL',
+    content_html: `<div class="lesson-container">
+  <h2>📏 La sonda como instrumento de medición, no de limpieza</h2>
+  <p>Técnica incorrecta = datos inútiles. La precisión del sondaje determina la precisión de todo el diagnóstico posterior.</p>
+
+  <h3>Posicionamiento correcto de la sonda</h3>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>1. Ángulo de inserción</h3>
+      <p>60-90° respecto al eje largo del diente (perpendicular a la superficie radicular). <strong>Error común:</strong> angulación de 45° produce mediciones falsamente elevadas.</p>
+    </div>
+    <div class="card">
+      <h3>2. Punto de inserción</h3>
+      <p>Directamente en el surco/bolsa subgingival. La sonda desciende bajo su propio peso (~25g) — nunca forzar. Detenerse al contactar el fondo de la bolsa.</p>
+    </div>
+    <div class="card">
+      <h3>3. Presión correcta</h3>
+      <p>0.25N (±0.05N). Demasiada presión (&gt;0.5N) penetra tejido intacto (PPD falsamente alto); muy poca (&lt;0.15N) no llega al fondo (subestimación).</p>
+    </div>
+    <div class="card">
+      <h3>4. Movimiento</h3>
+      <p>Desplazamiento gentil bucal-lingual o mesial-distal, sin "raspar". Permitir que la sonda siga el contorno óseo y tomar la medición en el punto máximo.</p>
+    </div>
+  </div>
+
+  <h3>Sitios de registro por diente</h3>
+  <table>
+    <tr><th>Sitio</th><th>Ubicación</th><th>Técnica</th></tr>
+    <tr><td>Bucal (B)</td><td>Línea media bucal</td><td>Sonda perpendicular; desplazamiento M-D</td></tr>
+    <tr><td>Lingual (L)</td><td>Línea media lingual</td><td>Sonda desde lingual, "vuelta" alrededor</td></tr>
+    <tr><td>Mesial (M)</td><td>Punto de contacto mesial</td><td>Ángulo ~45° hacia la línea media M-D</td></tr>
+    <tr><td>Distal (D)</td><td>Punto de contacto distal</td><td>Ángulo ~45° hacia la línea media M-D</td></tr>
+  </table>
+  <p style="font-size:0.9rem;color:var(--text-light);">Mínimo 4 sitios por diente. Los molares requieren 6 (agregando fondo de furcación bucal y lingual) si hay afectación.</p>
+
+  <div class="calc-box">
+    <p><strong>Fórmula de CAL (pérdida clínica de inserción)</strong></p>
+    <p class="formula">CAL = PPD + Recesión (si el margen gingival está apical a la CEJ)</p>
+    <p><strong>Ejemplo A:</strong> PPD 6mm, sin recesión → CAL = <span class="result">6mm</span></p>
+    <p><strong>Ejemplo B:</strong> PPD 5mm + recesión 2mm → CAL = <span class="result">7mm</span></p>
+    <p><strong>Ejemplo C:</strong> PPD 4mm, margen gingival 1mm coronal a CEJ → CAL = <span class="result">4mm</span> (no se suma cuando el margen está coronal a la CEJ)</p>
+  </div>
+
+  <div class="key-principle">
+    <h3>🎯 Importancia crítica</h3>
+    <p><strong>CAL, no PPD, determina el Staging de periodontitis.</strong> PPD es un descriptor secundario — dos pacientes con el mismo PPD pueden tener CAL completamente distinto según su recesión.</p>
+  </div>
+
+  <h3>Registro de BOP (sangrado al sondaje)</h3>
+  <p>Después de medir PPD, observar el surco durante 30 segundos y registrar sí/no.</p>
+  <ul>
+    <li><strong>BOP &gt;10% de sitios:</strong> posible inflamación activa</li>
+    <li><strong>BOP ausente de forma sistemática:</strong> periodonto bien controlado, o pseudobolsa por edema</li>
+    <li><strong>BOP aislado en pocos sitios:</strong> posible lesión de raíz, caries cervical, u origen no periodontal</li>
+  </ul>
+  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Nota clínica:</strong> la ausencia de BOP no excluye periodontitis — un periodonto reducido quiescente puede tener CAL significativo sin sangrar.</p>
+
+  <div class="reference">
+    📚 Basado en: técnica de sondaje AAP/EFP; Tonetti et al. 2018
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 3,
+    order_index: 3,
+    title: 'BOP, furcación y movilidad dentaria',
+    content_html: `<div class="lesson-container">
+  <h2>🦷 Tres hallazgos que cambian el Stage</h2>
+
+  <h3>Clasificación de furcación (Hamp &amp; Nyman, modificada)</h3>
+  <table>
+    <tr><th>Grado</th><th>Definición</th><th>Técnica diagnóstica</th><th>Implicación</th></tr>
+    <tr><td><strong>0</strong></td><td>Sin afectación</td><td>Sonda Naber no penetra</td><td>Normal</td></tr>
+    <tr><td><strong>1</strong></td><td>Entrada a furcación</td><td>Penetra el inicio, sin túnel</td><td>Temprana; tratamiento conservador posible</td></tr>
+    <tr><td><strong>2</strong></td><td>Comunicación parcial</td><td>Pasa bucal O lingual, no mesiodistal</td><td>Moderado; cirugía probablemente necesaria</td></tr>
+    <tr><td><strong>3</strong></td><td>Comunicación completa</td><td>Pasa mesiodistalmente (túnel)</td><td>Severo; pronóstico pobre para ese diente</td></tr>
+  </table>
+
+  <div class="decision-tree">
+    <h3>🧭 Implicación de la furcación para el Staging</h3>
+    <ul>
+      <li>Furcación Grado 1 → permite <span class="outcome">Stage II</span> (si otros criterios coinciden)</li>
+      <li>Furcación Grado 2 → escala automáticamente a <span class="outcome">Stage III</span>, incluso si CAL/RBL son de Stage II</li>
+      <li>Furcación Grado 3 → escala automáticamente a <span class="outcome">Stage IV</span></li>
+    </ul>
+  </div>
+
+  <p><strong>Técnica de sondaje de furcación:</strong> usar sonda Naber o sonda de 17mm con ángulo 90°, acceso desde bucal (mesial y distal), presión gentil sin forzar. Registrar el grado máximo encontrado entre todos los accesos.</p>
+
+  <h3>Movilidad dentaria (clasificación de Miller)</h3>
+  <table>
+    <tr><th>Grado</th><th>Descripción</th><th>Medida</th><th>Implicación</th></tr>
+    <tr><td><strong>0</strong></td><td>Normal</td><td>&lt;0.5mm</td><td>Periodonto sano</td></tr>
+    <tr><td><strong>1</strong></td><td>Leve</td><td>0.5-1mm horizontal</td><td>Compensable con terapia</td></tr>
+    <tr><td><strong>2</strong></td><td>Moderada</td><td>1-2mm horizontal</td><td>Interfiere con la masticación</td></tr>
+    <tr><td><strong>3</strong></td><td>Severa</td><td>&gt;2mm horizontal + movimiento vertical</td><td>Pronóstico pobre</td></tr>
+  </table>
+  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Técnica:</strong> presión lateral gentil con dos instrumentos rígidos (mesial-distal a la corona, nunca en el borde incisal). Comparar siempre con el diente contralateral.</p>
+
+  <div class="definition-box">
+    <p><strong>Red flag post-terapia:</strong> movilidad Grado 2-3 que persiste 6 meses después del tratamiento sugiere trauma oclusal concurrente, Grade C no respondiendo, o ambos — considerar ajuste oclusal, férula, o extracción.</p>
+  </div>
+
+  <div class="reference">
+    📚 Basado en: Hamp &amp; Nyman (clasificación de furcación); Miller (clasificación de movilidad); Tonetti et al. 2018
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 4,
+    order_index: 4,
+    title: 'Recesión, pseudobolsa y evaluación radiográfica',
+    content_html: `<div class="lesson-container">
+  <h2>🎯 Distinguir lo que parece periodontitis de lo que realmente lo es</h2>
+
+  <h3>Recesión gingival vs. pseudobolsa</h3>
+  <table>
+    <tr><th>Aspecto</th><th>Recesión gingival</th><th>Pseudobolsa (edema)</th></tr>
+    <tr><td>Margen gingival</td><td>Apical a la CEJ</td><td>Coronal a la CEJ</td></tr>
+    <tr><td>PPD</td><td>Normal o aumentada</td><td>Aumentada (5-10mm+)</td></tr>
+    <tr><td>CAL</td><td>Presente por definición</td><td>Ausente (PPD ≠ CAL)</td></tr>
+    <tr><td>Etiología</td><td>Trauma, cirugía previa, inflamación crónica</td><td>Inflamación aguda activa (gingivitis)</td></tr>
+    <tr><td>Reversibilidad</td><td>No</td><td>Sí, con control de biofilm</td></tr>
+  </table>
+
+  <div class="calc-box">
+    <p><strong>Ejemplo — diente 41:</strong> recesión 3mm (margen gingival 3mm apical a CEJ), PPD 4mm desde el margen actual.</p>
+    <p class="formula">CAL = 4 + 3 = <span class="result">7mm</span></p>
+    <p>Aunque el PPD actual sea "solo" 4mm, la pérdida de inserción real (CEJ al fondo de la bolsa) es de 7mm.</p>
+  </div>
+
+  <h3>Otros hallazgos clínicos relevantes</h3>
+  <table>
+    <tr><th>Hallazgo</th><th>Implicación</th></tr>
+    <tr><td>Supuración (pus)</td><td>Absceso periodontal, infección activa, Grade C probable</td></tr>
+    <tr><td>Úlcera gingival necrótica</td><td>Enfermedad necrotizante — rara en gingivitis</td></tr>
+    <tr><td>Textura de la encía (punteado vs. edematosa)</td><td>Punteado = salud; edema = inflamación activa</td></tr>
+    <tr><td>Cálculo subgingival</td><td>Retención de biofilm — debe removerse</td></tr>
+    <tr><td>Implantes presentes</td><td>Mayor riesgo de periimplantitis si hay periodontitis activa</td></tr>
+  </table>
+
+  <h3>Evaluación radiográfica: midiendo el RBL</h3>
+  <div class="calc-box">
+    <p class="formula">RBL (%) = [(altura radicular total − altura ósea remanente) / altura radicular total] × 100</p>
+    <p><strong>Ejemplo A:</strong> altura radicular 15mm; hueso visible hasta 5mm apical a la CEJ → RBL = (15-5)/15 = <span class="result">66% (severa)</span></p>
+    <p><strong>Ejemplo B:</strong> altura radicular 12mm; hueso 9mm desde CEJ → RBL = (12-9)/12 = <span class="result">25% (leve)</span></p>
+  </div>
+
+  <p><strong>Preferencia técnica:</strong> rayo paralelo (0-10° al eje del diente) minimiza la distorsión y visualiza mejor el RBL que la técnica de bisectriz clásica (que puede acortar/alargar la imagen ósea).</p>
+
+  <h3>Patrones radiográficos de pérdida ósea</h3>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>Horizontal</h3>
+      <p>Pérdida similar en dientes adyacentes, generalizada. Asociado a tabaquismo e higiene deficiente difusa. Menor complejidad regenerativa.</p>
+    </div>
+    <div class="card">
+      <h3>Vertical (angular)</h3>
+      <p>Pérdida desigual, defectos de 1-3 paredes. Asociado a Pg localizada elevada. Mayor complejidad quirúrgica pero mejor potencial regenerativo.</p>
+    </div>
+    <div class="card">
+      <h3>Circunferencial</h3>
+      <p>Pérdida alrededor de toda la raíz ("moat"). Típico de Grade C, alto riesgo de extracción.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <p><strong>Comparación temporal (para el Grade):</strong> tasa anual RBL = (RBL actual − RBL previo) / años entre radiografías. Ejemplo: RBL 20% (2022) → 35% (2025), 3 años → tasa = 5%/año → Grade B probable (3-20% anual).</p>
+  </div>
+
+  <div class="reference">
+    📚 Basado en: técnica radiográfica periodontal AAP/EFP; Tonetti et al. 2018
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 5,
+    order_index: 5,
+    title: 'Síntesis diagnóstica: caso, Staging y Grading',
+    content_html: `<div class="lesson-container">
+  <h2>🧩 De los datos sueltos al diagnóstico completo</h2>
+
+  <div class="decision-tree">
+    <h3>🧭 Árbol de decisión: ¿es un caso de periodontitis?</h3>
+    <ul>
+      <li>¿CAL interdental ≥1-2mm en ≥2 dientes no adyacentes?
+        <ul>
+          <li>SÍ → ¿la pérdida se puede atribuir a causa no periodontal (trauma, caries, endodoncia, fractura)?
+            <ul>
+              <li>SÍ → <span class="outcome" style="background:#9ca3af;">No es periodontitis</span></li>
+              <li>NO → <span class="outcome">CASO DE PERIODONTITIS</span> → ir a Staging</li>
+            </ul>
+          </li>
+          <li>NO → ¿CAL vestibular ≥3mm con PPD &gt;3mm en ≥2 dientes?
+            <ul>
+              <li>SÍ → <span class="outcome">CASO DE PERIODONTITIS</span></li>
+              <li>NO → ¿RBL radiográfica ≥3mm absolutos en cualquier sitio?
+                <ul>
+                  <li>SÍ → <span class="outcome">CASO DE PERIODONTITIS</span></li>
+                  <li>NO → <span class="outcome" style="background:#9ca3af;">No es periodontitis</span> (gingivitis o periodonto sano/reducido)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h3>Tabla de decisión Stage (integrando todos los hallazgos)</h3>
+  <table>
+    <tr><th>Stage</th><th>CAL</th><th>RBL</th><th>Furcación</th><th>Movilidad</th><th>Pérdida dentaria</th></tr>
+    <tr><td><strong>I</strong></td><td>1-2mm</td><td>&lt;15%</td><td>0</td><td>0</td><td>No</td></tr>
+    <tr><td><strong>II</strong></td><td>3-4mm</td><td>15-33%</td><td>0-1</td><td>0</td><td>No</td></tr>
+    <tr><td><strong>III</strong></td><td>≥5mm</td><td>33-50%</td><td>≥2</td><td>0-2</td><td>No (define IV si presente)</td></tr>
+    <tr><td><strong>IV</strong></td><td>≥5mm</td><td>&gt;50%</td><td>3</td><td>2-3</td><td><strong>Sí</strong></td></tr>
+  </table>
+
+  <h3>Determinación de Grade</h3>
+  <div class="calc-box">
+    <p><strong>Con radiografías previas disponibles:</strong></p>
+    <p class="formula">Tasa RBL anual = (RBL actual − RBL previo) / años</p>
+    <p>Grade A: &lt;3% anual · Grade B: 3-20% anual · Grade C: &gt;20% anual</p>
+  </div>
+
+  <p><strong>Sin radiografías previas</strong> — se estima con una matriz de modificadores acumulativos (heurística clínica, no algoritmo formal AAP/EFP):</p>
+  <table>
+    <tr><th>Modificador</th><th>Nivel</th><th>Efecto en el Grade</th></tr>
+    <tr><td>Tabaquismo</td><td>1-9 / 10-19 / ≥20 cig/día</td><td>+0.5 / +1 a +1.5 / +2</td></tr>
+    <tr><td>Diabetes</td><td>HbA1c &lt;7% / 7-8% / &gt;8%</td><td>+0.5 / +1 / +1.5 a +2</td></tr>
+    <tr><td>Sexo/edad</td><td>Mujer en edad reproductiva</td><td>+0.3</td></tr>
+    <tr><td>Estrés</td><td>Moderado / severo-depresión</td><td>+0.5 / +1.5</td></tr>
+    <tr><td>Edad de presentación</td><td>Stage III en &lt;30 años</td><td>+2</td></tr>
+    <tr><td>Microbiología</td><td>Pg moderado / Pg+Tf+Td</td><td>+0.5 / +1.5 a +2</td></tr>
+  </table>
+  <p style="font-size:0.9rem;color:var(--text-light);">Score total 0-0.5 → Grade A · 0.5-1.5 → Grade B · ≥1.5 → Grade C.</p>
+
+  <div class="reference">
+    📚 Basado en: Tonetti et al. 2018 (framework oficial); Kornman &amp; Papapanou 2020 (interpretación de modificadores)
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 6,
+    order_index: 6,
+    title: 'Diagnóstico diferencial: ¿qué NO es periodontitis?',
+    content_html: `<div class="lesson-container">
+  <h2>🔬 Seis condiciones que se parecen a periodontitis sin serlo (o sin serlo del todo)</h2>
+
+  <div class="cases">
+    <div class="case-card">
+      <h3>Gingivitis vs. periodontitis</h3>
+      <details>
+        <summary>Ver diferenciación práctica</summary>
+        <p>Paciente con PPD 5-6mm y BOP: si <strong>CAL = 1mm</strong> → pseudobolsa, probable gingivitis hipertrófica. Si <strong>CAL = 5mm</strong> → verdadera bolsa periodontal. La radiografía ayuda: cresta ósea normal con lámina dura visible sugiere gingivitis; RBL visible con pérdida de lámina dura confirma periodontitis.</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Periodonto reducido sano vs. periodontitis activa</h3>
+      <details>
+        <summary>Ver diferenciación práctica</summary>
+        <p>Un paciente con pérdida ósea <strong>antigua</strong> (10-20 años atrás) ya tratada, ahora sin inflamación ni progresión, tiene "periodonto reducido sano" — no periodontitis activa.</p>
+        <table>
+          <tr><th>Aspecto</th><th>Periodonto reducido sano</th><th>Periodontitis activa</th></tr>
+          <tr><td>BOP</td><td>Ausente o &lt;10%</td><td>Presente, generalizado</td></tr>
+          <tr><td>RBL</td><td>Presente pero estable vs. 2 años previos</td><td>Presente y progresivo</td></tr>
+          <tr><td>Pronóstico</td><td>Excelente si mantiene higiene</td><td>Variable según Grade</td></tr>
+        </table>
+        <p>Se documenta como "periodontitis previa, actualmente quiescente" — no se clasifica como Stage activo si está bien controlada. Monitoreo cada 6-12 meses.</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Trauma oclusal vs. periodontitis</h3>
+      <details>
+        <summary>Ver diferenciación práctica</summary>
+        <table>
+          <tr><th>Hallazgo</th><th>Solo trauma oclusal</th><th>Solo periodontitis</th><th>Ambos</th></tr>
+          <tr><td>Movilidad</td><td>Grado 2-3</td><td>Leve o ausente al inicio</td><td>Severa, Grado 3</td></tr>
+          <tr><td>PPD</td><td>&lt;3mm (normal)</td><td>5-10mm+</td><td>7-10mm+</td></tr>
+          <tr><td>CAL</td><td>Ausente</td><td>Presente</td><td>Presente</td></tr>
+          <tr><td>Radiografía</td><td>Cresta ósea redondeada (U)</td><td>RBL en patrones</td><td>RBL + ensanchamiento del ligamento</td></tr>
+        </table>
+        <p>Si hay duda, diagnosticar ambos y tratar ambos: ajuste oclusal + terapia periodontal.</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Lesión endodóntica vs. periodontal</h3>
+      <details>
+        <summary>Ver diferenciación práctica</summary>
+        <table>
+          <tr><th>Aspecto</th><th>Endodóntica</th><th>Periodontal</th><th>Combinada</th></tr>
+          <tr><td>Vitalidad pulpar</td><td>Negativa</td><td>Positiva</td><td>Negativa</td></tr>
+          <tr><td>Sinus tract</td><td>Sí, hacia el ápice</td><td>No</td><td>Ambos</td></tr>
+          <tr><td>RBL</td><td>Localizado al ápice</td><td>Generalizado / vertical</td><td>Generalizado</td></tr>
+        </table>
+        <p>La prueba de vitalidad pulpar es el diferenciador clave — pero recordar que la pulpa puede necrosarse secundariamente por periodontitis severa ("marcha" apical de la enfermedad).</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Periodontitis como manifestación sistémica</h3>
+      <details>
+        <summary>Ver condiciones a sospechar</summary>
+        <table>
+          <tr><th>Condición</th><th>Diferenciador</th></tr>
+          <tr><td>Diabetes severa no diagnosticada</td><td>Screening de glucosa/HbA1c</td></tr>
+          <tr><td>Leucemia aguda</td><td>Hemograma: leucocitosis anormal, trombocitopenia</td></tr>
+          <tr><td>VIH/SIDA (CD4 &lt;200)</td><td>Prueba de VIH; periodontitis necrotizante</td></tr>
+          <tr><td>Síndrome de Sjögren</td><td>Xerostomía severa; prueba de Schirmer</td></tr>
+        </table>
+        <p><strong>Sospechar</strong> cuando los hallazgos "no encajan": Stage IV en paciente de 25 años sin factores de riesgo obvios, o progresión fulminante en semanas.</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="reference">
+    📚 Basado en: diagnóstico diferencial periodontal AAP/EFP 2018
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 7,
+    order_index: 7,
+    title: 'Pruebas adjuntas, documentación y comunicación',
+    content_html: `<div class="lesson-container">
+  <h2>🧪 Cuándo pedir más, y cómo documentarlo bien</h2>
+
+  <h3>Microbiología periodontal: ¿cuándo ordenarla?</h3>
+  <ul>
+    <li>Falta de respuesta esperada a terapia (PPD &gt;5mm residual tras SRP + 6-8 semanas)</li>
+    <li>Periodontitis en paciente joven (&lt;35 años) con Stage III+ — confirma agresividad, guía antibiótico</li>
+    <li>Periodontitis "refractaria" histórica — para descartar patógenos resistentes</li>
+  </ul>
+  <table>
+    <tr><th>Método</th><th>Ventaja</th><th>Costo aprox.</th></tr>
+    <tr><td>PCR</td><td>Rápido, específico Pg/Tf/Td</td><td>$200-400</td></tr>
+    <tr><td>qPCR</td><td>Cuantifica carga bacteriana</td><td>$400-600</td></tr>
+    <tr><td>16S rRNA</td><td>Perfil completo de microbiota</td><td>$600-1000</td></tr>
+  </table>
+  <p style="font-size:0.9rem;color:var(--text-light);">Pg+ presente en 50-80% de periodontitis; Pg+Tf+Td+ es hallazgo de máxima virulencia, sugiere Grade C.</p>
+
+  <h3>CBCT: ¿cuándo es útil?</h3>
+  <p>Defectos óseos complejos pre-quirúrgicos (Stage III/IV), planificación de regeneración, diferenciación de lesiones combinadas endo-periodontales, pre-implantología. <strong>No es rutinario</strong> para el diagnóstico inicial de periodontitis — la radiografía convencional es suficiente, y el CBCT implica mayor radiación (30-100 µSv vs. 5 µSv de una periapical).</p>
+
+  <h3>Documentación correcta</h3>
+  <div class="definition-box">
+    <p><strong>Correcto:</strong> "Periodontitis Stage II, Grade B" · "Periodontitis Stage IV, Grade C, modificadores: tabaquismo fuerte + diabetes HbA1c 9.2%"</p>
+    <p><strong>Incorrecto (términos abandonados):</strong> "Periodontitis crónica generalizada moderada" · "Periodontitis agresiva" · "Enfermedad periodontal severa"</p>
+  </div>
+
+  <h3>Comunicación con el paciente</h3>
+  <p><strong>Evitar:</strong> "Tienes periodontitis Stage III Grade B con modificadores."</p>
+  <p><strong>Preferir:</strong> "Tienes una enfermedad de encías moderadamente severa que está progresando a un ritmo moderado. El hueso está bajando poco a poco. El cigarrillo lo está empeorando — si lo dejas, vas a mejorar mucho."</p>
+  <p>Estructura de la explicación: ¿qué tiene? → ¿qué tan grave (Stage)? → ¿qué tan rápido progresa (Grade)? → ¿qué lo causó? → ¿qué podemos hacer? → ¿qué necesitas hacer vos?</p>
+
+  <h3>Checklist de diagnóstico completo</h3>
+  <ul class="checklist">
+    <li>Historia dental/periodontal documentada, con tabaquismo, diabetes (HbA1c), antecedente familiar</li>
+    <li>Odontograma completo: PPD, CAL, BOP, furcación, movilidad por diente</li>
+    <li>CAL máxima y % de BOP calculados</li>
+    <li>Radiografías obtenidas, RBL máxima documentada, patrón óseo descrito</li>
+    <li>Comparación temporal si hay radiografías previas</li>
+    <li>Definición de caso confirmada, Stage y Grade asignados con justificación</li>
+    <li>Modificadores listados con su impacto explicado</li>
+    <li>Diagnóstico diferencial considerado</li>
+    <li>Plan de tratamiento basado en Stage/Grade</li>
+  </ul>
+
+  <div class="reference">
+    📚 Basado en: protocolos de documentación AAP/EFP 2018
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 8,
+    order_index: 8,
+    title: 'Casos clínicos desafiantes de diagnóstico',
+    content_html: `<div class="lesson-container">
+  <h2>🕵️ Cinco casos donde el diagnóstico obvio no es el correcto</h2>
+
+  <div class="cases">
+    <div class="case-card">
+      <h3>Caso 1 — Gingivitis vs. periodontitis en paciente joven</h3>
+      <details>
+        <summary>Ver caso completo</summary>
+        <p>Mujer 28a, "sangro cuando cepillo", sin comorbilidades, no fuma. Encía inflamada y enrojecida, BOP generalizado, PPD 4-6mm, biofilm visible. Radiografía: cresta ósea normal, lámina dura intacta.</p>
+        <p><strong>Investigación:</strong> CAL medido meticulosamente resulta &lt;1mm → pseudobolsa pura.</p>
+        <p><strong>Diagnóstico:</strong> Gingivitis inducida por biofilm, NO periodontitis.</p>
+        <p><strong>Lección:</strong> medir CAL correctamente es el diferenciador crítico — muchos jóvenes con pseudobolsas no son Stage I periodontitis.</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Caso 2 — Progresión rápida en paciente "de bajo riesgo"</h3>
+      <details>
+        <summary>Ver caso completo</summary>
+        <p>Varón 36a, sin diabetes, no fuma, sin estrés reportado inicialmente. Examen hace 2 años "normal"; hoy CAL 5-7mm, RBL 40%, movilidad Grado 1-2.</p>
+        <p><strong>Investigación:</strong> microbiología revela Pg+++Tf+++Td+++; al profundizar la historia aparece desempleo reciente + depresión no diagnosticada; antecedente familiar (padre perdió dientes en los 40s).</p>
+        <p><strong>Diagnóstico:</strong> Stage III, Grade C — multifactorial (disbiosis severa + predisposición genética + estrés psicosocial).</p>
+        <p><strong>Lección:</strong> la ausencia de factores de riesgo OBVIOS no excluye Grade C — siempre profundizar en genética, estrés y microbiología.</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Caso 3 — Pseudobolsa simulando periodontitis severa</h3>
+      <details>
+        <summary>Ver caso completo</summary>
+        <p>Mujer 55a en perimenopausia, le dijeron "periodontitis severa" por PPD 6-7mm. Radiografía: cresta ósea normal, RBL &lt;15%. Encía muy edematosa.</p>
+        <p><strong>Investigación:</strong> CAL 0-1mm con PPD 7mm → 6mm de diferencia es pseudobolsa pura, causada por hiperplasia gingival relacionada con estrógeno.</p>
+        <p><strong>Diagnóstico:</strong> Gingivitis hormonal, NO periodontitis.</p>
+        <p><strong>Lección:</strong> muchas PPD profundas son pseudobolsas por edema, no todas son periodontitis — la medición de CAL lo decide.</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Caso 4 — Lesión combinada endodóntico-periodontal</h3>
+      <details>
+        <summary>Ver caso completo</summary>
+        <p>Varón 48a, diabético (HbA1c 7.8%), dolor y movilidad en el 16. PPD 8-9mm generalizado, CAL 7-8mm, sinus tract mesial, respuesta térmica negativa. Radiografía: RBL 35-40% generalizado + radiolucencia perirradicular apical.</p>
+        <p><strong>Investigación:</strong> vitalidad pulpar definitivamente negativa (endodóntica), pero el RBL generalizado circunferencial es típicamente periodontal.</p>
+        <p><strong>Diagnóstico:</strong> Periodontitis Stage III, Grade B + necrosis pulpar — lesión combinada.</p>
+        <p><strong>Plan:</strong> endodoncia (RCT) + SRP general + optimización de diabetes.</p>
+        <p><strong>Lección:</strong> las lesiones combinadas son comunes en pacientes con comorbilidades — no asumir causa única.</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Caso 5 — "Rechazo aparente" a terapia previa</h3>
+      <details>
+        <summary>Ver caso completo</summary>
+        <p>Varón 52a, fumador 18/día × 30 años. "Tuve limpieza hace 1 año y mejoró poco." Radiografía comparativa: RBL 35% (hace 1 año) → 45% (hoy) = 10% en 1 año = &gt;20% anual.</p>
+        <p><strong>Investigación:</strong> la terapia previa fue una sola sesión de SRP sin antibióticos; el paciente sigue fumando, nunca usó floss.</p>
+        <p><strong>Diagnóstico:</strong> Stage III, Grade C confirmado por la progresión documentada — la terapia previa fue inadecuada, pero incluso con terapia óptima el tabaquismo activo habría limitado el resultado.</p>
+        <p><strong>Lección:</strong> el "fallo" de terapia puede deberse a terapia inadecuada, falta de cumplimiento, o Grade C genuino — investigar los tres antes de ajustar el plan.</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="key-principle">
+    <h3>🎯 El hilo común</h3>
+    <p>En los cinco casos, la respuesta correcta dependía de <strong>medir CAL con precisión</strong> y de <strong>profundizar más allá de la primera impresión</strong> — historia, microbiología, radiografías comparativas. El diagnóstico rápido y superficial es la fuente más común de error.</p>
+  </div>
+
+  <div class="reference">
+    📚 Casos clínicos basados en presentaciones típicas de consulta periodontal general
+  </div>
+</div>`,
+  },
+];
+
+export const pretestQuestions = [
+  {
+    question_text: 'Si un paciente tiene PPD de 6mm pero el margen gingival está 2mm coronal a la CEJ (sin recesión), ¿cuál es el CAL?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: '8mm' },
+      { key: 'b', text: '6mm' },
+      { key: 'c', text: '4mm' },
+    ],
+    correct_answer: 'b',
+    explanation: 'Cuando el margen gingival está coronal a la CEJ no se suma nada — CAL = PPD = 6mm en este caso.',
+    order_index: 1,
+  },
+  {
+    question_text: 'Una PPD profunda (6-7mm) siempre significa que hay periodontitis.',
+    question_type: 'true_false',
+    options: null,
+    correct_answer: 'false',
+    explanation: 'Una PPD profunda con CAL mínimo es una pseudobolsa (edema gingival) — puede ser gingivitis pura, no periodontitis.',
+    order_index: 2,
+  },
+  {
+    question_text: '¿Qué hallazgo de furcación escala automáticamente la clasificación a Stage III, incluso si el CAL/RBL son de Stage II?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Furcación Grado 1' },
+      { key: 'b', text: 'Furcación Grado 2' },
+      { key: 'c', text: 'Ninguna furcación escala el Stage por sí sola' },
+    ],
+    correct_answer: 'b',
+    explanation: 'Furcación Grado 2 (comunicación parcial) escala a Stage III automáticamente; Grado 3 escala a Stage IV.',
+    order_index: 3,
+  },
+  {
+    question_text: 'Sin radiografías previas, es imposible estimar el Grade de un paciente.',
+    question_type: 'true_false',
+    options: null,
+    correct_answer: 'false',
+    explanation: 'Se puede estimar con evidencia indirecta: microbiología, edad de presentación vs. severidad, y modificadores de riesgo presentes.',
+    order_index: 4,
+  },
+];
+
+export const posttestQuestions = [
+  {
+    question_text: 'Diente con PPD mesial de 5mm y recesión de 2mm (margen apical a la CEJ). ¿Cuál es el CAL?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: '3mm' },
+      { key: 'b', text: '5mm' },
+      { key: 'c', text: '7mm' },
+      { key: 'd', text: 'No se puede calcular sin radiografía' },
+    ],
+    correct_answer: 'c',
+    explanation: 'CAL = PPD + recesión = 5 + 2 = 7mm. La fórmula suma la recesión cuando el margen gingival está apical a la CEJ.',
+    order_index: 1,
+  },
+  {
+    question_text: '¿Cuál es la presión correcta de sondaje periodontal?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: '0.05N — casi sin tocar' },
+      { key: 'b', text: '0.25N (±0.05N)' },
+      { key: 'c', text: '0.5N para asegurar llegar al fondo' },
+      { key: 'd', text: 'No importa la presión si el ángulo es correcto' },
+    ],
+    correct_answer: 'b',
+    explanation: 'Demasiada presión (>0.5N) penetra tejido intacto y sobreestima el PPD; muy poca (<0.15N) subestima al no llegar al fondo real de la bolsa.',
+    order_index: 2,
+  },
+  {
+    question_text: 'Un paciente presenta PPD 6mm con BOP, pero CAL medido cuidadosamente es de 1mm, y la radiografía muestra cresta ósea normal con lámina dura intacta. ¿Cuál es el diagnóstico más probable?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Periodontitis Stage II' },
+      { key: 'b', text: 'Gingivitis (pseudobolsa por edema)' },
+      { key: 'c', text: 'Periodontitis Stage I' },
+      { key: 'd', text: 'Trauma oclusal' },
+    ],
+    correct_answer: 'b',
+    explanation: 'CAL mínimo con PPD elevado y radiografía normal es el patrón clásico de pseudobolsa por edema gingival — gingivitis, no periodontitis.',
+    order_index: 3,
+  },
+  {
+    question_text: 'Un paciente con periodonto reducido pero SIN inflamación activa, sin progresión radiográfica en los últimos 5 años, y bien controlado, debería clasificarse como:',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Stage III activo, requiere tratamiento inmediato' },
+      { key: 'b', text: 'Periodontitis previa, actualmente quiescente — periodonto reducido sano' },
+      { key: 'c', text: 'Gingivitis' },
+      { key: 'd', text: 'No puede evaluarse sin nueva biopsia' },
+    ],
+    correct_answer: 'b',
+    explanation: 'Un periodonto reducido, estable y sin inflamación activa se documenta como periodontitis previa quiescente, no como un Stage activo — el monitoreo es cada 6-12 meses.',
+    order_index: 4,
+  },
+  {
+    question_text: 'La ausencia de sangrado al sondaje (BOP) descarta periodontitis.',
+    question_type: 'true_false',
+    options: null,
+    correct_answer: 'false',
+    explanation: 'Un periodonto reducido quiescente puede tener CAL significativo sin sangrar — la ausencia de BOP no excluye el diagnóstico.',
+    order_index: 5,
+  },
+  {
+    question_text: 'Diente con dolor, sinus tract apical, respuesta térmica negativa, y RBL LOCALIZADO solo alrededor del ápice (sin patrón generalizado). ¿Cuál es el diagnóstico más probable?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Periodontitis Stage III' },
+      { key: 'b', text: 'Lesión endodóntica primaria' },
+      { key: 'c', text: 'Lesión combinada endo-periodontal' },
+      { key: 'd', text: 'Trauma oclusal' },
+    ],
+    correct_answer: 'b',
+    explanation: 'Vitalidad pulpar negativa + sinus tract apical + RBL localizado al ápice (no generalizado) es el patrón típico de una lesión endodóntica primaria, no periodontal.',
+    order_index: 6,
+  },
+  {
+    question_text: 'Radiografía 2022: RBL 20% en el diente 16. Radiografía 2025: RBL 35% en el mismo diente. ¿Cuál es el Grade probable?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Grade A' },
+      { key: 'b', text: 'Grade B' },
+      { key: 'c', text: 'Grade C' },
+      { key: 'd', text: 'No se puede determinar con estos datos' },
+    ],
+    correct_answer: 'b',
+    explanation: 'Tasa anual = (35-20)/3 años = 5% RBL/año, dentro del rango 3-20% anual de Grade B.',
+    order_index: 7,
+  },
+  {
+    question_text: 'Según los casos clínicos revisados, ¿cuál es el error diagnóstico más común que lleva a un diagnóstico incorrecto?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'No tomar suficientes radiografías' },
+      { key: 'b', text: 'Medir PPD en vez de CAL, y no profundizar la historia clínica más allá de la primera impresión' },
+      { key: 'c', text: 'No usar sonda Naber' },
+      { key: 'd', text: 'No preguntar sobre el cepillado' },
+    ],
+    correct_answer: 'b',
+    explanation: 'En los casos de pseudobolsa, el error es confundir PPD con CAL; en los casos de "bajo riesgo aparente", el error es no profundizar la historia (estrés, genética, microbiología) más allá de la superficie.',
+    order_index: 8,
+  },
+];
