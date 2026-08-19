@@ -122,7 +122,7 @@ one (this bit DashboardPage once already: the link existed in code but only in
 
 | Chapter | DB row | Lessons | Pretest | Posttest |
 |---|---|---|---|---|
-| 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, full academic content | 4 Q | 8 Q (≥70% to pass) |
+| 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
 | 2 — Diagnosticando en 3 pasos | ✅ | **0** | — | — |
 | 3 — Clasificando: Estadio y Grado | ✅ | **0** | — | — |
 | 4 — Casos reales | ✅ | **0** | — | — |
@@ -132,14 +132,22 @@ show up on the dashboard) but `ChapterPage` falls back to a static
 "próximamente" placeholder for any chapter with no lessons — that's intentional,
 not a bug.
 
-Chapter 1's content has been **fully regenerated twice** already (original
-4-lesson placeholder → 8-lesson version via `scripts/insertChapter1.js`/
-`chapter1Content.js`). Each regeneration reset every user's `user_progress` for
-that chapter, since lesson counts/content changed and old
-`lessons_completed` counts stopped meaning anything. A third source
-(`OVA_CAPITULOS_1-4_MEGA_PROMPT.md`, pasted 2026-08-19) offers an even denser
-postgrado-level rewrite of Chapter 1 plus partial material for 2/3/4 — **not
-yet inserted**, see "Open items" below.
+Chapter 1's content has been **fully regenerated three times** now via
+`scripts/insertChapter1.js`/`chapter1Content.js` (original 4-lesson placeholder
+→ 8-lesson version → current postgrado-depth version sourced from
+`MEGA_PROMPT_CAPITULO_1_DENSO.md`, pasted 2026-08-19: full immunopathogenesis,
+biofilm/microbiology, RANK/RANKL, 5 risk modifiers instead of 2, 2 fully
+worked integrated cases). Each regeneration reset every user's
+`user_progress` for that chapter, since lesson counts/content changed and old
+`lessons_completed` counts stopped meaning anything — check with whoever's
+testing before regenerating again, it wipes real progress every time.
+`chapters.estimated_time_minutes` for Chapter 1 was bumped 45 → 75 to match.
+
+An earlier, broader source (`OVA_CAPITULOS_1-4_MEGA_PROMPT.md`, also pasted
+2026-08-19) covers Chapters 1-4 but is itself incomplete for 2-4 (Chapter 2
+only 4/9 lessons written, Chapter 3 fully placeholder, Chapter 4 thin) — see
+"Open items" below. That document's own Chapter 1 content was **not** used;
+the denser standalone doc superseded it.
 
 ### Question schema gotcha
 
