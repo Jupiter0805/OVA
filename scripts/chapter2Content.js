@@ -67,7 +67,7 @@ export const lessons = [
         <li><strong>Sangrado espontáneo</strong> de encías — posible periodontitis muy activa</li>
         <li><strong>Supuración subgingival</strong> — absceso periodontal, alta carga bacteriana</li>
         <li><strong>Ulceración gingival necrótica</strong> — enfermedad necrotizante, posible VIH</li>
-        <li><strong>Edad &lt;30 con CAL detectable</strong> — early-onset, probable Grado C</li>
+        <li><strong>Edad &lt;30 con CAL detectable</strong> — inicio temprano, probable Grado C</li>
         <li><strong>Múltiples pérdidas dentarias recientes</strong> — progresión rápida, Grado C probable</li>
         <li><strong>Discrepancia edad/daño</strong> — joven con Estadio IV, o mayor con Estadio I inusualmente severo para su edad</li>
       </ul>

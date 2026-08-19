@@ -257,7 +257,7 @@ export const lessons = [
 
     <div class="timeline-item">
       <h3>1999 — Consenso Internacional (Caton et al.)</h3>
-      <p>Abandonó la categorización por edad. Introdujo <strong>Chronic periodontitis</strong> (80-90% de casos, lenta progresión) vs. <strong>Aggressive periodontitis</strong> (10-20%, rápida progresión, destrucción desproporcionada).</p>
+      <p>Abandonó la categorización por edad. Introdujo <strong>Periodontitis Crónica</strong> (80-90% de casos, lenta progresión) vs. <strong>Periodontitis Agresiva</strong> (10-20%, rápida progresión, destrucción desproporcionada).</p>
       <details>
         <summary>Ver críticas</summary>
         <ul>
@@ -285,7 +285,7 @@ export const lessons = [
     </div>
     <div class="card">
       <h3>Reynolds et al. 2000</h3>
-      <p>Seguimiento de 10 años, n=200, pacientes "chronic" de 1999. El <strong>20-25%</strong> mostró progresión rápida no esperada para su categoría — la categoría "chronic" era internamente heterogénea.</p>
+      <p>Seguimiento de 10 años, n=200, pacientes "crónicos" de 1999. El <strong>20-25%</strong> mostró progresión rápida no esperada para su categoría — la categoría "crónica" era internamente heterogénea.</p>
     </div>
     <div class="card">
       <h3>Michalowicz et al. 2000-2002 (gemelos)</h3>
@@ -304,7 +304,7 @@ export const lessons = [
     <tr><td>B — Moderado</td><td>0.2-0.5 mm/año</td><td>45%</td><td>3-8 dientes</td></tr>
     <tr><td>C — Rápido</td><td>&gt;0.7 mm/año</td><td>15-20%</td><td>&gt;8 dientes, riesgo de edentulismo</td></tr>
   </table>
-  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Hallazgo crítico:</strong> los tres grupos aparecían DENTRO de ambas categorías de 1999 — tanto "chronic" como "aggressive" tenían esta misma distribución trimodal. Por eso el sistema 2018 separó severidad (Estadio) de velocidad (Grado) como dimensiones independientes.</p>
+  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Hallazgo crítico:</strong> los tres grupos aparecían DENTRO de ambas categorías de 1999 — tanto "crónica" como "agresiva" tenían esta misma distribución trimodal. Por eso el sistema 2018 separó severidad (Estadio) de velocidad (Grado) como dimensiones independientes.</p>
 
   <div class="reference">
     📚 Basado en: Armitage 1999; Caton et al. 1999; Tonetti et al. 2018; Billings et al. 2018; Reynolds et al. 2000; Michalowicz et al. 2000-2002; Kornman et al. 2003
