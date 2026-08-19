@@ -146,10 +146,17 @@ one (this bit DashboardPage once already: the link existed in code but only in
 
 | Chapter | DB row | Lessons | Pretest | Posttest |
 |---|---|---|---|---|
-| 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth + 3 real figures | 4 Q | 9 Q (≥70% to pass) |
+| 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth + 3 real figures | 4 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 | 2 — Diagnosticando en 3 pasos | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
-| 3 — Clasificando: Estadio y Grado | ✅ | **8/8**, full Stage×Grade prognostic matrix (12 combos) | 4 Q | 8 Q (≥70% to pass) |
+| 3 — Clasificando: Estadio y Grado | ✅ | **8/8**, full Estadio×Grado prognostic matrix (12 combos) | 4 Q | 8 Q (≥70% to pass) |
 | 4 — Casos reales | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 4 Q | 8 Q (≥70% to pass) |
+
+Chapter 1's pretest/posttest question **count is intentionally not 4/8 like the other
+three** — the user stated these exact questions are pre-approved by the UNICOC
+committee and must be used verbatim (2026-08-19), overriding the earlier
+decision to keep the original, more-integrated question set. Do not
+"fix" this back to matching the other chapters' count without checking
+with the user first.
 
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
@@ -171,9 +178,11 @@ and were **not** applied as written:
   diagram; corrected and repositioned next to `microbiota-complejos.jpeg`
   where it thematically belongs); added an "Extensión" (localizada
   &lt;30% / generalizada ≥30% / patrón molar-incisivo) subsection to Lesson
-  4 plus one new posttest question (posttest is now 9 Q, not 8 — the only
-  chapter that isn't exactly 8); added a "gingivitis en periodonto
-  reducido" note to Lesson 1.
+  4; added a "gingivitis en periodonto reducido" note to Lesson 1, and
+  later (2026-08-19, second pass) added the exact required clarification
+  sentence directly into the Gingivitis-vs-Periodontitis table's "Pérdida
+  de inserción" cell, not just the standalone note below it — the user
+  flagged that the table itself was still missing it.
 - **Not applied — Estadio I-IV table "copied from `OVA_LISTO_PARA_MONTAR.docx`
   páginas 19-20":** never had that file. More importantly, that doc's table
   (and its proposed posttest question 7) encodes **RBL &gt;50% for Stage
@@ -186,22 +195,28 @@ and were **not** applied as written:
   Chapter 1's own existing Stage table (`Lección 4`) already had this
   right (`≥33%` for both III and IV) before this revision pass — it was
   left untouched rather than made worse.
-- **Not applied — terminology swap** (Stage→Estadio, Grade→Grado, SRP→RAR,
-  PPD→PPS) **in Chapter 1 only:** Chapters 2-4 (75% of the course, all
-  built this project) consistently use Stage/Grade/SRP/PPD/CAL throughout
-  every lesson and every pretest/posttest question. Swapping only Chapter 1
-  would fragment the course's vocabulary mid-curriculum, which is worse
-  than the anglicized-but-consistent terminology already in place. Flagged
-  to the user; not done without an explicit go-ahead. If this is wanted,
-  it needs to be a single pass across all 4 chapters, not a Chapter-1-only
-  change.
-- **Not applied — replacing the pretest/posttest wholesale:** the doc
-  proposed a different 4+5 question set. Chapter 1's existing 4+8(+1=9)
-  questions already cover the same ground (RANK/RANKL, the RBL/age
-  velocity-proxy formula, tobacco/diabetes Grade thresholds, Stage
-  stability post-therapy) with tighter integration to the actual lesson
-  content, so they were kept; only the genuinely new "extensión" question
-  was added on top.
+- **Terminology swap — deferred at first, then done course-wide (2026-08-19,
+  same day):** initially not applied in Chapter 1 alone (see rationale below,
+  kept for history), then the user came back and explicitly required it
+  everywhere — see "Terminology swap: Stage→Estadio etc. (all 4 chapters)"
+  below for what was actually done.
+  <br>*Original reasoning for deferring:* Chapters 2-4 (75% of the course)
+  consistently used Stage/Grade/SRP/PPD/CAL throughout every lesson and
+  every pretest/posttest question at the time — swapping only Chapter 1
+  would have fragmented the course's vocabulary mid-curriculum. Correct
+  call at the time; superseded once the user asked for the full pass.
+- **Originally not applied, later overridden — replacing the pretest/posttest
+  wholesale:** the doc proposed a different 4+5 question set. Chapter 1's
+  existing 4+8(+1=9) questions covered similar ground with tighter
+  integration to the actual lesson content, so at first only the genuinely
+  new "extensión" question was added on top and the rest kept. The user
+  then stated explicitly (2026-08-19) that these exact questions are
+  UNICOC-committee-approved and must be used verbatim — the full original
+  4+8(+1) set was replaced with the doc's 4 pretest + 5 posttest questions,
+  translated into Estadio/Grado terminology (they already used it in the
+  source doc). See the "Content status" table above — Chapter 1 is the only
+  chapter with 5 posttest questions instead of 8; that's intentional, don't
+  revert it.
 - **Already true, no change needed:** the RBL/age formula
   (`RBL = %bone loss ÷ edad`) and the per-Grade re-evaluation-interval
   guidance the doc asked for were already present in Lessons 5 and 8
@@ -275,6 +290,59 @@ An earlier, broader source (`OVA_CAPITULOS_1-4_MEGA_PROMPT.md`, also pasted
 only 4/9 lessons written, Chapter 3 fully placeholder, Chapter 4 thin) — see
 "Open items" below. That document's own Chapter 1 content was **not** used;
 the denser standalone doc superseded it.
+
+### Terminology swap: Stage→Estadio etc. (all 4 chapters, 2026-08-19)
+
+The user came back after the Chapter 1 revision and made this **non-negotiable
+and course-wide**: "no podemos tener anglicismos, es muy importante esto."
+Applied across all 4 `scripts/chapterNContent.js` files and
+`src/components/Features.tsx` (the only `.tsx` with these terms), then
+every chapter was re-seeded into Supabase.
+
+**Mapping used** (matches `PROMPT_CAPITULO_1_REVISADO_FINAL.md`'s own table —
+CAL and RBL are explicitly kept as-is per that doc, everything else swapped):
+- `Stage`/`Stages`/`stage` → `Estadio`/`Estadios`/`estadio` (word-boundary,
+  case-preserving; `Stage I`→`Estadio I` etc. falls out of this automatically)
+- `Grade`/`Grades` → `Grado`/`Grados`
+- `Staging` → `Estadificación`, `Grading` → `Gradificación`
+- `SRP` → `RAR` (Raspado y Alisado Radicular)
+- `PPD` → `PPS` (as specified in the source doc — not the more common `PS`)
+
+**How it was done:** a one-off Node script
+(`scratch_terminology_swap.mjs`, deleted after running — not part of the
+repo) did the mechanical word-boundary regex pass across all 5 files, then
+every result was manually reviewed and hand-fixed for:
+- **ALL-CAPS occurrences the regex missed** (case-sensitive `\bStage\b` does
+  not match `STAGE`) — found 5 in Chapter 1's `decision-tree` outcome pills
+  (`STAGE I`-`STAGE IV`), fixed individually.
+- **Gender agreement**: `Estadificación`/`Gradificación` are feminine
+  (`la`, not `el`) — the mechanical swap left `el Estadificación` in a few
+  spots (Ch1 Lesson 4, Ch2 Lessons 1 & 3). Also found 2-3 places where
+  `Staging` had actually been used loosely to mean "the Stage value" rather
+  than "the staging process" (e.g. Ch2: "CAL, no PPS, determina el
+  Estadificación de periodontitis") — these were corrected to `el Estadio`
+  instead of just fixing the article, since that's what the sentence
+  actually means.
+- **Other leftover anglicisms found in the same pass** (not in the source
+  doc's explicit list, but the same "no anglicisms" instruction applies):
+  `Framework`→`Marco`, `Score`→`Puntuación`, `Red flag`→`Señal de alarma`,
+  `Baseline`→`Punto de partida`, `compliance`/`Non-compliance`→
+  `cumplimiento`/`Incumplimiento`, `mismatch`→`discordancia`,
+  `bonus`→`beneficio adicional`, `floss`/`flossing`→`hilo dental`/`uso de
+  hilo dental`, `bone loss` (inside a formula/table, Ch1 Lesson 5)→`pérdida
+  ósea`. Proper nouns/citations were deliberately **left alone**: "World
+  Workshop" (the actual name of the 2017/2018 AAP/EFP event, appears in
+  citations), and `T-score` in Ch4 Caso 4 (standard international DEXA/
+  osteoporosis terminology, not a stylistic anglicism).
+- Verified zero remaining case-insensitive matches for
+  `Stage|Grade|SRP|PPD|bone loss` across all 4 chapter files before
+  re-seeding, plus a visual Playwright pass confirming the decision-tree
+  pills, matrix tables, and case tables all render the swapped terms
+  correctly with no gender/grammar artifacts left in the checked samples.
+
+If a 5th chapter or further content is added later, use this same mapping
+from the start rather than writing in Stage/Grade/SRP/PPD and swapping
+after the fact.
 
 ### Question schema gotcha
 

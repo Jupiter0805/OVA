@@ -26,7 +26,7 @@ export function Features() {
       icon: '🎯',
       title: 'Herramientas de Decisión Clínica',
       points: [
-        'Matriz Stage × Grade con 12 combinaciones de pronóstico y plan terapéutico',
+        'Matriz Estadio × Grado con 12 combinaciones de pronóstico y plan terapéutico',
         'Algoritmo de decisión terapéutica paso a paso',
         '+50 casos clínicos breves distribuidos en los 4 capítulos',
         'Checklists diagnósticos y de manejo clínico',
@@ -36,10 +36,10 @@ export function Features() {
       icon: '🔬',
       title: 'Clasificación Moderna AAP/EFP 2018',
       points: [
-        'Stage I-IV: severidad, desde incipiente hasta avanzada',
-        'Grade A-C: velocidad de progresión de la enfermedad',
+        'Estadio I-IV: severidad, desde incipiente hasta avanzada',
+        'Grado A-C: velocidad de progresión de la enfermedad',
         'Modificadores integrados: tabaquismo, diabetes, genética, estrés',
-        'Reclasificación post-terapia: cómo cambia el Grade cuando el paciente mejora',
+        'Reclasificación post-terapia: cómo cambia el Grado cuando el paciente mejora',
       ],
     },
   ];
