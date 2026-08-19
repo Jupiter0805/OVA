@@ -147,9 +147,22 @@ one (this bit DashboardPage once already: the link existed in code but only in
 | Chapter | DB row | Lessons | Pretest | Posttest |
 |---|---|---|---|---|
 | 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth + 3 real figures | 4 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
-| 2 — Diagnosticando en 3 pasos | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
-| 3 — Clasificando: Estadio y Grado | ✅ | **8/8**, full Estadio×Grado prognostic matrix (12 combos) | 4 Q | 8 Q (≥70% to pass) |
-| 4 — Casos reales | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 4 Q | 8 Q (≥70% to pass) |
+| 2 — Estadios | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
+| 3 — Grados | ✅ | **8/8**, full Estadio×Grado prognostic matrix (12 combos) | 4 Q | 8 Q (≥70% to pass) |
+| 4 — Zonas Grises y clarificaciones de uso clínico | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 4 Q | 8 Q (≥70% to pass) |
+
+Chapter titles (`chapters.title`, the DB row, distinct from each chapter's
+internal lesson-title style) were renamed 2026-08-20 per explicit user
+request — Ch2 "Diagnosticando en 3 pasos"→"Estadios", Ch3 "Clasificando:
+Estadio y Grado"→"Grados", Ch4 "Casos reales..."→"Zonas Grises y
+clarificaciones de uso clínico". Ch1's title was left unchanged. This was
+a plain `chapters` table UPDATE via service_role (like
+`estimated_time_minutes` bumps), not a content-seeding script — no
+`scripts/insertChapterN.js` touches `chapters.title`, so re-running those
+scripts won't revert this. Note the DB titles no longer describe each
+chapter's actual content as literally (e.g. Ch2's title is now "Estadios"
+even though its lessons are about diagnostic technique, not staging) —
+that's intentional per the user, not a mismatch to "fix".
 
 Chapter 1's pretest/posttest question **count is intentionally not 4/8 like the other
 three** — the user stated these exact questions are pre-approved by the UNICOC
