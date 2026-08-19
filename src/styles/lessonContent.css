@@ -435,14 +435,17 @@
 }
 
 .embedded-figure img {
-  max-width: 100%;
+  display: block;
+  max-width: 70%;
+  margin: 0 auto;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .embedded-figure figcaption {
-  margin-top: 0.75rem;
+  margin: 0.75rem auto 0;
+  max-width: 70%;
   padding: 0 0.5rem;
   font-size: 0.85rem;
   color: var(--text-light);
