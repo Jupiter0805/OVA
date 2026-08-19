@@ -29,9 +29,18 @@
   list-style: disc;
 }
 
+.lesson-container ol {
+  margin: 0.5rem 0 0.5rem 1.25rem;
+  list-style: decimal;
+}
+
 .lesson-container li {
   margin-bottom: 0.35rem;
   color: var(--text-dark);
+}
+
+.lesson-container li strong:first-child {
+  color: var(--unicoc-red-dark);
 }
 
 .lesson-container blockquote {
@@ -328,7 +337,7 @@
 
 @media (min-width: 768px) {
   .modifier-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 }
 

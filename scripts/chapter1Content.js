@@ -1,700 +1,641 @@
-// Content for Chapter 1 ("El cambio que transformó la periodoncia").
-// Consumed by insertChapter1.js. Kept as plain data (no logic) so the
-// runner script stays readable.
+// Content for Chapter 1 ("El cambio que transformó la periodoncia") — densified
+// postgrado-level version, based on Tonetti et al. 2018, Kornman & Papapanou
+// 2020, Caton et al. 2018, Chapple et al. 2018. Consumed by insertChapter1.js.
 
 export const lessons = [
   {
     lesson_number: 1,
     order_index: 1,
-    title: '1989-2018: La evolución de la clasificación',
+    title: 'Fundamentos: ¿qué es realmente la periodontitis?',
     content_html: `<div class="lesson-container">
-  <h2>🕰️ 1989 → 1999 → 2018: Tres sistemas, tres formas de pensar la periodontitis</h2>
+  <h2>🧬 Periodontitis: definición operacional y patobiología</h2>
 
-  <div class="timeline-interactive">
-    <div class="timeline-item">
-      <h3>1989 — Clasificación de Armitage (Workshop AAP)</h3>
-      <p><strong>Qué se usaba:</strong> Categorías basadas casi exclusivamente en la edad de aparición: periodontitis del adulto, de inicio temprano (prepuberal, juvenil, rápidamente progresiva), refractaria y ulcerativa necrosante.</p>
-      <details>
-        <summary>Ver limitaciones descubiertas</summary>
-        <ul>
-          <li>❌ La edad de aparición es difícil de determinar con precisión clínica</li>
-          <li>❌ Categorías con criterios de diagnóstico superpuestos entre sí</li>
-          <li>❌ No consideraba factores de riesgo sistémicos ni conductuales</li>
-        </ul>
-      </details>
+  <div class="definition-box">
+    <p>La periodontitis es una <strong>enfermedad inflamatoria crónica multifactorial</strong> caracterizada por:</p>
+    <ul>
+      <li><strong>Disbiosis del biofilm subgingival</strong> (una microbiota disbiótica, no un simple sobrecrecimiento bacteriano)</li>
+      <li><strong>Desregulación de la respuesta inmunoinflamatoria del huésped</strong> — no es solo una reacción a patógenos</li>
+      <li><strong>Pérdida progresiva del aparato de soporte periodontal</strong> (cemento, ligamento, hueso alveolar)</li>
+      <li><strong>Expresión clínica:</strong> pérdida de inserción clínica (CAL), pérdida ósea radiográfica (RBL), bolsas, sangrado</li>
+    </ul>
+  </div>
+
+  <h3>Criterio de caso — AAP/EFP 2018 (Tonetti et al.)</h3>
+  <p>Un paciente <strong>SE CONSIDERA CASO DE PERIODONTITIS</strong> cuando presenta cualquiera de estos tres criterios:</p>
+
+  <div class="cases">
+    <div class="case-card">
+      <h3>Criterio A — Interdental</h3>
+      <p>CAL interdental detectable en ≥2 dientes no adyacentes.</p>
     </div>
-
-    <div class="arrow">↓ 10 años de uso clínico revelan los problemas ↓</div>
-
-    <div class="timeline-item">
-      <h3>1999 — Clasificación de Caton (International Workshop)</h3>
-      <p><strong>Qué se usaba:</strong> Simplificación a "Chronic periodontitis" vs. "Aggressive periodontitis", con subtipos localizado/generalizado.</p>
-      <details>
-        <summary>Ver limitaciones descubiertas</summary>
-        <ul>
-          <li>❌ Distinción crónica/agresiva demasiado binaria para la variabilidad real observada en consulta</li>
-          <li>❌ No capturaba complejidad de tratamiento ni riesgo de progresión futura</li>
-          <li>❌ Ignoraba la evidencia emergente de conexión con enfermedades sistémicas</li>
-        </ul>
-      </details>
+    <div class="case-card">
+      <h3>Criterio B — Vestibular/oral</h3>
+      <p>CAL vestibular u oral ≥3 mm con profundidad de sondaje (PPD) &gt;3 mm en ≥2 dientes.</p>
     </div>
-
-    <div class="arrow">↓ Evidencia acumulada 1999-2017 (Kornman, Tonetti, Sanz) ↓</div>
-
-    <div class="timeline-item">
-      <h3>2018 — Clasificación de Tonetti / Caton / Chapple (World Workshop AAP-EFP)</h3>
-      <p><strong>Qué se usa hoy:</strong> Dos dimensiones independientes — <strong>Stage I-IV</strong> (severidad + complejidad actual) y <strong>Grade A-C</strong> (velocidad de progresión + riesgo sistémico).</p>
-      <details>
-        <summary>Ver qué resuelve</summary>
-        <ul>
-          <li>✅ Separa "qué tan grave está" de "qué tan rápido va a empeorar"</li>
-          <li>✅ Incorpora modificadores de riesgo objetivos (tabaco, diabetes)</li>
-          <li>✅ Guía directamente el nivel de complejidad del tratamiento requerido</li>
-        </ul>
-      </details>
+    <div class="case-card">
+      <h3>Criterio C — Radiográfico</h3>
+      <p>Pérdida ósea radiográfica (RBL) ≥3 mm en cualquier localización.</p>
     </div>
   </div>
 
-  <div class="photo-grid">
-    <div class="photo-placeholder">
-      <span class="icon">🦷</span>
-      <span class="caption">Foto clínica: caso clasificado bajo el sistema 1999 (Chronic periodontitis)</span>
-    </div>
-    <div class="photo-placeholder">
-      <span class="icon">🦷</span>
-      <span class="caption">Foto clínica: el mismo tipo de caso reclasificado bajo Stage/Grade 2018</span>
-    </div>
+  <div class="definition-box">
+    <p><strong>MÁS:</strong> la pérdida de inserción <strong>no puede ser atribuida</strong> a causas no periodontales:</p>
+    <ul>
+      <li>Recesión de origen traumático</li>
+      <li>Caries cervical o radicular extensa</li>
+      <li>Lesión endodóntica drenante</li>
+      <li>Fractura radicular vertical</li>
+      <li>Defecto de raíz fusionada</li>
+      <li>Extrusión dentaria traumática</li>
+    </ul>
+    <p style="margin-top:0.75rem;"><strong>Nota crítica:</strong> la presencia de bolsas, sangrado al sondaje o inflamación gingival <strong>no es un requisito independiente</strong> para el diagnóstico. Pueden acompañar la enfermedad, pero no la definen.</p>
   </div>
+
+  <h3>Gingivitis vs. Periodontitis</h3>
+  <table>
+    <tr>
+      <th>Aspecto</th>
+      <th>Gingivitis</th>
+      <th>Periodontitis</th>
+    </tr>
+    <tr>
+      <td>Localización de la lesión</td>
+      <td>Confinada a la encía (tejido supraperiosteal)</td>
+      <td>Se extiende al ligamento periodontal y hueso alveolar</td>
+    </tr>
+    <tr>
+      <td>Pérdida de inserción</td>
+      <td>Ausente por definición</td>
+      <td>Presente — pérdida real del aparato de soporte</td>
+    </tr>
+    <tr>
+      <td>Reversibilidad</td>
+      <td>100% reversible con control de biofilm</td>
+      <td>Parcialmente reversible (la destrucción es irreversible)</td>
+    </tr>
+    <tr>
+      <td>Histopatología</td>
+      <td>Infiltrado inflamatorio sin extensión apical</td>
+      <td>Infiltrado crónico, resorción ósea, pérdida de fibras de inserción</td>
+    </tr>
+    <tr>
+      <td>Progresión a periodontitis</td>
+      <td>Potencial, no inevitable</td>
+      <td>Ya establecida — riesgo de progresión futura</td>
+    </tr>
+  </table>
 
   <div class="reference">
-    📚 Basado en: Armitage 1999 (workshop de 1989 retrospectivo); Caton et al. 1999; Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol/J Clin Periodontol)
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Chapple et al. 2018 (J Clin Periodontol)
   </div>
 </div>`,
   },
   {
     lesson_number: 2,
     order_index: 2,
-    title: '¿Por qué FALLÓ la clasificación 1999?',
+    title: 'Etiopatogénesis: del biofilm a la destrucción tisular',
     content_html: `<div class="lesson-container">
-  <h2>⚠️ Cuatro problemas que hicieron insostenible el sistema de 1999</h2>
+  <h2>🦠 El modelo ecológico dinámico</h2>
+  <p>La periodontitis <strong>no es una secuencia lineal de fases</strong>, sino un proceso dinámico resultado de la interacción continua entre disbiosis microbiana y respuesta del huésped.</p>
 
-  <div class="cases">
-    <div class="case-card">
-      <h3>Problema 1: "Chronic vs Aggressive" es BINARIA — la realidad es un espectro</h3>
-      <details>
-        <summary>Ver evidencia y cita</summary>
-        <blockquote>Caton et al. 1999: "Consensus report recognized aggressive periodontitis as a distinct entity, but acknowledged significant overlap in clinical presentation with chronic forms."</blockquote>
-        <p><strong>Limitación:</strong> Muchos pacientes caían en un punto intermedio que no encajaba limpiamente en ninguna de las dos categorías.</p>
-      </details>
+  <h3>Fase 1: Formación y disbiosis del biofilm</h3>
+  <div class="timeline-interactive">
+    <div class="timeline-item">
+      <h3>1. Película adquirida (0-1 hora)</h3>
+      <p>Proteínas salivales y plasmáticas, lípidos. Proporciona receptores para adhesión bacteriana y modula la interacción huésped-microbiota.</p>
     </div>
-
-    <div class="case-card">
-      <h3>Problema 2: NO capturaba la COMPLEJIDAD del tratamiento</h3>
-      <details>
-        <summary>Ver ejemplo clínico</summary>
-        <p>Paciente Stage II con furcación Clase III <em>vs.</em> paciente Stage II con bone loss horizontal simple.</p>
-        <p><strong>Ambos "moderados" en 1999 — pero con complejidad de tratamiento muy diferente.</strong> El primero requiere periodoncista; el segundo puede manejarse en práctica general.</p>
-      </details>
+    <div class="arrow">↓</div>
+    <div class="timeline-item">
+      <h3>2. Colonización inicial (1-2 días)</h3>
+      <p><em>Streptococcus, Actinomyces, Veillonella</em> — metabolismo aerobio/facultativo, establecen gradientes ecológicos.</p>
     </div>
-
-    <div class="case-card">
-      <h3>Problema 3: NO diferenciaba SEVERIDAD de PROGRESIÓN</h3>
-      <details>
-        <summary>Ver evidencia y cita</summary>
-        <blockquote>Kornman 2020: "~20-25% de pacientes tienen una trayectoria diferente a la esperada según su severidad actual."</blockquote>
-        <ul>
-          <li>Un paciente con mucha pérdida (severo) puede llevar años <strong>estable</strong></li>
-          <li>Un paciente con poca pérdida (incipiente) puede estar progresando <strong>rápido</strong></li>
-        </ul>
-      </details>
+    <div class="arrow">↓</div>
+    <div class="timeline-item">
+      <h3>3. Coagregación y maduración (2-7 días)</h3>
+      <p>Adhesinas específicas, formación de microcolonias, matriz exopolimérica (EPS), canales de nutrientes, comunicación por quórum-sensing.</p>
     </div>
-
-    <div class="case-card">
-      <h3>Problema 4: NO capturaba el RIESGO SISTÉMICO</h3>
-      <details>
-        <summary>Ver evidencia y cita</summary>
-        <p>La evidencia emergente entre 2010 y 2018 estableció conexiones consistentes con enfermedad cardiovascular y diabetes.</p>
-        <blockquote>Tonetti et al. 2018: "Current evidence indicates that periodontitis is a multifactorial disease influenced by systemic conditions that must inform its clinical classification."</blockquote>
-      </details>
+    <div class="arrow">↓</div>
+    <div class="timeline-item">
+      <h3>4. Dispersión selectiva</h3>
+      <p>Bacterias gram-negativas anaerobias estrictas — <em>Porphyromonas gingivalis, Tannerella forsythia, Treponema denticola</em> — con enzimas proteolíticas que establecen un microambiente anaerobio.</p>
     </div>
   </div>
 
-  <h3 style="margin-top:2rem;">📊 Comparación directa: 1999 vs. 2018</h3>
+  <h3>Microbiota disbiótica: los "complejos" de riesgo</h3>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>🔴 Complejo rojo (alto riesgo)</h3>
+      <p><strong>P. gingivalis:</strong> presente en 50-80% de casos; proteasas RgpA/B, Kgp; se interna en células epiteliales.</p>
+      <p><strong>T. forsythia:</strong> 50-70% de casos; depende metabólicamente de Pg.</p>
+      <p><strong>T. denticola:</strong> 40-60% de casos; asociado a bolsas profundas y casos progresivos.</p>
+    </div>
+    <div class="card">
+      <h3>🟠 Complejo naranja (mediadores)</h3>
+      <p><em>Prevotella intermedia, Fusobacterium nucleatum, Campylobacter rectus.</em> Facilitan la colonización del complejo rojo y producen LPS y citotoxinas.</p>
+    </div>
+    <div class="card">
+      <h3>🟡 Complejo amarillo (pioneros)</h3>
+      <p><em>Streptococcus, Actinomyces.</em> Asociados a gingivitis y salud periodontal — no son en sí mismos el problema.</p>
+    </div>
+  </div>
+
+  <div class="definition-box">
+    <p><strong>Disbiosis ≠ disfunción:</strong> no significa que cada bacteria sea patógena, sino que la estructura de la comunidad favorece metabolitos y productos inflamatorios que perjudican al huésped.</p>
+  </div>
+
+  <h3>Fase 2: Inmunopatogénesis — el papel paradójico de la inmunidad</h3>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>Neutrófilos (PMN)</h3>
+      <p>Primera línea de defensa. En periodontitis avanzada: reclutamiento masivo pero eficacia reducida. La elastasa, catepsina G y colagenasa que liberan degradan colágeno — la <strong>"paradoja neutrofílica"</strong>: el intento de control microbiano causa daño tisular.</p>
+    </div>
+    <div class="card">
+      <h3>Linfocitos T</h3>
+      <p><strong>Th1</strong> (IFN-γ, TNF-α): control microbiano pero daño óseo vía RANKL. <strong>Th17</strong> (IL-17): reclutamiento neutrofílico y osteoclastogénesis. <strong>Treg</strong> (IL-10, TGF-β): intento de contención, frecuentemente insuficiente.</p>
+    </div>
+    <div class="card">
+      <h3>Linfocitos B</h3>
+      <p>Producen anticuerpos contra antígenos microbianos, con reconocimiento cruzado ocasional con antígenos del huésped (mimetismo molecular), y citocinas locales (IL-6, TNF-α).</p>
+    </div>
+  </div>
+
+  <h3>La cascada inflamatoria central</h3>
   <table>
-    <tr>
-      <th>Aspecto</th>
-      <th>1999</th>
-      <th>2018</th>
-    </tr>
-    <tr>
-      <td>Clasificación base</td>
-      <td>Chronic / Aggressive</td>
-      <td>Stage I-IV</td>
-    </tr>
-    <tr>
-      <td>Dimensión de progresión</td>
-      <td>No existe</td>
-      <td>Grade A-C</td>
-    </tr>
-    <tr>
-      <td>Riesgo sistémico</td>
-      <td>Ignorado</td>
-      <td>Incluido (modificadores)</td>
-    </tr>
-    <tr>
-      <td>Complejidad de tratamiento</td>
-      <td>Implícita</td>
-      <td>Explícita</td>
-    </tr>
-    <tr>
-      <td>Modificadores de riesgo</td>
-      <td>No</td>
-      <td>Smoking, Diabetes</td>
-    </tr>
+    <tr><th>Citocina</th><th>Producción</th><th>Mecanismo de daño</th></tr>
+    <tr><td><strong>TNF-α</strong></td><td>Macrófagos, células T, PMN, fibroblastos</td><td>Degradación colagenolítica, resorción ósea vía RANKL, permeabilidad vascular</td></tr>
+    <tr><td><strong>IL-1β</strong></td><td>Macrófagos, epitelio, fibroblastos</td><td>Estimula MMP-1/MMP-8, COX-2/PGE2, RANKL — sus niveles predicen velocidad de destrucción</td></tr>
+    <tr><td><strong>IL-6</strong></td><td>Fibroblastos, PMN, células inmunes</td><td>Bifásica (anti e proinflamatoria); señalización trans vía sIL-6R</td></tr>
+    <tr><td><strong>IL-17</strong></td><td>Th17</td><td>Reclutamiento de PMN, estimula RANKL — en algunos modelos supera a TNF-α en destrucción ósea</td></tr>
   </table>
 
+  <h3>Metaloproteinasas de matriz (MMPs)</h3>
+  <table>
+    <tr><th>MMP</th><th>Fuente</th><th>Relevancia periodontal</th></tr>
+    <tr><td>MMP-1</td><td>Fibroblastos, macrófagos</td><td>Degradación principal del colágeno gingival/periodontal</td></tr>
+    <tr><td>MMP-8</td><td>PMN, epitelio</td><td>Contenida en gránulos neutrofílicos, liberada en la depuración</td></tr>
+    <tr><td>MMP-9</td><td>PMN, endotelio, macrófagos</td><td>Degrada la lámina basal, permite extravasación</td></tr>
+  </table>
+  <p style="font-size:0.9rem;color:var(--text-light);">En periodontitis hay un <strong>desbalance MMP/TIMP</strong> (↑MMP, ↓TIMP) — la razón MMP-8/TIMP-1 es predictora de progresión.</p>
+
+  <div class="calc-box">
+    <p><strong>El eje RANK/RANKL — el nexo inmuno-óseo</strong></p>
+    <p><strong>RANKL</strong> (fibroblastos del ligamento, células Th1/Th17, osteoblastos) se une a <strong>RANK</strong> en precursores osteoclásticos → diferenciación de osteoclastos maduros.</p>
+    <p>TNF-α, IL-1β, IL-17 y PGE2 <strong>aumentan</strong> RANKL. La <strong>osteoprotegerina (OPG)</strong> compite con RANK por RANKL — en salud la razón RANKL/OPG es ~0.1:1; en periodontitis sube a <span class="result">~10:1</span>, lo que dispara la resorción ósea.</p>
+  </div>
+
+  <h3>Fase 3: destrucción tisular progresiva</h3>
+  <p>La pérdida de inserción clínica ocurre por degradación de la matriz extracelular (activación de MMPs), migración apical del epitelio de unión, y muerte de fibroblastos del ligamento (apoptosis inducida por TNF-α).</p>
+
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>Patrón horizontal</h3>
+      <p>Pérdida similar en dientes adyacentes. Asociado a inflamación generalizada, tabaquismo, diabetes mal controlada. Menor complejidad — permite regeneración posible.</p>
+    </div>
+    <div class="card">
+      <h3>Patrón vertical (angular)</h3>
+      <p>Pérdida desigual, mayor en sitios interproximales. Defectos de 1, 2 o 3 paredes. Asociado a bacterias específicas (Pg) y mayor inflamación local. Mayor complejidad, pero con potencial regenerativo.</p>
+    </div>
+    <div class="card">
+      <h3>Patrón circunferencial</h3>
+      <p>Pérdida alrededor de toda la raíz ("moat"). Típico de periodontitis muy activa. Riesgo de movilidad rápida.</p>
+    </div>
+  </div>
+
+  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Nota radiográfica:</strong> pérdida &lt;1mm rara vez es visible radiográficamente (sensibilidad ~30%); &gt;2-3mm es claramente diagnosticable.</p>
+
   <div class="reference">
-    📚 Basado en: Caton et al. 1999; Kornman &amp; Papapanou 2020 (J Periodontol)
+    📚 Basado en: Kornman &amp; Papapanou 2020; Tonetti et al. 2018; revisión de inmunopatogénesis periodontal (workshop 2017)
   </div>
 </div>`,
   },
   {
     lesson_number: 3,
     order_index: 3,
-    title: 'La EVIDENCIA que forzó el cambio',
+    title: 'Evolución histórica: 1989 → 1999 → 2018',
     content_html: `<div class="lesson-container">
-  <h2>🔬 Los cuatro hallazgos que hicieron inevitable el rediseño</h2>
+  <h2>🕰️ Tres sistemas, tres formas de pensar la periodontitis</h2>
 
-  <div class="evidence-cards">
-    <div class="card">
-      <h3>Hallazgo 1: Variabilidad en progresión</h3>
-      <p>Kornman 2020 y Billings et al. 2018 compararon ~150,000 pacientes con periodontitis crónica frente a 370,000 controles.</p>
+  <div class="timeline-interactive">
+    <div class="timeline-item">
+      <h3>1989 — Clasificación de Armitage (Workshop AAP)</h3>
+      <p>Primer intento sistemático de unificar la nomenclatura: periodontitis del adulto, de inicio temprano (prepuberal, juvenil, rápidamente progresiva), refractaria y ulcerativa necrosante.</p>
       <details>
-        <summary>Ver cita y dato exacto</summary>
-        <blockquote>"...suggest that specific segments of the population exhibit different levels of disease progression..."</blockquote>
-        <p><strong>Encontrado:</strong> 20-25% de los pacientes no sigue la trayectoria "esperada" según su severidad inicial.</p>
-        <p><strong>Implicación:</strong> Necesitábamos una dimensión de GRADE independiente para capturar la progresión individual.</p>
-      </details>
-    </div>
-
-    <div class="card">
-      <h3>Hallazgo 2: Multifactorialidad</h3>
-      <p>Tonetti et al. 2018 consolidó evidencia de que la periodontitis no es solo una infección bacteriana.</p>
-      <details>
-        <summary>Ver factores identificados</summary>
+        <summary>Ver limitaciones críticas</summary>
         <ul>
-          <li>🚬 <strong>Smoking:</strong> &lt;10 cig/día = sin modificador; ≥10 cig/día = modificador de Grade (A→B o B→C). Mecanismo: reduce la respuesta inmune y aumenta la destrucción tisular.</li>
-          <li>🩺 <strong>Diabetes:</strong> No controlada (HbA1c &gt;7.0%) = Grade C automático. Mecanismo: amplifica la respuesta inflamatoria.</li>
-          <li>🧬 <strong>Genética:</strong> Genotipo IL-1, polimorfismos IL-6 — predisponen pero no determinan por sí solos.</li>
+          <li>Basada en <strong>edad de presentación</strong>, no en parámetros clínicos medibles</li>
+          <li>Sin severidad estructurada (leve/moderado/severo no estaban claros)</li>
+          <li>Sin modificadores (tabaco, diabetes) integrados</li>
+          <li>"Refractaria" era un diagnóstico circular: no responde al tratamiento → refractaria, pero ¿por qué?</li>
         </ul>
       </details>
     </div>
 
-    <div class="card">
-      <h3>Hallazgo 3: Complejidad ≠ Severidad</h3>
-      <p>Fine et al. 2018 mostró que dos pacientes con el mismo nivel de attachment loss pueden requerir niveles de atención completamente distintos.</p>
+    <div class="arrow">↓ Evidencia acumulada 1989-1999 ↓</div>
+
+    <div class="timeline-item">
+      <h3>1999 — Consenso Internacional (Caton et al.)</h3>
+      <p>Abandonó la categorización por edad. Introdujo <strong>Chronic periodontitis</strong> (80-90% de casos, lenta progresión) vs. <strong>Aggressive periodontitis</strong> (10-20%, rápida progresión, destrucción desproporcionada).</p>
       <details>
-        <summary>Ver los dos casos comparados</summary>
-        <p><strong>Paciente A:</strong> Stage II (CAL 3-4mm) + furcación Clase III + defectos verticales + movilidad Grado 2 → <strong>complejidad ALTA</strong> (especialista, múltiples sesiones).</p>
-        <p><strong>Paciente B:</strong> Stage III (CAL ≥5mm) + bone loss horizontal + sin furcación → <strong>complejidad MODERADA</strong> (manejable en práctica general).</p>
-        <p><strong>Implicación:</strong> Stage necesita un descriptor de extensión y distribución (localizado vs. generalizado, patrones específicos).</p>
+        <summary>Ver críticas</summary>
+        <ul>
+          <li>Dicotomía crónica/agresiva artificial — superposición clínica constante</li>
+          <li>Sin claridad sobre cómo medir "rápido" vs. "lento"</li>
+          <li>No consideraba complejidad de manejo (un "agresivo" localizado puede ser más simple que un "crónico" severo generalizado)</li>
+          <li>No integraba avances inmunológicos de los 90s (IL-1, TNF-α, RANKL, descubiertos en esa década)</li>
+        </ul>
       </details>
     </div>
 
-    <div class="card">
-      <h3>Hallazgo 4: Riesgo sistémico</h3>
-      <p>Sanz et al. 2018 y Dregan et al. 2019 cuantificaron el riesgo asociado en bases de datos clínicas masivas.</p>
-      <details>
-        <summary>Ver cifras y cita</summary>
-        <ul>
-          <li>Enfermedad cardiovascular (CVD): riesgo 1.2-1.5x</li>
-          <li>Stroke (ACV): riesgo 1.3x</li>
-          <li>Diabetes tipo 2: mayor progresión si coexiste con periodontitis</li>
-        </ul>
-        <blockquote>"Substantial evidence from large clinical databases involving &gt;150,000 patients... indicate that presence of certain chronic inflammatory diseases influences likelihood of second chronic disease..."</blockquote>
-      </details>
+    <div class="arrow">↓ World Workshop 2017, 50+ países, 5000+ artículos revisados ↓</div>
+
+    <div class="timeline-item">
+      <h3>2018 — Tonetti, Greenwell &amp; Kornman (AAP/EFP)</h3>
+      <p>Abandona completamente la dicotomía por un sistema multidimensional: <strong>Staging</strong> (severidad + complejidad) × <strong>Grading</strong> (velocidad de progresión) × <strong>Modificadores</strong> (riesgo individual).</p>
     </div>
   </div>
 
+  <h3>Los datos que forzaron el cambio (2000-2018)</h3>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>Billings et al. 2018 (NHANES)</h3>
+      <p>n=15,000, 2009-2014. Halló tasas similares de periodontitis moderada/severa <strong>independientemente de la edad</strong> — la premisa de 1999 ("más frecuente en viejos") era falsa a nivel poblacional.</p>
+    </div>
+    <div class="card">
+      <h3>Reynolds et al. 2000</h3>
+      <p>Seguimiento de 10 años, n=200, pacientes "chronic" de 1999. El <strong>20-25%</strong> mostró progresión rápida no esperada para su categoría — la categoría "chronic" era internamente heterogénea.</p>
+    </div>
+    <div class="card">
+      <h3>Michalowicz et al. 2000-2002 (gemelos)</h3>
+      <p>Gemelos monocigóticos con el mismo microbioma mostraron <strong>diferente progresión</strong> — los factores del huésped (genética, respuesta inmune) son tan importantes como el patógeno.</p>
+    </div>
+    <div class="card">
+      <h3>Kornman et al. 2003 (genotipo IL-1)</h3>
+      <p>El polimorfismo IL-1 predice susceptibilidad y severidad, pero <strong>no es determinante único</strong> (30% con genotipo "de riesgo" no desarrolla periodontitis severa) — es multifactorial.</p>
+    </div>
+  </div>
+
+  <h3>Distribución trimodal de progresión (Reynolds/Lang/Billings)</h3>
+  <table>
+    <tr><th>Grupo</th><th>Velocidad</th><th>% población</th><th>Pérdida dentaria en 20 años</th></tr>
+    <tr><td>A — Lento</td><td>&lt;0.1 mm/año</td><td>~35-40%</td><td>0-2 dientes</td></tr>
+    <tr><td>B — Moderado</td><td>0.2-0.5 mm/año</td><td>~45%</td><td>3-8 dientes</td></tr>
+    <tr><td>C — Rápido</td><td>&gt;0.7 mm/año</td><td>~15-20%</td><td>&gt;8 dientes, riesgo de edentulismo</td></tr>
+  </table>
+  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Hallazgo crítico:</strong> los tres grupos aparecían DENTRO de ambas categorías de 1999 — tanto "chronic" como "aggressive" tenían esta misma distribución trimodal. Por eso el sistema 2018 separó severidad (Stage) de velocidad (Grade) como dimensiones independientes.</p>
+
   <div class="reference">
-    📚 Basado en: Kornman &amp; Papapanou 2020; Billings et al. 2018; Tonetti et al. 2018; Fine et al. 2018; Sanz et al. 2018; Dregan et al. 2019
+    📚 Basado en: Armitage 1999; Caton et al. 1999; Tonetti et al. 2018; Billings et al. 2018; Reynolds et al. 2000; Michalowicz et al. 2000-2002; Kornman et al. 2003
   </div>
 </div>`,
   },
   {
     lesson_number: 4,
     order_index: 4,
-    title: 'Definición clínica de PERIODONTITIS (AAP/EFP 2018)',
+    title: 'Staging: severidad acumulada + complejidad',
     content_html: `<div class="lesson-container">
-  <h2>📋 ¿Cuándo un paciente ES, clínicamente, un caso de periodontitis?</h2>
+  <h2>📐 Stage I-IV: "dónde estamos ahora"</h2>
+  <p>El <strong>Stage</strong> refleja la severidad acumulada de pérdida de soporte periodontal hasta el momento del examen, integrada con la complejidad del manejo requerido. No es predictivo por sí solo — eso es función del Grade.</p>
 
-  <div class="definition-box">
-    <p><strong>Definición oficial (Tonetti et al. 2018):</strong></p>
-    <blockquote>
-      "A patient is a periodontitis case in the context of clinical care if: (1) interdental CAL is detectable at ≥2 non-adjacent teeth, OR (2) buccal or oral CAL ≥3 mm with pocketing &gt;3 mm is detectable at ≥2 teeth" — AND "the observed CAL cannot be ascribed to non-periodontal causes."
-    </blockquote>
-  </div>
+  <table>
+    <tr><th>Parámetro</th><th>Stage I</th><th>Stage II</th><th>Stage III</th><th>Stage IV</th></tr>
+    <tr><td>CAL</td><td>1-2 mm</td><td>3-4 mm</td><td>≥5 mm</td><td>≥5 mm</td></tr>
+    <tr><td>RBL radiográfica</td><td>&lt;15%</td><td>15-33%</td><td>≥33%</td><td>≥33%</td></tr>
+    <tr><td>Pérdida dentaria</td><td>0</td><td>0</td><td>≤4 dientes</td><td>≥5 dientes</td></tr>
+    <tr><td>Complejidad</td><td>Mínima</td><td>Moderada</td><td>Moderada-alta</td><td>Alta</td></tr>
+  </table>
 
-  <h3>Causas NO periodontales que EXCLUYEN el diagnóstico</h3>
-  <ul>
-    <li>Recesión gingival de origen traumático</li>
-    <li>Caries dental en el área cervical</li>
-    <li>Presencia de CAL solo distal a un segundo molar (posible extracción o tercer molar mal posicionado)</li>
-    <li>Lesión endodóntica en drenaje</li>
-    <li>Fractura radicular vertical</li>
-  </ul>
-
-  <h3>¿Cómo se mide el CAL?</h3>
-  <p>Sondaje suave (25 gramos de presión) en 6 sitios por diente (mesial, distal, bucal, lingual y sus puntos medios), tomando como referencia la unión cemento-esmalte (CEJ).</p>
-  <p style="font-weight:700;">CAL = Profundidad de sondaje (PD) + Recesión gingival (si existe)</p>
-
-  <div class="calc-box">
-    <p><strong>Ejemplo de cálculo — Diente #16:</strong></p>
-    <p class="formula">PD mesial: 4 mm &nbsp;+&nbsp; Recesión: 0 mm &nbsp;=&nbsp; CAL = <span class="result">4 mm</span> ✅ Cuenta</p>
-    <p><strong>Ejemplo de cálculo — Diente #26:</strong></p>
-    <p class="formula">PD bucal: 3 mm &nbsp;+&nbsp; Recesión: 2 mm &nbsp;=&nbsp; CAL = <span class="result">5 mm</span> ✅ Cuenta</p>
-  </div>
-
-  <h3>Gray zones (Kornman 2020)</h3>
   <div class="cases">
     <div class="case-card">
-      <h3>Caso: Paciente radiográficamente intacto, pero con CAL localizado</h3>
+      <h3>Stage I — Incipiente</h3>
+      <p>Patrón horizontal, sin defectos angulares ni furcación. PPD moderada (4-5mm) sin mayor CAL es posible (pseudobolsa por edema). Sin movilidad.</p>
       <details>
-        <summary>Ver resolución</summary>
-        <p>Paciente de 65 años, radiográficamente íntegro, pero con CAL de 2mm en 2 sitios no adyacentes.</p>
-        <p>✅ <strong>SÍ tiene periodontitis</strong> (cumple CAL ≥2mm en ≥2 dientes no adyacentes).</p>
-        <p>✅ <strong>Stage I</strong> (porque no hay bone loss radiográfico visible).</p>
-        <p><strong>Lección:</strong> Ausencia de bone loss visible ≠ ausencia de periodontitis.</p>
+        <summary>Manejo y caso típico</summary>
+        <p><strong>Complejidad baja:</strong> SRP, control de biofilm, sin necesidad quirúrgica. Pronóstico excelente con cumplimiento.</p>
+        <p><em>Caso típico:</em> adulto joven (20-40a), hallazgo incidental en examen de rutina, inflamación gingival leve-moderada.</p>
       </details>
     </div>
+
     <div class="case-card">
-      <h3>Caso: Periodontitis "franca" en un solo diente (localizada)</h3>
+      <h3>Stage II — Moderada</h3>
+      <p>Patrón horizontal predominante, defectos angulares posibles pero no críticos. Furcación Grado 1 posible. PPD típica 5-6mm.</p>
       <details>
-        <summary>Ver resolución</summary>
-        <p>¿Es Stage I aunque el diente afectado esté severamente comprometido? <strong>No necesariamente</strong> — porque Stage se asigna a nivel de paciente, no de diente.</p>
-        <p>Se describe como, por ejemplo, "localized Stage II", combinando el Stage del paciente con la distribución del hallazgo.</p>
+        <summary>Manejo y caso típico</summary>
+        <p><strong>Complejidad moderada:</strong> SRP exhaustivo (múltiples sesiones), cirugía de acceso accesoria en sitios de difícil acceso.</p>
+        <p><em>Caso típico:</em> varón 45a, tratamiento previo hace 10 años seguido de negligencia. PPD 5-6mm posteriores, CAL 3-4mm, RBL 20-25%, sin movilidad.</p>
       </details>
     </div>
+
+    <div class="case-card">
+      <h3>Stage III — Severa</h3>
+      <p>Defectos angulares, furcación Grado 2 o mayor. Movilidad Grado 1-2. Lo que la diferencia de Stage II: <strong>afectación furcacional + defectos angulares combinados</strong>, no un solo marcador aislado.</p>
+      <details>
+        <summary>Manejo y caso típico</summary>
+        <p><strong>Complejidad moderada-alta:</strong> SRP extenso + antimicrobianos, cirugía de acceso/hueso típicamente requerida, regeneración tisular guiada (GTR) para defectos con potencial.</p>
+        <p><em>Caso típico:</em> mujer 52a, diabética (HbA1c 8.2%), ex-fumadora. PPD máxima 8-9mm, furcación Grado 2, RBL 40%.</p>
+      </details>
+    </div>
+
+    <div class="case-card">
+      <h3>Stage IV — Avanzada</h3>
+      <p>Furcación Grado 3 (túnel completo), movilidad Grado 2-3. <strong>Criterio definitorio:</strong> pérdida dentaria atribuible a periodontitis — no es solo "más pérdida ósea que Stage III", es que la enfermedad ya amenazó la integridad de la dentición.</p>
+      <details>
+        <summary>Manejo y caso típico</summary>
+        <p><strong>Complejidad máxima:</strong> rehabilitación multidisciplinaria (periodoncia + prostodoncia + posible ortodoncia). Extracción selectiva + implantes frecuentemente más realista que intentar preservar todo.</p>
+        <p><em>Caso típico:</em> varón 58a, fumador activo, diabetes descontrolada (HbA1c 9.0%). 4 molares ya perdidos, PPD hasta 11mm, RBL 60-70%.</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="decision-tree">
+    <h3>🧭 Árbol de decisión — asignación de Stage</h3>
+    <p><strong>¿CAL &gt;5mm o RBL &gt;50%?</strong></p>
+    <ul>
+      <li>SÍ → ¿Pérdida dentaria atribuible a periodontitis?
+        <ul>
+          <li>SÍ → <span class="outcome">STAGE IV</span></li>
+          <li>NO → <span class="outcome">STAGE III</span></li>
+        </ul>
+      </li>
+      <li>NO → ¿Furcación Grado 2-3 o defectos angulares significativos?
+        <ul>
+          <li>SÍ → <span class="outcome">STAGE III</span></li>
+          <li>NO → ¿CAL 3-4mm o RBL 15-33%?
+            <ul>
+              <li>SÍ → <span class="outcome">STAGE II</span></li>
+              <li>NO → ¿CAL 1-2mm o RBL &lt;15%? → <span class="outcome">STAGE I</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="reference">
-    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Kornman &amp; Papapanou 2020
+    📚 Tonetti et al. 2018 (J Periodontol), Tabla 3 — Staging Framework
   </div>
 </div>`,
   },
   {
     lesson_number: 5,
     order_index: 5,
-    title: 'STAGE I-IV: Severidad + Complejidad',
+    title: 'Grading: velocidad de progresión + riesgo',
     content_html: `<div class="lesson-container">
-  <h2>📐 Stage I-IV: cómo se asigna, paso a paso</h2>
+  <h2>📈 Grade A-C: "hacia dónde vamos y qué tan rápido"</h2>
+  <p>Mientras Stage es "dónde estamos ahora", <strong>Grade</strong> refleja la velocidad de progresión esperada y la respuesta esperada al tratamiento, considerando el riesgo individual.</p>
 
   <table>
-    <tr>
-      <th>STAGE</th>
-      <th>CAL</th>
-      <th>Radiographic BL</th>
-      <th>Tooth Loss</th>
-      <th>Complexity</th>
-      <th>Descripción</th>
-    </tr>
-    <tr>
-      <td><strong>I</strong></td>
-      <td>1-2 mm</td>
-      <td>Coronal third (&lt;15%)</td>
-      <td>No</td>
-      <td>Minimal</td>
-      <td>Initial periodontitis</td>
-    </tr>
-    <tr>
-      <td><strong>II</strong></td>
-      <td>3-4 mm</td>
-      <td>Coronal third (15-33%)</td>
-      <td>No</td>
-      <td>Moderate</td>
-      <td>Moderate periodontitis</td>
-    </tr>
-    <tr>
-      <td><strong>III</strong></td>
-      <td>≥5 mm</td>
-      <td>Mid-third or beyond</td>
-      <td>≤4 dientes</td>
-      <td>Moderate-High</td>
-      <td>Severe, con riesgo de pérdida dentaria adicional</td>
-    </tr>
-    <tr>
-      <td><strong>IV</strong></td>
-      <td>≥5 mm</td>
-      <td>Mid-third or beyond</td>
-      <td>≥5 dientes</td>
-      <td>High</td>
-      <td>Severe, con riesgo de pérdida de la dentición</td>
-    </tr>
+    <tr><th>Criterio</th><th>Grade A</th><th>Grade B</th><th>Grade C</th></tr>
+    <tr><td>Evidencia directa</td><td>Sin pérdida en 5 años</td><td>&lt;2mm en 5 años</td><td>≥2mm en 5 años</td></tr>
+    <tr><td>Incidencia anual</td><td>&lt;3%</td><td>3-20%</td><td>&gt;20%</td></tr>
+    <tr><td>RBL ratio</td><td>&lt;0.25</td><td>0.25-1.0</td><td>&gt;1.0</td></tr>
+    <tr><td>Fenotipo</td><td>Mucho biofilm, poca destrucción</td><td>Proporcional</td><td>Excede lo esperado</td></tr>
+    <tr><td>Tabaco</td><td>No fumador</td><td>&lt;10 cig/día</td><td>≥10 cig/día</td></tr>
+    <tr><td>Diabetes</td><td>Sin diagnóstico</td><td>HbA1c &lt;7%</td><td>HbA1c ≥7%</td></tr>
   </table>
 
-  <h3>Complejidad LOCAL (Fine et al. 2018)</h3>
-  <div class="evidence-cards">
-    <div class="card">
-      <h3>Stage I / II</h3>
-      <p>Profundidad de sondaje máxima ≤4 mm, bone loss horizontal.</p>
+  <div class="calc-box">
+    <p><strong>Cálculo de RBL cuando no hay radiografías antiguas</strong></p>
+    <p class="formula">RBL = (% bone loss en el diente más afectado) ÷ (edad en años)</p>
+    <table>
+      <tr><th>% BL</th><th>Edad 50</th><th>Edad 60</th><th>Edad 70</th><th>Grade</th></tr>
+      <tr><td>30%</td><td>0.60</td><td>0.50</td><td>0.43</td><td>A</td></tr>
+      <tr><td>40%</td><td>0.80</td><td>0.67</td><td>0.57</td><td>A/B</td></tr>
+      <tr><td>50%</td><td>1.00</td><td>0.83</td><td>0.71</td><td>B</td></tr>
+      <tr><td>60%</td><td>1.20</td><td>1.00</td><td>0.86</td><td>C</td></tr>
+    </table>
+  </div>
+
+  <div class="cases">
+    <div class="case-card">
+      <h3>Grade A — ejemplo</h3>
+      <p>Mujer 42a, fumadora social (&lt;5 cig/semana), diabetes bien controlada (HbA1c 6.8%). CAL 4-5mm, RBL 20-25% (Stage II). Radiografías estables en 2 años.</p>
+      <p><strong>Diagnóstico:</strong> Stage II, Grade A. Plan: SRP estándar, seguimiento a 6 meses.</p>
     </div>
-    <div class="card">
-      <h3>Stage III además requiere</h3>
-      <ul>
-        <li>Probing depth ≥6 mm</li>
-        <li>Bone loss vertical ≥3 mm</li>
-        <li>Furcación Clase II o III</li>
-        <li>Defecto de reborde moderado</li>
-      </ul>
+    <div class="case-card">
+      <h3>Grade B — ejemplo</h3>
+      <p>Varón 48a, fumador activo (7-8 cig/día), sin comorbilidades. CAL 4-5mm, RBL 25-30% (Stage II). Progresión de ~2mm RBL en 2 años (~3-4% anual).</p>
+      <p><strong>Diagnóstico:</strong> Stage II, Grade B. Plan: SRP + consejería de cesación; monitoreo cada 4 meses.</p>
     </div>
-    <div class="card">
-      <h3>Stage IV además requiere</h3>
-      <ul>
-        <li>Necesidad de rehabilitación compleja</li>
-        <li>Disfunción masticatoria</li>
-        <li>Trauma oclusal secundario</li>
-        <li>Defectos de reborde severos, colapso de mordida</li>
-        <li>&lt;20 dientes remanentes (10 pares en oclusión)</li>
-      </ul>
+    <div class="case-card">
+      <h3>Grade C — ejemplo</h3>
+      <p>Varón 35a, fumador (20 cig/día), diabetes tipo 2 reciente (HbA1c 9.2%). CAL 6-7mm, RBL 40-50% (Stage III-IV). Progresión &gt;20% anual documentada.</p>
+      <p><strong>Diagnóstico:</strong> Stage III, Grade C. Plan: referencia endocrinología urgente + SRP intensivo + antibiótico sistémico + monitoreo cada 6-8 semanas.</p>
     </div>
   </div>
 
-  <h3>Extensión y distribución</h3>
-  <p>Cada Stage se describe además como <strong>Localized</strong> (&lt;30% de dientes involucrados), <strong>Generalized</strong> (≥30%), o con <strong>patrón molar/incisivo</strong> (específico para Stage I en pacientes jóvenes).</p>
-
-  <div class="decision-tree">
-    <h3>🧭 Algoritmo de asignación de Stage</h3>
-    <p><strong>START:</strong> ¿Tiene periodontitis?</p>
-    <ul>
-      <li>NO → <span class="outcome" style="background:#9ca3af;">No es caso</span></li>
-      <li>SÍ →
-        <ul>
-          <li>¿CAL ≤2mm y bone loss &lt;15%? → <span class="outcome">STAGE I</span></li>
-          <li>¿CAL 3-4mm y bone loss 15-33%? → <span class="outcome">STAGE II</span></li>
-          <li>¿CAL ≥5mm, mid-third bone loss, tooth loss ≤4? → <span class="outcome">STAGE III</span></li>
-          <li>¿CAL ≥5mm, bone loss extenso, tooth loss ≥5? → <span class="outcome">STAGE IV</span></li>
-        </ul>
-      </li>
-    </ul>
+  <h3>📊 Matriz Stage × Grade — interpretación clínica</h3>
+  <div class="interactive-matrix">
+    <table class="matrix">
+      <tr><th></th><th>Grade A</th><th>Grade B</th><th>Grade C</th></tr>
+      <tr><th>Stage I</th><td class="cell-icon">✅ Mejor pronóstico</td><td class="cell-icon">⚠️ Vigilancia</td><td class="cell-icon">🔴 Urgente</td></tr>
+      <tr><th>Stage II</th><td class="cell-icon">✅ Excelente</td><td class="cell-icon">⚠️ Rutina</td><td class="cell-icon">🔴 Intensivo</td></tr>
+      <tr><th>Stage III</th><td class="cell-icon">⚠️ Estable</td><td class="cell-icon">🔴 Complejo</td><td class="cell-icon">🔴 Agresivo</td></tr>
+      <tr><th>Stage IV</th><td class="cell-icon">🔴 Riesgo dentición</td><td class="cell-icon">🔴 Riesgo dentario</td><td class="cell-icon">🔴 Pérdida dentición</td></tr>
+    </table>
   </div>
 
-  <h3>Casos clínicos visuales</h3>
-  <div class="photo-grid">
-    <div class="photo-placeholder"><span class="icon">🦷</span><span class="caption">Stage I: attachment loss mínimo, evidencia radiográfica temprana</span></div>
-    <div class="photo-placeholder"><span class="icon">🦷</span><span class="caption">Stage II: enfermedad establecida, bone loss horizontal</span></div>
-    <div class="photo-placeholder"><span class="icon">🦷</span><span class="caption">Stage III: bolsas profundas, defectos verticales, movilidad temprana</span></div>
-    <div class="photo-placeholder"><span class="icon">🦷</span><span class="caption">Stage IV: avanzado, con pérdida dentaria y riesgo de pérdida de la dentición</span></div>
+  <div class="key-principle">
+    <h3>🎯 La combinación que más engaña</h3>
+    <p><strong>Stage I, Grade C</strong> es una "bomba de tiempo": severidad mínima hoy, pero riesgo altísimo de progresión — requiere intervención tan urgente como un Stage III. Al revés, <strong>Stage III/IV, Grade A</strong> puede tener mejor pronóstico a 10 años que un Stage I Grade C, porque ya demostró ser biológicamente estable.</p>
   </div>
 
   <div class="reference">
-    📚 Tonetti et al. 2018 (J Periodontol), Tabla 3 — Staging Framework; Fine et al. 2018
+    📚 Tonetti et al. 2018 (J Periodontol), Tabla 4 — Grading Framework; Kornman &amp; Papapanou 2020
   </div>
 </div>`,
   },
   {
     lesson_number: 6,
     order_index: 6,
-    title: 'GRADE A-C: Progresión + Riesgo',
+    title: 'Modificadores de riesgo: tabaco, diabetes, sexo, estrés, genética',
     content_html: `<div class="lesson-container">
-  <h2>📈 Grade A-C: qué tan rápido avanza y qué tan riesgoso es</h2>
+  <h2>⚙️ Los modificadores son parte de la clasificación, no notas al pie</h2>
+  <p>Novedad de 2018: los modificadores <strong>se integran directamente</strong> en el diagnóstico y pronóstico, no se tratan como "factores de confusión" secundarios.</p>
 
-  <table>
-    <tr>
-      <th>GRADE</th>
-      <th>Velocidad</th>
-      <th>Primary Criteria</th>
-      <th>% BL/Age</th>
-      <th>Interpretación</th>
-    </tr>
-    <tr>
-      <td><strong>A</strong></td>
-      <td>Slow</td>
-      <td>Sin pérdida evidente en 5 años</td>
-      <td>&lt;0.25</td>
-      <td>Estable, responde bien a cuidado estándar</td>
-    </tr>
-    <tr>
-      <td><strong>B</strong></td>
-      <td>Moderate</td>
-      <td>&lt;2 mm en 5 años</td>
-      <td>0.25-1.0</td>
-      <td>Respuesta esperada con tratamiento estándar</td>
-    </tr>
-    <tr>
-      <td><strong>C</strong></td>
-      <td>Rapid</td>
-      <td>≥2 mm en 5 años</td>
-      <td>&gt;1.0</td>
-      <td>Alto riesgo, requiere intervención intensiva</td>
-    </tr>
-  </table>
-
-  <h3>¿Cómo calcular el Grade sin radiografías antiguas?</h3>
-  <p>Método RBL (Kornman 2020, Fine et al. 2018): <strong>Radiographic Bone Loss / Age ratio</strong>.</p>
-
-  <div class="calc-box">
-    <p class="formula">RBL = (% bone loss en el diente más afectado) ÷ (edad del paciente en años)</p>
-    <p><strong>Ejemplo:</strong> Paciente de 50 años. Radiografía: diente #16 muestra 60% de bone loss de la longitud radicular.</p>
-    <p class="formula">RBL = 60% ÷ 50 = <span class="result">1.2</span></p>
-    <p>RBL 1.2 &gt; 1.0 → <strong>GRADE C</strong> (progresión rápida)</p>
-  </div>
-
-  <h3>Tabla de referencia rápida (Kornman 2020)</h3>
-  <table>
-    <tr>
-      <th>Bone loss %</th>
-      <th>Edad 50</th>
-      <th>Edad 60</th>
-      <th>Edad 70</th>
-      <th>Grade</th>
-    </tr>
-    <tr><td>30%</td><td>0.60</td><td>0.50</td><td>0.43</td><td>A</td></tr>
-    <tr><td>40%</td><td>0.80</td><td>0.67</td><td>0.57</td><td>A/B</td></tr>
-    <tr><td>50%</td><td>1.00</td><td>0.83</td><td>0.71</td><td>B</td></tr>
-    <tr><td>60%</td><td>1.20</td><td>1.00</td><td>0.86</td><td>C</td></tr>
-  </table>
-
-  <h3>Grade Modifiers — cambian el grado automáticamente</h3>
   <div class="modifier-grid">
     <div class="modifier-box">
-      <h4>🚬 Smoking</h4>
+      <h4>🚬 Tabaquismo</h4>
       <ul>
-        <li>No fumador → sin modificador</li>
-        <li>Fumador &lt;10 cig/día → sin modificador</li>
-        <li>Fumador ≥10 cig/día → sube de grado (A→B, B→C)</li>
+        <li>No fumador → sin modificador (Grade A usual)</li>
+        <li>1-9 cig/día → riesgo 2-4x</li>
+        <li>10-19 cig/día → riesgo 4-5x, Grade B/C</li>
+        <li>≥20 cig/día → riesgo 6-7x, Grade C</li>
       </ul>
-      <p style="font-size:0.85rem;color:var(--text-light);">Mecanismo: la nicotina suprime la respuesta inmune y retrasa la cicatrización.</p>
+      <p style="font-size:0.85rem;color:var(--text-light);">Mecanismo: ↓fagocitosis PMN (50%), vasoconstricción por nicotina, ↓síntesis de colágeno, alteración de microbiota (↑Pg/Tf). La cesación revierte parcialmente el riesgo en 1-2 años.</p>
     </div>
     <div class="modifier-box">
       <h4>🩺 Diabetes</h4>
       <ul>
-        <li>Normoglucémico / sin diagnóstico → sin modificador</li>
-        <li>HbA1c &lt;7.0% en pacientes diagnosticados → sin modificador, se mantiene</li>
-        <li>HbA1c 7.0-8.0% → posible ascenso a B/C</li>
-        <li>HbA1c &gt;8.0% → asciende a Grade C</li>
+        <li>HbA1c &lt;6.5% → tratamiento estándar</li>
+        <li>HbA1c 7-8% → considerar antibiótico adyuvante</li>
+        <li>HbA1c &gt;8.5% → referencia endocrinológica antes/durante terapia</li>
       </ul>
-      <p style="font-size:0.85rem;color:var(--text-light);">Mecanismo: la hiperglucemia amplifica la respuesta inflamatoria.</p>
+      <p style="font-size:0.85rem;color:var(--text-light);">Mecanismo bidireccional: hiperglucemia → AGE (productos de glicación avanzada) → ↑TNF-α/IL-1β/IL-6; y a la inversa, la periodontitis empeora el control glucémico (↑HbA1c 0.5-1%).</p>
+    </div>
+    <div class="modifier-box">
+      <h4>♀️♂️ Sexo biológico</h4>
+      <ul>
+        <li>Mujeres: mayor severidad per-sitio en edad pareada</li>
+        <li>Embarazo: exacerba enfermedad preexistente (no la causa de novo)</li>
+        <li>Menopausia: ↓estrógeno → mayor riesgo de pérdida ósea generalizada</li>
+      </ul>
+      <p style="font-size:0.85rem;color:var(--text-light);">El estrógeno modula Th1/Th17 al alza y Th2/Treg a la baja, además de aumentar la permeabilidad vascular gingival.</p>
+    </div>
+    <div class="modifier-box">
+      <h4>🧠 Estrés psicosocial</h4>
+      <ul>
+        <li>Depresión: 1.5-2x riesgo de periodontitis</li>
+        <li>Estrés crónico desregula el eje HPA → inmunocompromiso paradójico</li>
+        <li>Impacto conductual: ↓cumplimiento de higiene, ↑bruxismo, ↑tabaquismo</li>
+      </ul>
+      <p style="font-size:0.85rem;color:var(--text-light);">Presencia de depresión/estrés severo puede justificar subir un escalón de Grade (misma destrucción, peor respuesta esperada).</p>
+    </div>
+    <div class="modifier-box">
+      <h4>🧬 Genética</h4>
+      <ul>
+        <li>IL-1α +4845G (genotipo GG): 3-4x riesgo de periodontitis severa</li>
+        <li>TNF-α -308G/A: asociación moderada</li>
+        <li>FcγRIIa R131: menor afinidad de opsonización, mayor riesgo</li>
+      </ul>
+      <p style="font-size:0.85rem;color:var(--text-light);">No es determinante único (~30% con genotipo "de riesgo" no desarrolla enfermedad severa) — predispone, no determina. Genotipado no es práctica estándar hoy.</p>
     </div>
   </div>
 
-  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Otros factores considerados</strong> (no son modificadores automáticos, pero influyen): edad, factores genéticos (polimorfismos IL-1, IL-6), estrés, y cumplimiento de higiene oral.</p>
+  <div class="key-principle">
+    <h3>🎯 Sinergia, no suma</h3>
+    <p>Fumador + diabético no es "riesgo x4 + riesgo x3 = x7" — es <strong>sinérgico</strong>, hasta 10-15x, porque ambos factores suprimen la función de PMN por vías distintas y complementarias.</p>
+  </div>
 
   <div class="reference">
-    📚 Tonetti et al. 2018 (J Periodontol), Tabla 4 — Grading Framework; Kornman &amp; Papapanou 2020; Fine et al. 2018
+    📚 Basado en: Kornman et al. 2003; Tonetti et al. 2018; revisiones sobre tabaco/diabetes/estrés y periodontitis (2005-2020)
   </div>
 </div>`,
   },
   {
     lesson_number: 7,
     order_index: 7,
-    title: 'GRAY ZONES: Cómo Kornman resuelve casos ambiguos',
+    title: 'Aplicación clínica: evaluación y algoritmo terapéutico',
     content_html: `<div class="lesson-container">
-  <h2>🌫️ Cuando la clasificación mecánica no alcanza</h2>
+  <h2>🩺 Del examen clínico al plan de tratamiento</h2>
+
+  <h3>Protocolo de evaluación</h3>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>1. Sondaje periodontal</h3>
+      <p>≥6 sitios por diente. Registrar PPD más profundo y BOP (sí/no). Distinguir pseudobolsa (PPD &gt; CAL, por edema) de bolsa verdadera (PPD = CAL).</p>
+    </div>
+    <div class="card">
+      <h3>2. Medición de CAL</h3>
+      <p>Referencia: unión cementoesmalte (CEJ). CAL = PD + recesión gingival (si existe). Solo el CAL cuenta para la definición de caso y el Staging — el PPD por sí solo es descriptor, no criterio.</p>
+    </div>
+    <div class="card">
+      <h3>3. Furcación y movilidad</h3>
+      <p>Furcación: Grado 1 (entrada), 2 (comunica pero no túnel), 3 (túnel completo). Movilidad: Grado 0 (normal) a 3 (&gt;2mm o movimiento vertical).</p>
+    </div>
+    <div class="card">
+      <h3>4. Radiografía</h3>
+      <p>Serie completa o panorámica + periapicales estratégicas. RBL = altura ósea perdida / altura radicular total × 100%. Comparar con radiografías previas si existen — es la evidencia más fuerte para el Grade.</p>
+    </div>
+  </div>
+
+  <h3>Tabla de manejo por combinación Stage/Grade</h3>
+  <table>
+    <tr><th>Stage/Grade</th><th>Tratamiento inicial</th><th>Mantenimiento</th><th>Pronóstico</th></tr>
+    <tr><td>I/A</td><td>SRP + higiene</td><td>Anual</td><td>Excelente</td></tr>
+    <tr><td>I/C</td><td>SRP + antibiótico adyuvante</td><td>Mensual (3 meses)</td><td>Reservado (alto riesgo pese a poca destrucción)</td></tr>
+    <tr><td>II/A</td><td>SRP</td><td>6 meses</td><td>Excelente</td></tr>
+    <tr><td>II/C</td><td>SRP + antibiótico + referencia médica</td><td>Mensual</td><td>Reservado</td></tr>
+    <tr><td>III/A</td><td>SRP + regeneración si aplica</td><td>4 meses</td><td>Bueno</td></tr>
+    <tr><td>III/C</td><td>SRP + regeneración/cirugía + manejo médico</td><td>2 meses</td><td>Pobre</td></tr>
+    <tr><td>IV/A</td><td>SRP + referencia prostodoncia</td><td>Variable</td><td>Reservado</td></tr>
+    <tr><td>IV/C</td><td>Planificación de extracción + rehabilitación</td><td>Intensivo</td><td>Pobre</td></tr>
+  </table>
+
+  <div class="decision-tree">
+    <h3>🧭 Algoritmo de Grading cuando NO hay radiografías previas</h3>
+    <ul>
+      <li>¿Hay radiografías seriadas?
+        <ul>
+          <li>SÍ → calcular cambio directo en 5 años → <span class="outcome">Grade directo</span></li>
+          <li>NO → usar evidencia indirecta:
+            <ul>
+              <li>Calcular RBL = %bone loss ÷ edad</li>
+              <li>Revisar microbiología si disponible (Pg/Tf/Td → sospecha B/C)</li>
+              <li>Revisar "mismatch" edad-severidad (joven con Stage III → sospecha Grade C)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Aplicar modificadores automáticos (tabaco ≥10 cig/día, HbA1c ≥7%) → <span class="outcome">sube el Grade</span></li>
+    </ul>
+  </div>
 
   <div class="definition-box">
-    <p><strong>Gray Zone (Kornman &amp; Papapanou 2020):</strong> "Situación donde aplicar los criterios de clasificación de forma mecánica NO produce una respuesta clara. Requiere el juicio de un clínico informado y experimentado para llegar al Stage y Grade correctos."</p>
-  </div>
-
-  <h3>Las 5 reglas fundamentales de Kornman</h3>
-  <div class="cases">
-    <div class="case-card">
-      <h3>1. Stage es PATIENT-BASED, no tooth-based</h3>
-      <p>No puedes decir "Stage III en el diente #16 y Stage I en el #24". Se asigna el Stage <strong>máximo</strong> del paciente, y se describe dónde está localizado en la narrativa del caso.</p>
-      <p style="font-size:0.9rem;color:var(--text-light);">Ejemplo: paciente con bone loss moderado generalizado (Stage II) pero un diente con defecto vertical severo → se asigna Stage II y se describe "generalized Stage II con defectos verticales localizados en #14-15".</p>
-    </div>
-    <div class="case-card">
-      <h3>2. Stage puede subir, pero NO baja tras la terapia</h3>
-      <p>El daño ya ocurrido permanece, aunque la enfermedad esté controlada. Excepción: la regeneración exitosa puede mejorar el CAL/RBL de ese diente específico, pero el Stage registrado del paciente se mantiene, describiéndose como "Stage III con attachment mejorado" en el seguimiento.</p>
-    </div>
-    <div class="case-card">
-      <h3>3. Los factores de complejidad se evalúan COLECTIVAMENTE</h3>
-      <p>No: "tiene furcación Clase II → automáticamente Stage III". Sí: "¿hay furcación + defectos verticales + movilidad juntos? → entonces Stage III". Una furcación aislada, sin otros marcadores, no sube el Stage por sí sola.</p>
-    </div>
-    <div class="case-card">
-      <h3>4. Los modificadores de Grado se aplican con prudencia</h3>
-      <p>No: "fuma 15 cig/día → Grade C sin importar la evidencia". Sí: "fuma ≥10 cig/día + evidencia de progresión rápida → Grade C". El modificador se aplica, pero se interpreta junto con la evidencia clínica disponible.</p>
-    </div>
-    <div class="case-card">
-      <h3>5. Las gray zones requieren documentar el razonamiento clínico</h3>
-      <p>En la narrativa del caso, explica por qué asignaste ese Stage/Grade citando hallazgos específicos, no generalizaciones.</p>
-    </div>
-  </div>
-
-  <h3>7 casos clínicos reales para practicar</h3>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso 1 — Radiográficamente íntegro, pero CAL localizado</h3>
-      <details>
-        <summary>Ver caso y resolución</summary>
-        <p><strong>Paciente:</strong> M, 65 años. Radiografía periapical intacta en la mayoría de sitios. CAL de 2mm en sitios interproximales #25-26.</p>
-        <p><strong>Pregunta:</strong> ¿Stage I o "no periodontitis"?</p>
-        <p>✅ Stage I (cumple CAL ≥2mm en 2 dientes no adyacentes) · ✅ Grade A (radiografía intacta = sin progresión visible)</p>
-        <p><em>Describe:</em> "Localized Stage I periodontitis, sin evidencia radiográfica de bone loss."</p>
-        <p><strong>Lección:</strong> la presencia de CAL pesa más que la ausencia de bone loss radiográfico.</p>
-      </details>
-    </div>
-
-    <div class="case-card">
-      <h3>Caso 2 — Severidad con estabilidad</h3>
-      <details>
-        <summary>Ver caso y resolución</summary>
-        <p><strong>Paciente:</strong> F, 50 años. RBL en #16: 50% de la longitud radicular. Radiografías sin cambio en 8 años.</p>
-        <p><strong>Pregunta:</strong> ¿Grade C por el 50% de bone loss, o Grade A por la estabilidad?</p>
-        <p>✅ Grade A (criterio primario: "sin pérdida evidente en 5 años"). RBL = 50/50 = 1.0 sugeriría B/C, pero la evidencia directa (8 años estable) pesa más que el cálculo indirecto.</p>
-        <p><em>Describe:</em> "Stage III, Grade A — progresión lenta y estable pese a la pérdida significativa."</p>
-        <p><strong>Lección:</strong> evidencia directa (radiografías seriadas) &gt; cálculo indirecto (RBL).</p>
-      </details>
-    </div>
-
-    <div class="case-card">
-      <h3>Caso 3 — Diabetes no controlada, enfermedad incipiente</h3>
-      <details>
-        <summary>Ver caso y resolución</summary>
-        <p><strong>Paciente:</strong> M, 45 años, diabetes tipo 2 (HbA1c 8.8%). Enfermedad Stage I (CAL 1-2mm). Sin radiografías antiguas para calcular RBL.</p>
-        <p><strong>Pregunta:</strong> ¿Grade C por la diabetes, aunque sea Stage I?</p>
-        <p>✅ Stage I (criterio clínico objetivo) · ✅ Grade C (modificador automático por HbA1c &gt;7.0%)</p>
-        <p><em>Describe:</em> "Stage I, Grade C — pese a la severidad mínima, ALTO RIESGO de progresión rápida por diabetes no controlada." Plan: referencia a endocrinología + control de placa agresivo + monitoreo frecuente.</p>
-        <p><strong>Lección:</strong> un paciente Stage I Grade C necesita intervención inmediata.</p>
-      </details>
-    </div>
-
-    <div class="case-card">
-      <h3>Caso 4 — Furcación sin movilidad severa</h3>
-      <details>
-        <summary>Ver caso y resolución</summary>
-        <p><strong>Paciente:</strong> F, 55 años. Furcación Clase II (entrada) en #14. Movilidad Grado 1 (leve, no Grado 2). Bone loss coronal, 20%.</p>
-        <p><strong>Pregunta:</strong> ¿Stage III o IV por la furcación?</p>
-        <p>✅ Stage II (radiográficamente ≤33%, sin defectos verticales). La furcación Clase II, sin otros marcadores, no sube el Stage automáticamente.</p>
-        <p><em>Describe:</em> "Localized Stage II con compromiso de furcación Clase II."</p>
-        <p><strong>Lección:</strong> la furcación no es determinante por sí sola — evalúa la complejidad total.</p>
-      </details>
-    </div>
-
-    <div class="case-card">
-      <h3>Caso 5 — Periodontitis "franca" en un solo diente</h3>
-      <details>
-        <summary>Ver caso y resolución</summary>
-        <p><strong>Paciente:</strong> M, 35 años. Dolor periapical en #26. CAL 6mm, probing depth 7mm SOLO en este diente. Resto de la boca perfectamente sano. Bone loss circunscrito (~40% de la raíz).</p>
-        <p><strong>Pregunta:</strong> ¿Stage I (por ser 1 diente) o Stage III (por la severidad)?</p>
-        <p>✅ Stage I (patient-based: solo 1 diente con attachment loss) · ✅ Grade C (evidencia clara de progresión rápida en ese sitio)</p>
-        <p><em>Describe:</em> "LOCALIZED Stage I periodontitis afectando un único diente."</p>
-        <p><strong>Lección:</strong> el Stage se basa en la distribución, no en la severidad de un sitio individual. Plan: endodoncia + posible exodoncia, o regeneración si es viable.</p>
-      </details>
-    </div>
-
-    <div class="case-card">
-      <h3>Caso 6 — Edad avanzada con radiografía antigua</h3>
-      <details>
-        <summary>Ver caso y resolución</summary>
-        <p><strong>Paciente:</strong> M, 72 años. Radiografía 2008: 40% bone loss en #16. Radiografía 2024: 50%. RBL histórico: (50-40)/16 años = 0.625. RBL actual: 50/72 = 0.69.</p>
-        <p><strong>Pregunta:</strong> ¿Grade A o B?</p>
-        <p>✅ Grade A (evidencia directa: &lt;1mm de progresión en 16 años = lento). El RBL puntual no es determinante cuando hay evidencia longitudinal directa.</p>
-        <p><em>Describe:</em> "Stage III, Grade A — progresión lenta y estable durante 16 años."</p>
-        <p><strong>Lección:</strong> pacientes mayores con bone loss crónico no son automáticamente Grade C si están estables.</p>
-      </details>
-    </div>
-
-    <div class="case-card">
-      <h3>Caso 7 — Furcación Clase III con movilidad</h3>
-      <details>
-        <summary>Ver caso y resolución</summary>
-        <p><strong>Paciente:</strong> F, 58 años. Furcación Clase III (pasante) en #14. Movilidad Grado 2 (por trauma oclusal). 3 dientes perdidos previamente. Defectos de reborde moderados.</p>
-        <p><strong>Pregunta:</strong> ¿Stage III o IV?</p>
-        <p>✅ Stage IV (furcación Clase III + movilidad Grado 2 + historial de pérdida dentaria = riesgo inminente de pérdida de dientes remanentes).</p>
-        <p><em>Describe:</em> "Generalized Stage IV con furcaciones Clase III y trauma oclusal secundario." Plan: equipo multidisciplinario (prostodoncia + periodoncia).</p>
-        <p><strong>Lección:</strong> la complejidad total — no solo la furcación — determina el Stage.</p>
-      </details>
-    </div>
-  </div>
-
-  <div class="key-principle">
-    <h3>🎯 Principio fundamental de Kornman</h3>
-    <blockquote>"Stage es patient-based, not tooth-based. Un solo Stage se asigna al paciente TOTAL. La complejidad se DESCRIBE de forma localizada o generalizada."</blockquote>
+    <p><strong>Formato de documentación recomendado:</strong> Stage + justificación (CAL/RBL/patrón óseo) → Grade + justificación (tasa de progresión o proxies) → modificadores identificados → resumen clínico en 1-2 frases → plan de tratamiento.</p>
   </div>
 
   <div class="reference">
-    📚 Basado en: Kornman &amp; Papapanou 2020 (J Periodontol) — Clinical application, Ground Rules, Clarifications and "Gray Zones"
+    📚 Basado en: Tonetti et al. 2018; Kornman &amp; Papapanou 2020; guías de manejo clínico AAP/EFP
   </div>
 </div>`,
   },
   {
     lesson_number: 8,
     order_index: 8,
-    title: 'Impacto clínico REAL: Cómo cambia TODO',
+    title: 'Casos clínicos integrados y preguntas frecuentes',
     content_html: `<div class="lesson-container">
-  <h2>🩺 De la teoría a la silla: cómo cambia el diagnóstico, el plan y el mensaje al paciente</h2>
+  <h2>📋 Dos casos completos, de la anamnesis al plan</h2>
 
-  <h3>Comparación 1999 vs. 2018 en diagnóstico</h3>
   <div class="cases">
     <div class="case-card">
-      <h3>Paciente A — M, 48 años</h3>
-      <p>CAL generalizado moderado (3-4mm), bone loss coronal, sin pérdida dentaria, fumador (12 cig/día).</p>
-      <p><strong>Diagnóstico 1999:</strong> "Chronic periodontitis" → Tratamiento: SRP estándar + mantenimiento.</p>
-      <p><strong>Diagnóstico 2018:</strong> "Stage II, Grade C (modificador por tabaco)" → Tratamiento: cese de tabaco inmediato + control de placa agresivo + SRP con antibiótico adyuvante (minociclina) + revisión mensual los primeros 3 meses + considerar referencia si hay múltiples factores de riesgo.</p>
-      <p style="font-weight:700;color:var(--unicoc-red);">Diferencia: de "crónico = estable" a "Grade C = alto riesgo = intervención urgente".</p>
+      <h3>Caso 1 — Lucia G., 47 años: presentación típica Grade B</h3>
+      <details>
+        <summary>Ver historia, examen y diagnóstico completo</summary>
+        <p><strong>Motivo de consulta:</strong> "Sangramiento cuando cepillo y movilidad en inferior".</p>
+        <p><strong>Antecedentes:</strong> diabetes tipo 2 hace 5 años, HbA1c 7.2% (control moderado-bueno); no fuma; estrés laboral moderado; flossing inconsistente.</p>
+        <p><strong>Examen:</strong> CAL máxima 5mm (diente 26); PPD máxima 6mm; movilidad Grado 1 (diente 46); furcación Grado 1 en 17 y 36. RBL 30-35%, patrón horizontal. Progresión estimada: ~2mm RBL en 3 años (~6% anual). Microbiología: Pg+ (25%), Tf+ (15%).</p>
+        <p><strong>Diagnóstico:</strong> Stage II (CAL 5mm, RBL 30-35%, sin defectos angulares significativos), Grade B (progresión ~6% anual, diabetes moderadamente controlada, sexo femenino).</p>
+        <p><strong>Plan:</strong> SRP en 3 sesiones + educación de higiene + clorhexidina 2 semanas + referencia para optimizar HbA1c &lt;7%. Reevaluación a 6-8 semanas; cirugía de acceso si PPD residual persiste en posteriores. Mantenimiento cada 4 meses el primer año, luego cada 6 meses.</p>
+        <p><strong>Pronóstico:</strong> excelente (85-90%) si mejora el control glucémico y el flossing.</p>
+      </details>
     </div>
 
     <div class="case-card">
-      <h3>Paciente B — F, 42 años</h3>
-      <p>CAL severo (≥5mm), bone loss mid-third, 2 dientes perdidos, defectos verticales, furcación Clase II — pero radiografías antiguas muestran estabilidad durante 10 años.</p>
-      <p><strong>Diagnóstico 1999:</strong> "Aggressive periodontitis" (por severidad) → Tratamiento muy agresivo, intento de "rescate", referencia hospitalaria.</p>
-      <p><strong>Diagnóstico 2018:</strong> "Stage III, Grade A" → Tratamiento: SRP estándar (sin antibiótico agresivo) + mantenimiento cada 3-4 meses + regeneración si los defectos son viables. Pronóstico: excelente (progresor lento).</p>
-      <p style="font-weight:700;color:var(--unicoc-red);">Diferencia: de "agresivo = mal pronóstico" a "Grade A = buen pronóstico a pesar de la severidad".</p>
+      <h3>Caso 2 — Carlos M., 52 años: presentación agresiva Stage IV, Grade C</h3>
+      <details>
+        <summary>Ver historia, examen y diagnóstico completo</summary>
+        <p><strong>Motivo de consulta:</strong> "Dientes sueltos; puede ser implantes?"</p>
+        <p><strong>Antecedentes:</strong> diabetes tipo 2 hace 8 años, HbA1c 9.2% (control muy deficiente); fumador activo 20-25 cig/día × 30 años; estrés severo (desempleo reciente, depresión sin tratar); última visita dental hace 7 años.</p>
+        <p><strong>Examen:</strong> ya perdió 7 dientes por periodontitis. CAL máxima 9mm (diente 36); PPD máxima 11mm; movilidad Grado 3 en varios dientes; furcación Grado 3 en 26 y 36. RBL 60-80%, patrón circunferencial en molares, con supuración.</p>
+        <p><strong>Diagnóstico:</strong> Stage IV (pérdida dentaria múltiple atribuible a periodontitis, furcación Grado 3, movilidad Grado 3), Grade C (tabaquismo severo + diabetes descontrolada = sinergia máxima de riesgo).</p>
+        <p><strong>Plan:</strong> referencia urgente a endocrinología y a salud mental (depresión sin tratar impide cualquier cumplimiento). Discusión honesta sobre extracción selectiva de dientes con pronóstico imposible (16, 26, 36) vs. intento de preservación limitada. Rehabilitación con implantes tras 6-12 meses de cicatrización. Mantenimiento cada 6-8 semanas indefinidamente.</p>
+        <p><strong>Pronóstico:</strong> muy pobre para preservar la dentición completa; moderado para estabilización si cesa el tabaco, controla la diabetes y trata la depresión — sin esos cambios, perderá los dientes restantes en 2-5 años.</p>
+      </details>
     </div>
   </div>
 
-  <h3>Impacto en la complejidad del tratamiento</h3>
-  <table>
-    <tr>
-      <th>Complejidad</th>
-      <th>Quién trata</th>
-      <th>Seguimiento</th>
-    </tr>
-    <tr>
-      <td>Mínima (Stage I)</td>
-      <td>Odontólogo general</td>
-      <td>Anual</td>
-    </tr>
-    <tr>
-      <td>Moderada (Stage II simple)</td>
-      <td>General / higienista supervisado</td>
-      <td>Cada 6 meses</td>
-    </tr>
-    <tr>
-      <td>Moderada-alta (Stage III con defectos óseos)</td>
-      <td>Periodoncista</td>
-      <td>Cada 3 meses</td>
-    </tr>
-    <tr>
-      <td>Alta (Stage IV)</td>
-      <td>Periodoncista + prostodoncista + ortodoncista</td>
-      <td>Seguimiento indefinido</td>
-    </tr>
-  </table>
-
-  <h3>Impacto en el pronóstico y la comunicación con el paciente</h3>
+  <h3>Preguntas clínicas frecuentes</h3>
   <div class="evidence-cards">
     <div class="card">
-      <h3>1999: mensaje vago</h3>
-      <p>"Tiene periodontitis crónica." Plan: "Limpiezas regulares."</p>
+      <h3>¿Este paciente es "agresivo" o "crónico"?</h3>
+      <p>2018 eliminó esos términos. El concepto de "agresiva" hoy es <strong>Grade C</strong> (rápida progresión, en cualquier Stage), y "crónica" es <strong>Grade A/B</strong>. Un joven puede tener Stage IV Grade C; un adulto mayor puede tener Stage III Grade A.</p>
     </div>
     <div class="card">
-      <h3>2018: mensaje específico y accionable</h3>
-      <ul>
-        <li>"Stage II pero Grade A" → "Progresa lento. Con mantenimiento, retiene sus dientes."</li>
-        <li>"Stage I pero Grade C (por fumar)" → "Es leve AHORA, pero progresa rápido. Dejar de fumar es la prioridad #1."</li>
-        <li>"Stage III pero Grade A" → "Hay pérdida significativa, pero está estable. Con cuidado, retiene sus dientes."</li>
-      </ul>
+      <h3>¿Sin radiografías previas, cómo asigno Grade?</h3>
+      <p>Se usa evidencia indirecta: microbiología, "mismatch" edad-severidad, y modificadores presentes. Si hay incertidumbre real, se asigna Grade B provisional y se reevalúa en 6-12 meses con sondajes comparativos.</p>
     </div>
-  </div>
-
-  <div class="key-principle">
-    <h3>🌐 Impacto sistémico</h3>
-    <p>Periodontitis Stage III/IV + Grade C se asocia a mayor riesgo cardiovascular y mayor progresión si coexiste diabetes — lo que justifica una referencia activa a endocrinología o cardiología, no solo un registro pasivo en la historia clínica.</p>
+    <div class="card">
+      <h3>¿El genotipo IL-1 cambia el tratamiento?</h3>
+      <p>Hoy no es estándar de práctica. Es útil para consejería ("tu genética te hace vulnerable, la adherencia es crítica"), pero no determina el plan terapéutico por sí solo.</p>
+    </div>
+    <div class="card">
+      <h3>¿Cuál es el intervalo correcto de reevaluación post-SRP?</h3>
+      <p>Grade A: 6-8 semanas. Grade B: 4-6 semanas. Grade C: 2-4 semanas — la vigilancia debe ser más cercana cuanto más rápida es la progresión esperada.</p>
+    </div>
   </div>
 
   <div class="reference">
-    📚 Síntesis del capítulo — Tonetti et al. 2018; Kornman &amp; Papapanou 2020; Sanz et al. 2018
+    📚 Basado en: Tonetti et al. 2018; Kornman &amp; Papapanou 2020; Chapple et al. 2018; Caton et al. 2018
   </div>
 </div>`,
   },
@@ -706,11 +647,11 @@ export const pretestQuestions = [
     question_type: 'true_false',
     options: null,
     correct_answer: 'false',
-    explanation: '2018 separa dos dimensiones independientes (severidad actual y velocidad de progresión) que 1999 nunca distinguía.',
+    explanation: '2018 separa dos dimensiones independientes (severidad actual y velocidad de progresión) que 1999 nunca distinguía, y suma modificadores de riesgo integrados al diagnóstico.',
     order_index: 1,
   },
   {
-    question_text: '¿Qué crees que describe mejor el problema central del sistema de 1999?',
+    question_text: '¿Qué describe mejor el problema central del sistema de 1999?',
     question_type: 'multiple_choice',
     options: [
       { key: 'a', text: 'Tenía demasiadas categorías' },
@@ -718,7 +659,7 @@ export const pretestQuestions = [
       { key: 'c', text: 'No consideraba la edad del paciente' },
     ],
     correct_answer: 'b',
-    explanation: 'Ese es exactamente el hallazgo de Kornman 2020: hasta 25% de los pacientes progresa distinto a lo que su severidad actual sugiere.',
+    explanation: 'Reynolds 2000 mostró que el 20-25% de los pacientes "chronic" progresaba distinto a lo esperado — la categoría era internamente heterogénea.',
     order_index: 2,
   },
   {
@@ -738,7 +679,7 @@ export const pretestQuestions = [
     question_type: 'true_false',
     options: null,
     correct_answer: 'false',
-    explanation: 'La definición 2018 se basa en CAL detectable, no en bone loss radiográfico — un paciente puede ser Stage I con radiografía intacta.',
+    explanation: 'La definición 2018 se basa en CAL detectable (interdental, vestibular u oral) — un paciente puede ser Stage I con radiografía prácticamente intacta.',
     order_index: 4,
   },
 ];
@@ -749,13 +690,26 @@ export const posttestQuestions = [
     question_type: 'multiple_choice',
     options: [
       { key: 'a', text: 'Cuando hay cualquier sangrado al sondaje' },
-      { key: 'b', text: 'CAL interdental detectable en ≥2 dientes no adyacentes, o CAL bucal/oral ≥3mm con bolsa >3mm en ≥2 dientes, sin causa no periodontal' },
+      { key: 'b', text: 'CAL interdental en ≥2 dientes no adyacentes, o CAL vestibular/oral ≥3mm con PPD >3mm en ≥2 dientes, o RBL ≥3mm, sin causa no periodontal' },
       { key: 'c', text: 'Cuando la radiografía muestra bone loss visible' },
       { key: 'd', text: 'Cuando hay movilidad dentaria de cualquier grado' },
     ],
     correct_answer: 'b',
-    explanation: 'Esa es la definición clínica exacta del World Workshop 2018, y excluye explícitamente causas no periodontales del CAL.',
+    explanation: 'Esa es la definición clínica exacta del World Workshop 2018, con sus tres criterios (A, B, C) y la exclusión explícita de causas no periodontales.',
     order_index: 1,
+  },
+  {
+    question_text: '¿Qué rol cumple el eje RANK/RANKL en la periodontitis?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Produce el biofilm subgingival' },
+      { key: 'b', text: 'Es el nexo entre la inflamación inmune y la resorción ósea: TNF-α/IL-1β/IL-17 aumentan RANKL, que activa osteoclastos' },
+      { key: 'c', text: 'Regenera el ligamento periodontal' },
+      { key: 'd', text: 'Mide la profundidad de sondaje' },
+    ],
+    correct_answer: 'b',
+    explanation: 'RANKL (aumentado por citocinas proinflamatorias) se une a RANK en precursores osteoclásticos y dispara la diferenciación a osteoclastos maduros — la razón RANKL/OPG sube de ~0.1:1 en salud a ~10:1 en periodontitis.',
+    order_index: 2,
   },
   {
     question_text: '¿Cuál es la fórmula del RBL (radiographic bone loss/age ratio)?',
@@ -768,7 +722,7 @@ export const posttestQuestions = [
     ],
     correct_answer: 'a',
     explanation: 'RBL = % bone loss / edad. Un RBL >1.0 sugiere Grade C cuando no hay radiografías antiguas para comparar directamente.',
-    order_index: 2,
+    order_index: 3,
   },
   {
     question_text: '¿A partir de cuántos cigarrillos por día se aplica el modificador de Grade por tabaco?',
@@ -780,8 +734,8 @@ export const posttestQuestions = [
       { key: 'd', text: 'Cualquier consumo, sin umbral' },
     ],
     correct_answer: 'b',
-    explanation: 'El umbral es ≥10 cigarrillos/día. Por debajo de eso no se aplica el modificador automático.',
-    order_index: 3,
+    explanation: 'El umbral es ≥10 cigarrillos/día. Por debajo de eso no se aplica el modificador automático (aunque sigue habiendo cierto riesgo elevado).',
+    order_index: 4,
   },
   {
     question_text: 'Un paciente diagnosticado con diabetes y HbA1c de 8.5% recibe automáticamente el modificador de Grade C, sin importar la evidencia clínica de progresión.',
@@ -789,40 +743,27 @@ export const posttestQuestions = [
     options: null,
     correct_answer: 'false',
     explanation: 'Kornman 2020 es explícito: el modificador se aplica, pero se interpreta junto con la evidencia clínica disponible, no en aislamiento mecánico.',
-    order_index: 4,
+    order_index: 5,
   },
   {
-    question_text: 'Según las Ground Rules de Kornman, ¿cómo se deben evaluar los factores de complejidad (furcación, defectos verticales, movilidad)?',
+    question_text: '¿Por qué fumar y tener diabetes descontrolada juntos NO es simplemente "sumar" los riesgos individuales?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'Cada factor por separado sube el Stage automáticamente' },
-      { key: 'b', text: 'Colectivamente — un solo factor aislado no determina el Stage por sí solo' },
-      { key: 'c', text: 'Solo cuentan si el paciente es mayor de 60 años' },
-      { key: 'd', text: 'Solo se consideran en Stage IV' },
+      { key: 'a', text: 'Porque solo cuenta el factor de mayor riesgo' },
+      { key: 'b', text: 'Porque ambos suprimen la función de los neutrófilos por vías distintas y complementarias, generando un efecto sinérgico (hasta 10-15x)' },
+      { key: 'c', text: 'Porque el tabaco anula el efecto de la diabetes' },
+      { key: 'd', text: 'Porque los modificadores nunca se combinan' },
     ],
     correct_answer: 'b',
-    explanation: 'Ground rule 3: los factores de complejidad se evalúan en conjunto, no en aislamiento.',
-    order_index: 5,
+    explanation: 'Kornman 2003 documentó que fumador+diabético no da un riesgo aditivo (4x+3x) sino sinérgico, hasta 10-15x, por mecanismos complementarios de supresión inmune.',
+    order_index: 6,
   },
   {
     question_text: 'El Stage de un paciente puede bajar espontáneamente después de una terapia periodontal exitosa.',
     question_type: 'true_false',
     options: null,
     correct_answer: 'false',
-    explanation: 'El daño histórico permanece en el registro; el Stage no baja tras la terapia (salvo la descripción puntual de mejora en un diente regenerado).',
-    order_index: 6,
-  },
-  {
-    question_text: 'Un paciente de 35 años tiene periodontitis severa (CAL 6mm) pero limitada a un solo diente, con el resto de la boca sana. ¿Cómo se clasifica el Stage?',
-    question_type: 'multiple_choice',
-    options: [
-      { key: 'a', text: 'Stage III, porque la severidad local es alta' },
-      { key: 'b', text: 'Stage I, localizado a ese diente, porque Stage es patient-based' },
-      { key: 'c', text: 'Stage IV, por el riesgo de pérdida dentaria' },
-      { key: 'd', text: 'No se puede clasificar con un solo diente afectado' },
-    ],
-    correct_answer: 'b',
-    explanation: 'El caso 5 de Kornman es exactamente este: Stage se basa en distribución (cuántos dientes), no en la severidad de un sitio aislado.',
+    explanation: 'El daño histórico permanece en el registro; el Stage no baja tras la terapia (salvo la descripción puntual de mejora en un diente regenerado específico).',
     order_index: 7,
   },
   {
@@ -835,7 +776,7 @@ export const posttestQuestions = [
       { key: 'd', text: 'El Grade C solo aplica si también sube el Stage' },
     ],
     correct_answer: 'b',
-    explanation: 'Stage I + Grade C es precisamente el caso que ilustra por qué separar severidad de riesgo cambia la práctica clínica: enfermedad leve pero riesgo alto exige actuar ya.',
+    explanation: 'Stage I + Grade C es la "bomba de tiempo": enfermedad leve ahora, pero riesgo alto exige actuar ya — es la combinación que mejor ilustra por qué separar severidad de riesgo cambia la práctica clínica.',
     order_index: 8,
   },
 ];
