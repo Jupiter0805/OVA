@@ -10,7 +10,8 @@
     "lint": "eslint src --ext ts,tsx",
     "type-check": "tsc --noEmit",
     "insert:chapter1": "node scripts/insertChapter1.js",
-    "insert:chapter2": "node scripts/insertChapter2.js"
+    "insert:chapter2": "node scripts/insertChapter2.js",
+    "insert:chapter3": "node scripts/insertChapter3.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",
