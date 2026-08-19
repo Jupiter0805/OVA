@@ -663,7 +663,7 @@ export const lessons = [
     </div>
     <div class="card">
       <h3>¿Cuál es el intervalo correcto de reevaluación post-RAR?</h3>
-      <p>Grado A: 6-8 semanas. Grado B: 4-6 semanas. Grado C: 2-4 semanas — la vigilancia debe ser más cercana cuanto más rápida es la progresión esperada.</p>
+      <p>Grado A: 4-6 semanas. Grado B: 4-6 semanas. Grado C: 4-6 semanas — el intervalo de reevaluación inicial post-RAR es el mismo independientemente del Grado; lo que cambia según el Grado es la frecuencia del mantenimiento a largo plazo una vez pasada esa reevaluación.</p>
     </div>
   </div>
 
