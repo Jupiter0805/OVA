@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { adminService } from '../services/adminService';
 import type { AdminUserSummary } from '../services/adminService';
+import type { UserType } from '../services/profileService';
+import { useAuth } from '../context/AuthContext';
 
 const ROLE_LABELS: Record<AdminUserSummary['user_type'], string> = {
   master: 'Master',
@@ -16,12 +18,26 @@ const ROLE_STYLES: Record<AdminUserSummary['user_type'], string> = {
   student: 'bg-gray-200 text-text-dark',
 };
 
+const ROLE_OPTIONS: UserType[] = ['student', 'admin', 'master'];
+
 export function AdminPage() {
   const navigate = useNavigate();
+  const { user, profile } = useAuth();
   const [users, setUsers] = useState<AdminUserSummary[]>([]);
   const [loading, setLoading] = useState(true);
-  const [confirmingId, setConfirmingId] = useState<string | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
+
+  const [confirmingResetId, setConfirmingResetId] = useState<string | null>(null);
   const [resettingId, setResettingId] = useState<string | null>(null);
+
+  const [roleEditingId, setRoleEditingId] = useState<string | null>(null);
+  const [pendingRole, setPendingRole] = useState<UserType | null>(null);
+  const [updatingRoleId, setUpdatingRoleId] = useState<string | null>(null);
+
+  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  const viewerIsMaster = profile?.user_type === 'master';
 
   const loadUsers = async () => {
     setLoading(true);
@@ -34,13 +50,54 @@ export function AdminPage() {
     loadUsers();
   }, []);
 
+  const canManage = (u: AdminUserSummary) => {
+    const isSelf = user?.id === u.id;
+    const isMasterRow = u.user_type === 'master';
+    return !isSelf && (!isMasterRow || viewerIsMaster);
+  };
+
+  const closeAllActions = () => {
+    setConfirmingResetId(null);
+    setRoleEditingId(null);
+    setPendingRole(null);
+    setConfirmingDeleteId(null);
+  };
+
   const handleReset = async (userId: string) => {
     setResettingId(userId);
     const ok = await adminService.resetUserProgress(userId);
     setResettingId(null);
-    setConfirmingId(null);
+    setConfirmingResetId(null);
     if (ok) {
       await loadUsers();
+    }
+  };
+
+  const handleRoleConfirm = async (userId: string) => {
+    if (!pendingRole) return;
+    setActionError(null);
+    setUpdatingRoleId(userId);
+    const { ok, error } = await adminService.updateUserRole(userId, pendingRole);
+    setUpdatingRoleId(null);
+    setRoleEditingId(null);
+    setPendingRole(null);
+    if (ok) {
+      await loadUsers();
+    } else {
+      setActionError(error || 'No se pudo cambiar el rol.');
+    }
+  };
+
+  const handleDelete = async (userId: string) => {
+    setActionError(null);
+    setDeletingId(userId);
+    const { ok, error } = await adminService.deleteUser(userId);
+    setDeletingId(null);
+    setConfirmingDeleteId(null);
+    if (ok) {
+      await loadUsers();
+    } else {
+      setActionError(error || 'No se pudo eliminar el usuario.');
     }
   };
 
@@ -68,6 +125,17 @@ export function AdminPage() {
       </motion.div>
 
       <div className="w-full lg:w-[85%] xl:w-[75%] 2xl:w-[70%] mx-auto px-6 py-12">
+        {actionError && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-red-50 border-2 border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm font-medium mb-6 flex justify-between items-center"
+          >
+            <span>{actionError}</span>
+            <button onClick={() => setActionError(null)} className="text-red-700 font-bold px-2">✕</button>
+          </motion.div>
+        )}
+
         {loading ? (
           <div className="text-center py-12">
             <motion.div
@@ -93,56 +161,147 @@ export function AdminPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((u) => (
-                    <tr key={u.id} className="border-t border-border-light">
-                      <td className="px-6 py-4">
-                        <p className="font-semibold text-text-dark">{u.full_name || '(sin nombre)'}</p>
-                        <p className="text-sm text-text-light">{u.email}</p>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${ROLE_STYLES[u.user_type]}`}>
-                          {ROLE_LABELS[u.user_type]}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-text-dark">
-                        {u.chaptersCompleted} completados · {u.chaptersInProgress} en progreso
-                      </td>
-                      <td className="px-6 py-4 text-sm text-text-light">
-                        {u.lastActivity ? new Date(u.lastActivity).toLocaleDateString('es-CO') : '—'}
-                      </td>
-                      <td className="px-6 py-4">
-                        {confirmingId === u.id ? (
-                          <div className="flex items-center gap-2">
-                            <motion.button
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                              disabled={resettingId === u.id}
-                              onClick={() => handleReset(u.id)}
-                              className="bg-unicoc-red text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-unicoc-red-dark transition disabled:opacity-50"
-                            >
-                              {resettingId === u.id ? 'Reiniciando...' : '¿Confirmar?'}
-                            </motion.button>
-                            <button
-                              onClick={() => setConfirmingId(null)}
-                              disabled={resettingId === u.id}
-                              className="text-text-light text-xs font-medium hover:text-text-dark transition"
-                            >
-                              Cancelar
-                            </button>
+                  {users.map((u) => {
+                    const isSelf = user?.id === u.id;
+                    const manageable = canManage(u);
+
+                    return (
+                      <tr key={u.id} className="border-t border-border-light align-top">
+                        <td className="px-6 py-4">
+                          <p className="font-semibold text-text-dark">
+                            {u.full_name || '(sin nombre)'} {isSelf && <span className="text-xs text-text-light font-normal">(tú)</span>}
+                          </p>
+                          <p className="text-sm text-text-light">{u.email}</p>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className={`px-3 py-1 rounded-full text-xs font-bold ${ROLE_STYLES[u.user_type]}`}>
+                            {ROLE_LABELS[u.user_type]}
+                          </span>
+                          {!manageable && (
+                            <p className="text-xs text-text-light mt-1">
+                              {isSelf ? 'No puedes editarte a ti mismo aquí' : '🔒 Protegido — solo el master'}
+                            </p>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-text-dark">
+                          {u.chaptersCompleted} completados · {u.chaptersInProgress} en progreso
+                        </td>
+                        <td className="px-6 py-4 text-sm text-text-light">
+                          {u.lastActivity ? new Date(u.lastActivity).toLocaleDateString('es-CO') : '—'}
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="flex flex-col gap-2 min-w-[220px]">
+                            {/* Reset progress */}
+                            {confirmingResetId === u.id ? (
+                              <div className="flex items-center gap-2">
+                                <motion.button
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  disabled={resettingId === u.id}
+                                  onClick={() => handleReset(u.id)}
+                                  className="bg-unicoc-red text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-unicoc-red-dark transition disabled:opacity-50"
+                                >
+                                  {resettingId === u.id ? 'Reiniciando...' : '¿Confirmar?'}
+                                </motion.button>
+                                <button
+                                  onClick={() => setConfirmingResetId(null)}
+                                  disabled={resettingId === u.id}
+                                  className="text-text-light text-xs font-medium hover:text-text-dark transition"
+                                >
+                                  Cancelar
+                                </button>
+                              </div>
+                            ) : (
+                              <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => { closeAllActions(); setConfirmingResetId(u.id); }}
+                                className="border-2 border-unicoc-red text-unicoc-red px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-unicoc-red hover:text-white transition"
+                              >
+                                Reiniciar Progreso
+                              </motion.button>
+                            )}
+
+                            {/* Change role */}
+                            {manageable && (
+                              roleEditingId === u.id ? (
+                                <div className="flex items-center gap-2 flex-wrap">
+                                  <select
+                                    value={pendingRole ?? u.user_type}
+                                    onChange={(e) => setPendingRole(e.target.value as UserType)}
+                                    disabled={updatingRoleId === u.id}
+                                    className="border-2 border-border-light rounded-lg text-xs font-medium px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-unicoc-red"
+                                  >
+                                    {ROLE_OPTIONS.map((r) => (
+                                      <option key={r} value={r}>{ROLE_LABELS[r]}</option>
+                                    ))}
+                                  </select>
+                                  <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    disabled={updatingRoleId === u.id || (pendingRole ?? u.user_type) === u.user_type}
+                                    onClick={() => handleRoleConfirm(u.id)}
+                                    className="bg-unicoc-red text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-unicoc-red-dark transition disabled:opacity-50"
+                                  >
+                                    {updatingRoleId === u.id ? 'Guardando...' : '¿Confirmar?'}
+                                  </motion.button>
+                                  <button
+                                    onClick={() => { setRoleEditingId(null); setPendingRole(null); }}
+                                    disabled={updatingRoleId === u.id}
+                                    className="text-text-light text-xs font-medium hover:text-text-dark transition"
+                                  >
+                                    Cancelar
+                                  </button>
+                                </div>
+                              ) : (
+                                <motion.button
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  onClick={() => { closeAllActions(); setRoleEditingId(u.id); setPendingRole(u.user_type); }}
+                                  className="border-2 border-text-dark text-text-dark px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-text-dark hover:text-white transition"
+                                >
+                                  Cambiar Rol
+                                </motion.button>
+                              )
+                            )}
+
+                            {/* Delete user */}
+                            {manageable && (
+                              confirmingDeleteId === u.id ? (
+                                <div className="flex items-center gap-2">
+                                  <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    disabled={deletingId === u.id}
+                                    onClick={() => handleDelete(u.id)}
+                                    className="bg-red-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-red-800 transition disabled:opacity-50"
+                                  >
+                                    {deletingId === u.id ? 'Eliminando...' : '¿Eliminar definitivamente?'}
+                                  </motion.button>
+                                  <button
+                                    onClick={() => setConfirmingDeleteId(null)}
+                                    disabled={deletingId === u.id}
+                                    className="text-text-light text-xs font-medium hover:text-text-dark transition"
+                                  >
+                                    Cancelar
+                                  </button>
+                                </div>
+                              ) : (
+                                <motion.button
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  onClick={() => { closeAllActions(); setConfirmingDeleteId(u.id); }}
+                                  className="border-2 border-red-700 text-red-700 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-red-700 hover:text-white transition"
+                                >
+                                  Eliminar Usuario
+                                </motion.button>
+                              )
+                            )}
                           </div>
-                        ) : (
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => setConfirmingId(u.id)}
-                            className="border-2 border-unicoc-red text-unicoc-red px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-unicoc-red hover:text-white transition"
-                          >
-                            Reiniciar Progreso
-                          </motion.button>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

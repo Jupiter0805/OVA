@@ -64,4 +64,22 @@ export const adminService = {
       return false;
     }
   },
+
+  async updateUserRole(userId: string, newType: Profile['user_type']): Promise<{ ok: boolean; error?: string }> {
+    const { error } = await supabase.from('profiles').update({ user_type: newType }).eq('id', userId);
+    if (error) {
+      console.error('Error updating user role:', error);
+      return { ok: false, error: error.message };
+    }
+    return { ok: true };
+  },
+
+  async deleteUser(userId: string): Promise<{ ok: boolean; error?: string }> {
+    const { error } = await supabase.rpc('admin_delete_user', { target_user_id: userId });
+    if (error) {
+      console.error('Error deleting user:', error);
+      return { ok: false, error: error.message };
+    }
+    return { ok: true };
+  },
 };

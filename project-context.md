@@ -107,9 +107,33 @@ idempotent). What they did:
   edits, which is what `002_...sql` fixed after the first version broke that.
 
 Only `juanmoreno@unicoc.edu.co` is `master` today. No other `admin` accounts
-exist. To promote someone: update their `profiles.user_type` row directly
-(Supabase Studio table editor, or a service_role REST call) — there's no
-in-app UI for granting roles, only for viewing/resetting once granted.
+exist.
+
+**In-app role management + user deletion** (added 2026-08-19, `supabase/sql/003_admin_manage_users.sql`
+— ⚠️ this file has **not** been run against the live project yet, unlike
+001/002; it needs to be pasted into the Supabase SQL Editor once before any
+of this works — until then, `updateUserRole`/`deleteUser` calls from
+`AdminPage` will fail):
+- `AdminPage` now has "Cambiar Rol" (student/admin/master dropdown, with a
+  confirm step) and "Eliminar Usuario" (hard delete: `test_attempts` →
+  `user_progress` → `profiles` → `auth.users`, in that order) per user row.
+- Both admin and master can do both actions on any **other** user. Neither
+  can act on their **own** row from this panel (self-lockout/self-deletion
+  guard, UI-level via `canManage()` in `AdminPage.tsx`).
+- Only master can change or delete the master row — enforced at the DB
+  level via `protect_master_account()` triggers on `profiles` (BEFORE
+  UPDATE and BEFORE DELETE) and inside the `admin_delete_user` RPC, not
+  just hidden in the UI, so it holds even against a direct API call.
+- `admin_delete_user(target_user_id uuid)` is a `security definer` RPC
+  because deleting the `auth.users` row needs privilege the anon/authenticated
+  key never has — this is the standard Supabase pattern for real user
+  deletion without exposing the service_role key to the browser.
+- Note: as specified, admin can promote another user all the way to
+  `master` (the same power master has) — the only asymmetry between the
+  two roles is that admin can't touch the master row itself. Flagged to the
+  user; not narrowed further without their say-so.
+- Promoting someone to `master` via a route other than this UI (Supabase
+  Studio table editor, or a service_role REST call) still works as before.
 
 The Admin nav link only renders where `Header.tsx` (landing) or the
 Dashboard's own top bar explicitly check `isAdmin` from `AuthContext` — most
