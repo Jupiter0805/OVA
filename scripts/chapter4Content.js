@@ -96,7 +96,7 @@ export const lessons = [
 
   <div class="key-principle">
     <h3>🎯 Reclasificación a los 24 meses</h3>
-    <p>De <strong>Stage IV, Grade C</strong> a <strong>Stage IV, Grade A probable</strong>: tabaquismo cesado, HbA1c en objetivo, RBL estable (&lt;1%/año) y Pg negativizado. El pronóstico de preservación pasó de 20-40% a &gt;90%.</p>
+    <p>De <strong>Stage IV, Grade C</strong> a <strong>Stage IV, Grade A probable</strong>: tabaquismo cesado, HbA1c en objetivo, RBL estable (&lt;1%/año) y Pg negativizado. El pronóstico de preservación pasó de 20-40% a 70-80% — una mejora dramática, aunque el Stage no cambia: el paciente sigue en la categoría de mayor severidad acumulada (Stage IV se define por el daño ya ocurrido, incluida la pérdida de hueso, no por la actividad actual), por lo que su techo de pronóstico permanece el de Stage IV incluso con Grade A.</p>
   </div>
 
   <h3>Lecciones clave</h3>
@@ -354,7 +354,7 @@ export const lessons = [
   </div>
 
   <div class="definition-box">
-    <p><strong>Diagnóstico:</strong> Periodontitis Stage IV (CAL 8-9mm + RBL 55-70% + 8 dientes perdidos por periodontitis), Grade B. Pronóstico: 40-60% de preservación — la decisión central del plan es <strong>cuáles</strong> dientes preservar y cuáles extraer.</p>
+    <p><strong>Diagnóstico:</strong> Periodontitis Stage IV (CAL 8-9mm + RBL 55-70% + 8 dientes perdidos por periodontitis), Grade B. Pronóstico: 40-50% de preservación — la decisión central del plan es <strong>cuáles</strong> dientes preservar y cuáles extraer.</p>
   </div>
 
   <h3>Evaluación diente por diente</h3>
@@ -385,7 +385,7 @@ export const lessons = [
     <div class="arrow">↓</div>
     <div class="timeline-item">
       <h3>Meses 6-12 — Mantenimiento intensivo</h3>
-      <p>36 y 46 se estabilizan en PPD 6mm sin necesidad de cirugía — la extracción se difiere indefinidamente. Mes 12: éxito documentado.</p>
+      <p>36 y 46 se estabilizan en PPD 6mm sin necesidad de cirugía — la extracción se difiere indefinidamente. Mes 12: éxito documentado. HbA1c mejora de 8.7% a 7.8% (mejor, pero no en objetivo &lt;7%).</p>
     </div>
     <div class="arrow">↓</div>
     <div class="timeline-item">
@@ -426,6 +426,10 @@ export const lessons = [
     <p>En Stage IV, no todos los dientes pueden salvarse. Extraer los dientes "sin esperanza" (movilidad severa + PPD &gt;10mm) para rehabilitar con implantes fue mejor decisión clínica que forzar una cirugía compleja en una paciente de 61 años con osteoporosis y diabetes. Al mismo tiempo, molares con hallazgos similares (36, 46) se estabilizaron sin cirugía — cada diente se evalúa individualmente, no por regla general.</p>
   </div>
 
+  <div class="definition-box">
+    <p><strong>¿Cambió el Grade a los 24 meses?</strong> A diferencia del Caso 1 (donde el Grade sí mejoró de C a A), aquí el Grade probablemente <strong>permanece B</strong>: la HbA1c mejoró (8.7%→7.8%) pero no alcanzó el objetivo &lt;7%, así que el modificador metabólico sigue activo aunque atenuado. El resultado clínico excelente (PPD, BOP, estabilidad de 36/46) se explica más por el cumplimiento casi perfecto del mantenimiento que por un cambio de categoría de Grade — son dos cosas distintas: la respuesta real de un paciente puede superar el pronóstico "de tabla" sin que eso implique una reclasificación formal.</p>
+  </div>
+
   <h3>Lecciones clave</h3>
   <ul class="checklist">
     <li>Stage IV exige una decisión clara de preservación vs. extracción, diente por diente</li>
@@ -434,6 +438,7 @@ export const lessons = [
     <li>Las comorbilidades (diabetes, osteoporosis, depresión) reducen la tolerancia quirúrgica y justifican el conservadurismo</li>
     <li>La coordinación con prostodoncia es crítica: los implantes no pueden colocarse antes de que cicatrice el hueso post-extracción</li>
     <li>Incluso un paciente motivado puede fallar el cumplimiento por depresión — el apoyo psicológico y los recordatorios son parte del plan periodontal</li>
+    <li>Un resultado clínico excelente no siempre implica una reclasificación de Grade — si el modificador metabólico no llega a objetivo, el Grade puede permanecer igual aunque el cumplimiento haya sido perfecto</li>
   </ul>
 
   <div class="reference">

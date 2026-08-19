@@ -40,6 +40,10 @@ export const lessons = [
   </table>
   <p style="font-size:0.9rem;color:var(--text-light);">Stage I con Grade C y Stage IV con Grade A son combinaciones poco comunes — la primera es una alerta diagnóstica (poco daño, alta velocidad); la segunda representa daño antiguo ya estabilizado.</p>
 
+  <div class="definition-box">
+    <p><strong>Nota metodológica:</strong> Tonetti et al. (2018) y Kornman et al. (2020) no publican una tabla con un porcentaje de pronóstico exacto para cada una de las 12 combinaciones Stage×Grade — Kornman da rangos amplios por Grade (A: &gt;95% de éxito · B: 60-85% · C: 20-60%). Los valores específicos de esta matriz son una interpolación clínica dentro de esos rangos, pensada para dar intuición práctica, no una cifra tomada directamente de un paper. En un paciente real, el pronóstico individual depende de muchas variables que Stage/Grade no capturan por sí solos: cumplimiento, comorbilidades, anatomía específica, acceso a tratamiento.</p>
+  </div>
+
   <div class="decision-tree">
     <h3>🧭 Por qué la combinación importa más que cada eje por separado</h3>
     <ul>
