@@ -26,21 +26,52 @@ const CATON_2018_PDF_URL =
 const TONETTI_2018_PDF_URL =
   'https://jaghsnjjklrorojbtkpr.supabase.co/storage/v1/object/public/academic-papers/Journal%20of%20Periodontology%20-%202018%20-%20Tonetti%20-%20Staging%20and%20grading%20of%20periodontitis%20%20Framework%20and%20proposal%20of%20a%20new.pdf';
 
-type PdfResource = { url: string; title: string; author: string; downloadName: string };
+const PERIODONTITIS_01_PDF_URL =
+  'https://jaghsnjjklrorojbtkpr.supabase.co/storage/v1/object/public/academic-papers/Paper02_Periodontitis-01-Final_Castellano.pdf';
 
-const PDF_RESOURCE_BY_CHAPTER: Record<number, PdfResource> = {
-  1: {
-    url: CATON_2018_PDF_URL,
-    title: 'A new classification scheme for periodontal and peri-implant diseases and conditions',
-    author: 'Caton JG, Armitage G, Berglundh T, et al. (2018) — J Clin Periodontol. 2018;45(S20):S1-S8',
-    downloadName: 'Caton_2018_Classification.pdf',
-  },
-  2: {
-    url: TONETTI_2018_PDF_URL,
-    title: 'Staging and grading of periodontitis: Framework and proposal of a new classification system',
-    author: 'Tonetti MS, Greenwell H, Kornman KS. (2018) — J Periodontol. 2018;89(S1):S159-S172',
-    downloadName: 'Tonetti_2018_Staging_Grading.pdf',
-  },
+const PERIODONTITIS_DECISION_TREE_PDF_URL =
+  'https://jaghsnjjklrorojbtkpr.supabase.co/storage/v1/object/public/academic-papers/Paper02_Periodontitis-02DecissionTree-Final_Castellano.pdf';
+
+type PdfResource = { tabLabel: string; url: string; title: string; author: string; downloadName: string };
+
+// One chapter can have more than one PDF resource (e.g. Chapter 3's paper +
+// decision tree) — the UI shows a tab selector and renders one at a time,
+// never both PDFViewer instances mounted simultaneously.
+const PDF_RESOURCES_BY_CHAPTER: Record<number, PdfResource[]> = {
+  1: [
+    {
+      tabLabel: 'Paper Caton 2018',
+      url: CATON_2018_PDF_URL,
+      title: 'A new classification scheme for periodontal and peri-implant diseases and conditions',
+      author: 'Caton JG, Armitage G, Berglundh T, et al. (2018) — J Clin Periodontol. 2018;45(S20):S1-S8',
+      downloadName: 'Caton_2018_Classification.pdf',
+    },
+  ],
+  2: [
+    {
+      tabLabel: 'Paper Tonetti 2018',
+      url: TONETTI_2018_PDF_URL,
+      title: 'Staging and grading of periodontitis: Framework and proposal of a new classification system',
+      author: 'Tonetti MS, Greenwell H, Kornman KS. (2018) — J Periodontol. 2018;89(S1):S159-S172',
+      downloadName: 'Tonetti_2018_Staging_Grading.pdf',
+    },
+  ],
+  3: [
+    {
+      tabLabel: 'Paper: Clasificación',
+      url: PERIODONTITIS_01_PDF_URL,
+      title: 'Periodontitis: Clasificación y Tabla de Estadios/Grados',
+      author: 'Paper académico — versión castellano',
+      downloadName: 'Periodontitis_01_Clasificacion.pdf',
+    },
+    {
+      tabLabel: 'Árbol de decisión',
+      url: PERIODONTITIS_DECISION_TREE_PDF_URL,
+      title: 'Árbol de decisión: clasificación Estadio × Grado',
+      author: 'Decision tree — versión castellano',
+      downloadName: 'Periodontitis_02_ArbolDecision.pdf',
+    },
+  ],
 };
 
 export function ChapterPage() {
@@ -56,6 +87,7 @@ export function ChapterPage() {
   const [posttestQuestions, setPosttestQuestions] = useState<Question[]>([]);
   const [pageState, setPageState] = useState<PageState>('pretest');
   const [loading, setLoading] = useState(true);
+  const [selectedPdfIndex, setSelectedPdfIndex] = useState(0);
 
   useEffect(() => {
     const loadData = async () => {
@@ -109,10 +141,11 @@ export function ChapterPage() {
     loadData();
   }, [chapterId, user?.id]);
 
-  const pdfResource = chapter ? PDF_RESOURCE_BY_CHAPTER[chapter.chapter_number] : undefined;
+  const pdfResources = chapter ? PDF_RESOURCES_BY_CHAPTER[chapter.chapter_number] : undefined;
 
   const handlePreTestComplete = () => {
-    setPageState(pdfResource ? 'pdf-resource' : 'lessons');
+    setSelectedPdfIndex(0);
+    setPageState(pdfResources ? 'pdf-resource' : 'lessons');
   };
 
   const handlePdfResourceContinue = () => setPageState('lessons');
@@ -236,7 +269,7 @@ export function ChapterPage() {
               <PreTestComponent test={pretest} questions={pretestQuestions} onComplete={handlePreTestComplete} />
             )}
 
-            {pageState === 'pdf-resource' && pdfResource && (
+            {pageState === 'pdf-resource' && pdfResources && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -244,9 +277,32 @@ export function ChapterPage() {
               >
                 <h3 className="text-2xl font-bold text-unicoc-red mb-2">📄 Recurso: Paper Original AAP/EFP 2018</h3>
                 <p className="text-text-dark mb-6">
-                  Antes de empezar las lecciones, este es el paper original que define la clasificación que vas a
-                  aprender en este capítulo. Léelo directamente aquí o descárgalo para tu referencia personal.
+                  Antes de empezar las lecciones, {pdfResources.length > 1 ? 'estos son los documentos' : 'este es el documento'}{' '}
+                  que {pdfResources.length > 1 ? 'definen' : 'define'} la clasificación que vas a aprender en este
+                  capítulo. {pdfResources.length > 1 ? 'Elegí uno para leerlo' : 'Léelo'} directamente aquí o
+                  descárgalo para tu referencia personal.
                 </p>
+
+                {pdfResources.length > 1 && (
+                  <div className="flex flex-wrap gap-2 mb-4" role="tablist">
+                    {pdfResources.map((resource, idx) => (
+                      <button
+                        key={resource.url}
+                        type="button"
+                        role="tab"
+                        aria-selected={selectedPdfIndex === idx}
+                        onClick={() => setSelectedPdfIndex(idx)}
+                        className={`px-4 py-2 rounded-lg font-semibold transition border-2 ${
+                          selectedPdfIndex === idx
+                            ? 'bg-unicoc-red text-white border-unicoc-red'
+                            : 'bg-white text-unicoc-red border-unicoc-red-light hover:border-unicoc-red'
+                        }`}
+                      >
+                        {idx + 1}. {resource.tabLabel}
+                      </button>
+                    ))}
+                  </div>
+                )}
 
                 <Suspense
                   fallback={
@@ -256,12 +312,18 @@ export function ChapterPage() {
                     </div>
                   }
                 >
-                  <PDFViewer
-                    url={pdfResource.url}
-                    title={pdfResource.title}
-                    author={pdfResource.author}
-                    downloadName={pdfResource.downloadName}
-                  />
+                  {(() => {
+                    const activeResource = pdfResources[selectedPdfIndex];
+                    return (
+                      <PDFViewer
+                        key={activeResource.url}
+                        url={activeResource.url}
+                        title={activeResource.title}
+                        author={activeResource.author}
+                        downloadName={activeResource.downloadName}
+                      />
+                    );
+                  })()}
                 </Suspense>
 
                 <motion.button
