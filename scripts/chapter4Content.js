@@ -206,7 +206,7 @@ export const lessons = [
     <tr><td>Furcación</td><td>Grado 2</td><td>Grado 1</td></tr>
     <tr><td>Movilidad</td><td>Grado 1</td><td>Grado 0</td></tr>
   </table>
-  <p>Regeneración ósea observada: solo ~10% (vs. 20-40% teórico esperado en defectos favorables) — atribuible a la severidad de los defectos y la historia agresiva de la enfermedad.</p>
+  <p>Regeneración ósea observada: solo aproximadamente 10% (vs. 20-40% teórico esperado en defectos favorables) — atribuible a la severidad de los defectos y la historia agresiva de la enfermedad.</p>
 
   <div class="key-principle">
     <h3>🎯 Reclasificación a los 24 meses</h3>
@@ -255,7 +255,7 @@ export const lessons = [
   </div>
 
   <div class="definition-box">
-    <p><strong>Diagnóstico:</strong> lesión combinada endodóntico-periodontal en el 16 — necrosis pulpar primaria con radiolucencia apical y trayecto fistuloso, sobre una periodontitis crónica generalizada de base (Estadio II, Grado A en el resto de la dentición: RBL 25-30%, PPS 5-6mm posterior, BOP ~40%).</p>
+    <p><strong>Diagnóstico:</strong> lesión combinada endodóntico-periodontal en el 16 — necrosis pulpar primaria con radiolucencia apical y trayecto fistuloso, sobre una periodontitis crónica generalizada de base (Estadio II, Grado A en el resto de la dentición: RBL 25-30%, PPS 5-6mm posterior, BOP aproximadamente 40%).</p>
   </div>
 
   <h3>Plan y evolución</h3>
@@ -349,7 +349,7 @@ export const lessons = [
 
   <div class="calc-box">
     <p><strong>Estimación de Grado</strong></p>
-    <p class="formula">Diabetes subóptima (+1.5) + depresión crónica (+1) + ex-fumadora (+0) + pérdida lenta documentada (~1.5-2 dientes/5 años ≈ 3%/año)</p>
+    <p class="formula">Diabetes subóptima (+1.5) + depresión crónica (+1) + ex-fumadora (+0) + pérdida lenta documentada (aproximadamente 1.5-2 dientes/5 años ≈ 3%/año)</p>
     <p><span class="result">Grado B probable</span> (no Grado C — la progresión histórica es lenta, no rápida)</p>
   </div>
 
@@ -678,150 +678,136 @@ export const lessons = [
 
 export const pretestQuestions = [
   {
-    question_text: 'En el Caso 1 (Carlos M.), el diagnóstico inicial fue Estadio IV, Grado C. ¿Qué cambió para que se reclasificara a Grado A a los 24 meses?',
+    question_text: '¿Toda pérdida de inserción clínica debe atribuirse automáticamente a periodontitis?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'El Estadio mejoró tras la cirugía' },
-      { key: 'b', text: 'Los modificadores (tabaquismo, diabetes) se controlaron y la progresión se detuvo' },
-      { key: 'c', text: 'Se le colocaron implantes' },
+      { key: 'a', text: 'Sí, toda pérdida de inserción clínica siempre indica periodontitis' },
+      { key: 'b', text: 'No, primero deben descartarse causas no periodontales como trauma, fractura radicular o lesión endodóntica' },
+      { key: 'c', text: 'Sí, siempre que exista sangrado al sondaje' },
+      { key: 'd', text: 'No, la pérdida de inserción solo importa si hay movilidad dental' },
     ],
     correct_answer: 'b',
-    explanation: 'El Estadio permanece IV (daño irreversible); lo que cambió fue el Grado, gracias a la cesación de tabaco y el control de HbA1c, que detuvieron la progresión.',
+    explanation: 'Para diagnosticar periodontitis no basta con encontrar pérdida de inserción clínica. Esa pérdida no debe poder explicarse por causas no periodontales, como fractura radicular, infección endodóntica, trauma quirúrgico o traumático, u otros factores no periodontales. Por eso se necesita juicio clínico antes de clasificar al paciente como periodontitis.',
     order_index: 1,
   },
   {
-    question_text: 'En una lesión combinada endo-periodontal, el tratamiento de conductos (RCT) siempre debe realizarse antes de la cirugía periodontal agresiva.',
-    question_type: 'true_false',
-    options: null,
-    correct_answer: 'true',
-    explanation: 'Sin resolver el origen endodóntico, el manejo periodontal solo no resolverá la radiolucencia apical ni la fuente de infección.',
+    question_text: '¿Cuándo un paciente tratado sigue siendo considerado paciente con periodontitis?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Cuando tuvo periodontitis previamente, aunque después del tratamiento mejore clínicamente' },
+      { key: 'b', text: 'Solo si todavía presenta bolsas mayores de 6mm' },
+      { key: 'c', text: 'Solo si pierde dientes después del tratamiento' },
+      { key: 'd', text: 'Nunca, porque al mejorar pasa automáticamente a ser paciente sano' },
+    ],
+    correct_answer: 'a',
+    explanation: 'Según AAP/EFP 2018, el estadio inicialmente asignado se conserva incluso después de la mejoría post-terapia. Si el paciente fue diagnosticado con periodontitis, sigue siendo un paciente con antecedente de periodontitis y debe manejarse en mantenimiento considerando su estadio previo. El estadio puede subir si empeora, pero no debe retroceder automáticamente después del tratamiento.',
     order_index: 2,
   },
   {
-    question_text: 'Según los casos 7 y 8, ¿cuál es el factor que más determina si dos pacientes con el mismo Estadio/Grado tendrán resultados opuestos?',
+    question_text: '¿Qué dificultad aparece al diferenciar Estadio III de Estadio IV?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'El tipo de sutura usada en cirugía' },
-      { key: 'b', text: 'El cumplimiento del mantenimiento y del cambio de modificadores' },
-      { key: 'c', text: 'La marca del cepillo dental' },
+      { key: 'a', text: 'Que ambos estadios siempre tienen pérdida ósea menor al 15%' },
+      { key: 'b', text: 'Que ambos pueden presentar periodontitis severa, por lo que debe evaluarse si está amenazada la supervivencia de dientes individuales o de toda la dentición' },
+      { key: 'c', text: 'Que el estadio IV no presenta pérdida dentaria' },
+      { key: 'd', text: 'Que el estadio III siempre requiere rehabilitación multidisciplinaria compleja' },
     ],
     correct_answer: 'b',
-    explanation: 'El cumplimiento es el predictor pronóstico #1 en los casos comparados — determina si la enfermedad se controla o recurre, independientemente del plan técnico inicial.',
+    explanation: 'Diferenciar Estadio III de IV exige una valoración clínica más fina. Ambos pueden ser severos, pero el Estadio IV implica mayor complejidad general, amenaza para la dentición completa (no solo dientes individuales), disfunción masticatoria, colapso de mordida y necesidad de rehabilitación oral extensa y multidisciplinaria.',
     order_index: 3,
   },
   {
-    question_text: 'En Estadio IV, todos los dientes con hallazgos periodontales severos deben extraerse.',
-    question_type: 'true_false',
-    options: null,
-    correct_answer: 'false',
-    explanation: 'La decisión es diente por diente — en el Caso 4, los molares 36/46 se estabilizaron sin cirugía mientras que los incisivos 11/12 requirieron extracción, pese a compartir el mismo Estadio general.',
+    question_text: '¿Qué problemas genera atribuir sin cuidado la pérdida dentaria a la periodontitis?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Puede sobrestimar el estadio y clasificar al paciente como más severo de lo que realmente es' },
+      { key: 'b', text: 'Siempre disminuye el estadio del paciente' },
+      { key: 'c', text: 'No afecta la clasificación periodontal' },
+      { key: 'd', text: 'Solo modifica el grado, pero nunca el estadio' },
+    ],
+    correct_answer: 'a',
+    explanation: 'La pérdida dentaria atribuible a periodontitis es un criterio clave para diferenciar estadios avanzados (III vs. IV). Si se atribuyen dientes perdidos a periodontitis sin confirmar la causa, se puede elevar incorrectamente el estadio. Un diente pudo haberse perdido por caries, fractura, razones protésicas, trauma u otros factores no periodontales.',
     order_index: 4,
+  },
+  {
+    question_text: '¿Por qué las pseudobolsas pueden inducir errores de clasificación?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Porque pueden aumentar la profundidad de sondaje sin representar verdadera pérdida de inserción clínica' },
+      { key: 'b', text: 'Porque siempre indican furcación clase III' },
+      { key: 'c', text: 'Porque eliminan la necesidad de medir CAL' },
+      { key: 'd', text: 'Porque solo aparecen en pacientes con estadio IV' },
+    ],
+    correct_answer: 'a',
+    explanation: 'Las pseudobolsas pueden hacer que el sondaje parezca más profundo por aumento del margen gingival (inflamación), pero sin pérdida real de inserción. Si el clínico interpreta solo la profundidad de sondaje sin valorar CAL, CEJ y pérdida ósea radiográfica, se puede clasificar erróneamente al paciente como periodontitis o asignarle un estadio más avanzado. Clave: PPS no es igual a CAL en todos los casos.',
+    order_index: 5,
   },
 ];
 
 export const posttestQuestions = [
   {
-    question_text: 'En el Caso 2 (Daniela R.), la genética IL-1 de alto riesgo tiene qué implicación para el plan de mantenimiento a largo plazo?',
+    question_text: '¿Cuál de las siguientes opciones menciona tres situaciones en las que la pérdida de inserción clínica NO debe atribuirse automáticamente a periodontitis?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'Ninguna; una vez controlada la microbiología, puede volver a mantenimiento anual' },
-      { key: 'b', text: 'Requiere mantenimiento permanente cada 6-8 semanas, porque el riesgo genético no se modifica con el tratamiento' },
-      { key: 'c', text: 'Solo afecta el pronóstico si vuelve a fumar' },
-      { key: 'd', text: 'Se resuelve completamente tras la cirugía regenerativa' },
+      { key: 'a', text: 'Trauma, fractura radicular y lesión endodóntica' },
+      { key: 'b', text: 'Sangrado al sondaje, placa bacteriana y cálculo supragingival' },
+      { key: 'c', text: 'Edad avanzada, cepillado dental y uso de seda dental' },
+      { key: 'd', text: 'Movilidad dental, halitosis y pigmentaciones extrínsecas' },
     ],
-    correct_answer: 'b',
-    explanation: 'A diferencia de los modificadores conductuales (tabaco, diabetes), el genotipo IL-1 no cambia — exige vigilancia permanente sin poder espaciar el mantenimiento como en un Grado A típico.',
+    correct_answer: 'a',
+    explanation: 'No toda pérdida de inserción clínica equivale automáticamente a periodontitis. El clínico debe primero descartar causas no periodontales: trauma (oclusal, instrumental, quirúrgico), fractura radicular (visible radiográficamente) y lesión/infección endodóntica (requiere TCR, no RAR solamente). Otras causas posibles: resorción radicular, caries cervicales/radiculares, razones protésicas previas.',
     order_index: 1,
   },
   {
-    question_text: 'En el Caso 3, ¿por qué se decidió NO operar el defecto periodontal residual del diente 16 al mes 12, pese a un PPS de 5mm?',
+    question_text: '¿Cuál es la diferencia entre un paciente con periodonto reducido sano y un paciente con periodontitis activa?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'Porque el paciente no podía pagar la cirugía' },
-      { key: 'b', text: 'Porque el defecto era tejido cicatricial de la lesión endo-perio con potencial regenerativo limitado, el PPS era funcional y la radiografía mostraba estabilidad' },
-      { key: 'c', text: 'Porque el diente ya no era vital' },
-      { key: 'd', text: 'Porque la furcación era Grado 3' },
+      { key: 'a', text: 'El periodonto reducido sano presenta menor soporte periodontal, pero sin signos actuales de inflamación o progresión activa; la periodontitis activa presenta pérdida de inserción asociada a inflamación y posible progresión' },
+      { key: 'b', text: 'El periodonto reducido sano siempre tiene bolsas profundas y supuración' },
+      { key: 'c', text: 'La periodontitis activa no presenta pérdida de inserción clínica' },
+      { key: 'd', text: 'No existe diferencia clínica entre ambos' },
     ],
-    correct_answer: 'b',
-    explanation: 'La combinación de estabilidad radiográfica, PPS funcional y el origen endo-perio (con menor potencial de regeneración que un defecto perio primario) justificó el monitoreo en vez de la cirugía.',
+    correct_answer: 'a',
+    explanation: 'Periodonto reducido sano: historia de periodontitis previamente tratada, menor soporte periodontal residual, sin inflamación actual (mínimo BOP), sin progresión radiográfica, radiografía estable. Periodontitis activa: pérdida de inserción actual, signos de inflamación (BOP, eritema), posible progresión de CAL, radiografía que muestra cambios, bolsas activas.',
     order_index: 2,
   },
   {
-    question_text: 'En el Caso 4, ¿qué llevó a la decisión de extraer los dientes 11 y 12 en vez de intentar preservarlos con cirugía?',
+    question_text: '¿Por qué una pseudobolsa puede inducir un error de estadificación?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'La paciente lo pidió sin razón clínica' },
-      { key: 'b', text: 'PPS que no mejoró pese al RAR (10-11mm) y movilidad Grado 2 persistente, con mejor pronóstico esperado vía implante' },
-      { key: 'c', text: 'Eran los únicos dientes con caries' },
-      { key: 'd', text: 'La osteoporosis contraindicaba cualquier tratamiento en esos dientes' },
+      { key: 'a', text: 'Porque aumenta la profundidad de sondaje sin necesariamente indicar pérdida real de inserción clínica' },
+      { key: 'b', text: 'Porque siempre representa pérdida ósea vertical severa' },
+      { key: 'c', text: 'Porque confirma automáticamente un estadio IV' },
+      { key: 'd', text: 'Porque elimina la necesidad de evaluar radiografías' },
     ],
-    correct_answer: 'b',
-    explanation: 'La combinación de PPS extremo sin respuesta al RAR y movilidad severa persistente hizo que la extracción + implante fuera la opción con mejor pronóstico funcional, dada además la edad y comorbilidades de la paciente.',
+    correct_answer: 'a',
+    explanation: 'La pseudobolsa puede dar una profundidad de sondaje aumentada por desplazamiento coronal del margen gingival o por inflamación (edema), pero sin verdadera pérdida de inserción. Si el clínico se guía solo por PPS y no evalúa CAL, CEJ y pérdida ósea radiográfica, puede sobrestimar el estadio. Clave: PPS no es igual a CAL — siempre medir ambos.',
     order_index: 3,
   },
   {
-    question_text: 'Según el Caso 5 (peri-implantitis), ¿por qué el paciente con periodontitis previa tratada tenía mayor riesgo de peri-implantitis años después?',
+    question_text: '¿Cuál es la pregunta funcional clave para diferenciar Estadio III de Estadio IV?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'Los implantes siempre fallan en pacientes con historia periodontal' },
-      { key: 'b', text: 'La misma microbiota (Pg) asociada a su periodontitis original puede colonizar y atacar los implantes, y estos requieren higiene/vigilancia más exigente' },
-      { key: 'c', text: 'El implante estaba mal colocado desde el inicio' },
-      { key: 'd', text: 'No tomó antibióticos antes de la cirugía de implantes' },
+      { key: 'a', text: '¿El paciente presenta sangrado al sondaje en más del 10% de los sitios?' },
+      { key: 'b', text: '¿La enfermedad amenaza solo dientes individuales o pone en riesgo la dentición completa y requiere rehabilitación compleja?' },
+      { key: 'c', text: '¿El paciente usa cepillo eléctrico o manual?' },
+      { key: 'd', text: '¿El paciente tiene pérdida dental por periodontitis?' },
     ],
     correct_answer: 'b',
-    explanation: 'La periodontitis previa es un factor de riesgo documentado para peri-implantitis, en parte por la persistencia de la misma microbiota patógena y la mayor dificultad de higiene alrededor de los implantes.',
+    explanation: 'La diferencia entre Estadio III y IV no depende solo de la cantidad de pérdida ósea. El clínico debe preguntarse si la periodontitis amenaza dientes individuales o la supervivencia de toda la dentición. Estadio III: afecta dientes individuales, severidad moderada, preservación posible sin rehabilitación extensa. Estadio IV: afecta la dentición completa, requiere rehabilitación oral extensa y multidisciplinaria (cirugía + prótesis + implantes), disfunción masticatoria/colapso de mordida.',
     order_index: 4,
   },
   {
-    question_text: 'Comparando los Casos 7 y 8: ambos pacientes iniciaron con Estadio/Grado de severidad comparable. ¿Qué explica sus resultados radicalmente distintos?',
+    question_text: '¿Cómo debe actuar el clínico cuando la causa de la pérdida dentaria no puede establecerse con certeza razonable?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'El técnico que realizó el RAR era diferente' },
-      { key: 'b', text: 'El cumplimiento del mantenimiento y el cambio (o no) de los modificadores de riesgo' },
-      { key: 'c', text: 'El tipo de anestesia usada' },
-      { key: 'd', text: 'La edad de los pacientes' },
+      { key: 'a', text: 'Debe atribuirla automáticamente a periodontitis para no subestimar el caso' },
+      { key: 'b', text: 'Debe usar juicio clínico, revisar historia, radiografías y contexto, y evitar atribuirla a periodontitis si no hay evidencia razonable' },
+      { key: 'c', text: 'Debe clasificar siempre al paciente como Estadio IV' },
+      { key: 'd', text: 'Debe ignorar la pérdida dentaria en todos los casos' },
     ],
     correct_answer: 'b',
-    explanation: 'Miguel (Caso 7) cesó el tabaco y controló su diabetes con excelente cumplimiento, mejorando su Grado; Víctor (Caso 8) abandonó el seguimiento y su enfermedad progresó — el cumplimiento fue la variable decisiva.',
+    explanation: 'La pérdida dentaria atribuible a periodontitis es un criterio clave para diferenciar estadios avanzados (especialmente Estadio III vs. IV). Si la causa no está clara, el clínico debe revisar la historia dental completa, evaluar radiografías antiguas, buscar patrones de pérdida ósea, considerar otras causas (caries, trauma, razones protésicas, fractura) y evitar la atribución automática a periodontitis sin evidencia. De lo contrario, puede sobrestimar la severidad del caso y modificar incorrectamente el pronóstico y el plan terapéutico.',
     order_index: 5,
-  },
-  {
-    question_text: 'En una exposición de membrana GTR (Caso 6), ¿cuál es la consecuencia clínica más relevante a considerar?',
-    question_type: 'multiple_choice',
-    options: [
-      { key: 'a', text: 'Ninguna, es un evento sin importancia clínica' },
-      { key: 'b', text: 'Riesgo de contaminación bacteriana que compromete la función regenerativa de la membrana' },
-      { key: 'c', text: 'Siempre requiere extracción del diente' },
-      { key: 'd', text: 'Indica que el aloinjerto fue rechazado por el sistema inmune' },
-    ],
-    correct_answer: 'b',
-    explanation: 'La exposición de la membrana permite la contaminación bacteriana del sitio regenerativo, lo cual compromete o anula el potencial de regeneración ósea esperado, aunque el sitio pueda cicatrizar secundariamente sin mayores secuelas.',
-    order_index: 6,
-  },
-  {
-    question_text: 'Según la síntesis del capítulo, ¿cuál es la relación correcta entre "parar la enfermedad" y "regenerar hueso perdido" como metas del tratamiento periodontal?',
-    question_type: 'multiple_choice',
-    options: [
-      { key: 'a', text: 'Son igualmente importantes y deben lograrse ambas siempre' },
-      { key: 'b', text: 'Parar la enfermedad es la meta primaria; la regeneración ósea es un resultado secundario ("beneficio adicional"), no garantizado' },
-      { key: 'c', text: 'Regenerar hueso es la única meta válida; si no se logra, el tratamiento fracasó' },
-      { key: 'd', text: 'Ninguna de las dos es realista en pacientes Grado C' },
-    ],
-    correct_answer: 'b',
-    explanation: 'Múltiples casos (1, 2, 6) muestran regeneración ósea mínima pese a una detención exitosa de la enfermedad — el éxito clínico se mide primero por el control de la progresión, no por la recuperación completa del hueso perdido.',
-    order_index: 7,
-  },
-  {
-    question_text: 'Según el árbol de decisión integrado del capítulo, un paciente con PPS residual de 8mm y Estadio III tras la Fase 1 no quirúrgica debería recibir:',
-    question_type: 'multiple_choice',
-    options: [
-      { key: 'a', text: 'Solo más sesiones de profilaxis, sin cambios' },
-      { key: 'b', text: 'Cirugía extensiva con GTR probable' },
-      { key: 'c', text: 'Extracción inmediata sin más evaluación' },
-      { key: 'd', text: 'Alta del seguimiento periodontal' },
-    ],
-    correct_answer: 'b',
-    explanation: 'Según el árbol de decisión de Fase 2: PPS 7-9mm con Estadio III indica cirugía extensiva con GTR probable, no solo mantenimiento ni extracción directa.',
-    order_index: 8,
   },
 ];

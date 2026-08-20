@@ -149,7 +149,7 @@ one (this bit DashboardPage once already: the link existed in code but only in
 | 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth + 3 real figures | 4 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 | 2 — Estadios | ✅ | **8/8**, postgrado-level academic depth | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 | 3 — Grados | ✅ | **8/8**, full Estadio×Grado prognostic matrix (12 combos) | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
-| 4 — Zonas Grises y clarificaciones de uso clínico | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 4 Q | 8 Q (≥70% to pass) |
+| 4 — Zonas Grises y clarificaciones de uso clínico | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 
 Chapter titles (`chapters.title`, the DB row, distinct from each chapter's
 internal lesson-title style) were renamed 2026-08-20 per explicit user
@@ -164,15 +164,16 @@ chapter's actual content as literally (e.g. Ch2's title is now "Estadios"
 even though its lessons are about diagnostic technique, not staging) —
 that's intentional per the user, not a mismatch to "fix".
 
-Chapters 1-3's pretest/posttest question **counts are intentionally not 4/8
-like Chapter 4** — the user stated these exact questions are pre-approved by
-the UNICOC committee and must be used verbatim (Ch1: 2026-08-19, Ch2 &amp; Ch3:
-2026-08-20), overriding the earlier decision to keep each chapter's original,
-more-integrated question set. Ch2's posttest questions are phrased as 5
-clinical-case vignettes (each ending in "¿Cuál es el estadio más apropiado?");
-Ch3's are standard concept/case questions. That's per each committee doc, not
-an inconsistency to "fix". Do not revert any of these three chapters'
-count/format to match Chapter 4 without checking with the user first.
+All 4 chapters' pretest/posttest question **counts are now 5/5, not the
+original 4/8** — the user stated these exact questions are pre-approved by
+the UNICOC committee and must be used verbatim for every chapter (Ch1:
+2026-08-19, Ch2/Ch3/Ch4: 2026-08-20), overriding the earlier decision to keep
+each chapter's original, more-integrated question set. Ch2's posttest
+questions are phrased as 5 clinical-case vignettes (each ending in "¿Cuál es
+el estadio más apropiado?"); Ch3's and Ch4's are standard concept/case
+questions. That's per each committee doc, not an inconsistency to "fix". Do
+not revert any chapter's question count/format without checking with the
+user first.
 
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
@@ -343,7 +344,40 @@ worth keeping fixed regardless of the above:
   (`if (attempt) {...}`); `PreTestComponent` now does the same, with a visible
   Spanish error message and the button re-enabled for retry.
 
-### PDF viewer (Caton 2018, Tonetti 2018, Periodontitis-01 + Decision Tree) — Chapters 1-3
+### Chapter 4 revision (2026-08-20) — from `PROMPT_CAPITULO_4_CASOS_REALES_FINAL.md`
+
+Same pattern as Chapters 2-3, applied to Chapter 4:
+
+- **Pretest/posttest replaced verbatim** with the doc's 5 pretest + 5 posttest
+  questions on diagnostic-differential judgment (non-periodontal causes of
+  CAL, pseudobolsa vs. real pocket, Estadio III vs. IV, careful attribution of
+  tooth loss). These are concept questions, not tied to the specific case
+  numbers in the app's existing 8-case lesson set — unlike the old
+  case-referencing questions they replaced (e.g. "En el Caso 1 (Carlos M.)...")
+  which would have gone stale if the case content was ever reordered.
+- **PDF resource added: Kornman et al. 2020** (Clinical application of the
+  new classification of periodontal diseases) — `PDF_RESOURCES_BY_CHAPTER[4]`,
+  same single-PDF pattern as Chapters 1-2 (no tab selector needed, only one
+  document). URL verified to exist in Supabase Storage (HTTP 200) and
+  double-checked character-for-character against the user's pasted URL before
+  wiring it in — the user flagged this chapter's PDF placement as important
+  after a prior (ultimately false-alarm, stale-deployment) report on Chapter
+  3's PDF, so extra care was taken: confirmed `test_attempts`/`user_progress`
+  for Chapter 4 were clean post-reseed before considering this done, not just
+  "the code looks right."
+- **Not applied — doc's 4-case clinical content:** the doc's 4 detailed cases
+  (fumador+DM severa, periodontitis agresiva joven con IL-1 high-risk, lesión
+  endo-perio, Estadio IV preservación vs. extracción) are thematically
+  identical to the chapter's existing Lessons 1-4, which were already built
+  from a richer, previously-approved source doc with equal-or-greater depth
+  (same 24-month mes 0/3/6/12/24 follow-up structure, same reclassification
+  logic). Kept the existing lesson content rather than rewriting to match this
+  doc's slightly different patient specifics (age, exact mm values) — same
+  judgment call as Chapter 2/3's "already consistent, don't duplicate."
+  Removed the file's 3 remaining `~` approximation symbols per the doc's
+  checklist; `SRP`/`denso` were already not present in the live content.
+
+### PDF viewer (Caton 2018, Tonetti 2018, Periodontitis-01 + Decision Tree, Kornman 2020) — Chapters 1-4
 
 After each chapter's pretest, before the lessons, there's now a `PDFViewer`
 (`src/components/lessons/PDFViewer.tsx`, `react-pdf`) showing that chapter's
@@ -352,8 +386,8 @@ already uploaded by the user before this was built — verified via the
 storage API, not assumed): Chapter 1 shows Caton et al. 2018, Chapter 2 shows
 Tonetti et al. 2018 (Staging and grading of periodontitis), Chapter 3 shows
 **two** documents (Periodontitis-01 classification paper + the decision-tree
-paper) behind a tab selector — see "Chapter 3 revision" above. Implementation
-notes:
+paper) behind a tab selector, Chapter 4 shows Kornman et al. 2020 (Clinical
+application) — see "Chapter 3/4 revision" above. Implementation notes:
 
 - This required a different integration approach than the source doc
   assumed: lesson `content_html` is raw HTML (`dangerouslySetInnerHTML`,

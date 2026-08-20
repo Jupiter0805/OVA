@@ -32,6 +32,9 @@ const PERIODONTITIS_01_PDF_URL =
 const PERIODONTITIS_DECISION_TREE_PDF_URL =
   'https://jaghsnjjklrorojbtkpr.supabase.co/storage/v1/object/public/academic-papers/Paper02_Periodontitis-02DecissionTree-Final_Castellano.pdf';
 
+const KORNMAN_2020_PDF_URL =
+  'https://jaghsnjjklrorojbtkpr.supabase.co/storage/v1/object/public/academic-papers/Journal%20of%20Periodontology%20-%202020%20-%20Kornman%20-%20Clinical%20application%20of%20the%20new%20classification%20of%20periodontal%20diseases%20%20Ground.pdf';
+
 type PdfResource = { tabLabel: string; url: string; title: string; author: string; downloadName: string };
 
 // One chapter can have more than one PDF resource (e.g. Chapter 3's paper +
@@ -70,6 +73,15 @@ const PDF_RESOURCES_BY_CHAPTER: Record<number, PdfResource[]> = {
       title: 'Árbol de decisión: clasificación Estadio × Grado',
       author: 'Decision tree — versión castellano',
       downloadName: 'Periodontitis_02_ArbolDecision.pdf',
+    },
+  ],
+  4: [
+    {
+      tabLabel: 'Paper Kornman 2020',
+      url: KORNMAN_2020_PDF_URL,
+      title: 'Clinical application of the new classification of periodontal diseases — implementation in clinical practice',
+      author: 'Kornman KS, Papapanou PN, Caton JG, et al. (2020) — J Periodontol',
+      downloadName: 'Kornman_2020_Clinical_Application.pdf',
     },
   ],
 };
