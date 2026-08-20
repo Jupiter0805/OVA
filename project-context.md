@@ -178,6 +178,38 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Chapter 3 post-rebuild cleanup: bad case removed, Extensión added to all diagnoses (2026-08-21)
+
+After the full rebuild (see below), the user flagged one specific case as
+wrong and asked for a formatting change applied chapter-wide:
+
+- **Removed** Lesson 4's "Caso — modificador aislado, sin suficiente peso
+  para cambiar la clasificación" (Mujer 52a, HbA1c 8.2%, concluded Grado B).
+  It was a real self-contradiction: Lesson 2's own stated rule is "basta con
+  que un criterio alcance el umbral de C para desplazar el Grado hacia
+  arriba" — but this case had a modifier explicitly at the Grado C threshold
+  (HbA1c ≥7%) and still concluded Grado B "on balance." Deleted per the
+  user's instruction rather than rewritten, since the lesson's other case
+  already carries the "modifiers override the ratio" teaching point cleanly.
+  **The identical defect existed in Lesson 7's "Estadio III, Grado B" case**
+  (same patient profile, reused across lessons) — not explicitly flagged by
+  the user, but fixed proactively rather than left as a known duplicate of
+  the same error: HbA1c lowered to 6.8% (&lt;7%, genuinely Grado B) so ratio
+  and modifier now agree instead of being rationalized around.
+- **Extensión (Localizada/Generalizada) added to every diagnosis statement**
+  in Lessons 6, 7, and 8, in the format `Estadio, Extensión, Grado` (between
+  Estadio and Grado, per the user's explicit ordering) — previously the
+  chapter stated Estadio and Grado but never the third required descriptor.
+  Assigned per each case's own stated findings (e.g. "CAL 2mm en #16, #26,
+  #36" → Localizada; "CAL 3-4mm generalizado" → Generalizada, since the
+  case already said so) rather than inserted mechanically. The Estadio I
+  Grado A case in Lesson 6 also had a second tooth (#13) added to its
+  findings per the user's request, making it a clean 2-tooth Localizada
+  example. Lesson 8's reclassification cases now show the extensión
+  changing alongside Estadio/Grado where the case narrative supports it
+  (Caso A: Localizada → Generalizada, tracking the case's progression from
+  one tooth-region to widespread).
+
 ### Chapter 3 Grado-determination accuracy overhaul (2026-08-21, first pass — superseded by full rebuild below)
 
 The user pasted a "Capítulo III Grados" reference document (with real editorial

@@ -218,15 +218,8 @@ export const lessons = [
         <p>Varón 42a, fuma 22 cig/día, HbA1c 9.1%. CAL 3-4mm generalizado, RBL 28%. RBL/edad = 28/42 = 0.67 — por sí solo, Grado B. Pero el tabaquismo intenso (≥10 cig/día) y la HbA1c muy elevada (≥7%) son, ambos, modificadores de Grado C que superan ampliamente el umbral. <strong>Diagnóstico:</strong> Grado C — dos modificadores potentes desplazan la clasificación aunque la razón indirecta por sí sola no llegara a 1.0.</p>
       </details>
     </div>
-    <div class="case-card">
-      <h3>Caso — modificador aislado, sin suficiente peso para cambiar la clasificación</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Mujer 52a, HbA1c 8.2% (≥7%, modificador de Grado C), pero muy adherente al tratamiento. RBL 46%, RBL/edad = 46/52 = 0.885, dentro del rango de Grado B. La HbA1c elevada es una señal de alarma que exige vigilancia estrecha y referencia endocrinológica — pero, en conjunto con el resto de la evidencia, la clasificación se mantiene en <strong>Grado B</strong>. Si la HbA1c mejora a &lt;7%, el modificador deja de pesar hacia C.</p>
-      </details>
-    </div>
   </div>
-  <p style="font-size:0.9rem;color:var(--text-light);">Estos dos casos ilustran el mismo punto desde ángulos opuestos: los modificadores importan, pero no sustituyen el razonamiento del caso completo.</p>
+  <p style="font-size:0.9rem;color:var(--text-light);">Este caso ilustra el punto: los modificadores importan, pero no sustituyen el razonamiento del caso completo — cuando un modificador cruza claramente el umbral de Grado C, la clasificación se desplaza, sin importar que la razón indirecta por sí sola no llegara a 1.0.</p>
 
   <div class="reference">
     📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Kornman &amp; Papapanou 2020
@@ -295,21 +288,21 @@ export const lessons = [
       <h3>Estadio I, Grado A — excelente pronóstico</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Mujer 24a, examen de rutina: PPS 4-5mm en #11, CAL 1-2mm, RBL 5% (RBL/edad = 5/24 = 0.21, &lt;0.25), BOP solo en ese diente, radiografía con lámina dura clara. <strong>Diagnóstico:</strong> Estadio I, Grado A. RAR suave + educación en uso de hilo dental; a las 8 semanas: PPS 3mm, sin BOP, remisión. Pronóstico &gt;95%. Mantenimiento anual.</p>
+        <p>Mujer 24a, examen de rutina: PPS 4-5mm en #11 y #13, CAL 1-2mm, RBL 5% (RBL/edad = 5/24 = 0.21, &lt;0.25), BOP solo en esos dos dientes, radiografía con lámina dura clara. <strong>Diagnóstico:</strong> Estadio I, Localizada, Grado A. RAR suave + educación en uso de hilo dental; a las 8 semanas: PPS 3mm, sin BOP, remisión. Pronóstico &gt;95%. Mantenimiento anual.</p>
       </details>
     </div>
     <div class="case-card">
       <h3>Estadio I, Grado B — progresión moderada en estadio temprano</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Varón 28a, fumador 7 cig/día. CAL 2mm en #16, #26, #36; RBL 12% (RBL/edad = 12/28 = 0.43); radiografía previa (18 meses) ya mostraba pérdida medible; PCR Pg+ 20%. <strong>Diagnóstico:</strong> Estadio I, Grado B. Plan: RAR + consejería tabaco; monitoreo cada 4 meses × 1 año. Pronóstico 80-90%. Si deja el cigarrillo, pronóstico mejora hacia Grado A.</p>
+        <p>Varón 28a, fumador 7 cig/día. CAL 2mm en #16, #26, #36; RBL 12% (RBL/edad = 12/28 = 0.43); radiografía previa (18 meses) ya mostraba pérdida medible; PCR Pg+ 20%. <strong>Diagnóstico:</strong> Estadio I, Localizada, Grado B. Plan: RAR + consejería tabaco; monitoreo cada 4 meses × 1 año. Pronóstico 80-90%. Si deja el cigarrillo, pronóstico mejora hacia Grado A.</p>
       </details>
     </div>
     <div class="case-card">
       <h3>Estadio I, Grado C — ALERTA DIAGNÓSTICA</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Mujer 22a, "dientes se están moviendo, sangrado espontáneo hace 6 meses". CAL 2mm máxima en molares; RBL 9% (RBL/edad = 9/22 = 0.41, por sí solo compatible con Grado B); movilidad Grado 1 incipiente; PCR Pg+++Tf+++Td++; antecedente familiar (padre perdió molares en 20s). <strong>Diagnóstico:</strong> Estadio I, Grado C — el RBL/edad aislado no llega a 1.0, pero la microbiología severa y el antecedente familiar fuerte desplazan la clasificación a Grado C: exactamente el tipo de caso donde el fenotipo pesa más que el número aislado.</p>
+        <p>Mujer 22a, "dientes se están moviendo, sangrado espontáneo hace 6 meses". CAL 2mm máxima en molares; RBL 9% (RBL/edad = 9/22 = 0.41, por sí solo compatible con Grado B); movilidad Grado 1 incipiente; PCR Pg+++Tf+++Td++; antecedente familiar (padre perdió molares en 20s). <strong>Diagnóstico:</strong> Estadio I, Localizada, Grado C — el RBL/edad aislado no llega a 1.0, pero la microbiología severa y el antecedente familiar fuerte desplazan la clasificación a Grado C: exactamente el tipo de caso donde el fenotipo pesa más que el número aislado.</p>
       </details>
     </div>
   </div>
@@ -325,21 +318,21 @@ export const lessons = [
       <h3>Estadio II, Grado A — excelente pronóstico</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Mujer 66a, no fuma, sin diabetes. CAL 3mm generalizado posterior, RBL 16% (RBL/edad = 16/66 = 0.24, límite inferior de Grado A); radiografía de hace 5 años ya mostraba RBL 15% — cambio mínimo, evidencia directa de estabilidad. RAR 2 sesiones + clorhexidina; resultado: PPS 3-4mm, sin BOP. Remisión 90-95%. Mantenimiento anual.</p>
+        <p>Mujer 66a, no fuma, sin diabetes. CAL 3mm generalizado posterior, RBL 16% (RBL/edad = 16/66 = 0.24, límite inferior de Grado A); radiografía de hace 5 años ya mostraba RBL 15% — cambio mínimo, evidencia directa de estabilidad. <strong>Diagnóstico:</strong> Estadio II, Generalizada, Grado A. RAR 2 sesiones + clorhexidina; resultado: PPS 3-4mm, sin BOP. Remisión 90-95%. Mantenimiento anual.</p>
       </details>
     </div>
     <div class="case-card">
       <h3>Estadio II, Grado B — buen pronóstico, requiere supervisión</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Mujer 48a, fuma 8 cig/día, diabetes HbA1c 6.8%. CAL 3-4mm; RBL 26% (RBL/edad = 26/48 = 0.54, dentro del rango de Grado B). <strong>Diagnóstico:</strong> Estadio II, Grado B. RAR 3 sesiones + Arestin + consejería tabaco + referencia endocrinólogo. Remisión 80-85%. Mantenimiento cada 3-4 meses.</p>
+        <p>Mujer 48a, fuma 8 cig/día, diabetes HbA1c 6.8%. CAL 3-4mm generalizado; RBL 26% (RBL/edad = 26/48 = 0.54, dentro del rango de Grado B). <strong>Diagnóstico:</strong> Estadio II, Generalizada, Grado B. RAR 3 sesiones + Arestin + consejería tabaco + referencia endocrinólogo. Remisión 80-85%. Mantenimiento cada 3-4 meses.</p>
       </details>
     </div>
     <div class="case-card">
       <h3>Estadio II, Grado C — moderadamente severa, terapia agresiva</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Varón 42a, fuma 22 cig/día, HbA1c 9.1%. CAL 3-4mm generalizado; RBL 28% (RBL/edad = 28/42 = 0.67, por sí solo Grado B — pero el tabaquismo intenso y la HbA1c muy elevada, ambos muy por encima del umbral de C, desplazan la clasificación). <strong>Diagnóstico:</strong> Estadio II, Grado C. RAR 4 sesiones + azitromicina + Arestin; referencia endocrinológica urgente. Remisión solo 60-70%. Urgencia alta: retraso significa Estadio III en 2-3 años.</p>
+        <p>Varón 42a, fuma 22 cig/día, HbA1c 9.1%. CAL 3-4mm generalizado; RBL 28% (RBL/edad = 28/42 = 0.67, por sí solo Grado B — pero el tabaquismo intenso y la HbA1c muy elevada, ambos muy por encima del umbral de C, desplazan la clasificación). <strong>Diagnóstico:</strong> Estadio II, Generalizada, Grado C. RAR 4 sesiones + azitromicina + Arestin; referencia endocrinológica urgente. Remisión solo 60-70%. Urgencia alta: retraso significa Estadio III en 2-3 años.</p>
       </details>
     </div>
   </div>
@@ -363,21 +356,21 @@ export const lessons = [
       <h3>Estadio III, Grado A — bueno, aún en estadio severo</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Varón 62a, ex-fumador hace 15 años, sin diabetes. CAL 5-6mm, RBL 40%, defectos angulares 1-2 paredes en molares; radiografía de hace 5 años ya mostraba RBL 37% — un cambio de apenas 3 puntos porcentuales en 5 años, evidencia directa de estabilidad, que tiene prioridad sobre el RBL/edad (40/62 = 0.65, que por sí solo sugeriría Grado B). <strong>Diagnóstico:</strong> Estadio III, Grado A. RAR + cirugía de acceso + GTR/aloinjerto. Prognosis excelente (88-90%).</p>
+        <p>Varón 62a, ex-fumador hace 15 años, sin diabetes. CAL 5-6mm, RBL 40%, defectos angulares 1-2 paredes en molares; radiografía de hace 5 años ya mostraba RBL 37% — un cambio de apenas 3 puntos porcentuales en 5 años, evidencia directa de estabilidad, que tiene prioridad sobre el RBL/edad (40/62 = 0.65, que por sí solo sugeriría Grado B). <strong>Diagnóstico:</strong> Estadio III, Localizada, Grado A. RAR + cirugía de acceso + GTR/aloinjerto. Prognosis excelente (88-90%).</p>
       </details>
     </div>
     <div class="case-card">
       <h3>Estadio III, Grado B — moderado, balance entre control y supervivencia</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Mujer 52a, HbA1c 8.2%, muy adherente. CAL 6mm, PPS 8-9mm, RBL 46% (RBL/edad = 46/52 = 0.885, dentro del rango de Grado B). La HbA1c elevada (≥7%, modificador de Grado C) exige vigilancia estrecha, pero el conjunto de la evidencia mantiene la clasificación en Grado B. Plan: RAR + referencia endocrinológica urgente, cirugía + GTR. Si HbA1c mejora a &lt;7%, el pronóstico mejora (65-70% → mejor).</p>
+        <p>Mujer 52a, HbA1c 6.8% (&lt;7%, dentro del rango de Grado B), muy adherente. CAL 6mm generalizado, PPS 8-9mm, RBL 46% (RBL/edad = 46/52 = 0.885, dentro del rango de Grado B) — ratio y modificador coinciden. <strong>Diagnóstico:</strong> Estadio III, Generalizada, Grado B. Plan: RAR + cirugía + GTR. Pronóstico 65-70%. Si la adherencia se sostiene, buen candidato a estabilizar en el rango alto de Grado B.</p>
       </details>
     </div>
     <div class="case-card">
       <h3>Estadio III, Grado C — pobre pronóstico, máxima agresividad necesaria</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Varón 47a, fuma 25 cig/día, HbA1c 9.8% sin tratamiento regular. CAL 6-8mm, PPS 8-10mm, furcación Grado 2-3; RBL 48% (RBL/edad = 48/47 = 1.02, supera 1.0 — reforzado por tabaquismo intenso y HbA1c muy elevada). Plan: RAR exhaustivo + azitromicina + Arestin; referencia endocrinológica urgente; cirugía + posible extracción selectiva. Prognosis pobre (45-55%).</p>
+        <p>Varón 47a, fuma 25 cig/día, HbA1c 9.8% sin tratamiento regular. CAL 6-8mm generalizado, PPS 8-10mm, furcación Grado 2-3; RBL 48% (RBL/edad = 48/47 = 1.02, supera 1.0 — reforzado por tabaquismo intenso y HbA1c muy elevada). <strong>Diagnóstico:</strong> Estadio III, Generalizada, Grado C. Plan: RAR exhaustivo + azitromicina + Arestin; referencia endocrinológica urgente; cirugía + posible extracción selectiva. Prognosis pobre (45-55%).</p>
       </details>
     </div>
   </div>
@@ -389,14 +382,14 @@ export const lessons = [
       <h3>Estadio IV, Grado B — manejo multidisciplinario</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Varón 65a, ex-fumador hace 12 años, HbA1c 6.9%. CAL 6-8mm, PPS 9-11mm, furcación Grado 3 en molares, movilidad Grado 2; ya perdió 2 dientes. RBL 60% (RBL/edad = 60/65 = 0.92, dentro del rango de Grado B; modificadores ahora controlados refuerzan la clasificación). <strong>Plan:</strong> RAR exhaustivo → extracción selectiva del diente irrecuperable → preservación del resto con cirugía de acceso → implantes tras cicatrización. Preservación esperada 60-70%.</p>
+        <p>Varón 65a, ex-fumador hace 12 años, HbA1c 6.9%. CAL 6-8mm generalizado, PPS 9-11mm, furcación Grado 3 en molares, movilidad Grado 2; ya perdió 2 dientes. RBL 60% (RBL/edad = 60/65 = 0.92, dentro del rango de Grado B; modificadores ahora controlados refuerzan la clasificación). <strong>Diagnóstico:</strong> Estadio IV, Generalizada, Grado B. <strong>Plan:</strong> RAR exhaustivo → extracción selectiva del diente irrecuperable → preservación del resto con cirugía de acceso → implantes tras cicatrización. Preservación esperada 60-70%.</p>
       </details>
     </div>
     <div class="case-card">
       <h3>Estadio IV, Grado C — crisis periodontal</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Varón 54a, fuma 28 cig/día, HbA1c 9.8% no adherente a medicación. CAL 7-8mm, PPS 10-12mm, furcación Grado 3 bilateral, movilidad Grado 2-3; perdió 4 dientes en los últimos 18 meses. RBL 70% (RBL/edad = 70/54 = 1.30, supera 1.0). <strong>Decisiones deben tomarse en días, no semanas.</strong> Plan: consulta multidisciplinaria, extracción de molares irrecuperables, preservación intentada en anteriores, RAR intensivo + azitromicina. Preservación esperada solo 20-40%.</p>
+        <p>Varón 54a, fuma 28 cig/día, HbA1c 9.8% no adherente a medicación. CAL 7-8mm generalizado, PPS 10-12mm, furcación Grado 3 bilateral, movilidad Grado 2-3; perdió 4 dientes en los últimos 18 meses. RBL 70% (RBL/edad = 70/54 = 1.30, supera 1.0). <strong>Diagnóstico:</strong> Estadio IV, Generalizada, Grado C. <strong>Decisiones deben tomarse en días, no semanas.</strong> Plan: consulta multidisciplinaria, extracción de molares irrecuperables, preservación intentada en anteriores, RAR intensivo + azitromicina. Preservación esperada solo 20-40%.</p>
       </details>
     </div>
   </div>
@@ -419,8 +412,8 @@ export const lessons = [
       <h3>Caso integrado A — el cambio de Estadio obliga a revisar el plan</h3>
       <details>
         <summary>Ver caso completo</summary>
-        <p><strong>Presentación inicial:</strong> Mujer 42a, fumadora 12 cig/día. CAL 2-3mm, RBL 18% (RBL/edad = 18/42 = 0.43). Diagnóstico: <strong>Estadio I, Grado B</strong>.</p>
-        <p><strong>Seguimiento a 8 meses:</strong> radiografía muestra RBL 30% — un salto de 12 puntos porcentuales en solo 8 meses, evidencia directa de progresión muy rápida (muy por encima del umbral de Grado C); CAL ahora 4-5mm. <strong>Reclasificación: Estadio II, Grado C</strong> — cambio dramático.</p>
+        <p><strong>Presentación inicial:</strong> Mujer 42a, fumadora 12 cig/día. CAL 2-3mm localizado, RBL 18% (RBL/edad = 18/42 = 0.43). Diagnóstico: <strong>Estadio I, Localizada, Grado B</strong>.</p>
+        <p><strong>Seguimiento a 8 meses:</strong> radiografía muestra RBL 30% — un salto de 12 puntos porcentuales en solo 8 meses, evidencia directa de progresión muy rápida (muy por encima del umbral de Grado C); CAL ahora 4-5mm, ya generalizado. <strong>Reclasificación: Estadio II, Generalizada, Grado C</strong> — cambio dramático.</p>
         <p><strong>Investigación:</strong> cambio de trabajo → estrés severo → depresión desarrollada, sin diagnosticar.</p>
         <p><strong>Lección:</strong> el Grado puede cambiar — la comparación radiográfica y la reclasificación periódica son críticas.</p>
       </details>
@@ -429,9 +422,9 @@ export const lessons = [
       <h3>Caso integrado B — intervenir el modificador cambia el pronóstico</h3>
       <details>
         <summary>Ver caso completo</summary>
-        <p><strong>Presentación:</strong> Varón 48a, fumador 18 cig/día, HbA1c 8.6%. CAL 3-4mm, RBL 28%. Diagnóstico: <strong>Estadio II, Grado C</strong> (tabaquismo severo + diabetes descontrolada, a pesar del Estadio moderado).</p>
+        <p><strong>Presentación:</strong> Varón 48a, fumador 18 cig/día, HbA1c 8.6%. CAL 3-4mm generalizado, RBL 28%. Diagnóstico: <strong>Estadio II, Generalizada, Grado C</strong> (tabaquismo severo + diabetes descontrolada, a pesar del Estadio moderado).</p>
         <p><strong>A los 6 meses:</strong> radiografía estable; PPS muy mejorado. Paciente dejó el cigarrillo hace 3 meses; HbA1c ahora 6.8% (&lt;7%).</p>
-        <p><strong>Reclasificación: Estadio II, Grado B</strong> — el Estadio no cambia (el daño ya ocurrido es irreversible), pero el Grado sí mejora porque ambos modificadores cruzaron de vuelta al rango B.</p>
+        <p><strong>Reclasificación: Estadio II, Generalizada, Grado B</strong> — el Estadio y la extensión no cambian (el daño ya ocurrido es irreversible), pero el Grado sí mejora porque ambos modificadores cruzaron de vuelta al rango B.</p>
         <p><strong>Lección:</strong> intervenir los modificadores cambia el Grado y el pronóstico — la "reclasificación" post-terapia es una práctica clínica válida y recomendada.</p>
       </details>
     </div>
