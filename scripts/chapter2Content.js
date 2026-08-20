@@ -179,7 +179,7 @@ export const lessons = [
   </div>
 
   <figure class="embedded-figure">
-    <img src="/sonda-naber.jpeg" alt="Sonda de Naber, sonda curva de doble extremo usada para explorar furcaciones" />
+    <img src="/sonda-naber.jpeg" alt="Sonda de Naber, sonda curva de doble extremo usada para explorar furcaciones" style="max-width: 220px;" />
     <figcaption>Sonda de Naber — su extremo curvo permite acceder al espacio interradicular de la furcación, algo que una sonda periodontal recta convencional no logra.</figcaption>
   </figure>
 
@@ -400,7 +400,7 @@ export const lessons = [
         <table>
           <tr><th>Aspecto</th><th>Endodóntica</th><th>Periodontal</th><th>Combinada</th></tr>
           <tr><td>Vitalidad pulpar</td><td>Negativa</td><td>Positiva</td><td>Negativa</td></tr>
-          <tr><td>Sinus tract</td><td>Sí, hacia el ápice</td><td>No</td><td>Ambos</td></tr>
+          <tr><td>Fístula</td><td>Sí, hacia el ápice</td><td>No</td><td>Ambos</td></tr>
           <tr><td>RBL</td><td>Localizado al ápice</td><td>Generalizado / vertical</td><td>Generalizado</td></tr>
         </table>
         <p>La prueba de vitalidad pulpar es el diferenciador clave — pero recordar que la pulpa puede necrosarse secundariamente por periodontitis severa ("marcha" apical de la enfermedad).</p>
@@ -526,7 +526,7 @@ export const lessons = [
       <h3>Caso 4 — Lesión combinada endodóntico-periodontal</h3>
       <details>
         <summary>Ver caso completo</summary>
-        <p>Varón 48a, diabético (HbA1c 7.8%), dolor y movilidad en el 16. PPS 8-9mm generalizado, CAL 7-8mm, sinus tract mesial, respuesta térmica negativa. Radiografía: RBL 35-40% generalizado + radiolucencia perirradicular apical.</p>
+        <p>Varón 48a, diabético (HbA1c 7.8%), dolor y movilidad en el 16. PPS 8-9mm generalizado, CAL 7-8mm, fístula mesial, respuesta térmica negativa. Radiografía: RBL 35-40% generalizado + radiolucencia perirradicular apical.</p>
         <p><strong>Investigación:</strong> vitalidad pulpar definitivamente negativa (endodóntica), pero el RBL generalizado circunferencial es típicamente periodontal.</p>
         <p><strong>Diagnóstico:</strong> Periodontitis Estadio III, Grado B + necrosis pulpar — lesión combinada.</p>
         <p><strong>Plan:</strong> endodoncia (RCT) + RAR general + optimización de diabetes.</p>

@@ -178,6 +178,23 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Small fixes: Naber figure size, "sinus tract" anglicism (2026-08-21)
+
+- `sonda-naber.jpeg` (Chapter 2 Lesson 3) is a tall portrait product photo
+  (1122×1402px, mostly white space around a thin probe) — at the shared
+  `.embedded-figure img` rule (`max-width: 70%`) it rendered far too large.
+  Added an inline `style="max-width: 220px;"` on that one `<img>` only, since
+  the other embedded figures (Chapter 1's 3, Chapter 2's `sonda-periodontal.jpeg`
+  and `tecnica-miller.jpg`) are landscape clinical photos/diagrams that read
+  fine at the shared 70% and shouldn't shrink. If more portrait product
+  photos get added later, worth promoting this to a `.embedded-figure.small`
+  class instead of repeating inline styles.
+- "Sinus tract" (leftover English term, missed by the original terminology
+  sweep — it's a different phrase than "sinus" the anatomical term flagged
+  before) → "Fístula", 2 occurrences in Chapter 2 Lesson 6 (comparison table
+  + Caso 4 prose). Chapter 4 already correctly used "trayecto fistuloso" in
+  its own endo-perio case — checked, no change needed there.
+
 ### Chapter 2 Lesson 5 rescoped to Estadio-only (2026-08-20)
 
 The user pasted a "capítulo II del word de referencia" academic document (a
