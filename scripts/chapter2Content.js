@@ -280,7 +280,7 @@ export const lessons = [
   {
     lesson_number: 5,
     order_index: 5,
-    title: 'Síntesis diagnóstica: caso, Estadificación y Gradificación',
+    title: 'Síntesis diagnóstica: caso y Estadificación',
     content_html: `<div class="lesson-container">
   <h2>🧩 De los datos sueltos al diagnóstico completo</h2>
 
@@ -311,6 +311,28 @@ export const lessons = [
     </ul>
   </div>
 
+  <h3>Los cuatro Estadios, uno por uno</h3>
+  <p>La estadificación traduce la gravedad acumulada de la destrucción periodontal y la complejidad del manejo clínico en una categoría diagnóstica. Responde a dos preguntas: cuánto daño existe y qué tan difícil será conservar o rehabilitar esa dentición. Por diseño, el Estadio <strong>no</strong> describe la velocidad de progresión — esa es función del Grado (Capítulo 3).</p>
+
+  <div class="cases">
+    <div class="case-card">
+      <h3>Estadio I — periodontitis inicial</h3>
+      <p>Es un error frecuente minimizarlo por parecer "leve". Su importancia real está en que marca el punto exacto en que una gingivitis inducida por biofilm deja de ser reversible y se convierte en pérdida real de inserción. Diferenciarlo de gingivitis exige sondaje correcto, ubicar la unión amelocementaria (UAC) y correlación radiográfica prudente — no basta con "hay bolsas".</p>
+    </div>
+    <div class="case-card">
+      <h3>Estadio II — periodontitis establecida</h3>
+      <p>El daño ya no es incipiente: la pérdida de inserción es moderada y la pérdida ósea radiográfica más evidente, pero todavía sin los elementos de complejidad mayor que definen los Estadios III y IV. No significa enfermedad "simple" — significa daño claro que aún no compromete de forma importante la arquitectura periodontal ni la futura rehabilitación.</p>
+    </div>
+    <div class="case-card">
+      <h3>Estadio III — severa, con riesgo real de pérdida adicional</h3>
+      <p>Aquí no basta con decir "hay bolsas profundas". El punto central es la aparición de signos anatómicos de mayor complejidad: defectos infraóseos, compromiso de furca, movilidad, pérdida dentaria limitada por periodontitis, y lesiones que se extienden al tercio medio radicular o más allá. Es el punto donde el manejo deja de ser predominantemente básico y exige planeación quirúrgica, pronóstico por diente, y con frecuencia la integración de otras disciplinas.</p>
+    </div>
+    <div class="case-card">
+      <h3>Estadio IV — no es "Estadio III pero más grande"</h3>
+      <p>La diferencia con el Estadio III es <strong>funcional</strong>, no solo cuantitativa. Además de la destrucción severa, la dentición ya perdió estabilidad global y puede requerir rehabilitación compleja para restaurar función masticatoria, dimensión vertical, soporte posterior, o controlar el colapso oclusal. El juicio clínico aquí no puede apoyarse en un solo parámetro — debe considerar la totalidad del caso y su necesidad de rehabilitación integral.</p>
+    </div>
+  </div>
+
   <h3>Tabla de decisión Estadio (integrando todos los hallazgos)</h3>
   <table>
     <tr><th>Estadio</th><th>CAL</th><th>RBL</th><th>Furcación</th><th>Movilidad</th><th>Pérdida dentaria</th></tr>
@@ -320,27 +342,8 @@ export const lessons = [
     <tr><td><strong>IV</strong></td><td>≥5mm</td><td>&gt;50%</td><td>3</td><td>2-3</td><td><strong>Sí</strong></td></tr>
   </table>
 
-  <h3>Determinación de Grado</h3>
-  <div class="calc-box">
-    <p><strong>Con radiografías previas disponibles:</strong></p>
-    <p class="formula">Tasa RBL anual = (RBL actual − RBL previo) / años</p>
-    <p>Grado A: &lt;3% anual · Grado B: 3-20% anual · Grado C: &gt;20% anual</p>
-  </div>
-
-  <p><strong>Sin radiografías previas</strong> — se estima con una matriz de modificadores acumulativos (heurística clínica, no algoritmo formal AAP/EFP):</p>
-  <table>
-    <tr><th>Modificador</th><th>Nivel</th><th>Efecto en el Grado</th></tr>
-    <tr><td>Tabaquismo</td><td>1-9 / 10-19 / ≥20 cig/día</td><td>+0.5 / +1 a +1.5 / +2</td></tr>
-    <tr><td>Diabetes</td><td>HbA1c &lt;7% / 7-8% / &gt;8%</td><td>+0.5 / +1 / +1.5 a +2</td></tr>
-    <tr><td>Sexo/edad</td><td>Mujer en edad reproductiva</td><td>+0.3</td></tr>
-    <tr><td>Estrés</td><td>Moderado / severo-depresión</td><td>+0.5 / +1.5</td></tr>
-    <tr><td>Edad de presentación</td><td>Estadio III en &lt;30 años</td><td>+2</td></tr>
-    <tr><td>Microbiología</td><td>Pg moderado / Pg+Tf+Td</td><td>+0.5 / +1.5 a +2</td></tr>
-  </table>
-  <p style="font-size:0.9rem;color:var(--text-light);">Puntuación total 0-0.5 → Grado A · 0.5-1.5 → Grado B · ≥1.5 → Grado C.</p>
-
   <div class="reference">
-    📚 Basado en: Tonetti et al. 2018 (marco oficial); Kornman &amp; Papapanou 2020 (interpretación de modificadores)
+    📚 Basado en: Tonetti et al. 2018 (marco oficial); Kornman &amp; Papapanou 2020
   </div>
 </div>`,
   },

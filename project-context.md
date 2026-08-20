@@ -178,6 +178,44 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Chapter 2 Lesson 5 rescoped to Estadio-only (2026-08-20)
+
+The user pasted a "capítulo II del word de referencia" academic document (a
+different reference than the MEGA_PROMPT docs used to originally build the
+course) and asked to remove Grado content from Chapter 2 Lesson 5 and instead
+explain each Estadio (I-IV) individually, grounded in that document's prose.
+
+- **Removed entirely:** the "Determinación de Grado" section (RBL-rate
+  formula box + the 6-row cumulative-modifiers scoring table + its 0-0.5/0.5-1.5/≥1.5
+  → Grado A/B/C cutoffs). Grado determination now lives only in its proper
+  home, Chapter 3 ("Grados") — Chapter 2 Lesson 5 is scoped purely to
+  Estadificación, matching the reference doc's framing that Estadio "no
+  pretende describir la velocidad de progresión; esa función pertenece al
+  grado."
+- **Added:** a "Los cuatro Estadios, uno por uno" section with one card per
+  Estadio (I-IV), adapted from the reference doc's sections 3-6 — each one
+  states the *conceptual* point, not just the numeric criteria already in the
+  table below it (Estadio I: distinguishing reversible gingivitis from real
+  attachment loss; Estadio II: "established", not "simple"; Estadio III:
+  anatomic complexity signs — infrabony defects, furca, mobility — shift
+  management from basic to surgical/multidisciplinary; Estadio IV: the
+  Estadio III→IV difference is *functional*, not "more of the same
+  severity"). Deliberately did **not** include the reference doc's "Lectura
+  clínica resumida" column from its Estadio matrix table — the doc itself
+  carries an editorial comment flagging that column as ambiguous and
+  recommending its removal, so it wasn't ported over.
+- Existing "Tabla de decisión Estadio" (CAL/RBL/furcación/movilidad/pérdida
+  dentaria quick-reference) was kept unchanged, now positioned after the new
+  prose section as the quick-lookup summary.
+- Renamed the lesson title from "Síntesis diagnóstica: caso, Estadificación y
+  Gradificación" to "Síntesis diagnóstica: caso y Estadificación" to match
+  the new scope; updated the closing reference line (dropped the
+  Grado-modifiers-specific citation note).
+- Did **not** port over the reference doc's "Localización, extensión y
+  reporte diagnóstico" section (7) or its 4 casos clínicos (8) — not
+  requested, and extensión (localizada/generalizada/patrón molar-incisivo)
+  is already covered in Chapter 1 Lesson 4.
+
 ### Chapter 2 Lesson 3 fixes + 2 figures (2026-08-20)
 
 Furcación table (Hamp &amp; Nyman): the "Técnica diagnóstica" column previously
