@@ -4,7 +4,7 @@ export function Features() {
   const cards = [
     {
       icon: '📚',
-      title: 'Contenido Académico Denso',
+      title: 'Contenido Académico Profundo',
       points: [
         '14,000+ palabras de contenido académico en 32 lecciones',
         'Basado en Tonetti et al. (2018), Kornman et al. (2020), guías AAP/EFP',
