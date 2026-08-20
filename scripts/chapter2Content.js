@@ -43,21 +43,24 @@ export const lessons = [
     <tr><td>Higiene oral</td><td>¿Cepillado? ¿Hilo dental? ¿Enjuague?</td><td>Punto de partida del control de biofilm</td></tr>
     <tr><td>Familiares</td><td>¿Familiares con "problemas de encías"? ¿Perdieron dientes?</td><td>Susceptibilidad genética</td></tr>
     <tr><td>Salud sistémica</td><td>Diabetes (pedir HbA1c reciente), hipertensión, autoinmunes, VIH</td><td>Modificadores críticos de Grado</td></tr>
-    <tr><td>Medicaciones</td><td>Ciclosporina, nifedipina (hiperplasia), bisfosfonatos (riesgo ONJ)</td><td>Efectos secundarios relevantes</td></tr>
+    <tr><td>Medicaciones</td><td>Ciclosporina, nifedipina (hiperplasia), bisfosfonatos (riesgo de osteonecrosis)</td><td>Efectos secundarios relevantes</td></tr>
     <tr><td>Tabaquismo</td><td>¿Cigarrillos/día? ¿Años? ¿Deseo de dejar?</td><td>Modificador #1; dosis-respuesta</td></tr>
     <tr><td>Estrés</td><td>¿Cambios recientes en la vida? ¿Depresión/ansiedad diagnosticada?</td><td>Estrés crónico → citocinas; escalada de Grado</td></tr>
     <tr><td>Embarazo</td><td>¿Posibilidad de embarazo próximo?</td><td>Cambios hormonales; planificación de terapia</td></tr>
   </table>
 
-  <h3>Puntuación informal de riesgo periodontal</h3>
+  <h3>Evaluación de Riesgo Periodontal (PRA) — Lang &amp; Tonetti 2003</h3>
+  <p>El PRA (Periodontal Risk Assessment) es un diagrama funcional de 6 parámetros, pensado originalmente para pacientes en mantenimiento post-terapia, pero útil también como marco de referencia en la anamnesis inicial: ningún parámetro por sí solo predice el riesgo — se evalúan los 6 en conjunto.</p>
   <table>
-    <tr><th>Puntuación</th><th>Nivel</th><th>Ejemplo</th></tr>
-    <tr><td>0</td><td>Bajo riesgo</td><td>No fuma, sin diabetes, sin antecedente familiar, buena higiene</td></tr>
-    <tr><td>1</td><td>Riesgo moderado</td><td>Un modificador presente (ex-fumador, diabetes bien controlada)</td></tr>
-    <tr><td>2</td><td>Riesgo alto</td><td>Dos o más modificadores (fumador actual + diabetes)</td></tr>
-    <tr><td>3</td><td>Riesgo muy alto</td><td>Múltiples modificadores severos (fumador &gt;15/día + HbA1c &gt;8% + estrés severo)</td></tr>
+    <tr><th>Parámetro</th><th>Riesgo bajo</th><th>Riesgo moderado</th><th>Riesgo alto</th></tr>
+    <tr><td>% de sitios con sangrado al sondaje (BOP)</td><td>&lt;10%</td><td>10-25%</td><td>&gt;25%</td></tr>
+    <tr><td>Bolsas residuales ≥5mm</td><td>≤4</td><td>5-8</td><td>&gt;8</td></tr>
+    <tr><td>Dientes perdidos (de 28, sin terceros molares)</td><td>≤4</td><td>5-8</td><td>&gt;8</td></tr>
+    <tr><td>Pérdida ósea / edad (% RBL en el sitio posterior más afectado ÷ edad)</td><td>&lt;0.5</td><td>0.5-1.0</td><td>&gt;1.0</td></tr>
+    <tr><td>Factores sistémicos/genéticos conocidos (ej. diabetes, IL-1 genotipo positivo)</td><td>Ausentes</td><td>—</td><td>Presentes</td></tr>
+    <tr><td>Tabaquismo</td><td>No fumador / ex-fumador &gt;5 años</td><td>Ocasional (&lt;10 cig/día) o moderado (10-19 cig/día)</td><td>&gt;20 cig/día (&gt;1 paquete/día)</td></tr>
   </table>
-  <p style="font-size:0.9rem;color:var(--text-light);">Valor clínico: guía la intensidad del monitoreo post-terapia y la expectativa de pronóstico.</p>
+  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Clasificación global:</strong> PRA bajo = todos los parámetros en riesgo bajo, o como máximo uno en moderado · PRA moderado = al menos dos parámetros en moderado, como máximo uno en alto · PRA alto = al menos dos parámetros en alto. Valor clínico: guía la intensidad del monitoreo post-terapia y la expectativa de pronóstico.</p>
 
   <h3>🚩 Señales de alarma que requieren referencia urgente</h3>
   <div class="cases">
@@ -69,13 +72,13 @@ export const lessons = [
         <li><strong>Ulceración gingival necrótica</strong> — enfermedad necrotizante, posible VIH</li>
         <li><strong>Edad &lt;30 con CAL detectable</strong> — inicio temprano, probable Grado C</li>
         <li><strong>Múltiples pérdidas dentarias recientes</strong> — progresión rápida, Grado C probable</li>
-        <li><strong>Discrepancia edad/daño</strong> — joven con Estadio IV, o mayor con Estadio I inusualmente severo para su edad</li>
+        <li><strong>Discrepancia edad/daño</strong> — joven con Estadio IV.</li>
       </ul>
     </div>
   </div>
 
   <div class="reference">
-    📚 Basado en: Tonetti et al. 2018; Kornman &amp; Papapanou 2020; guías de anamnesis periodontal AAP/EFP
+    📚 Basado en: Tonetti et al. 2018; Kornman &amp; Papapanou 2020; Lang &amp; Tonetti 2003 (Periodontal Risk Assessment); guías de anamnesis periodontal AAP/EFP
   </div>
 </div>`,
   },

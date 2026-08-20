@@ -178,6 +178,32 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Chapter 2 small edits (2026-08-20) — Lesson 1, from a live-app screenshot + a real paper
+
+Three edits, all in `chapter2Content.js` Lesson 1:
+
+- "(riesgo ONJ)" → "riesgo de osteonecrosis" in the anamnesis interview table's
+  Medicaciones row (bisphosphonates) — abbreviation spelled out.
+- The "Puntuación informal de riesgo periodontal" table (an ad-hoc 0-3 scoring
+  scheme with no citation) was replaced with the actual **PRA (Periodontal
+  Risk Assessment) framework from Lang &amp; Tonetti 2003** (the user supplied
+  the paper), per explicit instruction to use that article for this table
+  only — nothing else in the chapter was rewritten to match it. The new table
+  uses the paper's real 6 vectors and their published low/moderate/high
+  cutoffs: BOP% (&lt;10 / 10-25 / &gt;25), residual pockets ≥5mm (≤4 / 5-8 / &gt;8),
+  teeth lost out of 28 (≤4 / 5-8 / &gt;8), bone-loss/age ratio (&lt;0.5 / 0.5-1.0 /
+  &gt;1.0), known systemic/genetic factors (absent / — / present), and smoking
+  (non/ex-smoker &gt;5y / occasional-moderate / &gt;20 cig/day) — plus the paper's
+  combination rule for overall PRA (low/moderate/high). Added the citation to
+  the lesson's closing reference line. Note: Lang &amp; Tonetti's PRA was
+  designed for patients already in supportive periodontal therapy (post-active-treatment
+  maintenance), not for initial anamnesis — used here as the cited framework
+  per the user's instruction, not as a claim it was originally designed for
+  this exact use case.
+- Trimmed the "Discrepancia edad/daño" red-flag bullet to just "joven con
+  Estadio IV" (removed the "o mayor con Estadio I inusualmente severo..."
+  clause).
+
 ### Chapter 1 small edits (2026-08-20) — from live-app screenshots, not a doc
 
 The user sent screenshots of the deployed app (not a prep doc) and asked for
