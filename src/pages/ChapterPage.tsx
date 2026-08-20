@@ -23,6 +23,26 @@ type PageState = 'pretest' | 'pdf-resource' | 'lessons' | 'posttest' | 'complete
 const CATON_2018_PDF_URL =
   'https://jaghsnjjklrorojbtkpr.supabase.co/storage/v1/object/public/academic-papers/J%20Clinic%20Periodontology%20-%202018%20-%20Caton%20-%20A%20new%20classification%20scheme%20for%20periodontal.pdf';
 
+const TONETTI_2018_PDF_URL =
+  'https://jaghsnjjklrorojbtkpr.supabase.co/storage/v1/object/public/academic-papers/Journal%20of%20Periodontology%20-%202018%20-%20Tonetti%20-%20Staging%20and%20grading%20of%20periodontitis%20%20Framework%20and%20proposal%20of%20a%20new.pdf';
+
+type PdfResource = { url: string; title: string; author: string; downloadName: string };
+
+const PDF_RESOURCE_BY_CHAPTER: Record<number, PdfResource> = {
+  1: {
+    url: CATON_2018_PDF_URL,
+    title: 'A new classification scheme for periodontal and peri-implant diseases and conditions',
+    author: 'Caton JG, Armitage G, Berglundh T, et al. (2018) — J Clin Periodontol. 2018;45(S20):S1-S8',
+    downloadName: 'Caton_2018_Classification.pdf',
+  },
+  2: {
+    url: TONETTI_2018_PDF_URL,
+    title: 'Staging and grading of periodontitis: Framework and proposal of a new classification system',
+    author: 'Tonetti MS, Greenwell H, Kornman KS. (2018) — J Periodontol. 2018;89(S1):S159-S172',
+    downloadName: 'Tonetti_2018_Staging_Grading.pdf',
+  },
+};
+
 export function ChapterPage() {
   const { chapterId } = useParams<{ chapterId: string }>();
   const navigate = useNavigate();
@@ -89,8 +109,10 @@ export function ChapterPage() {
     loadData();
   }, [chapterId, user?.id]);
 
+  const pdfResource = chapter ? PDF_RESOURCE_BY_CHAPTER[chapter.chapter_number] : undefined;
+
   const handlePreTestComplete = () => {
-    setPageState(chapter?.chapter_number === 1 ? 'pdf-resource' : 'lessons');
+    setPageState(pdfResource ? 'pdf-resource' : 'lessons');
   };
 
   const handlePdfResourceContinue = () => setPageState('lessons');
@@ -214,7 +236,7 @@ export function ChapterPage() {
               <PreTestComponent test={pretest} questions={pretestQuestions} onComplete={handlePreTestComplete} />
             )}
 
-            {pageState === 'pdf-resource' && (
+            {pageState === 'pdf-resource' && pdfResource && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -235,10 +257,10 @@ export function ChapterPage() {
                   }
                 >
                   <PDFViewer
-                    url={CATON_2018_PDF_URL}
-                    title="A new classification scheme for periodontal and peri-implant diseases and conditions"
-                    author="Caton JG, Armitage G, Berglundh T, et al. (2018) — J Clin Periodontol. 2018;45(S20):S1-S8"
-                    downloadName="Caton_2018_Classification.pdf"
+                    url={pdfResource.url}
+                    title={pdfResource.title}
+                    author={pdfResource.author}
+                    downloadName={pdfResource.downloadName}
                   />
                 </Suspense>
 

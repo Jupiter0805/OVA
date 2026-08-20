@@ -95,7 +95,7 @@ export const lessons = [
     </div>
     <div class="card">
       <h3>2. Punto de inserción</h3>
-      <p>Directamente en el surco/bolsa subgingival. La sonda desciende bajo su propio peso (~25g) — nunca forzar. Detenerse al contactar el fondo de la bolsa.</p>
+      <p>Directamente en el surco/bolsa subgingival. La sonda desciende bajo su propio peso (aproximadamente 25g) — nunca forzar. Detenerse al contactar el fondo de la bolsa.</p>
     </div>
     <div class="card">
       <h3>3. Presión correcta</h3>
@@ -110,12 +110,14 @@ export const lessons = [
   <h3>Sitios de registro por diente</h3>
   <table>
     <tr><th>Sitio</th><th>Ubicación</th><th>Técnica</th></tr>
+    <tr><td>Mesiobucal (MB)</td><td>Ángulo mesial de la cara bucal</td><td>Ángulo aproximado de 45° hacia el punto de contacto mesial</td></tr>
     <tr><td>Bucal (B)</td><td>Línea media bucal</td><td>Sonda perpendicular; desplazamiento M-D</td></tr>
+    <tr><td>Distobucal (DB)</td><td>Ángulo distal de la cara bucal</td><td>Ángulo aproximado de 45° hacia el punto de contacto distal</td></tr>
+    <tr><td>Mesiolingual (ML)</td><td>Ángulo mesial de la cara lingual</td><td>Sonda desde lingual, ángulo hacia mesial</td></tr>
     <tr><td>Lingual (L)</td><td>Línea media lingual</td><td>Sonda desde lingual, "vuelta" alrededor</td></tr>
-    <tr><td>Mesial (M)</td><td>Punto de contacto mesial</td><td>Ángulo ~45° hacia la línea media M-D</td></tr>
-    <tr><td>Distal (D)</td><td>Punto de contacto distal</td><td>Ángulo ~45° hacia la línea media M-D</td></tr>
+    <tr><td>Distolingual (DL)</td><td>Ángulo distal de la cara lingual</td><td>Sonda desde lingual, ángulo hacia distal</td></tr>
   </table>
-  <p style="font-size:0.9rem;color:var(--text-light);">Mínimo 4 sitios por diente. Los molares requieren 6 (agregando fondo de furcación bucal y lingual) si hay afectación.</p>
+  <p style="font-size:0.9rem;color:var(--text-light);">6 sitios/diente siempre — registro periodontal completo, sin excepciones por tipo de diente.</p>
 
   <div class="calc-box">
     <p><strong>Fórmula de CAL (pérdida clínica de inserción)</strong></p>
@@ -537,145 +539,136 @@ export const lessons = [
 
 export const pretestQuestions = [
   {
-    question_text: 'Si un paciente tiene PPS de 6mm pero el margen gingival está 2mm coronal a la CEJ (sin recesión), ¿cuál es el CAL?',
+    question_text: '¿Cuál es el objetivo principal del estadio en la clasificación de periodontitis?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: '8mm' },
-      { key: 'b', text: '6mm' },
-      { key: 'c', text: '4mm' },
+      { key: 'a', text: 'Calcular la razón pérdida ósea/edad del paciente' },
+      { key: 'b', text: 'Clasificar la severidad, extensión y complejidad del caso periodontal' },
+      { key: 'c', text: 'Medir solamente el sangrado al sondaje' },
+      { key: 'd', text: 'Diagnosticar caries cervicales' },
     ],
     correct_answer: 'b',
-    explanation: 'Cuando el margen gingival está coronal a la CEJ no se suma nada — CAL = PPS = 6mm en este caso.',
+    explanation: 'El estadio no se limita a decir si hay periodontitis o no. Su función es ubicar al paciente en una etapa clínica según el daño periodontal presente y la dificultad del tratamiento. Por eso considera pérdida de inserción, pérdida ósea, dientes perdidos y factores de complejidad.',
     order_index: 1,
   },
   {
-    question_text: 'Una PPS profunda (6-7mm) siempre significa que hay periodontitis.',
-    question_type: 'true_false',
-    options: null,
-    correct_answer: 'false',
-    explanation: 'Una PPS profunda con CAL mínimo es una pseudobolsa (edema gingival) — puede ser gingivitis pura, no periodontitis.',
+    question_text: '¿Cuál de los siguientes datos es un criterio primario para determinar la severidad del estadio de periodontitis?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Sangrado al sondaje (BOP)' },
+      { key: 'b', text: 'Edad del paciente' },
+      { key: 'c', text: 'Pérdida de inserción clínica (CAL)' },
+      { key: 'd', text: 'Profundidad de sondaje periodontal (PPS)' },
+    ],
+    correct_answer: 'c',
+    explanation: 'La pérdida de inserción clínica (CAL), valorada en el sitio interdental con mayor pérdida, es el criterio primario para orientar la severidad del estadio. CAL refleja la pérdida acumulada, no el estado inflamatorio actual (PPS).',
     order_index: 2,
   },
   {
-    question_text: '¿Qué hallazgo de furcación escala automáticamente la clasificación a Estadio III, incluso si el CAL/RBL son de Estadio II?',
+    question_text: 'Un paciente con CAL interdental de 1-2mm, pérdida ósea limitada al tercio coronal menor al 15% y sin pérdida dentaria por periodontitis corresponde principalmente a:',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'Furcación Grado 1' },
-      { key: 'b', text: 'Furcación Grado 2' },
-      { key: 'c', text: 'Ninguna furcación escala el Estadio por sí sola' },
+      { key: 'a', text: 'Estadio I' },
+      { key: 'b', text: 'Estadio II' },
+      { key: 'c', text: 'Estadio III' },
+      { key: 'd', text: 'Estadio IV' },
     ],
-    correct_answer: 'b',
-    explanation: 'Furcación Grado 2 (comunicación parcial) escala a Estadio III automáticamente; Grado 3 escala a Estadio IV.',
+    correct_answer: 'a',
+    explanation: 'Estadio I corresponde a periodontitis inicial. Se caracteriza por pérdida de inserción leve (1-2mm), pérdida ósea limitada (<15%) y ausencia de pérdida dentaria atribuible a periodontitis.',
     order_index: 3,
   },
   {
-    question_text: 'Sin radiografías previas, es imposible estimar el Grado de un paciente.',
-    question_type: 'true_false',
-    options: null,
-    correct_answer: 'false',
-    explanation: 'Se puede estimar con evidencia indirecta: microbiología, edad de presentación vs. severidad, y modificadores de riesgo presentes.',
+    question_text: '¿Qué factor de complejidad puede elevar un caso hacia estadio III aunque la severidad inicial sugiera un estadio menor?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'PPS máxima de 5mm con pérdida horizontal' },
+      { key: 'b', text: 'Furcación clase II o III' },
+      { key: 'c', text: 'RBL de 20% limitada al tercio coronal' },
+      { key: 'd', text: 'CAL interdental máxima de 4mm' },
+    ],
+    correct_answer: 'b',
+    explanation: 'La furcación clase II o III es un factor de complejidad importante. Según la clasificación AAP/EFP 2018, estos factores pueden modificar el estadio hacia una etapa más avanzada porque complican significativamente el manejo clínico.',
     order_index: 4,
+  },
+  {
+    question_text: '¿Cuál característica orienta más claramente hacia estadio IV?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'RBL de 25% limitada al tercio coronal' },
+      { key: 'b', text: 'CAL interdental máxima de 4mm' },
+      { key: 'c', text: 'Disfunción masticatoria o colapso de mordida' },
+      { key: 'd', text: 'PPS máxima de 6mm sin compromiso funcional' },
+    ],
+    correct_answer: 'c',
+    explanation: 'Estadio IV implica periodontitis avanzada con impacto funcional sistémico. La presencia de disfunción masticatoria, colapso de mordida, movilidad severa, migración dentaria o menos de 20 dientes remanentes orienta claramente hacia este estadio.',
+    order_index: 5,
   },
 ];
 
 export const posttestQuestions = [
   {
-    question_text: 'Diente con PPS mesial de 5mm y recesión de 2mm (margen apical a la CEJ). ¿Cuál es el CAL?',
+    question_text: 'Caso clínico 1: paciente de 35 años con CAL interdental máxima de 2mm, pérdida ósea radiográfica limitada al tercio coronal, profundidad de sondaje máxima de 3mm, pérdida ósea principalmente horizontal, y sin pérdida dentaria por periodontitis. ¿Cuál es el estadio más apropiado?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: '3mm' },
-      { key: 'b', text: '5mm' },
-      { key: 'c', text: '7mm' },
-      { key: 'd', text: 'No se puede calcular sin radiografía' },
+      { key: 'a', text: 'Estadio I' },
+      { key: 'b', text: 'Estadio II' },
+      { key: 'c', text: 'Estadio III' },
+      { key: 'd', text: 'Estadio IV' },
     ],
-    correct_answer: 'c',
-    explanation: 'CAL = PPS + recesión = 5 + 2 = 7mm. La fórmula suma la recesión cuando el margen gingival está apical a la CEJ.',
+    correct_answer: 'a',
+    explanation: 'Este caso corresponde a periodontitis inicial. La CAL de 1-2mm, la pérdida ósea <15%, la profundidad de sondaje máxima de ≤4mm y la ausencia de pérdida dentaria por periodontitis son criterios compatibles con Estadio I. No hay factores de complejidad que eleven el caso a Estadio III o IV.',
     order_index: 1,
   },
   {
-    question_text: '¿Cuál es la presión correcta de sondaje periodontal?',
+    question_text: 'Caso clínico 2: paciente de 48 años con CAL interdental máxima de 4mm, pérdida ósea radiográfica de 25% en tercio coronal, profundidad de sondaje de 4-5mm, pérdida ósea principalmente horizontal, y sin pérdida dentaria por periodontitis. ¿Cuál es el estadio más apropiado?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: '0.05N — casi sin tocar' },
-      { key: 'b', text: '0.25N (±0.05N)' },
-      { key: 'c', text: '0.5N para asegurar llegar al fondo' },
-      { key: 'd', text: 'No importa la presión si el ángulo es correcto' },
+      { key: 'a', text: 'Estadio I' },
+      { key: 'b', text: 'Estadio II' },
+      { key: 'c', text: 'Estadio III' },
+      { key: 'd', text: 'Estadio IV' },
     ],
     correct_answer: 'b',
-    explanation: 'Demasiada presión (>0.5N) penetra tejido intacto y sobreestima el PPS; muy poca (<0.15N) subestima al no llegar al fondo real de la bolsa.',
+    explanation: 'El caso corresponde a Estadio II (moderado). La CAL de 3-4mm, la pérdida ósea radiográfica de 15-33%, la profundidad de sondaje máxima de 5mm son criterios típicos de Estadio II. No hay pérdida dentaria por periodontitis ni factores de complejidad avanzada.',
     order_index: 2,
   },
   {
-    question_text: 'Un paciente presenta PPS 6mm con BOP, pero CAL medido cuidadosamente es de 1mm, y la radiografía muestra cresta ósea normal con lámina dura intacta. ¿Cuál es el diagnóstico más probable?',
+    question_text: 'Caso clínico 3: paciente de 52 años con CAL interdental de 5mm, pérdida ósea que se extiende hasta el tercio medio de la raíz, bolsas periodontales de 6mm, un defecto vertical de 4mm en un molar, pérdida de DOS dientes por periodontitis, y función masticatoria adecuada conservada. ¿Cuál es el estadio más apropiado?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'Periodontitis Estadio II' },
-      { key: 'b', text: 'Gingivitis (pseudobolsa por edema)' },
-      { key: 'c', text: 'Periodontitis Estadio I' },
-      { key: 'd', text: 'Trauma oclusal' },
+      { key: 'a', text: 'Estadio I' },
+      { key: 'b', text: 'Estadio II' },
+      { key: 'c', text: 'Estadio III' },
+      { key: 'd', text: 'Estadio IV' },
     ],
-    correct_answer: 'b',
-    explanation: 'CAL mínimo con PPS elevado y radiografía normal es el patrón clásico de pseudobolsa por edema gingival — gingivitis, no periodontitis.',
+    correct_answer: 'c',
+    explanation: 'Este caso corresponde a Estadio III (severa con potencial de deterioro). La CAL ≥5mm, la pérdida ósea hasta tercio medio, las bolsas de 6mm, el defecto vertical >3mm y la pérdida de hasta 4 dientes son criterios compatibles con Estadio III. NO es Estadio IV porque todavía conserva función masticatoria adecuada y no presenta colapso de mordida.',
     order_index: 3,
   },
   {
-    question_text: 'Un paciente con periodonto reducido pero SIN inflamación activa, sin progresión radiográfica en los últimos 5 años, y bien controlado, debería clasificarse como:',
+    question_text: 'Caso clínico 4: paciente de 61 años con CAL interdental máxima de 6mm, pérdida ósea radiográfica hasta tercio medio y apical de múltiples raíces, movilidad dental Grado 2 en varios dientes, migración dentaria anterior, colapso de mordida posterior, dificultad marcada para masticar, y pérdida de SEIS dientes por periodontitis. ¿Cuál es el estadio más apropiado?',
     question_type: 'multiple_choice',
     options: [
-      { key: 'a', text: 'Estadio III activo, requiere tratamiento inmediato' },
-      { key: 'b', text: 'Periodontitis previa, actualmente quiescente — periodonto reducido sano' },
-      { key: 'c', text: 'Gingivitis' },
-      { key: 'd', text: 'No puede evaluarse sin nueva biopsia' },
+      { key: 'a', text: 'Estadio I' },
+      { key: 'b', text: 'Estadio II' },
+      { key: 'c', text: 'Estadio III' },
+      { key: 'd', text: 'Estadio IV' },
     ],
-    correct_answer: 'b',
-    explanation: 'Un periodonto reducido, estable y sin inflamación activa se documenta como periodontitis previa quiescente, no como un Estadio activo — el monitoreo es cada 6-12 meses.',
+    correct_answer: 'd',
+    explanation: 'Este caso corresponde a Estadio IV (severa avanzada). Aunque comparte criterios de severidad con Estadio III (CAL ≥5mm, pérdida ósea tercio medio+), la presencia de pérdida ≥5 dientes por periodontitis, movilidad Grado 2, migración dentaria, colapso de mordida y disfunción masticatoria orienta claramente a Estadio IV, que implica impacto funcional sistémico.',
     order_index: 4,
   },
   {
-    question_text: 'La ausencia de sangrado al sondaje (BOP) descarta periodontitis.',
-    question_type: 'true_false',
-    options: null,
-    correct_answer: 'false',
-    explanation: 'Un periodonto reducido quiescente puede tener CAL significativo sin sangrar — la ausencia de BOP no excluye el diagnóstico.',
+    question_text: 'Caso clínico 5: paciente de 45 años con CAL interdental máxima de 4mm, pérdida ósea radiográfica principalmente horizontal en tercio coronal, furcación clase II en el primer molar, sin pérdida dentaria por periodontitis, y sin disfunción masticatoria. ¿Cuál es el estadio más apropiado?',
+    question_type: 'multiple_choice',
+    options: [
+      { key: 'a', text: 'Estadio I' },
+      { key: 'b', text: 'Estadio II' },
+      { key: 'c', text: 'Estadio III' },
+      { key: 'd', text: 'Estadio IV' },
+    ],
+    correct_answer: 'c',
+    explanation: 'Aunque la CAL de 4mm y la pérdida ósea coronal podrían sugerir Estadio II, la presencia de furcación clase II es un factor de complejidad que eleva el diagnóstico a Estadio III. La complejidad de manejo justifica esta clasificación más severa.',
     order_index: 5,
-  },
-  {
-    question_text: 'Diente con dolor, sinus tract apical, respuesta térmica negativa, y RBL LOCALIZADO solo alrededor del ápice (sin patrón generalizado). ¿Cuál es el diagnóstico más probable?',
-    question_type: 'multiple_choice',
-    options: [
-      { key: 'a', text: 'Periodontitis Estadio III' },
-      { key: 'b', text: 'Lesión endodóntica primaria' },
-      { key: 'c', text: 'Lesión combinada endo-periodontal' },
-      { key: 'd', text: 'Trauma oclusal' },
-    ],
-    correct_answer: 'b',
-    explanation: 'Vitalidad pulpar negativa + sinus tract apical + RBL localizado al ápice (no generalizado) es el patrón típico de una lesión endodóntica primaria, no periodontal.',
-    order_index: 6,
-  },
-  {
-    question_text: 'Radiografía 2022: RBL 20% en el diente 16. Radiografía 2025: RBL 35% en el mismo diente. ¿Cuál es el Grado probable?',
-    question_type: 'multiple_choice',
-    options: [
-      { key: 'a', text: 'Grado A' },
-      { key: 'b', text: 'Grado B' },
-      { key: 'c', text: 'Grado C' },
-      { key: 'd', text: 'No se puede determinar con estos datos' },
-    ],
-    correct_answer: 'b',
-    explanation: 'Tasa anual = (35-20)/3 años = 5% RBL/año, dentro del rango 3-20% anual de Grado B.',
-    order_index: 7,
-  },
-  {
-    question_text: 'Según los casos clínicos revisados, ¿cuál es el error diagnóstico más común que lleva a un diagnóstico incorrecto?',
-    question_type: 'multiple_choice',
-    options: [
-      { key: 'a', text: 'No tomar suficientes radiografías' },
-      { key: 'b', text: 'Medir PPS en vez de CAL, y no profundizar la historia clínica más allá de la primera impresión' },
-      { key: 'c', text: 'No usar sonda Naber' },
-      { key: 'd', text: 'No preguntar sobre el cepillado' },
-    ],
-    correct_answer: 'b',
-    explanation: 'En los casos de pseudobolsa, el error es confundir PPS con CAL; en los casos de "bajo riesgo aparente", el error es no profundizar la historia (estrés, genética, microbiología) más allá de la superficie.',
-    order_index: 8,
   },
 ];

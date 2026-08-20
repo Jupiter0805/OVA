@@ -147,7 +147,7 @@ one (this bit DashboardPage once already: the link existed in code but only in
 | Chapter | DB row | Lessons | Pretest | Posttest |
 |---|---|---|---|---|
 | 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth + 3 real figures | 4 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
-| 2 — Estadios | ✅ | **8/8**, postgrado-level academic depth | 4 Q | 8 Q (≥70% to pass) |
+| 2 — Estadios | ✅ | **8/8**, postgrado-level academic depth | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 | 3 — Grados | ✅ | **8/8**, full Estadio×Grado prognostic matrix (12 combos) | 4 Q | 8 Q (≥70% to pass) |
 | 4 — Zonas Grises y clarificaciones de uso clínico | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 4 Q | 8 Q (≥70% to pass) |
 
@@ -164,12 +164,15 @@ chapter's actual content as literally (e.g. Ch2's title is now "Estadios"
 even though its lessons are about diagnostic technique, not staging) —
 that's intentional per the user, not a mismatch to "fix".
 
-Chapter 1's pretest/posttest question **count is intentionally not 4/8 like the other
-three** — the user stated these exact questions are pre-approved by the UNICOC
-committee and must be used verbatim (2026-08-19), overriding the earlier
-decision to keep the original, more-integrated question set. Do not
-"fix" this back to matching the other chapters' count without checking
-with the user first.
+Chapter 1's and Chapter 2's pretest/posttest question **counts are intentionally
+not 4/8 like Chapters 3-4** — the user stated these exact questions are
+pre-approved by the UNICOC committee and must be used verbatim (Ch1:
+2026-08-19, Ch2: 2026-08-20), overriding the earlier decision to keep each
+chapter's original, more-integrated question set. Ch2's posttest questions
+are phrased as 5 clinical-case vignettes (each ending in "¿Cuál es el estadio
+más apropiado?"), not standalone concept questions — that's per the
+committee doc, not an inconsistency to "fix". Do not revert either chapter's
+count/format to match Chapters 3-4 without checking with the user first.
 
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
@@ -237,21 +240,60 @@ and were **not** applied as written:
   true — `AdminPage`'s "Reiniciar Progreso" button was never gated by the
   self/master `canManage()` check added for the role-change/delete actions.
 
-### PDF viewer (Caton 2018 paper) — Chapter 1 only
+### Chapter 2 revision (2026-08-20) — from `PROMPT_CAPITULO_2_DIAGNOSTICO_FINAL.md`
 
-After the Chapter 1 pretest, before the lessons, there's now a `PDFViewer`
-(`src/components/lessons/PDFViewer.tsx`, `react-pdf`) showing the actual
-Caton et al. 2018 paper from Supabase Storage (public bucket
-`academic-papers`, already uploaded by the user before this was built —
-verified via the storage API, not assumed). Implementation notes:
+The user pasted a committee-final prep doc for Chapter 2 ("realiza esto") and it
+was applied largely as specified, with one clinical-accuracy fix along the way:
+
+- **Pretest/posttest replaced verbatim** with the doc's 5 pretest questions
+  (concept questions on Estadio criteria) and 5 posttest questions (clinical
+  cases, previously written as prose "casos clínicos" — reformatted into the
+  same `multiple_choice` question schema the app already uses, one option per
+  Estadio I-IV, since that's how `questions`/`QuestionCard` render regardless
+  of test type). `PPD`/`PPS` in the doc's own question text was normalized to
+  `PPS` to match the terminology-swap decision already applied everywhere else
+  in the course (see "Terminology swap" below) — the doc itself still had a
+  couple of leftover `PPD` instances from before that pass.
+- **PDF resource step added for Chapter 2**, same `PDFViewer` component as
+  Chapter 1 but showing the Tonetti et al. 2018 Staging/Grading paper instead
+  of Caton 2018 — see updated "PDF viewer" section below. Existence of the
+  Tonetti PDF at the doc's given Supabase Storage URL was verified (HTTP 200)
+  before wiring it in, not assumed.
+- **Fixed a clinical inconsistency the doc itself flagged but didn't resolve
+  correctly:** Chapter 2 Lesson 2's probing-sites table only listed 4 sites
+  (B/L/M/D) with a "6 for molars" carve-out, while Chapter 1 Lesson 2 already
+  states "≥6 sitios por diente" as the standard. The doc's checklist said
+  "Consistencia: '6 sitios/diente' siempre" but didn't supply corrected table
+  content. Rewrote the table to the standard 6-site full-mouth periodontal
+  charting protocol (MB/B/DB/ML/L/DL) applied to every tooth, matching Chapter
+  1 and actual AAP/EFP clinical practice — not just consistency for its own
+  sake.
+- Removed the remaining `~` approximation symbols from Lesson 2 (probing
+  weight, angle) per the doc's "quitar tildes (~)" instruction — SRP→RAR and
+  "denso"→"profundo" were already not present in the live content (those
+  fixes predate this doc).
+- **Not applied — doc's per-lesson "Cambios requeridos" checklist items already
+  satisfied by existing content:** Estadio/Grado tables already match Chapter
+  1's, CAL/BOP/RCT/RBL terminology was already fully Spanish. No changes made
+  where the doc's checklist was already true.
+
+### PDF viewer (Caton 2018 + Tonetti 2018 papers) — Chapters 1-2
+
+After each chapter's pretest, before the lessons, there's now a `PDFViewer`
+(`src/components/lessons/PDFViewer.tsx`, `react-pdf`) showing that chapter's
+source paper from Supabase Storage (public bucket `academic-papers`, already
+uploaded by the user before this was built — verified via the storage API,
+not assumed): Chapter 1 shows Caton et al. 2018, Chapter 2 shows Tonetti et
+al. 2018 (Staging and grading of periodontitis). Implementation notes:
 
 - This required a different integration approach than the source doc
   assumed: lesson `content_html` is raw HTML (`dangerouslySetInnerHTML`,
   see "Lesson content HTML" below), so a real React component can't live
   inside it. Instead, `ChapterPage.tsx` got a new `pageState` step
-  (`'pdf-resource'`) between `'pretest'` and `'lessons'`, gated on
-  `chapter.chapter_number === 1` — every other chapter's flow is
-  unaffected.
+  (`'pdf-resource'`) between `'pretest'` and `'lessons'`, driven by a
+  `PDF_RESOURCE_BY_CHAPTER` lookup keyed on `chapter.chapter_number` (2026-08-20:
+  generalized from a Chapter-1-only `=== 1` check to support Chapter 2 too) —
+  chapters with no entry in that map skip straight to `'lessons'`, unaffected.
 - The source doc's worker setup (`cdnjs.cloudflare.com/.../pdf.worker.min.js`)
   is wrong for the pdfjs-dist version react-pdf 10.4.1 actually ships
   (5.x, ESM-only, `.mjs` not `.js`) — would have 404'd. Used Vite's
@@ -260,7 +302,7 @@ verified via the storage API, not assumed). Implementation notes:
   which also avoids depending on a third-party CDN staying up.
   `PDFViewer` is `React.lazy()`-loaded from `ChapterPage.tsx` — react-pdf +
   pdfjs-dist add about 470KB, only worth it for users who actually reach
-  Chapter 1's PDF step, not on every page load.
+  a chapter's PDF step, not on every page load.
 - Restyled from the source doc's generic blue/green palette to the actual
   `unicoc-red` brand colors.
 - Verified end-to-end with a real PDF render (not just that it compiles) —
