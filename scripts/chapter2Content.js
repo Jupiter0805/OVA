@@ -164,22 +164,26 @@ export const lessons = [
   <h3>Clasificación de furcación (Hamp &amp; Nyman, modificada)</h3>
   <table>
     <tr><th>Grado</th><th>Definición</th><th>Técnica diagnóstica</th><th>Implicación</th></tr>
-    <tr><td><strong>0</strong></td><td>Sin afectación</td><td>Sonda Naber no penetra</td><td>Normal</td></tr>
-    <tr><td><strong>1</strong></td><td>Entrada a furcación</td><td>Penetra el inicio, sin túnel</td><td>Temprana; tratamiento conservador posible</td></tr>
-    <tr><td><strong>2</strong></td><td>Comunicación parcial</td><td>Pasa bucal O lingual, no mesiodistal</td><td>Moderado; cirugía probablemente necesaria</td></tr>
-    <tr><td><strong>3</strong></td><td>Comunicación completa</td><td>Pasa mesiodistalmente (túnel)</td><td>Severo; pronóstico pobre para ese diente</td></tr>
+    <tr><td><strong>0</strong></td><td>Sin afectación</td><td>No penetra.</td><td>Normal</td></tr>
+    <tr><td><strong>1</strong></td><td>Entrada a furcación</td><td>&lt;3mm de la pérdida de inserción horizontal</td><td>Temprana; tratamiento conservador posible</td></tr>
+    <tr><td><strong>2</strong></td><td>Comunicación parcial</td><td>&gt;3mm de la pérdida de inserción horizontal</td><td>Moderado; cirugía probablemente necesaria</td></tr>
+    <tr><td><strong>3</strong></td><td>Comunicación completa</td><td>La penetración es completa.</td><td>Severo; pronóstico pobre para ese diente</td></tr>
   </table>
 
   <div class="decision-tree">
     <h3>🧭 Implicación de la furcación para el Estadio</h3>
     <ul>
-      <li>Furcación Grado 1 → permite <span class="outcome">Estadio II</span> (si otros criterios coinciden)</li>
-      <li>Furcación Grado 2 → escala automáticamente a <span class="outcome">Estadio III</span>, incluso si CAL/RBL son de Estadio II</li>
-      <li>Furcación Grado 3 → escala automáticamente a <span class="outcome">Estadio IV</span></li>
+      <li>Furcación Grado I → puede ser en <span class="outcome">todos los estadios</span></li>
+      <li>Furcación Grado II y III → solo se encuentran en <span class="outcome">Estadio III y IV</span></li>
     </ul>
   </div>
 
-  <p><strong>Técnica de sondaje de furcación:</strong> usar sonda Naber o sonda de 17mm con ángulo 90°, acceso desde bucal (mesial y distal), presión gentil sin forzar. Registrar el grado máximo encontrado entre todos los accesos.</p>
+  <figure class="embedded-figure">
+    <img src="/sonda-naber.jpeg" alt="Sonda de Naber, sonda curva de doble extremo usada para explorar furcaciones" />
+    <figcaption>Sonda de Naber — su extremo curvo permite acceder al espacio interradicular de la furcación, algo que una sonda periodontal recta convencional no logra.</figcaption>
+  </figure>
+
+  <p><strong>Técnica de sondaje de furcación:</strong> usar sonda Naber, acceso desde bucal (mesial y distal), presión gentil sin forzar. Registrar el grado máximo encontrado entre todos los accesos.</p>
 
   <h3>Movilidad dentaria (clasificación de Miller)</h3>
   <table>
@@ -189,6 +193,12 @@ export const lessons = [
     <tr><td><strong>2</strong></td><td>Moderada</td><td>1-2mm horizontal</td><td>Interfiere con la masticación</td></tr>
     <tr><td><strong>3</strong></td><td>Severa</td><td>&gt;2mm horizontal + movimiento vertical</td><td>Pronóstico pobre</td></tr>
   </table>
+
+  <figure class="embedded-figure">
+    <img src="/tecnica-miller.jpg" alt="Técnica de evaluación de movilidad dentaria: movilidad vertical con presión desde oclusal, movilidad horizontal con dos instrumentos rígidos" />
+    <figcaption>Evaluación de la movilidad dentaria: movilidad vertical (presión desde oclusal) y movilidad horizontal (dos instrumentos rígidos a ambos lados de la corona).</figcaption>
+  </figure>
+
   <p style="font-size:0.9rem;color:var(--text-light);"><strong>Técnica:</strong> presión lateral gentil con dos instrumentos rígidos (mesial-distal a la corona, nunca en el borde incisal). Comparar siempre con el diente contralateral.</p>
 
   <div class="definition-box">

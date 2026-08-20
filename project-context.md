@@ -178,6 +178,39 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Chapter 2 Lesson 3 fixes + 2 figures (2026-08-20)
+
+Furcación table (Hamp &amp; Nyman): the "Técnica diagnóstica" column previously
+gave descriptive access criteria ("pasa bucal O lingual", "pasa
+mesiodistalmente"); replaced per the user's exact wording with pérdida de
+inserción horizontal thresholds (Grado 0 no penetra, Grado 1 &lt;3mm, Grado 2
+&gt;3mm, Grado 3 penetración completa).
+
+The "Implicación de la furcación para el Estadio" decision-tree previously
+had 3 bullets claiming specific automatic Estadio escalation per furcación
+grade (Grado 1→permite Estadio II, Grado 2→escala a Estadio III, Grado
+3→escala a Estadio IV). Replaced with the user's 2-bullet version (Grado I →
+puede ser en todos los estadios; Grado II y III → solo se encuentran en
+Estadio III y IV) — a looser, non-deterministic framing than what was there
+before.
+
+Two new figures added, both already-existing untracked files in `public/`
+committed alongside this change:
+
+- `sonda-naber.jpeg` (product photo of a Nabers probe — curved double-ended
+  furcation probe) inserted between the decision-tree and the furcation
+  probing-technique paragraph, with a caption explaining why the curved tip
+  matters (reaches the interradicular space a straight probe can't).
+- `tecnica-miller.jpg` (illustration of vertical vs. horizontal mobility
+  testing) inserted directly below the Miller mobility table.
+
+Also reworded the furcation-probing-technique paragraph to drop the
+"o sonda de 17mm con ángulo 90°" alternative, per the user's exact text —
+now states only the Naber-probe technique.
+
+This is now the **6th** embedded figure in the course (3 in Chapter 1, 3 in
+Chapter 2).
+
 ### Chapter 2 Lesson 2 fixes (2026-08-20) — CAL formula was clinically wrong
 
 The user caught a real error in the CAL calc-box: the old version only stated
