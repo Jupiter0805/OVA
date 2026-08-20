@@ -178,6 +178,32 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Chapter 2 Lesson 2 fixes (2026-08-20) — CAL formula was clinically wrong
+
+The user caught a real error in the CAL calc-box: the old version only stated
+the recession case (`CAL = PPS + Recesión`) and its "no recession" example
+just asserted `CAL = PPS`, and its coronal-margin example (Ejemplo C)
+incorrectly also gave `CAL = PPS` instead of subtracting the margin. Fixed
+per the user's explicit rule: **margin apical to CEJ (recession) → add the
+recession; margin coronal to CEJ (no recession) → subtract the margin
+distance.** The calc-box now states both rules explicitly and all 3 worked
+examples follow them: Ejemplo A (PPS 6mm, margin 2mm coronal, no recession)
+now correctly subtracts to CAL 4mm instead of asserting CAL 6mm; Ejemplo B
+(recession case) was already correct, unchanged; Ejemplo C (PPS 4mm, margin
+1mm coronal) now correctly gives CAL 3mm (was wrongly 4mm), and the old
+justifying parenthetical ("no se suma cuando el margen está coronal a la
+CEJ") was removed since it no longer applies — the corrected rule is "se
+resta", not "no se suma".
+
+Also fixed the BOP list right below it: "BOP ausente de forma sistemática"
+was described as "periodonto bien controlado, o **pseudobolsa por edema**" —
+backwards, since pseudobolsa/edema is characterized by BOP *present*, not
+absent; changed to "Periodonto sano." Removed the "BOP aislado en pocos
+sitios" bullet entirely (user's call, not a factual fix). Extended the
+closing clinical note to state that a quiescent reduced periodontium without
+bleeding must still have at least one pocket &gt;4mm for the "significant
+CAL without bleeding" scenario to hold.
+
 ### Chapter 2 Lesson 2 figure (2026-08-20) — 4th embedded image
 
 Added `public/sonda-periodontal.jpeg` (a close-up clinical photo of a

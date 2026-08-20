@@ -129,10 +129,11 @@ export const lessons = [
 
   <div class="calc-box">
     <p><strong>Fórmula de CAL (pérdida clínica de inserción)</strong></p>
-    <p class="formula">CAL = PPS + Recesión (si el margen gingival está apical a la CEJ)</p>
-    <p><strong>Ejemplo A:</strong> PPS 6mm, sin recesión → CAL = <span class="result">6mm</span></p>
+    <p class="formula">Si hay recesión (margen apical a la CEJ): CAL = PPS + Recesión</p>
+    <p class="formula">Si NO hay recesión (margen coronal a la CEJ): CAL = PPS − margen gingival</p>
+    <p><strong>Ejemplo A:</strong> PPS 6mm, margen gingival 2mm coronal a la CEJ (sin recesión) → CAL = 6 − 2 = <span class="result">4mm</span></p>
     <p><strong>Ejemplo B:</strong> PPS 5mm + recesión 2mm → CAL = <span class="result">7mm</span></p>
-    <p><strong>Ejemplo C:</strong> PPS 4mm, margen gingival 1mm coronal a CEJ → CAL = <span class="result">4mm</span> (no se suma cuando el margen está coronal a la CEJ)</p>
+    <p><strong>Ejemplo C:</strong> PPS 4mm, margen gingival 1mm coronal a CEJ → CAL = 4 − 1 = <span class="result">3mm</span></p>
   </div>
 
   <div class="key-principle">
@@ -144,10 +145,9 @@ export const lessons = [
   <p>Después de medir PPS, observar el surco durante 30 segundos y registrar sí/no.</p>
   <ul>
     <li><strong>BOP &gt;10% de sitios:</strong> posible inflamación activa</li>
-    <li><strong>BOP ausente de forma sistemática:</strong> periodonto bien controlado, o pseudobolsa por edema</li>
-    <li><strong>BOP aislado en pocos sitios:</strong> posible lesión de raíz, caries cervical, u origen no periodontal</li>
+    <li><strong>BOP ausente de forma sistemática:</strong> Periodonto sano.</li>
   </ul>
-  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Nota clínica:</strong> la ausencia de BOP no excluye periodontitis — un periodonto reducido quiescente puede tener CAL significativo sin sangrar.</p>
+  <p style="font-size:0.9rem;color:var(--text-light);"><strong>Nota clínica:</strong> la ausencia de BOP no excluye periodontitis — un periodonto reducido quiescente puede tener CAL significativo sin sangrar pero debe tener mínimo una bolsa de &gt;4mm.</p>
 
   <div class="reference">
     📚 Basado en: técnica de sondaje AAP/EFP; Tonetti et al. 2018
