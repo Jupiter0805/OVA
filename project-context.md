@@ -178,6 +178,31 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Chapter 1 small edits (2026-08-20) — from live-app screenshots, not a doc
+
+The user sent screenshots of the deployed app (not a prep doc) and asked for
+three specific edits, all in `chapter1Content.js`:
+
+- Removed the standalone "Nota clínica importante — gingivitis en periodonto
+  reducido" `definition-box` from Lesson 1. The committee-required table cell
+  text in the Gingivitis-vs-Periodontitis table ("Ausente por definición —
+  pero puede presentarse en pacientes con periodonto reducido...", added
+  2026-08-19 under an explicit "si o si") is a **separate** piece of content
+  and was left untouched — confirmed via grep before and after the edit.
+- Removed the "Mantenimiento" column from Lesson 5/6's "Tabla de manejo por
+  combinación Estadio/Grado" (8 rows, I/A through IV/C) — user's stated
+  reason: "es por evitar temas con la uni" (avoid making maintenance-interval
+  claims the table can't fully justify). Only this one table; other
+  maintenance-frequency mentions elsewhere in the chapter were not touched,
+  since the request was scoped to this specific table.
+- Changed Lesson 8's Caso 2 (Carlos M., 52 años) motivo de consulta from
+  "Dientes sueltos; puede ser implantes?" to "Llevo unos años con dientes
+  flojos y me preguntaba ¿si podía colocarse implantes?" — purely a copy
+  change, no clinical data in the case touched.
+
+Reseeded via `insert:chapter1` (wiped 2 users' existing progress on this
+chapter, per the standard reseed behavior documented below).
+
 ### Chapter 1 revision (2026-08-19) — from two external prompt docs
 
 The user pasted two prep docs (`IMPLEMENTACION_PASOS_2_7_URL_LISTA.md`,

@@ -85,10 +85,6 @@ export const lessons = [
     </tr>
   </table>
 
-  <div class="definition-box">
-    <p><strong>⚠️ Nota clínica importante — gingivitis en periodonto reducido:</strong> la gingivitis puede coexistir con periodontitis. En un paciente con periodontitis previamente tratada, la gingivitis inducida por biofilm puede reaparecer en sitios con profundidad de sondaje ≤3mm (periodonto reducido pero sano), sin que esto niegue el antecedente de periodontitis ni cambie la clasificación del caso como periodontitis resuelta. La clave para diferenciarlo de una recurrencia real: hay sangrado al sondaje, pero el CAL permanece estable (sin nueva pérdida de inserción).</p>
-  </div>
-
   <div class="reference">
     📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Chapple et al. 2018 (J Clin Periodontol)
   </div>
@@ -573,15 +569,15 @@ export const lessons = [
 
   <h3>Tabla de manejo por combinación Estadio/Grado</h3>
   <table>
-    <tr><th>Estadio/Grado</th><th>Tratamiento inicial</th><th>Mantenimiento</th><th>Pronóstico</th></tr>
-    <tr><td>I/A</td><td>RAR + higiene</td><td>Anual</td><td>Excelente</td></tr>
-    <tr><td>I/C</td><td>RAR + antibiótico adyuvante</td><td>Mensual (3 meses)</td><td>Reservado (alto riesgo pese a poca destrucción)</td></tr>
-    <tr><td>II/A</td><td>RAR</td><td>6 meses</td><td>Excelente</td></tr>
-    <tr><td>II/C</td><td>RAR + antibiótico + referencia médica</td><td>Mensual</td><td>Reservado</td></tr>
-    <tr><td>III/A</td><td>RAR + regeneración si aplica</td><td>4 meses</td><td>Bueno</td></tr>
-    <tr><td>III/C</td><td>RAR + regeneración/cirugía + manejo médico</td><td>2 meses</td><td>Pobre</td></tr>
-    <tr><td>IV/A</td><td>RAR + referencia prostodoncia</td><td>Variable</td><td>Reservado</td></tr>
-    <tr><td>IV/C</td><td>Planificación de extracción + rehabilitación</td><td>Intensivo</td><td>Pobre</td></tr>
+    <tr><th>Estadio/Grado</th><th>Tratamiento inicial</th><th>Pronóstico</th></tr>
+    <tr><td>I/A</td><td>RAR + higiene</td><td>Excelente</td></tr>
+    <tr><td>I/C</td><td>RAR + antibiótico adyuvante</td><td>Reservado (alto riesgo pese a poca destrucción)</td></tr>
+    <tr><td>II/A</td><td>RAR</td><td>Excelente</td></tr>
+    <tr><td>II/C</td><td>RAR + antibiótico + referencia médica</td><td>Reservado</td></tr>
+    <tr><td>III/A</td><td>RAR + regeneración si aplica</td><td>Bueno</td></tr>
+    <tr><td>III/C</td><td>RAR + regeneración/cirugía + manejo médico</td><td>Pobre</td></tr>
+    <tr><td>IV/A</td><td>RAR + referencia prostodoncia</td><td>Reservado</td></tr>
+    <tr><td>IV/C</td><td>Planificación de extracción + rehabilitación</td><td>Pobre</td></tr>
   </table>
 
   <div class="decision-tree">
@@ -637,7 +633,7 @@ export const lessons = [
       <h3>Caso 2 — Carlos M., 52 años: presentación agresiva Estadio IV, Grado C</h3>
       <details>
         <summary>Ver historia, examen y diagnóstico completo</summary>
-        <p><strong>Motivo de consulta:</strong> "Dientes sueltos; puede ser implantes?"</p>
+        <p><strong>Motivo de consulta:</strong> "Llevo unos años con dientes flojos y me preguntaba ¿si podía colocarse implantes?"</p>
         <p><strong>Antecedentes:</strong> diabetes tipo 2 hace 8 años, HbA1c 9.2% (control muy deficiente); fumador activo 20-25 cig/día × 30 años; estrés severo (desempleo reciente, depresión sin tratar); última visita dental hace 7 años.</p>
         <p><strong>Examen:</strong> ya perdió 7 dientes por periodontitis. CAL máxima 9mm (diente 36); PPS máxima 11mm; movilidad Grado 3 en varios dientes; furcación Grado 3 en 26 y 36. RBL 60-80%, patrón circunferencial en molares, con supuración.</p>
         <p><strong>Diagnóstico:</strong> Estadio IV (pérdida dentaria múltiple atribuible a periodontitis, furcación Grado 3, movilidad Grado 3), Grado C (tabaquismo severo + diabetes descontrolada = sinergia máxima de riesgo).</p>
