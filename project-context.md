@@ -148,7 +148,7 @@ one (this bit DashboardPage once already: the link existed in code but only in
 |---|---|---|---|---|
 | 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth + 3 real figures | 4 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 | 2 — Estadios | ✅ | **8/8**, postgrado-level academic depth | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
-| 3 — Grados | ✅ | **8/8**, full Estadio×Grado prognostic matrix (12 combos) | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
+| 3 — Grados | ✅ | **8/8**, rebuilt 2026-08-21 around Grado-determination framework (direct/indirect/modifier evidence, RBL/edad, Estadio×Grado application) | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 | 4 — Zonas Grises y clarificaciones de uso clínico | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 
 Chapter titles (`chapters.title`, the DB row, distinct from each chapter's
@@ -178,7 +178,7 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
-### Chapter 3 Grado-determination accuracy overhaul (2026-08-21)
+### Chapter 3 Grado-determination accuracy overhaul (2026-08-21, first pass — superseded by full rebuild below)
 
 The user pasted a "Capítulo III Grados" reference document (with real editorial
 review comments embedded, `[Ui7]`-`[Ui10]`) and asked to rebuild Chapter 3's
@@ -245,6 +245,63 @@ found and fixed in Chapter 2's simplified Estadio table earlier this session.
 - Pretest/posttest questions were **not** changed — the doc's 5 pretest
   questions are verbatim identical to what Chapter 3 already had from the
   committee-approved set (2026-08-20), so nothing to update there.
+
+### Chapter 3 full rebuild, 8 new lessons (2026-08-21, supersedes the pass above)
+
+After the accuracy-only pass above, the user asked directly "¿seguro has
+metido todo el contenido que te enviaste?" — the honest answer was no: that
+pass extracted and fixed the *numeric/definitional* content from the
+reference doc but skipped several of its sections (objetivos de aprendizaje,
+the full introducción, the Grado A/B/C interpretación clínica prose, the
+Figura 2 concept, most of the "severidad y pérdida ósea radiográfica"
+section). Given the choice between adding just the missing pieces or a full
+rebuild, the user chose **"QUITA TODO, REFORMULA TOOODO EL CAPITULO 3... CON
+LA DENSIDAD DEL CAPITULO 3, SE INTERACTIVO Y DIDACTICO"** — discard the old
+lesson structure entirely and rebuild from the reference doc, but expanded
+back out to the same depth/interactivity as before (not a thin 6-section
+transcription).
+
+`chapter3Content.js` was fully rewritten (`Write`, not incremental `Edit`) to
+8 new lessons, restructured around the document's own logical flow instead
+of the old "MEGA_PROMPT_CAPITULO_3" structure:
+
+1. **Qué es el Grado: fundamentos y objetivos** — the objetivos de
+   aprendizaje (now rendered as a visible `evidence-cards` block, since
+   `chapters.learning_outcomes` isn't shown once a chapter has lessons — the
+   doc's `[Ui8]`-flagged item was reworded into a proper objective), the
+   intro paragraph, "qué evalúa realmente el grado" (3 aspects), the
+   "empezar desde Grado B" principle, and a decision-tree-style visual
+   standing in for the doc's Figura 2 (no image asset was supplied, so this
+   is a described A→C panorama, not a literal diagram).
+2. **Cómo se determina el Grado** — the full official table + RBL/edad
+   calc-box + the doc's 3 case vignettes (kept here, not spread out).
+3. **Grado A, B y C: interpretación clínica** — the doc's three descriptive
+   paragraphs (previously skipped entirely), each with one worked example.
+4. **Modificadores de riesgo: tabaquismo y diabetes** — full explanation
+   (plain-language per `[Ui9]`), the umbral table, and two cases illustrating
+   modifier-vs-ratio tension in both directions.
+5. **Pérdida ósea radiográfica: de la imagen al número** — the doc's Section
+   4 in full this time (RBL as % of root length, horizontal vs. vertical
+   patterns, radiografía vs. clinical correlation, longitudinal comparison),
+   previously only represented by its calc example.
+6. **Estadio I y II: aplicando el Grado** — merged from the old separate
+   Estadio I/II lessons, cases carried over with the already-fixed
+   RBL/edad math from the prior pass.
+7. **Estadio III y IV: aplicando el Grado** — same merge for III/IV.
+8. **Reclasificación, algoritmo terapéutico y síntesis final** — merged the
+   old reclasificación lesson, the algoritmo terapéutico lesson, and the FAQ
+   lesson into one closing lesson (kept substantial, not trimmed).
+
+Still correctly skipped: the doc's broken bracket-citation numbering
+(`[Ui7]`'s concern — house style is named "Basado en:" refs) and the
+"Lectura sugerida: Árbol de toma de decisiones SEPA" line, which refers to
+the same "Árbol de decisión" PDF already wired into Chapter 3's PDF-resource
+step (see "PDF viewer" section) rather than needing separate text.
+
+Pretest/posttest unchanged (still the verbatim-matching committee set).
+Verified all 8 lessons' HTML tags balance (`<div>`/`<details>` open/close
+counts match) via a script before reseeding, given the file was written in
+one shot rather than incrementally edited.
 
 ### "Pretest not saving" report (2026-08-21) — investigated, root cause is reseed cadence, not a code bug
 

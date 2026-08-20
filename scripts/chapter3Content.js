@@ -1,61 +1,94 @@
-// Content for Chapter 3 ("Clasificando: Estadio y Grado"), based on
-// MEGA_PROMPT_CAPITULO_3_CLASIFICANDO.md. Consumed by insertChapter3.js.
+// Content for Chapter 3 ("Clasificando: Estadio y Grado"), fully rebuilt
+// 2026-08-21 from the "Capítulo III Grados" reference document (a real
+// academic manuscript with embedded editorial review comments, [Ui7]-[Ui10]).
+// Consumed by insertChapter3.js. See project-context.md for what changed
+// and why.
 
 export const lessons = [
   {
     lesson_number: 1,
     order_index: 1,
-    title: 'La matriz Estadio × Grado como herramienta pronóstica',
+    title: 'Qué es el Grado: fundamentos y objetivos',
     content_html: `<div class="lesson-container">
-  <h2>🧭 Dos preguntas, un pronóstico</h2>
-  <p>El verdadero poder del sistema AAP/EFP 2018 no está en Estadio o Grado por separado, sino en su <strong>combinación</strong>:</p>
-
-  <div class="evidence-cards">
-    <div class="card">
-      <h3>Estadio solo</h3>
-      <p>Responde: "¿Qué tan destruido está?" — severidad acumulada.</p>
-    </div>
-    <div class="card">
-      <h3>Grado solo</h3>
-      <p>Responde: "¿Qué tan rápido progresa?" — velocidad de la enfermedad.</p>
-    </div>
-    <div class="card">
-      <h3>Estadio × Grado juntos</h3>
-      <p>Responden: "¿Cuál es el pronóstico y qué plan de terapia recomiendo?"</p>
-    </div>
-  </div>
+  <h2>🧭 La dimensión pronóstica y biológica de la clasificación</h2>
+  <p>Mientras el <strong>Estadio</strong> mira principalmente el daño acumulado y la complejidad actual, el <strong>Grado</strong> intenta responder una pregunta distinta: ¿a qué velocidad ha progresado o es probable que progrese la periodontitis en ese paciente? Por eso incorpora evidencia de progresión, la relación entre destrucción y edad, y modificadores de riesgo sistémico o conductual como el tabaquismo y la diabetes.</p>
 
   <div class="key-principle">
-    <h3>🎯 Principio clave</h3>
-    <p>De las 12 combinaciones posibles (4 Estadios × 3 Grados), algunas son frecuentes y otras son raras o representan alertas diagnósticas — como Estadio I con Grado C (poco daño, pero progresando muy rápido) o Estadio IV con Grado A (mucho daño, pero ya detenido).</p>
+    <h3>🎯 Por qué el Grado genera más confusión que el Estadio</h3>
+    <p>El Estadio se basa en "qué veo": mediciones directas del daño presente. El Grado exige un paso más — pasar del "qué veo" al "qué inferencia puedo hacer". No siempre existe una radiografía antigua para documentar progresión real; muchas veces el clínico debe usar evidencia indirecta, especialmente la razón pérdida ósea/edad. El Grado no es una etiqueta arbitraria, sino una <strong>hipótesis clínica razonada</strong> sobre el comportamiento biológico del caso.</p>
   </div>
 
-  <h3>La matriz completa: pronóstico y mantenimiento por combinación</h3>
-  <table>
-    <tr><th>Estadio</th><th>Grado A (progresión lenta)</th><th>Grado B (progresión moderada)</th><th>Grado C (progresión rápida)</th></tr>
-    <tr><td><strong>I</strong> — Incipiente</td><td>Excelente, &gt;95% · RAR solo · mant. anual</td><td>Bueno, 85-90% · RAR + monitoreo · mant. 6m</td><td>Raro/alerta, aproximadamente 70% · RAR + antibióticos · mant. 3-4m</td></tr>
-    <tr><td><strong>II</strong> — Moderada</td><td>Excelente, 90-95% · RAR solo probable · mant. 6-12m</td><td>Bueno, 80-85% · RAR + cirugía selectiva · mant. 4m</td><td>Moderado, 60-70% · RAR + antibióticos + cirugía · mant. 3-4m</td></tr>
-    <tr><td><strong>III</strong> — Severa</td><td>Bueno, 85-90% · Cirugía típica + GTR/injertos · mant. 3-4m</td><td>Moderado, 60-75% · Cirugía + antibióticos · mant. 3m</td><td>Pobre, 40-60% · Cirugía + antibióticos, pérdida esperada · mant. 4-6 sem</td></tr>
-    <tr><td><strong>IV</strong> — Avanzada</td><td>Moderado, 60-70% · Preservación selectiva · mant. 3-4m</td><td>Pobre, 40-50% · Extracción probable · mant. 6-8 sem</td><td>Muy pobre, 20-40% · Extracción muy probable · mant. 8-12 sem</td></tr>
-  </table>
-  <p style="font-size:0.9rem;color:var(--text-light);">Estadio I con Grado C y Estadio IV con Grado A son combinaciones poco comunes — la primera es una alerta diagnóstica (poco daño, alta velocidad); la segunda representa daño antiguo ya estabilizado.</p>
+  <h3>Objetivos de este capítulo</h3>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>1. Comprender el Grado como estimación biológica</h3>
+      <p>Entender por qué el Grado representa una estimación razonada de progresión biológica, y no un simple complemento administrativo del diagnóstico.</p>
+    </div>
+    <div class="card">
+      <h3>2. Diferenciar los tres tipos de evidencia</h3>
+      <p>Distinguir evidencia directa de progresión, evidencia indirecta (RBL/edad), y modificadores de riesgo — y saber cuál usar según lo que hay disponible.</p>
+    </div>
+    <div class="card">
+      <h3>3. Calcular e interpretar RBL/edad</h3>
+      <p>Interpretar la pérdida ósea radiográfica como porcentaje de la longitud radicular y relacionarla correctamente con la edad del paciente.</p>
+    </div>
+    <div class="card">
+      <h3>4. Reconocer tabaco y diabetes como modificadores clínicos</h3>
+      <p>Aplicar el tabaquismo y la diabetes como modificadores clínicamente relevantes del Grado, con sus umbrales concretos — no como observaciones anecdóticas.</p>
+    </div>
+  </div>
+
+  <h3>Qué evalúa realmente el Grado</h3>
+  <p>El Grado busca estimar tres aspectos interrelacionados:</p>
+  <ul>
+    <li><strong>La velocidad de progresión</strong> de la enfermedad.</li>
+    <li><strong>La probabilidad de una respuesta menos favorable</strong> al tratamiento convencional.</li>
+    <li><strong>El posible impacto del caso</strong> sobre la salud general del paciente.</li>
+  </ul>
+  <p>En la práctica, esto significa que dos pacientes con el <strong>mismo Estadio</strong> pueden tener <strong>Grados diferentes</strong> si la tasa de destrucción, la edad o los factores de riesgo sugieren comportamientos biológicos distintos.</p>
 
   <div class="definition-box">
-    <p><strong>Nota metodológica:</strong> Tonetti et al. (2018) y Kornman et al. (2020) no publican una tabla con un porcentaje de pronóstico exacto para cada una de las 12 combinaciones Estadio×Grado — Kornman da rangos amplios por Grado (A: &gt;95% de éxito · B: 60-85% · C: 20-60%). Los valores específicos de esta matriz son una interpolación clínica dentro de esos rangos, pensada para dar intuición práctica, no una cifra tomada directamente de un paper. En un paciente real, el pronóstico individual depende de muchas variables que Estadio/Grado no capturan por sí solos: cumplimiento, comorbilidades, anatomía específica, acceso a tratamiento.</p>
+    <p><strong>El punto de partida:</strong> la clasificación propone comenzar desde <strong>Grado B</strong> como supuesto inicial, y luego desplazar el caso hacia A o hacia C solo si existe evidencia suficiente. El Grado no se asigna por intuición ni por la simple impresión clínica de "se ve agresivo" — debe apoyarse en datos comparables o en inferencias estructuradas.</p>
   </div>
 
-  <h3>Cómo se determina el Grado</h3>
-  <p>El Grado no se asigna por impresión clínica ("se ve agresivo"). El punto de partida recomendado es <strong>Grado B</strong> como supuesto inicial, y desde ahí desplazar el caso hacia A o hacia C solo si hay evidencia suficiente — directa, indirecta, o por modificadores de riesgo.</p>
+  <h3>Panorama general: de A a C</h3>
+  <div class="decision-tree">
+    <h3>🧭 El paso de Grado A a Grado C expresa tres cosas a la vez</h3>
+    <ul>
+      <li><span class="outcome" style="background:#16a34a;">Grado A</span> → progresión lenta esperada, mejor respuesta esperada al tratamiento, menor peso de modificadores</li>
+      <li><span class="outcome" style="background:#d97706;">Grado B</span> → progresión moderada, respuesta variable, modificadores presentes pero controlados</li>
+      <li><span class="outcome">Grado C</span> → progresión rápida probable, peor respuesta esperada, mayor peso de modificadores de riesgo</li>
+    </ul>
+  </div>
+  <p style="font-size:0.9rem;color:var(--text-light);">No es una escala de severidad (eso es el Estadio) — es una escala de <strong>comportamiento biológico esperado</strong>: qué tan rápido avanza y qué tan bien va a responder.</p>
+
+  <div class="reference">
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Kornman &amp; Papapanou 2020
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 2,
+    order_index: 2,
+    title: 'Cómo se determina el Grado',
+    content_html: `<div class="lesson-container">
+  <h2>📐 Evidencia directa, evidencia indirecta y modificadores</h2>
+  <p>El Grado se determina cruzando tres columnas de evidencia. No hace falta que las tres coincidan — basta con que <strong>una</strong> alcance el umbral de Grado C para desplazar el caso hacia arriba. Cuando hay evidencia directa disponible, <strong>tiene prioridad</strong> sobre la estimación indirecta.</p>
+
   <table>
     <tr><th>Grado</th><th>Evidencia directa de progresión</th><th>Evidencia indirecta (RBL/edad)</th><th>Modificadores</th></tr>
     <tr><td><strong>A</strong> — lenta</td><td>Sin pérdida detectable en 5 años</td><td>&lt;0.25</td><td>No fumador; normoglucemia o ausencia de diabetes</td></tr>
     <tr><td><strong>B</strong> — moderada</td><td>&lt;2mm de pérdida en 5 años</td><td>0.25 a 1.0</td><td>Fumador &lt;10 cigarrillos/día; HbA1c &lt;7% en paciente con diabetes</td></tr>
     <tr><td><strong>C</strong> — rápida</td><td>≥2mm de pérdida en 5 años</td><td>&gt;1.0</td><td>Fumador ≥10 cigarrillos/día; HbA1c ≥7% en paciente con diabetes</td></tr>
   </table>
-  <p style="font-size:0.9rem;color:var(--text-light);">Basta con que un criterio (directo, indirecto, o modificador) alcance el umbral de C para desplazar el Grado hacia arriba — no hace falta que los tres coincidan. Cuando hay evidencia directa disponible, tiene prioridad sobre la estimación indirecta.</p>
 
+  <h3>Evidencia directa: comparar en el tiempo</h3>
+  <p>Es el "patrón oro" para estimar velocidad de progresión: comparar radiografías o mediciones clínicas (CAL) tomadas en momentos distintos del mismo paciente. Una radiografía de hace 5 años frente a una actual, o un registro periodontal previo frente al actual, muestran directamente si hubo pérdida — y cuánta.</p>
+
+  <h3>Evidencia indirecta: la razón RBL/edad</h3>
+  <p>Cuando no hay registros previos, se estima la velocidad probable con la relación entre la pérdida ósea radiográfica y la edad del paciente.</p>
   <div class="calc-box">
-    <p><strong>Evidencia indirecta: razón RBL/edad</strong></p>
+    <p><strong>Fórmula</strong></p>
     <p class="formula">RBL/edad = % de pérdida ósea radiográfica (en el sitio más afectado) ÷ edad del paciente</p>
     <p><strong>Ejemplo:</strong> RBL máxima 40% en un paciente de 30 años → 40 ÷ 30 = <span class="result">1.33</span> → supera 1.0, orienta a Grado C.</p>
     <p>El mismo 40% de pérdida ósea en un paciente de 65 años → 40 ÷ 65 = <span class="result">0.62</span> → se aproxima a Grado B.</p>
@@ -64,17 +97,13 @@ export const lessons = [
 
   <div class="key-principle">
     <h3>🎯 El Grado es una hipótesis clínica, no una etiqueta automática</h3>
-    <p>No siempre existe una radiografía antigua para documentar progresión real — en muchos casos el clínico debe apoyarse en evidencia indirecta (RBL/edad) y en el fenotipo del caso. El Grado es una inferencia razonada sobre el comportamiento biológico probable del paciente, no una casilla que se marca mecánicamente.</p>
+    <p>No siempre existe una radiografía antigua para documentar progresión real — en muchos casos el clínico debe apoyarse en evidencia indirecta y en el fenotipo del caso. El Grado es una inferencia razonada sobre el comportamiento biológico probable del paciente, no una casilla que se marca mecánicamente.</p>
   </div>
-
-  <h3>Modificadores de riesgo: por qué importan el tabaco y la diabetes</h3>
-  <p>El tabaquismo y la diabetes se incorporan explícitamente al Grado porque cambian, de forma medible, tanto la velocidad de progresión como la respuesta al tratamiento. En quien fuma mucho, la enfermedad puede avanzar sin dar tantas señales de alarma — el cigarrillo reduce el sangrado visible, así que las encías pueden verse "menos inflamadas" de lo que el daño real sugiere. En quien tiene la diabetes mal controlada, el azúcar alta en sangre dificulta que las encías cicatricen y que el cuerpo controle la inflamación.</p>
-  <p style="font-size:0.9rem;color:var(--text-light);">Estos modificadores no son "atajos automáticos": si la evidencia directa e indirecta no encaja con lo que sugiere el tabaquismo o la diabetes del paciente, el juicio clínico decide — la clasificación exige razonar el caso completo, no solo marcar casillas.</p>
 
   <h3>Tres casos para practicar la lógica del Grado</h3>
   <div class="cases">
     <div class="case-card">
-      <h3>Caso — desproporción entre edad y daño, sin modificadores evidentes</h3>
+      <h3>Caso 1 — desproporción entre edad y daño, sin modificadores evidentes</h3>
       <details>
         <summary>Ver caso</summary>
         <p>Paciente de 27 años, Estadio III, 35% de pérdida ósea máxima, sin radiografías previas comparables. No fuma, sin diabetes.</p>
@@ -83,7 +112,7 @@ export const lessons = [
       </details>
     </div>
     <div class="case-card">
-      <h3>Caso — misma severidad, edad mayor y modificadores leves</h3>
+      <h3>Caso 2 — misma severidad, edad mayor y modificadores leves</h3>
       <details>
         <summary>Ver caso</summary>
         <p>Paciente de 58 años, Estadio III, 30% de pérdida ósea máxima, fumador de 5 cigarrillos/día, HbA1c 6.7%.</p>
@@ -92,7 +121,7 @@ export const lessons = [
       </details>
     </div>
     <div class="case-card">
-      <h3>Caso — evidencia directa que prevalece sobre la severidad actual</h3>
+      <h3>Caso 3 — evidencia directa que prevalece sobre la severidad actual</h3>
       <details>
         <summary>Ver caso</summary>
         <p>Paciente de 46 años, Estadio II. Radiografía comparativa muestra ≥2mm de progresión de pérdida ósea en los últimos 5 años.</p>
@@ -101,318 +130,286 @@ export const lessons = [
     </div>
   </div>
 
-  <div class="decision-tree">
-    <h3>🧭 Por qué la combinación importa más que cada eje por separado</h3>
-    <ul>
-      <li>Dos pacientes con el <strong>mismo Estadio II</strong> pueden tener planes totalmente distintos:
-        <ul>
-          <li>Grado A → <span class="outcome">RAR solo, mantenimiento anual</span></li>
-          <li>Grado C → <span class="outcome">RAR + antibióticos + cirugía, mantenimiento cada 6-8 semanas</span></li>
-        </ul>
-      </li>
-      <li>Dos pacientes con el <strong>mismo Grado B</strong> pueden tener pronósticos muy distintos según el Estadio:
-        <ul>
-          <li>Estadio I → <span class="outcome">85-90% de remisión</span></li>
-          <li>Estadio IV → <span class="outcome">40-50% de preservación</span></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <p>En esta clasificación vamos a recorrer las 4 filas de la matriz (Estadio I a IV), cada una con sus 2-3 combinaciones de Grado, características clínicas diferenciadoras, pronóstico e implicación terapéutica — con casos clínicos reales en cada combinación.</p>
-
   <div class="reference">
-    📚 Basado en: Tonetti et al. (2018), Kornman et al. (2020), Caton et al. (2018)
-  </div>
-</div>`,
-  },
-  {
-    lesson_number: 2,
-    order_index: 2,
-    title: 'Estadio I: de la alerta incipiente a la vigilancia',
-    content_html: `<div class="lesson-container">
-  <h2>🌱 Periodontitis incipiente: tres velocidades muy distintas</h2>
-  <p>El Estadio I agrupa a pacientes con CAL de 1-2mm y RBL &lt;15% — pero la velocidad de progresión (Grado) separa a quien no necesita más que higiene de quien está en el inicio de una enfermedad agresiva.</p>
-
-  <h3>Estadio I, Grado A — excelente pronóstico</h3>
-  <table>
-    <tr><th>Hallazgo</th><th>Valor típico</th></tr>
-    <tr><td>CAL</td><td>1-2mm, usualmente localizada (2-3 dientes)</td></tr>
-    <tr><td>PPS</td><td>4-5mm</td></tr>
-    <tr><td>RBL</td><td>&lt;15%, patrón horizontal</td></tr>
-    <tr><td>Furcación / movilidad</td><td>Grado 0 / Grado 0</td></tr>
-  </table>
-  <p><strong>Interpretación:</strong> pequeña pérdida periodontal, con RBL/edad &lt;0.25 y sin evidencia de progresión reciente. Pronóstico &gt;95%, recurrencia &lt;5%. <strong>Plan:</strong> RAR 1-2 sesiones, sin antibióticos, mantenimiento anual.</p>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — descubrimiento incidental en estudiante</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Mujer 24a, examen de rutina: PPS 4-5mm en #11, CAL 1-2mm, RBL 5% (RBL/edad = 5/24 = 0.21), BOP solo en ese diente, radiografía con lámina dura clara. <strong>Diagnóstico:</strong> Estadio I, Grado A. RAR suave + educación en uso de hilo dental; a las 8 semanas: PPS 3mm, sin BOP, remisión. Mantenimiento anual.</p>
-      </details>
-    </div>
-  </div>
-
-  <h3>Estadio I, Grado B — progresión moderada en estadio temprano</h3>
-  <p>Mismo CAL/RBL que Grado A, pero con RBL/edad entre 0.25 y 1.0, evidencia de progresión en radiografías comparativas, o modificadores presentes: edad joven, tabaquismo leve-moderado (&lt;10 cig/día), diabetes moderada (HbA1c 7-8%), Pg+ moderada. Pronóstico 80-90%. <strong>Plan:</strong> RAR 2-3 sesiones, antibióticos solo si Pg+ documentada o PPS residual esperado &gt;5mm, mantenimiento cada 3-4 meses.</p>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — joven fumador con periodontitis de inicio temprano</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Varón 28a, fumador 7 cig/día. CAL 2mm en #16, #26, #36; RBL 12% (RBL/edad = 12/28 = 0.43); radiografía previa (18 meses) ya mostraba pérdida medible; PCR Pg+ 20%. <strong>Diagnóstico:</strong> Estadio I, Grado B (edad joven + tabaquismo + Pg+). Plan: RAR + consejería tabaco; monitoreo cada 4 meses × 1 año. Si deja el cigarrillo, pronóstico mejora a Grado A.</p>
-      </details>
-    </div>
-  </div>
-
-  <h3>Estadio I, Grado C — ALERTA DIAGNÓSTICA</h3>
-  <p>Poco daño visible, pero evidencia compatible con Grado C: RBL/edad &gt;1.0, evidencia directa de progresión rápida, o modificadores/microbiología severos que desplazan el caso hacia C aunque el daño actual sea pequeño. <strong>Implica que el paciente progresará de Estadio I a III en 3-5 años si no se trata agresivamente.</strong> Causas típicas: periodontitis agresiva clásica en joven (Pg+++, Tf+++, Td+++), susceptibilidad genética severa, diabetes tipo 1 descontrolada, defectos inmunológicos, estrés psicosocial severo.</p>
-  <div class="key-principle">
-    <h3>🎯 Por qué es una alerta</h3>
-    <p>Sin intervención, un Estadio I Grado C se convierte en Estadio III-IV en 3-5 años — el daño actual es pequeño, pero el riesgo futuro es altísimo. Pronóstico incluso con terapia intensiva: 70-80% de estabilización; pérdida esperada de 1-3 dientes/década pese al tratamiento.</p>
-  </div>
-  <p><strong>Plan agresivo:</strong> RAR exhaustivo 3-4 sesiones + análisis microbiológico crítico, azitromicina 500mg TID × 4 semanas, clorhexidina 4-6 semanas, evaluación inmunológica, re-evaluación en 2-4 semanas, mantenimiento cada 6-8 semanas indefinidamente.</p>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — periodontitis agresiva clásica en joven</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Mujer 22a, "dientes se están moviendo, sangrado espontáneo hace 6 meses". CAL 2mm máxima en molares (#16, #26, #36, #46); RBL 9% (RBL/edad = 9/22 = 0.41, por sí solo compatible con Grado B); movilidad Grado 1 incipiente; PCR Pg+++Tf+++Td++; antecedente familiar (padre perdió molares en 20s). <strong>Diagnóstico:</strong> Estadio I, Grado C — el RBL/edad aislado no llega a 1.0, pero la microbiología severa y el antecedente familiar fuerte desplazan la clasificación a Grado C: exactamente el tipo de caso donde el fenotipo pesa más que el número aislado. Plan: RAR molares + azitromicina + clorhexidina + evaluación psicológica; monitoreo cada 6-8 semanas, radiografía a 3 meses.</p>
-      </details>
-    </div>
-  </div>
-
-  <div class="reference">
-    📚 Basado en: Tonetti et al. 2018; Kornman et al. 2020
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol)
   </div>
 </div>`,
   },
   {
     lesson_number: 3,
     order_index: 3,
-    title: 'Estadio II: periodontitis moderada, tres velocidades',
+    title: 'Grado A, B y C: interpretación clínica',
     content_html: `<div class="lesson-container">
-  <h2>⚖️ Daño moderado, pronóstico muy variable</h2>
-  <p>Estadio II (CAL 3-4mm, RBL 15-33%) es la combinación más frecuente en consulta. El Grado determina si el RAR solo es suficiente o si el paciente necesita cirugía y farmacoterapia adyuvante.</p>
+  <h2>⚖️ Tres velocidades, tres lecturas clínicas distintas</h2>
 
-  <h3>Estadio II, Grado A — excelente pronóstico</h3>
-  <p>PPS 5-6mm, BOP &lt;30% de sitios, furcación 0-1, sin comorbilidades relevantes o bien controladas. Remisión esperada 90-95%, recurrencia &lt;5%. <strong>Plan:</strong> RAR 1-2 sesiones puede ser suficiente; cirugía de acceso solo si PPS residual &gt;5mm; mantenimiento anual.</p>
   <div class="cases">
     <div class="case-card">
-      <h3>Caso — mujer adulta sin comorbilidades</h3>
+      <h3 style="color:#16a34a;">Grado A — progresión lenta</h3>
+      <p>Es la categoría de menor velocidad esperada y requiere evidencia que sustente ausencia de progresión, o una relación pérdida ósea/edad muy baja. En el examen clínico, estos pacientes muestran una destrucción acorde — o incluso inferior — a la esperable para su edad, sin grandes modificadores de riesgo.</p>
       <details>
-        <summary>Ver caso</summary>
-        <p>Mujer 66a, no fuma, sin diabetes. CAL 3mm generalizado posterior, RBL 16% (RBL/edad = 16/66 = 0.24, límite inferior de Grado A); radiografía 5 años previa ya mostraba RBL 15% — cambio mínimo, evidencia directa de estabilidad. RAR 2 sesiones + clorhexidina; resultado: PPS 3-4mm, sin BOP. Mantenimiento anual, radiografías cada 5 años. Prognosis: "curada" con higiene.</p>
+        <summary>Ejemplo</summary>
+        <p>Varón 68a, sin comorbilidades, no fuma. CAL 5-6mm, RBL 40%; radiografía de hace 5 años ya mostraba RBL 37% — apenas 3 puntos porcentuales de cambio en 5 años. RBL/edad = 40/68 = 0.59 (por sí solo sugeriría Grado B), pero la <strong>evidencia directa de estabilidad</strong> tiene prioridad → <strong>Grado A</strong>.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3 style="color:#d97706;">Grado B — progresión moderada</h3>
+      <p>Es la categoría basal de trabajo — el punto de partida recomendado antes de buscar evidencia que desplace el caso. Se asigna cuando la destrucción observada guarda una relación razonable con el tiempo biológico del paciente, y no existen pruebas suficientes para afirmar ni una resistencia excepcional a la enfermedad ni una aceleración marcada.</p>
+      <details>
+        <summary>Ejemplo</summary>
+        <p>Mujer 48a, fuma 8 cig/día, HbA1c 6.8%. CAL 3-4mm, RBL 26%. RBL/edad = 26/48 = 0.54, dentro del rango 0.25-1.0; los modificadores (tabaquismo leve, glucemia controlada) también caen en rango B → <strong>Grado B</strong>.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Grado C — progresión rápida</h3>
+      <p>No significa únicamente "caso severo": significa que la destrucción ha sido desproporcionada para la edad, o que existen datos directos de progresión rápida, además de modificadores potentes como tabaquismo intenso o diabetes insuficientemente controlada. En otras palabras, el Grado C capta la dimensión de <strong>susceptibilidad y aceleración</strong>, no solo de daño acumulado.</p>
+      <details>
+        <summary>Ejemplo</summary>
+        <p>Varón 27a, Estadio III, RBL 35%, sin modificadores conductuales evidentes. RBL/edad = 35/27 = 1.30, supera 1.0 → <strong>Grado C</strong> por la sola desproporción edad/daño, sin necesidad de que exista tabaquismo o diabetes.</p>
       </details>
     </div>
   </div>
 
-  <h3>Estadio II, Grado B — buen pronóstico, requiere supervisión</h3>
-  <p>PPS 5-6mm con algunos sitios &gt;6mm, BOP 20-40%, RBL/edad entre 0.25 y 1.0 o progresión documentada en radiografías comparativas. Causas: tabaquismo leve-moderado (&lt;10 cig/día), diabetes moderada (HbA1c &lt;7%), antecedente familiar, higiene deficiente. Remisión 80-85%, necesidad de cirugía aproximadamente 50% de los casos. <strong>Plan:</strong> RAR 2-3 sesiones, minociclina local (Arestin) opcional en sitios &gt;5mm, mantenimiento cada 3-4 meses.</p>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — fumador leve con diabetes moderada</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Mujer 48a, fuma 8 cig/día, diabetes HbA1c 6.8%. CAL 3-4mm; RBL 26% (RBL/edad = 26/48 = 0.54, dentro del rango de Grado B). <strong>Diagnóstico:</strong> Estadio II, Grado B. RAR 3 sesiones + Arestin + consejería tabaco + referencia endocrinólogo. Cirugía de acceso si persiste PPS ≥5mm tras 3 meses. Mantenimiento cada 4 meses.</p>
-      </details>
-    </div>
-  </div>
-
-  <h3>Estadio II, Grado C — moderadamente severa, terapia agresiva</h3>
-  <p>PPS 6-7mm, BOP generalizado 30-60%, RBL/edad &gt;1.0 o modificadores severos que desplazan el caso a C, a menudo en menores de 40 años. Causas: tabaquismo fuerte (≥10 cig/día), diabetes descontrolada (HbA1c ≥7%), microbiología severa, edad joven con Estadio II. Remisión solo 60-70%; pérdida esperada 2-4 dientes/década. <strong>Urgencia alta:</strong> retraso significa Estadio III en 2-3 años.</p>
-  <div class="decision-tree">
-    <h3>🧭 Plan intensivo</h3>
-    <ul>
-      <li>RAR exhaustivo 3-4 sesiones + microbiología → <span class="outcome">crítico para guiar antibiótico</span></li>
-      <li>Azitromicina 500mg TID × 4 semanas + Arestin en sitios ≥5mm</li>
-      <li>Modificación urgente de factores: cesación tabaco, referencia endocrinólogo, referencia psicológica si aplica</li>
-      <li>Re-evaluación en 4 semanas (más cercano que Grado A/B)</li>
-      <li>Cirugía de acceso probable + GTR si defectos regenerables</li>
-    </ul>
-  </div>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — fumador fuerte con diabetes</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Varón 42a, fuma 22 cig/día, HbA1c 9.1%. CAL 3-4mm generalizado; RBL 28% (RBL/edad = 28/42 = 0.67, por sí solo Grado B — pero el tabaquismo intenso y la HbA1c muy elevada, ambos muy por encima del umbral de C, desplazan la clasificación a Grado C). <strong>Diagnóstico:</strong> Estadio II, Grado C. Plan: RAR 4 sesiones + azitromicina + Arestin; consejería intensiva de tabaco; referencia endocrinológica urgente. Prognosis: fair (60-70%) si ambos modificadores mejoran; pobre si continúa fumando/DM descontrolada.</p>
-      </details>
-    </div>
+  <div class="key-principle">
+    <h3>🎯 El punto de partida es Grado B</h3>
+    <p>El estudiante no debe "buscar" evidencia para justificar un Grado que le parece intuitivo. El procedimiento correcto es asumir Grado B, y solo desplazar hacia A o C cuando la evidencia directa, indirecta, o los modificadores lo sustenten con claridad.</p>
   </div>
 
   <div class="reference">
-    📚 Basado en: Tonetti et al. 2018; Kornman et al. 2020
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Kornman &amp; Papapanou 2020
   </div>
 </div>`,
   },
   {
     lesson_number: 4,
     order_index: 4,
-    title: 'Estadio III: severidad establecida, pronóstico bifurcado',
+    title: 'Modificadores de riesgo: tabaquismo y diabetes',
     content_html: `<div class="lesson-container">
-  <h2>🌳 Daño severo — pero el pronóstico depende enteramente del Grado</h2>
-  <p>Estadio III (CAL ≥5mm, RBL 33-50%, furcación Grado 2) siempre requiere cirugía. Lo que cambia dramáticamente entre Grado A y C es cuánto de esa cirugía puede tener éxito.</p>
+  <h2>🚬🩸 Por qué no son simples anexos del diagnóstico</h2>
+  <p>El tabaquismo y la diabetes se incorporaron explícitamente al Grado porque su relación con la progresión de la periodontitis y con la respuesta al tratamiento cuenta con sustento clínico robusto — no son observaciones anecdóticas del historial del paciente.</p>
 
-  <h3>Estadio III, Grado A — bueno, aún en estadio severo</h3>
-  <p>Destrucción antigua, NO activa actualmente. Perfil típico: no fuma o ex-fumador de larga data, sin diabetes o bien controlada, sin antecedente familiar, usualmente &gt;45 años. Remisión con terapia 85-90%, preservación de dientes &gt;95% en área tratada. <strong>Plan:</strong> RAR 2-3 sesiones sin antibióticos, luego cirugía de acceso + GTR probable (regeneración esperada 30-40%), mantenimiento cada 3-4 meses.</p>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — ex-fumador bien adherente</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Varón 62a, ex-fumador hace 15 años, sin diabetes. CAL 5-6mm, RBL 40%, defectos angulares 1-2 paredes en molares; radiografía de hace 5 años ya mostraba RBL 37% — un cambio de apenas 3 puntos porcentuales en 5 años, evidencia directa de estabilidad, que tiene prioridad sobre el RBL/edad (40/62 = 0.65, que por sí solo sugeriría Grado B) → Grado A. <strong>Diagnóstico:</strong> Estadio III, Grado A. RAR + cirugía de acceso + GTR/aloinjerto. Prognosis excelente (88-90%); mantenimiento cada 4 meses × 2 años, luego 6-12 meses.</p>
-      </details>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>🚬 Por qué el cigarrillo empeora el pronóstico</h3>
+      <p>En quien fuma mucho, la enfermedad puede avanzar sin dar tantas señales de alarma. El cigarrillo reduce el sangrado visible, así que las encías pueden verse "menos inflamadas" de lo que el daño real sugiere — el clínico puede subestimar la actividad de la enfermedad si se guía solo por lo que ve.</p>
+    </div>
+    <div class="card">
+      <h3>🩸 Por qué la diabetes mal controlada empeora el pronóstico</h3>
+      <p>Cuando el azúcar en sangre está mal controlada, se dificulta que las encías cicatricen y que el cuerpo controle la inflamación. El ambiente que genera la hiperglucemia es desfavorable tanto para frenar la destrucción como para responder bien al tratamiento.</p>
     </div>
   </div>
 
-  <h3>Estadio III, Grado B — moderado, balance entre control y supervivencia</h3>
-  <p>CAL 5-6mm generalizado, PPS 7-9mm, RBL/edad entre 0.25 y 1.0 o progresión documentada. Causas: tabaquismo leve-moderado, diabetes moderada, antecedente familiar fuerte. Remisión 60-75%, regeneración esperada solo 20-30%. <strong>Plan:</strong> RAR 3-4 sesiones + microbiología, azitromicina considerada, cirugía necesaria (acceso + GTR recomendada), re-evaluación en 4-6 semanas, mantenimiento cada 3 meses.</p>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — diabética con adherencia excelente</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Mujer 52a, HbA1c 8.2%, muy adherente. CAL 6mm, PPS 8-9mm, RBL 46% (RBL/edad = 46/52 = 0.885, dentro del rango de Grado B). La HbA1c de 8.2% (≥7%, modificador de Grado C) es una señal de alarma que exige vigilancia estrecha, pero el conjunto de la evidencia mantiene la clasificación en Grado B — no cada modificador aislado sube automáticamente el Grado. Plan: RAR + referencia endocrinológica urgente, posible azitromicina, cirugía + GTR. Si HbA1c mejora a &lt;7%, el modificador deja de pesar hacia C y el pronóstico mejora (65-70% → mejor).</p>
-      </details>
-    </div>
+  <h3>Umbrales que modifican el Grado</h3>
+  <table>
+    <tr><th>Modificador</th><th>Grado A</th><th>Grado B</th><th>Grado C</th></tr>
+    <tr><td>Tabaquismo</td><td>No fumador</td><td>&lt;10 cigarrillos/día</td><td>≥10 cigarrillos/día</td></tr>
+    <tr><td>Diabetes (HbA1c)</td><td>Normoglucemia o ausencia de diabetes</td><td>&lt;7% en paciente con diabetes</td><td>≥7% en paciente con diabetes</td></tr>
+  </table>
+
+  <div class="definition-box">
+    <p style="font-size:0.9rem;">Un punto pedagógico importante: estos modificadores <strong>no deben usarse como "atajos automáticos"</strong> sin pensamiento clínico. Funcionan como modificadores del riesgo y del pronóstico, pero el juicio del clínico sigue siendo central — especialmente cuando la evidencia directa e indirecta parece no encajar perfectamente con lo que sugiere el modificador. La clasificación moderna exige razonamiento, no solo casillas marcadas.</p>
   </div>
 
-  <h3>Estadio III, Grado C — pobre pronóstico, máxima agresividad necesaria</h3>
-  <p>CAL 5-8mm, PPS 8-10mm, furcación Grado 2-3, movilidad progresiva, posible supuración. Causas: tabaquismo fuerte, diabetes descontrolada (especialmente tipo 1), microbiología severa (Pg+++Tf+++Td++), defecto inmunológico. Remisión solo 40-60%; pérdida esperada 2-5 dientes/década; urgencia crítica.</p>
-  <div class="decision-tree">
-    <h3>🧭 Plan de máxima intensidad</h3>
-    <ul>
-      <li>RAR exhaustivo 4-5 sesiones + microbiología crítica</li>
-      <li>Azitromicina 500mg TID × 4-6 semanas (o amoxicilina + ácido clavulánico) + Arestin en todos los sitios ≥5mm</li>
-      <li>Modificación urgente: cesación tabaco, referencia endocrinológica urgente, evaluación de VIH si indicado</li>
-      <li>Re-evaluación en 2-4 semanas → <span class="outcome">vigilancia agresiva</span></li>
-      <li>Cirugía extensiva: acceso + GTR + injertos; extracción selectiva de dientes con Grado 3 furcación/movilidad</li>
-    </ul>
-  </div>
+  <h3>Cuando el modificador y la razón RBL/edad no coinciden</h3>
   <div class="cases">
     <div class="case-card">
-      <h3>Caso — fumador fuerte + diabetes severa</h3>
+      <h3>Caso — modificador fuerte, ratio moderado</h3>
       <details>
         <summary>Ver caso</summary>
-        <p>Varón 47a, fuma 25 cig/día, HbA1c 9.8% sin tratamiento regular. CAL 6-8mm, PPS 8-10mm, furcación Grado 2-3; RBL 48% (RBL/edad = 48/47 = 1.02, supera 1.0 — reforzado por tabaquismo intenso y HbA1c muy elevada, ambos modificadores de Grado C). Plan: RAR 4 sesiones + azitromicina + Arestin; referencia endocrinológica urgente; cirugía + posible extracción selectiva de molares Grado 3. Prognosis pobre (45-55%): "necesitas dejar el cigarrillo y controlar la diabetes, o perderás varios dientes".</p>
+        <p>Varón 42a, fuma 22 cig/día, HbA1c 9.1%. CAL 3-4mm generalizado, RBL 28%. RBL/edad = 28/42 = 0.67 — por sí solo, Grado B. Pero el tabaquismo intenso (≥10 cig/día) y la HbA1c muy elevada (≥7%) son, ambos, modificadores de Grado C que superan ampliamente el umbral. <strong>Diagnóstico:</strong> Grado C — dos modificadores potentes desplazan la clasificación aunque la razón indirecta por sí sola no llegara a 1.0.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Caso — modificador aislado, sin suficiente peso para cambiar la clasificación</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Mujer 52a, HbA1c 8.2% (≥7%, modificador de Grado C), pero muy adherente al tratamiento. RBL 46%, RBL/edad = 46/52 = 0.885, dentro del rango de Grado B. La HbA1c elevada es una señal de alarma que exige vigilancia estrecha y referencia endocrinológica — pero, en conjunto con el resto de la evidencia, la clasificación se mantiene en <strong>Grado B</strong>. Si la HbA1c mejora a &lt;7%, el modificador deja de pesar hacia C.</p>
       </details>
     </div>
   </div>
+  <p style="font-size:0.9rem;color:var(--text-light);">Estos dos casos ilustran el mismo punto desde ángulos opuestos: los modificadores importan, pero no sustituyen el razonamiento del caso completo.</p>
 
   <div class="reference">
-    📚 Basado en: Tonetti et al. 2018; Kornman et al. 2020
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Kornman &amp; Papapanou 2020
   </div>
 </div>`,
   },
   {
     lesson_number: 5,
     order_index: 5,
-    title: 'Estadio IV: periodontitis avanzada y decisiones de conservación',
+    title: 'Pérdida ósea radiográfica: de la imagen al número',
     content_html: `<div class="lesson-container">
-  <h2>🚨 Cuando la pregunta ya no es "cómo tratar" sino "qué preservar"</h2>
-  <p>Estadio IV implica pérdida dentaria atribuible a periodontitis, CAL ≥5mm generalizado, RBL &gt;50%, furcación Grado 3 y movilidad Grado 2-3. Estadio IV con Grado A es extremadamente raro (destrucción extensa pero antigua, sin actividad) — en la práctica, casi todos los casos son Grado B o C.</p>
+  <h2>🩻 Leer la radiografía como proporción, no como impresión visual</h2>
+  <p>La pérdida ósea radiográfica debe interpretarse como <strong>proporción de soporte perdido en relación con la longitud radicular</strong>, y no solo como impresión visual de "más" o "menos" hueso. Esta es una de las destrezas técnicas más importantes del capítulo, porque de ella depende tanto la correcta estadificación como la inferencia indirecta del Grado.</p>
+  <p>En términos simples: el observador debe estimar qué porcentaje del soporte óseo radicular ya se ha perdido desde la unión amelo-cementaria (UAC) hacia apical.</p>
 
-  <h3>Estadio IV, Grado B — manejo multidisciplinario</h3>
-  <p>Destrucción avanzada pero con RBL/edad entre 0.25 y 1.0, o evidencia directa de progresión lenta. Perfil típico: modificadores ahora controlados (diabetes bien tratada, ex-fumador de larga data) o un caso que ya "falló" terapia previa pero se estabilizó tras cambios recientes. Preservación esperada 60-70%.</p>
+  <div class="calc-box">
+    <p><strong>Fórmula de RBL</strong></p>
+    <p class="formula">RBL (%) = (altura radicular perdida ÷ altura radicular total) × 100</p>
+    <p>En estadios iniciales predomina la pérdida en el <strong>tercio coronal</strong>; cuando la destrucción alcanza el <strong>tercio medio</strong> o incluso más apical, la lectura se vuelve compatible con Estadios III o IV.</p>
+  </div>
+
+  <p style="font-size:0.9rem;color:var(--text-light);">La radiografía nunca debe leerse aislada: hay que correlacionarla con el sondaje, la localización del margen gingival, la presencia de defectos verticales y los antecedentes de pérdida dentaria.</p>
+
+  <h3>Dos patrones de pérdida ósea</h3>
   <div class="evidence-cards">
     <div class="card">
-      <h3>Opción A — preservación selectiva</h3>
-      <p>RAR exhaustivo, extracción de dientes con pronóstico definitivamente pobre (furcación Grado 3 + movilidad Grado 3), cirugía conservadora en dientes preservables, rehabilitación con implantes/puentes en espacios extraídos.</p>
+      <h3>Pérdida ósea horizontal</h3>
+      <p>Describe una reducción relativamente paralela del nivel crestal entre dientes vecinos. Suele asociarse con Estadios más tempranos o moderados.</p>
     </div>
     <div class="card">
-      <h3>Opción B — extracción selectiva más amplia</h3>
-      <p>Umbrales más bajos para extracción; misma estructura que la Opción A pero priorizando previsibilidad sobre conservación.</p>
-    </div>
-  </div>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — ex-fumador bien adherente</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Varón 65a, ex-fumador hace 12 años, HbA1c 6.9%. CAL 6-8mm, PPS 9-11mm, furcación Grado 3 en molares, movilidad Grado 2; ya perdió 2 dientes (trauma y periodontitis). RBL 60% (RBL/edad = 60/65 = 0.92, dentro del rango de Grado B; modificadores ahora controlados — ex-fumador, HbA1c 6.9% — refuerzan la clasificación). <strong>Plan (Opción A):</strong> RAR exhaustivo → extracción selectiva del diente con furcación Grado 3 + movilidad Grado 2 → preservación de caninos/premolares/algunos molares con cirugía de acceso → implantes tras 6-12 meses de cicatrización. Mantenimiento cada 4-6 meses. Prognosis moderada (65-70%).</p>
-      </details>
+      <h3>Pérdida ósea vertical (angular)</h3>
+      <p>Expresa una arquitectura más compleja, con defectos infraóseos localizados que suelen elevar la complejidad del caso.</p>
     </div>
   </div>
 
-  <h3>Estadio IV, Grado C — crisis periodontal</h3>
-  <p>RBL/edad &gt;1.0 o evidencia directa de progresión rápida sobre daño ya avanzado. Múltiples pérdidas dentarias recientes (2-5 dientes en 1-2 años), furcación Grado 3 bilateral, movilidad Grado 2-3, supuración frecuente. <strong>Decisiones deben tomarse en días, no semanas.</strong> Preservación esperada solo 20-40%.</p>
-  <div class="key-principle">
-    <h3>🎯 Decisión crítica</h3>
-    <p>El umbral para extracción es más bajo en Grado C que en cualquier otro escenario: molares con furcación Grado 3 + movilidad Grado 2-3, cualquier diente con movilidad Grado 3, y dientes anteriores con movilidad Grado 2 + CAL &gt;8mm generalmente se consideran "no salvables". La rehabilitación (implantes/prótesis) se planifica en paralelo, no después.</p>
-  </div>
-  <div class="cases">
-    <div class="case-card">
-      <h3>Caso — fumador fuerte + diabetes descontrolada</h3>
-      <details>
-        <summary>Ver caso</summary>
-        <p>Varón 54a, fuma 28 cig/día, HbA1c 9.8% no adherente a medicación. CAL 7-8mm, PPS 10-12mm, furcación Grado 3 bilateral, movilidad Grado 2-3; perdió 4 dientes en los últimos 18 meses. RBL 70% (RBL/edad = 70/54 = 1.30, supera 1.0) = Grado C. <strong>Plan:</strong> consulta multidisciplinaria (periodoncia + prostodoncia); extracción de molares con Grado 3 furcación/movilidad; preservación intentada en anteriores (mejor pronóstico incluso en Grado C); RAR intensivo + azitromicina 6 semanas; referencia endocrinológica y psicológica urgentes; cicatrización 6 meses antes de implantes, condicionada a dejar el tabaco. Prognosis muy pobre (25-35%) sin cambio de modificadores.</p>
-      </details>
-    </div>
+  <ul>
+    <li>La radiografía es excelente para estimar la <strong>magnitud acumulada</strong> de pérdida ósea, pero no sustituye la medición clínica de inserción (CAL).</li>
+    <li>La comparación longitudinal entre radiografías de buena calidad constituye <strong>evidencia directa</strong> de progresión cuando muestra cambios reproducibles en el tiempo.</li>
+  </ul>
+
+  <h3>Por qué la edad es decisiva en esta lectura</h3>
+  <p>Desde la lógica del Grado, la edad es decisiva porque una misma cantidad de pérdida ósea no significa lo mismo en un paciente de 24 años que en uno de 68. Esa es la razón por la cual la clasificación utiliza la razón <strong>pérdida ósea/edad</strong>. Una pérdida ósea importante a edad temprana sugiere susceptibilidad o velocidad biológica mayor, mientras que una pérdida similar a edad avanzada puede ser compatible con progresión más lenta, acumulada a lo largo de décadas.</p>
+
+  <div class="calc-box">
+    <p><strong>Ejemplo de cálculo indirecto</strong></p>
+    <p>Si la radiografía sugiere una pérdida ósea máxima equivalente al 40% de la longitud radicular y el paciente tiene 30 años, la razón RBL/edad es <span class="result">1.33</span>. Esa cifra supera 1.0 y orienta hacia Grado C, siempre que la atribución diagnóstica sea válida y no existan razones para relativizar la lectura.</p>
+    <p>Si el mismo 40% se observara en un paciente de 65 años, la razón sería <span class="result">0.62</span> y se aproximaría a Grado B.</p>
   </div>
 
   <div class="reference">
-    📚 Basado en: Tonetti et al. 2018; Kornman et al. 2020
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Papapanou et al.
   </div>
 </div>`,
   },
   {
     lesson_number: 6,
     order_index: 6,
-    title: 'El algoritmo de decisión terapéutica completo',
+    title: 'Estadio I y II: aplicando el Grado',
     content_html: `<div class="lesson-container">
-  <h2>🗺️ De la clasificación al plan, sin adivinar</h2>
-  <p>Con Estadio y Grado compilados y los modificadores identificados, el plan de tratamiento se vuelve un árbol de decisión reproducible — no una "mejor adivinanza" clínica.</p>
+  <h2>🌱 Misma severidad, tres velocidades muy distintas</h2>
+  <p>Aplicar la lógica del Grado a cada nivel de severidad es la mejor forma de fijar el razonamiento. Empezamos por Estadio I y II — las combinaciones más frecuentes en consulta.</p>
 
-  <div class="decision-tree">
-    <h3>🧭 Estadio I</h3>
-    <ul>
-      <li><strong>Grado A:</strong> RAR solo → clorhexidina 2 sem → sin cirugía → re-eval 6-8 sem → <span class="outcome">mantenimiento anual</span></li>
-      <li><strong>Grado B:</strong> RAR 2 sesiones → clorhexidina 2-4 sem → sin antibióticos de rutina → consejería tabaco → <span class="outcome">mantenimiento 3-4 meses</span></li>
-      <li><strong>Grado C:</strong> RAR 3-4 sesiones → azitromicina 4 sem + clorhexidina 4-6 sem → cirugía posible si PPS &gt;5mm → re-eval 2-4 sem (cercano) → modificadores intensivos → <span class="outcome">mantenimiento 6-8 semanas indefinido</span></li>
-    </ul>
+  <h3>Estadio I (CAL 1-2mm, RBL &lt;15%)</h3>
+  <div class="cases">
+    <div class="case-card">
+      <h3>Estadio I, Grado A — excelente pronóstico</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Mujer 24a, examen de rutina: PPS 4-5mm en #11, CAL 1-2mm, RBL 5% (RBL/edad = 5/24 = 0.21, &lt;0.25), BOP solo en ese diente, radiografía con lámina dura clara. <strong>Diagnóstico:</strong> Estadio I, Grado A. RAR suave + educación en uso de hilo dental; a las 8 semanas: PPS 3mm, sin BOP, remisión. Pronóstico &gt;95%. Mantenimiento anual.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Estadio I, Grado B — progresión moderada en estadio temprano</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Varón 28a, fumador 7 cig/día. CAL 2mm en #16, #26, #36; RBL 12% (RBL/edad = 12/28 = 0.43); radiografía previa (18 meses) ya mostraba pérdida medible; PCR Pg+ 20%. <strong>Diagnóstico:</strong> Estadio I, Grado B. Plan: RAR + consejería tabaco; monitoreo cada 4 meses × 1 año. Pronóstico 80-90%. Si deja el cigarrillo, pronóstico mejora hacia Grado A.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Estadio I, Grado C — ALERTA DIAGNÓSTICA</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Mujer 22a, "dientes se están moviendo, sangrado espontáneo hace 6 meses". CAL 2mm máxima en molares; RBL 9% (RBL/edad = 9/22 = 0.41, por sí solo compatible con Grado B); movilidad Grado 1 incipiente; PCR Pg+++Tf+++Td++; antecedente familiar (padre perdió molares en 20s). <strong>Diagnóstico:</strong> Estadio I, Grado C — el RBL/edad aislado no llega a 1.0, pero la microbiología severa y el antecedente familiar fuerte desplazan la clasificación a Grado C: exactamente el tipo de caso donde el fenotipo pesa más que el número aislado.</p>
+      </details>
+    </div>
   </div>
-
-  <div class="decision-tree">
-    <h3>🧭 Estadio II</h3>
-    <ul>
-      <li><strong>Grado A:</strong> RAR 1-2 sesiones → clorhexidina 2 sem → cirugía opcional (solo si PPS &gt;5mm en &lt;20% sitios) → <span class="outcome">mantenimiento 6-12 meses</span></li>
-      <li><strong>Grado B:</strong> RAR 2-3 sesiones → Arestin local posible → antibióticos si PPS extenso &gt;5mm → cirugía de acceso probable → <span class="outcome">mantenimiento 3-4 meses × 1 año</span></li>
-      <li><strong>Grado C:</strong> RAR 3-4 sesiones exhaustivo → azitromicina 4 sem + Arestin + clorhexidina 4-6 sem → microbiología para guiar antibiótico → cirugía + posible GTR → re-eval 4-6 sem → <span class="outcome">mantenimiento 3-4 meses indefinido</span></li>
-    </ul>
-  </div>
-
-  <div class="decision-tree">
-    <h3>🧭 Estadio III</h3>
-    <ul>
-      <li><strong>Grado A:</strong> RAR 2-3 sesiones → cirugía típica (acceso + GTR probable) → aloinjerto considerado → regeneración esperada 30-40% → <span class="outcome">mantenimiento 3-4 meses × 1-2 años, luego 6-12 meses</span></li>
-      <li><strong>Grado B:</strong> RAR 3-4 sesiones → azitromicina considerada + Arestin → cirugía necesaria (acceso + GTR recomendada) → regeneración esperada 20-30% → <span class="outcome">mantenimiento 3 meses × 1-2 años</span></li>
-      <li><strong>Grado C:</strong> RAR 4-5 sesiones exhaustivo → azitromicina 4-6 sem + Arestin en todos sitios ≥5mm → cirugía extensiva + posible extracción selectiva → regeneración esperada 15-20% → re-eval 2-4 sem (cercanísimo) → <span class="outcome">mantenimiento 4-6 semanas indefinido</span></li>
-    </ul>
-  </div>
-
-  <div class="decision-tree">
-    <h3>🧭 Estadio IV</h3>
-    <ul>
-      <li><strong>Grado B:</strong> RAR exhaustivo → decisión preservación selectiva vs. extracción inmediata → extracción de molares Grado 3 furcación + movilidad Grado 2-3 → rehabilitación con implantes (esperar 6-12 meses) → <span class="outcome">mantenimiento 4-6 meses × 2 años, luego 6-12 meses</span></li>
-      <li><strong>Grado C:</strong> CRISIS — decisión urgente entre extracción selectiva amplia (Opción A) o preservación mínima (Opción B) → extracciones generosas → azitromicina 6 sem + Arestin + clorhexidina 6-8 sem → cesación de tabaco como PRERREQUISITO para implantes → <span class="outcome">mantenimiento 6-8 semanas indefinido</span></li>
-    </ul>
-  </div>
-
   <div class="key-principle">
-    <h3>🎯 Patrón general del algoritmo</h3>
-    <p>A medida que el Grado sube de A → C (dentro de un mismo Estadio): más sesiones de RAR, aparece la indicación de antibióticos sistémicos, la re-evaluación se acerca (de 6-8 semanas a 2-4 semanas), y el mantenimiento se intensifica (de anual a cada 4-8 semanas indefinidamente).</p>
+    <h3>🎯 Por qué el Estadio I Grado C es una alerta</h3>
+    <p>Sin intervención, un Estadio I Grado C se convierte en Estadio III-IV en 3-5 años — el daño actual es pequeño, pero el riesgo futuro es altísimo. Plan agresivo: RAR exhaustivo + análisis microbiológico, azitromicina, clorhexidina, evaluación inmunológica, mantenimiento cada 6-8 semanas indefinidamente.</p>
+  </div>
+
+  <h3>Estadio II (CAL 3-4mm, RBL 15-33%)</h3>
+  <p>Es la combinación más frecuente en consulta. El Grado determina si el RAR solo es suficiente o si el paciente necesita cirugía y farmacoterapia adyuvante.</p>
+  <div class="cases">
+    <div class="case-card">
+      <h3>Estadio II, Grado A — excelente pronóstico</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Mujer 66a, no fuma, sin diabetes. CAL 3mm generalizado posterior, RBL 16% (RBL/edad = 16/66 = 0.24, límite inferior de Grado A); radiografía de hace 5 años ya mostraba RBL 15% — cambio mínimo, evidencia directa de estabilidad. RAR 2 sesiones + clorhexidina; resultado: PPS 3-4mm, sin BOP. Remisión 90-95%. Mantenimiento anual.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Estadio II, Grado B — buen pronóstico, requiere supervisión</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Mujer 48a, fuma 8 cig/día, diabetes HbA1c 6.8%. CAL 3-4mm; RBL 26% (RBL/edad = 26/48 = 0.54, dentro del rango de Grado B). <strong>Diagnóstico:</strong> Estadio II, Grado B. RAR 3 sesiones + Arestin + consejería tabaco + referencia endocrinólogo. Remisión 80-85%. Mantenimiento cada 3-4 meses.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Estadio II, Grado C — moderadamente severa, terapia agresiva</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Varón 42a, fuma 22 cig/día, HbA1c 9.1%. CAL 3-4mm generalizado; RBL 28% (RBL/edad = 28/42 = 0.67, por sí solo Grado B — pero el tabaquismo intenso y la HbA1c muy elevada, ambos muy por encima del umbral de C, desplazan la clasificación). <strong>Diagnóstico:</strong> Estadio II, Grado C. RAR 4 sesiones + azitromicina + Arestin; referencia endocrinológica urgente. Remisión solo 60-70%. Urgencia alta: retraso significa Estadio III en 2-3 años.</p>
+      </details>
+    </div>
   </div>
 
   <div class="reference">
-    📚 Basado en: algoritmo terapéutico Tonetti et al. 2018; Kornman et al. 2020
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Kornman &amp; Papapanou 2020
   </div>
 </div>`,
   },
   {
     lesson_number: 7,
     order_index: 7,
-    title: 'Reclasificación: cuando el Grado cambia con el tratamiento',
+    title: 'Estadio III y IV: aplicando el Grado',
+    content_html: `<div class="lesson-container">
+  <h2>🌳 Daño severo — el pronóstico depende enteramente del Grado</h2>
+
+  <h3>Estadio III (CAL ≥5mm, se extiende al tercio medio de la raíz o más allá)</h3>
+  <p>Siempre requiere cirugía. Lo que cambia dramáticamente entre Grado A y C es cuánto de esa cirugía puede tener éxito.</p>
+  <div class="cases">
+    <div class="case-card">
+      <h3>Estadio III, Grado A — bueno, aún en estadio severo</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Varón 62a, ex-fumador hace 15 años, sin diabetes. CAL 5-6mm, RBL 40%, defectos angulares 1-2 paredes en molares; radiografía de hace 5 años ya mostraba RBL 37% — un cambio de apenas 3 puntos porcentuales en 5 años, evidencia directa de estabilidad, que tiene prioridad sobre el RBL/edad (40/62 = 0.65, que por sí solo sugeriría Grado B). <strong>Diagnóstico:</strong> Estadio III, Grado A. RAR + cirugía de acceso + GTR/aloinjerto. Prognosis excelente (88-90%).</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Estadio III, Grado B — moderado, balance entre control y supervivencia</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Mujer 52a, HbA1c 8.2%, muy adherente. CAL 6mm, PPS 8-9mm, RBL 46% (RBL/edad = 46/52 = 0.885, dentro del rango de Grado B). La HbA1c elevada (≥7%, modificador de Grado C) exige vigilancia estrecha, pero el conjunto de la evidencia mantiene la clasificación en Grado B. Plan: RAR + referencia endocrinológica urgente, cirugía + GTR. Si HbA1c mejora a &lt;7%, el pronóstico mejora (65-70% → mejor).</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Estadio III, Grado C — pobre pronóstico, máxima agresividad necesaria</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Varón 47a, fuma 25 cig/día, HbA1c 9.8% sin tratamiento regular. CAL 6-8mm, PPS 8-10mm, furcación Grado 2-3; RBL 48% (RBL/edad = 48/47 = 1.02, supera 1.0 — reforzado por tabaquismo intenso y HbA1c muy elevada). Plan: RAR exhaustivo + azitromicina + Arestin; referencia endocrinológica urgente; cirugía + posible extracción selectiva. Prognosis pobre (45-55%).</p>
+      </details>
+    </div>
+  </div>
+
+  <h3>Estadio IV (pérdida dentaria atribuible a periodontitis, furcación Grado 3, movilidad Grado 2-3)</h3>
+  <p>Estadio IV con Grado A es extremadamente raro — casi siempre alcanzable solo por evidencia directa de destrucción antigua ya detenida, nunca por el RBL/edad aislado (a esa severidad, la razón casi siempre supera 0.25). En la práctica, casi todos los casos son Grado B o C.</p>
+  <div class="cases">
+    <div class="case-card">
+      <h3>Estadio IV, Grado B — manejo multidisciplinario</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Varón 65a, ex-fumador hace 12 años, HbA1c 6.9%. CAL 6-8mm, PPS 9-11mm, furcación Grado 3 en molares, movilidad Grado 2; ya perdió 2 dientes. RBL 60% (RBL/edad = 60/65 = 0.92, dentro del rango de Grado B; modificadores ahora controlados refuerzan la clasificación). <strong>Plan:</strong> RAR exhaustivo → extracción selectiva del diente irrecuperable → preservación del resto con cirugía de acceso → implantes tras cicatrización. Preservación esperada 60-70%.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Estadio IV, Grado C — crisis periodontal</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Varón 54a, fuma 28 cig/día, HbA1c 9.8% no adherente a medicación. CAL 7-8mm, PPS 10-12mm, furcación Grado 3 bilateral, movilidad Grado 2-3; perdió 4 dientes en los últimos 18 meses. RBL 70% (RBL/edad = 70/54 = 1.30, supera 1.0). <strong>Decisiones deben tomarse en días, no semanas.</strong> Plan: consulta multidisciplinaria, extracción de molares irrecuperables, preservación intentada en anteriores, RAR intensivo + azitromicina. Preservación esperada solo 20-40%.</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="reference">
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Kornman &amp; Papapanou 2020
+  </div>
+</div>`,
+  },
+  {
+    lesson_number: 8,
+    order_index: 8,
+    title: 'Reclasificación, algoritmo terapéutico y síntesis final',
     content_html: `<div class="lesson-container">
   <h2>🔄 El pronóstico no está escrito en piedra</h2>
   <p>El Grado no es una etiqueta fija: cambia con la evidencia nueva (radiografías comparativas) y con la intervención en los modificadores. El Estadio, en cambio, <strong>nunca mejora</strong>.</p>
@@ -422,23 +419,19 @@ export const lessons = [
       <h3>Caso integrado A — el cambio de Estadio obliga a revisar el plan</h3>
       <details>
         <summary>Ver caso completo</summary>
-        <p><strong>Presentación inicial:</strong> Mujer 42a, fumadora 12 cig/día. CAL 2-3mm, RBL 18%, PPS 4-5mm. Diagnóstico: <strong>Estadio I, Grado B</strong>. Plan inicial: RAR 2 sesiones, monitoreo cada 4 meses.</p>
-        <p><strong>Seguimiento a 8 meses:</strong> radiografía muestra RBL 30% — un salto de 12 puntos porcentuales en solo 8 meses, evidencia directa de progresión muy rápida (muy por encima del umbral de Grado C); CAL ahora 4-5mm; PPS 6-7mm posterior. <strong>Reclasificación: Estadio II, Grado C</strong> — cambio dramático.</p>
+        <p><strong>Presentación inicial:</strong> Mujer 42a, fumadora 12 cig/día. CAL 2-3mm, RBL 18% (RBL/edad = 18/42 = 0.43). Diagnóstico: <strong>Estadio I, Grado B</strong>.</p>
+        <p><strong>Seguimiento a 8 meses:</strong> radiografía muestra RBL 30% — un salto de 12 puntos porcentuales en solo 8 meses, evidencia directa de progresión muy rápida (muy por encima del umbral de Grado C); CAL ahora 4-5mm. <strong>Reclasificación: Estadio II, Grado C</strong> — cambio dramático.</p>
         <p><strong>Investigación:</strong> cambio de trabajo → estrés severo → depresión desarrollada, sin diagnosticar.</p>
-        <p><strong>Nuevo plan:</strong> RAR repetida 3-4 sesiones + azitromicina 4 semanas, referencia a psicología/psiquiatría, consejería de tabaco intensiva.</p>
-        <p><strong>Lección:</strong> el Grado puede cambiar — la comparación radiográfica y la reclasificación periódica son críticas, especialmente en pacientes con riesgo de Grado C.</p>
+        <p><strong>Lección:</strong> el Grado puede cambiar — la comparación radiográfica y la reclasificación periódica son críticas.</p>
       </details>
     </div>
-
     <div class="case-card">
       <h3>Caso integrado B — intervenir el modificador cambia el pronóstico</h3>
       <details>
         <summary>Ver caso completo</summary>
-        <p><strong>Presentación:</strong> Varón 48a, fumador 18 cig/día, HbA1c 8.6%. CAL 3-4mm, RBL 28%, PPS 5-6mm. Diagnóstico: <strong>Estadio II, Grado C</strong> (tabaquismo severo + diabetes descontrolada, a pesar del Estadio moderado). Pronóstico inicial: 60-70%.</p>
-        <p><strong>Plan inicial:</strong> RAR + azitromicina + consejería intensiva de tabaco + referencia endocrinológica.</p>
-        <p><strong>A los 6 meses:</strong> radiografía estable (sin más progresión); PPS 3-4mm (muy mejorado). Paciente dejó el cigarrillo hace 3 meses; HbA1c ahora 6.8%.</p>
-        <p><strong>Reclasificación: Estadio II, Grado B</strong> — el Estadio no cambia (el daño ya ocurrido es irreversible), pero el Grado sí mejora.</p>
-        <p><strong>Nuevo plan:</strong> mantenimiento cada 3-4 meses (en vez de 6-8 semanas); pronóstico mejorado a 80-85%.</p>
+        <p><strong>Presentación:</strong> Varón 48a, fumador 18 cig/día, HbA1c 8.6%. CAL 3-4mm, RBL 28%. Diagnóstico: <strong>Estadio II, Grado C</strong> (tabaquismo severo + diabetes descontrolada, a pesar del Estadio moderado).</p>
+        <p><strong>A los 6 meses:</strong> radiografía estable; PPS muy mejorado. Paciente dejó el cigarrillo hace 3 meses; HbA1c ahora 6.8% (&lt;7%).</p>
+        <p><strong>Reclasificación: Estadio II, Grado B</strong> — el Estadio no cambia (el daño ya ocurrido es irreversible), pero el Grado sí mejora porque ambos modificadores cruzaron de vuelta al rango B.</p>
         <p><strong>Lección:</strong> intervenir los modificadores cambia el Grado y el pronóstico — la "reclasificación" post-terapia es una práctica clínica válida y recomendada.</p>
       </details>
     </div>
@@ -446,78 +439,49 @@ export const lessons = [
 
   <div class="key-principle">
     <h3>🎯 La regla que nunca cambia</h3>
-    <p><strong>El Estadio no puede mejorar.</strong> CAL 5mm y RBL 40% definen Estadio III por definición — el hueso no regenera espontáneamente. Después de un RAR exitoso, el PPS puede bajar de 5mm a 3-4mm (el tejido blando cicatriza), pero el CAL permanece en 5mm y el RBL en 40%: sigue siendo Estadio III. Lo que mejora es el <strong>Grado de actividad</strong>, no la severidad acumulada.</p>
+    <p><strong>El Estadio no puede mejorar.</strong> CAL 5mm y RBL 40% definen Estadio III por definición — el hueso no regenera espontáneamente. Lo que mejora es el <strong>Grado de actividad</strong>, no la severidad acumulada.</p>
   </div>
 
-  <div class="definition-box">
-    <p><strong>Otra aplicación de la misma regla:</strong> un paciente que perdió dientes por periodontitis años atrás y hoy está perfectamente estable, sin movilidad severa, <strong>sigue siendo Estadio IV</strong> — porque la clasificación refleja la historia acumulativa, no solo el estado actual.</p>
+  <h3>El algoritmo de decisión terapéutica</h3>
+  <p>Con Estadio y Grado compilados, el plan de tratamiento se vuelve un árbol de decisión reproducible:</p>
+  <div class="decision-tree">
+    <h3>🧭 Patrón general del algoritmo</h3>
+    <ul>
+      <li><strong>Grado A:</strong> RAR solo o con pocas sesiones → sin antibióticos de rutina → <span class="outcome">mantenimiento anual a semestral</span></li>
+      <li><strong>Grado B:</strong> RAR con más sesiones → antibióticos locales/sistémicos solo si hay indicación específica → <span class="outcome">mantenimiento cada 3-4 meses</span></li>
+      <li><strong>Grado C:</strong> RAR exhaustivo + antibióticos sistémicos casi siempre indicados + modificadores intervenidos con urgencia → re-evaluación cercana (2-4 semanas) → <span class="outcome">mantenimiento cada 4-8 semanas indefinido</span></li>
+    </ul>
   </div>
+  <p style="font-size:0.9rem;color:var(--text-light);">A medida que el Grado sube de A → C (dentro de un mismo Estadio): más sesiones de RAR, aparece la indicación de antibióticos sistémicos, la re-evaluación se acerca, y el mantenimiento se intensifica.</p>
 
-  <div class="reference">
-    📚 Basado en: Tonetti et al. 2018; práctica de reclasificación Kornman et al. 2020
-  </div>
-</div>`,
-  },
-  {
-    lesson_number: 8,
-    order_index: 8,
-    title: 'Preguntas frecuentes y síntesis final',
-    content_html: `<div class="lesson-container">
-  <h2>❓ Las dudas más comunes al aplicar la matriz</h2>
-
+  <h3>Preguntas frecuentes</h3>
   <div class="cases">
-    <div class="case-card">
-      <h3>¿Puede un paciente ser Estadio III, Grado A? ¿Destrucción severa pero lenta?</h3>
-      <details>
-        <summary>Ver respuesta</summary>
-        <p><strong>Sí.</strong> Poco común, pero posible. Ejemplo: paciente de 70 años, ex-fumador hace 20 años, sin comorbilidades, CAL 5-6mm + RBL 38%; radiografía de hace 5 años ya mostraba RBL 35% — un cambio de apenas 3 puntos porcentuales en 5 años, evidencia directa de estabilidad, que tiene prioridad sobre el RBL/edad (38/70 = 0.54, que por sí solo sugeriría Grado B) → Grado A. El daño es "antiguo" (acumulado durante décadas) pero no está progresando actualmente. La terapia sigue siendo necesaria (CAL de 5-6mm requiere manejo de Estadio III), pero el pronóstico es excelente porque la velocidad es muy lenta.</p>
-      </details>
-    </div>
-
-    <div class="case-card">
-      <h3>¿Es posible Estadio I, Grado C? ¿Poco daño pero destruyendo rápido?</h3>
-      <details>
-        <summary>Ver respuesta</summary>
-        <p><strong>Sí — es una alerta diagnóstica.</strong> Ejemplo: joven de 26 años con Pg+++Tf+++Td++ descubre CAL 1-2mm + RBL &lt;15%. Radiografía de hace 1 año: RBL 0%; ahora RBL 12% — un cambio de 12 puntos porcentuales en apenas 1 año, evidencia directa muy por encima del umbral de Grado C (≥2mm en 5 años) → Grado C. A pesar de la pequeña destrucción visible, la velocidad de progresión es rápida — sin intervención intensiva, será Estadio III en 3 años. Manejo: RAR intensivo + antibióticos + monitoreo cada 6-8 semanas; modificadores críticos.</p>
-      </details>
-    </div>
-
     <div class="case-card">
       <h3>Si el paciente responde maravillosamente al RAR, ¿puede "mejorar" de Estadio?</h3>
       <details>
         <summary>Ver respuesta</summary>
-        <p><strong>No.</strong> El Estadio no puede subir hacia una categoría menor — la destrucción que ocurrió es irreversible. Confusión común: pacientes (y algunos clínicos) piensan "si se cura, es menor Estadio". No: el daño ya está hecho; lo que cambia con la terapia es el <strong>Grado de actividad</strong>, no la severidad acumulada (ver la lección anterior sobre reclasificación).</p>
+        <p><strong>No.</strong> El Estadio no puede bajar hacia una categoría menor — la destrucción que ocurrió es irreversible. Lo que cambia con la terapia es el Grado de actividad, no la severidad acumulada.</p>
       </details>
     </div>
-
     <div class="case-card">
       <h3>¿Cómo comunico Estadio/Grado a un paciente de forma que entienda?</h3>
       <details>
         <summary>Ver respuesta</summary>
-        <p><strong>No decir:</strong> "Tienes Estadio III, Grado B." <strong>Sí decir:</strong> "Tu enfermedad de encías es severa. El hueso ha bajado bastante (mostrar radiografía comparativa). Pero buena noticia: está progresando lentamente. Con terapia intensiva y mejor control del tabaquismo, puedes preservar tus dientes."</p>
-        <p>Estructura recomendada: ¿qué tiene? (descriptivo) → ¿qué tan avanzado? (% óseo perdido) → ¿qué tan rápido empeora? (Grado) → ¿qué lo causó? → ¿qué podemos hacer? → ¿qué necesitas hacer vos?</p>
-      </details>
-    </div>
-
-    <div class="case-card">
-      <h3>Si un paciente con Estadio IV tiene movilidad mínima, ¿sigue siendo Estadio IV?</h3>
-      <details>
-        <summary>Ver respuesta</summary>
-        <p><strong>Sí.</strong> Estadio IV se define por pérdida dentaria atribuible a periodontitis, no necesariamente por movilidad severa. Un paciente que perdió dientes hace años por periodontitis, con dientes restantes estables (CAL 5-6mm, RBL 45%, sin movilidad Grado 3), continúa siendo Estadio IV porque ha perdido múltiples dientes por la enfermedad — incluso con estabilización post-terapia.</p>
+        <p><strong>No decir:</strong> "Tienes Estadio III, Grado B." <strong>Sí decir:</strong> "Tu enfermedad de encías es severa. El hueso ha bajado bastante. Pero buena noticia: está progresando lentamente. Con terapia intensiva y mejor control del tabaquismo, puedes preservar tus dientes."</p>
       </details>
     </div>
   </div>
 
-  <h3>Síntesis final: la matriz como herramienta pronóstica</h3>
+  <h3>Síntesis final</h3>
   <div class="decision-tree">
     <ul>
-      <li><strong>Diagnóstico</strong> (qué tiene + cómo progresa): Estadio = severidad, Grado = velocidad
+      <li><strong>Diagnóstico</strong> (Estadio = severidad, Grado = velocidad)
         <ul>
-          <li>→ <span class="outcome">Pronóstico</span> (cuál es el resultado esperado): % de remisión, dientes/década perdidos, potencial de regeneración
+          <li>→ <span class="outcome">Pronóstico</span> (resultado esperado)
             <ul>
-              <li>→ <span class="outcome">Plan de terapia</span> (qué intervención): RAR solo vs. + antibióticos, cirugía vs. manejo conservador, preservación vs. extracción
+              <li>→ <span class="outcome">Plan de terapia</span> (qué intervención)
                 <ul>
-                  <li>→ <span class="outcome">Mantenimiento</span> (cuán frecuente): de anual a cada 4-6 semanas indefinidamente</li>
+                  <li>→ <span class="outcome">Mantenimiento</span> (cuán frecuente)</li>
                 </ul>
               </li>
             </ul>
@@ -526,14 +490,13 @@ export const lessons = [
       </li>
     </ul>
   </div>
-
   <div class="key-principle">
-    <h3>🎯 El valor de la matriz</h3>
+    <h3>🎯 El valor de la matriz Estadio × Grado</h3>
     <p>Sin Estadio/Grado, el clínico hace "mejor adivinanza" → variabilidad tremenda entre profesionales. Con Estadio/Grado, la decisión es estructurada, reproducible y el pronóstico es comunicable — al paciente, al equipo, y entre especialistas que retoman el caso.</p>
   </div>
 
   <div class="reference">
-    📚 Basado en: Tonetti et al. 2018; Kornman et al. 2020; Caton et al. 2018 (AAP/EFP World Workshop)
+    📚 Basado en: Tonetti, Greenwell &amp; Kornman 2018 (J Periodontol); Kornman &amp; Papapanou 2020; Caton et al. 2018 (AAP/EFP World Workshop)
   </div>
 </div>`,
   },
