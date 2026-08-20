@@ -178,6 +178,21 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Chapter 2 Lesson 2 figure (2026-08-20) — 4th embedded image
+
+Added `public/sonda-periodontal.jpeg` (a close-up clinical photo of a
+periodontal probe inserted mesially between two maxillary incisors, showing
+the probe's millimeter markings — verified by viewing the image, not assumed
+from the filename) below the "Posicionamiento correcto de la sonda"
+evidence-cards in Chapter 2 Lesson 2, reusing the exact `.embedded-figure`
+markup/CSS pattern already built and visually verified for Chapter 1's 3
+figures (`src/styles/lessonContent.css`) — no new CSS needed. The file
+existed untracked in the working tree (the user had already placed it there,
+same pattern as Chapter 1's figures originally); committed it alongside the
+content change. Caption states "Imagen de dominio público" per explicit user
+instruction. This is now the **4th** embedded figure in the course (3 in
+Chapter 1, 1 in Chapter 2).
+
 ### Chapter 2 small edits (2026-08-20) — Lesson 1, from a live-app screenshot + a real paper
 
 Three edits, all in `chapter2Content.js` Lesson 1:

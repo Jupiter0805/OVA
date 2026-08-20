@@ -110,6 +110,11 @@ export const lessons = [
     </div>
   </div>
 
+  <figure class="embedded-figure">
+    <img src="/sonda-periodontal.jpeg" alt="Sonda periodontal insertada en el surco gingival mesial entre dos incisivos superiores, mostrando las marcas milimétricas de la sonda." />
+    <figcaption>Sonda periodontal insertada en el surco gingival mesial, mostrando las marcas milimétricas usadas para leer la profundidad de sondaje. <strong>Imagen de dominio público.</strong></figcaption>
+  </figure>
+
   <h3>Sitios de registro por diente</h3>
   <table>
     <tr><th>Sitio</th><th>Ubicación</th><th>Técnica</th></tr>
