@@ -178,6 +178,74 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Chapter 3 Grado-determination accuracy overhaul (2026-08-21)
+
+The user pasted a "Capítulo III Grados" reference document (with real editorial
+review comments embedded, `[Ui7]`-`[Ui10]`) and asked to rebuild Chapter 3's
+content around it. This was **not** a like-for-like doc swap (the doc is much
+shorter than the existing 8-lesson chapter and doesn't restructure it) — it
+supplied the correct official Grado-determination framework that the chapter
+was missing/getting wrong, so this was a full accuracy pass across the whole
+chapter, not just new content bolted on.
+
+**Root problem found:** every lesson in Chapter 3 expressed progression rate
+as "~X%/año" with invented cutoffs (`<3%/año`→A, `3-20%/año`→B, `>20%/año`→C).
+This metric doesn't exist in the AAP/EFP framework at all, and the cutoffs
+were wildly unrealistic — a sanity check against the *actual* published
+indirect criterion (RBL/edad: &lt;0.25 A, 0.25-1.0 B, &gt;1.0 C) shows a real
+"fast" case runs more like ~1-2%/year, not &gt;20%/year. The Lesson 5
+RBL/edad thresholds already in the chapter were also off (used 0.5 as the
+A/B cutoff instead of the correct 0.25) — same wrong-cutoff pattern already
+found and fixed in Chapter 2's simplified Estadio table earlier this session.
+
+**What changed:**
+- Added a "Cómo se determina el Grado" section to Lesson 1 — the chapter
+  never actually had a standalone explanation of this despite being titled
+  "Grados": the doc's official 3×3 table (evidencia directa/indirecta/modificadores
+  × A/B/C, with correct thresholds), the "start from Grado B, shift with
+  evidence" principle, the worked RBL/edad example (40% at 30yo=1.33→C vs.
+  65yo=0.62→B), and a modifiers explanation reworded in plain language per
+  the doc's own `[Ui9]` comment (the doc's reviewer flagged the original
+  phrasing — vascularización/respuesta inmune/patrón de inflamación — as too
+  clinical for a student-facing course).
+- Added the doc's 3 case vignettes to Lesson 1, reworded per `[Ui10]`'s
+  comment (the doc's reviewer flagged the original case phrasing as lacking
+  rigor) into explicit RBL/edad-computed examples.
+- **Went through all 8 lessons' existing case studies (~15 cases) and fixed
+  the numbers**, not just the definitions — every "progresión ~X%/año"
+  mention was either replaced with a computed RBL/edad ratio (recalculating
+  age/RBL in a few cases so the math actually lands in the stated Grado
+  under the correct 0.25/1.0 cutoffs — e.g. the Estadio II Grado A case's
+  patient age went from 52→66 since a 52-year-old with Estadio-II-range RBL
+  cannot mathematically reach Grado A via the ratio) or reframed as raw
+  direct-evidence (a stated before/after RBL change over a known interval,
+  no invented rate label). Surfaced a real pattern along the way: **Estadio
+  III/IV + Grado A combinations are only reachable through direct evidence of
+  long-term stability, never through the RBL/edad ratio alone** (the ratio
+  structurally requires unrealistic ages once RBL is high) — this is now
+  stated explicitly wherever such a case appears, reinforcing the doc's own
+  "direct evidence has priority over indirect" principle rather than leaving
+  it as an unexplained inconsistency.
+- Fixed the same wrong 0.5-vs-0.25 A/B cutoff in the pretest Q3/Q5 and
+  posttest Q3 explanations (the correct-answer options were already right
+  regardless, since 1.5 is &gt;1.0 either way, but the cutoff stated in the
+  explanation text was wrong). Also fixed pretest Q5's explanation, which had
+  literally impossible arithmetic (claimed 36% RBL at 70 years old reads as
+  Grado A — 36/70=0.51 is nowhere near &lt;0.25 under either the old or new
+  cutoff) by changing the older-patient comparison to a lower, consistent RBL%.
+- Matrix header in Lesson 1 relabeled from the fake `%/año` ranges to plain
+  "progresión lenta/moderada/rápida", pointing to the new determination
+  table instead of restating invented numbers in a second place.
+- Skipped the doc's `[Ui7]` (broken bracket-citation numbering) and `[Ui8]`
+  (an "objective" that wasn't phrased as one) comments as not applicable —
+  we don't use bracket citations (house style is named "Basado en:" refs,
+  already free of this problem), and `chapters.learning_outcomes` isn't
+  rendered in the UI once a chapter has lessons, so there's no visible
+  "objetivos de aprendizaje" list to fix.
+- Pretest/posttest questions were **not** changed — the doc's 5 pretest
+  questions are verbatim identical to what Chapter 3 already had from the
+  committee-approved set (2026-08-20), so nothing to update there.
+
 ### "Pretest not saving" report (2026-08-21) — investigated, root cause is reseed cadence, not a code bug
 
 The user reported that completing Chapter 2's pretest, going through lessons,
