@@ -559,7 +559,7 @@ export const lessons = [
       <details>
         <summary>Ver caso completo</summary>
         <p>Mujer 55a en perimenopausia, le dijeron "periodontitis severa" por PPS 6-7mm. Radiografía: cresta ósea normal, RBL &lt;15%. Encía muy edematosa.</p>
-        <p><strong>Investigación:</strong> CAL 0-1mm con PPS 7mm → 6mm de diferencia es pseudobolsa pura, causada por hiperplasia gingival relacionada con estrógeno.</p>
+        <p><strong>Investigación:</strong> CAL 0mm con PPS 7mm → 6mm de diferencia es pseudobolsa pura, causada por hiperplasia gingival relacionada con estrógeno.</p>
         <p><strong>Diagnóstico:</strong> Gingivitis hormonal, NO periodontitis.</p>
         <p><strong>Lección:</strong> muchas PPS profundas son pseudobolsas por edema, no todas son periodontitis — la medición de CAL lo decide.</p>
       </details>

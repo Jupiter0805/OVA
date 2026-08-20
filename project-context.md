@@ -178,6 +178,39 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### "Pretest not saving" report (2026-08-21) — investigated, root cause is reseed cadence, not a code bug
+
+The user reported that completing Chapter 2's pretest, going through lessons,
+then leaving and re-entering the chapter sometimes asks for the pretest
+again. Investigated via direct Supabase queries (service-role script) rather
+than guessing:
+
+- Current DB state at the time of investigation showed **healthy usage**: 2
+  users with real pretest attempts recorded against the *current* test row,
+  both with `lessons_completed: 8`, one with a completed posttest attempt —
+  no orphaned or duplicate rows, no evidence of `submitAttempt` failing.
+- `testsService.ts` (`getTest`, `getUserAttempts`, `submitAttempt`) and
+  `ChapterPage.tsx`'s resume logic were re-read end to end; no additional bug
+  found beyond the two already fixed 2026-08-20 (see "Two bugs found/fixed"
+  section above: resume-state PDF skip, silent pretest-submission failure).
+- **Actual mechanism, confirmed live during this same investigation:**
+  `scripts/lib/insertChapterCore.js` deletes *all* `test_attempts` and
+  `user_progress` rows for a chapter on every `npm run insert:chapterN` run
+  (by design — content changed, old progress is meaningless). Chapter 2 was
+  reseeded roughly 7 times in the 2026-08-20/21 session while real students
+  were apparently using it. Re-running `insert:chapter2` for the Caso 3 fix
+  in *this same conversation turn* printed "Reseteando progreso previo de 2
+  usuario(s)" — i.e., the same two users who'd just successfully completed
+  the pretest/lessons had their progress wiped again by this very edit,
+  live, in front of the investigation. This is the exact experience a
+  student would describe as "I did the pretest and it didn't save."
+- **No code fix applied** — there was nothing to fix; the behavior is
+  working as designed. The tradeoff (content iteration wipes in-progress
+  students' state) is inherent to editing chapter content that's already
+  live and in active use, not a defect. Worth the user's awareness going
+  forward: each further content edit to a chapter students are actively
+  using will repeat this.
+
 ### Official AAP/EFP 2018 staging table added to Chapter 2 Lesson 5 (2026-08-21)
 
 The user pasted a screenshot of the real Tonetti/Greenwell/Kornman 2018
