@@ -333,14 +333,57 @@ export const lessons = [
     </div>
   </div>
 
+  <h3>Tabla oficial AAP/EFP 2018 — Estadios de periodontitis</h3>
+  <p style="font-size:0.9rem;color:var(--text-light);">Tabla de referencia completa (Tonetti, Greenwell &amp; Kornman 2018), traducida del original en inglés.</p>
+  <div style="overflow-x:auto;">
+  <table>
+    <tr><th></th><th></th><th>Estadio I</th><th>Estadio II</th><th>Estadio III</th><th>Estadio IV</th></tr>
+    <tr>
+      <td rowspan="3"><strong>Severidad</strong></td>
+      <td>CAL interdental<br /><span style="font-size:0.85em;color:var(--text-light);">(en el sitio de mayor pérdida)</span></td>
+      <td>1-2mm</td>
+      <td>3-4mm</td>
+      <td>≥5mm</td>
+      <td>≥5mm</td>
+    </tr>
+    <tr>
+      <td>RBL</td>
+      <td>Tercio coronal (&lt;15%)</td>
+      <td>Tercio coronal (15-33%)</td>
+      <td>Se extiende al tercio medio de la raíz y más allá</td>
+      <td>Se extiende al tercio medio de la raíz y más allá</td>
+    </tr>
+    <tr>
+      <td>Pérdida dentaria<br /><span style="font-size:0.85em;color:var(--text-light);">(atribuible a periodontitis)</span></td>
+      <td>Sin pérdida dentaria</td>
+      <td>Sin pérdida dentaria</td>
+      <td>≤4 dientes</td>
+      <td>≥5 dientes</td>
+    </tr>
+    <tr>
+      <td><strong>Complejidad</strong></td>
+      <td>Local</td>
+      <td>PPS máxima ≤4mm · Pérdida ósea mayormente horizontal</td>
+      <td>PPS máxima ≤5mm · Pérdida ósea mayormente horizontal</td>
+      <td>Además de la complejidad de Estadio II: PPS ≥6mm · Pérdida ósea vertical ≥3mm · Furcación Grado II o III · Defectos de reborde moderados</td>
+      <td>Además de la complejidad de Estadio III: necesidad de rehabilitación compleja por disfunción masticatoria, trauma oclusal secundario (movilidad Grado ≥2), defectos de reborde severos, colapso de mordida, migración y vestibularización dentaria, &lt;20 dientes remanentes (10 pares en oclusión)</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Extensión y distribución</strong><br /><span style="font-size:0.85em;color:var(--text-light);">Agregar al Estadio como descriptor</span></td>
+      <td colspan="4">Para cada Estadio, describir la extensión como: Localizada (&lt;30% de los dientes afectados); Generalizada; o Patrón molar-incisivo</td>
+    </tr>
+  </table>
+  </div>
+
   <h3>Tabla de decisión Estadio (integrando todos los hallazgos)</h3>
   <table>
     <tr><th>Estadio</th><th>CAL</th><th>RBL</th><th>Furcación</th><th>Movilidad</th><th>Pérdida dentaria</th></tr>
     <tr><td><strong>I</strong></td><td>1-2mm</td><td>&lt;15%</td><td>0</td><td>0</td><td>No</td></tr>
     <tr><td><strong>II</strong></td><td>3-4mm</td><td>15-33%</td><td>0-1</td><td>0</td><td>No</td></tr>
-    <tr><td><strong>III</strong></td><td>≥5mm</td><td>33-50%</td><td>≥2</td><td>0-2</td><td>No (define IV si presente)</td></tr>
-    <tr><td><strong>IV</strong></td><td>≥5mm</td><td>&gt;50%</td><td>3</td><td>2-3</td><td><strong>Sí</strong></td></tr>
+    <tr><td><strong>III</strong></td><td>≥5mm</td><td>Tercio medio+</td><td>≥2</td><td>0-2</td><td>No (≤4 dientes define III; ≥5 define IV)</td></tr>
+    <tr><td><strong>IV</strong></td><td>≥5mm</td><td>Tercio medio+</td><td>3</td><td>2-3</td><td><strong>Sí (≥5 dientes)</strong></td></tr>
   </table>
+  <p style="font-size:0.9rem;color:var(--text-light);">Estadio III y IV comparten el mismo criterio de RBL (se extiende al tercio medio de la raíz o más allá, ≈≥33%) — lo que los distingue no es un porcentaje mayor de pérdida ósea, sino la pérdida dentaria (≥5 dientes) y la complejidad rehabilitadora que define el Estadio IV.</p>
 
   <div class="reference">
     📚 Basado en: Tonetti et al. 2018 (marco oficial); Kornman &amp; Papapanou 2020

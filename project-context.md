@@ -178,6 +178,33 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Official AAP/EFP 2018 staging table added to Chapter 2 Lesson 5 (2026-08-21)
+
+The user pasted a screenshot of the real Tonetti/Greenwell/Kornman 2018
+staging table (Severity: interdental CAL, RBL, tooth loss · Complexity:
+local · Extent and distribution) and asked for it translated to Spanish and
+added to Chapter 2 Lesson 5, in addition to (not replacing) the existing
+"Los cuatro Estadios" cards and simplified "Tabla de decisión Estadio".
+Translated faithfully, keeping the course's established terms (CAL, RBL,
+PPS, Estadio) — "drifting, flaring" rendered as "migración y
+vestibularización dentaria" to match "migración dentaria" already used
+elsewhere in the course for this same finding. Wrapped in an
+`overflow-x:auto` div since it's the widest table in the app (6 columns) and
+none of the existing tables had horizontal-scroll handling.
+
+**Fixed a real inconsistency this surfaced:** the existing simplified table
+right below it still had the RBL split (III: 33-50%, IV: &gt;50%) that was
+already identified and rejected earlier in this project (see the "critical
+analysis" audit section above) — Tonetti 2018 gives Stage III and IV the
+*same* RBL criterion ("extending to middle third of root and beyond"); the
+distinguishing factor is tooth loss (≥5 for IV), not a higher bone-loss
+percentage. Left uncorrected, this would have directly contradicted the new
+official table sitting right above it on the same page. Fixed the simplified
+table's RBL column for III/IV to "Tercio medio+" for both, and added a note
+explaining why they share the criterion — this is the same accuracy issue
+Chapter 1's own Estadio table already got right; Chapter 2's simplified
+table was the one lagging.
+
 ### Small fixes: Naber figure size, "sinus tract" anglicism (2026-08-21)
 
 - `sonda-naber.jpeg` (Chapter 2 Lesson 3) is a tall portrait product photo
