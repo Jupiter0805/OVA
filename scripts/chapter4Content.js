@@ -1,676 +1,405 @@
-// Content for Chapter 4 ("Casos reales: de la teoría a la práctica"), based on
-// MEGA_PROMPT_CAPITULO_4_CASOS_REALES.md. Consumed by insertChapter4.js.
+// Content for Chapter 4 ("Zonas Grises y clarificaciones de uso clínico"),
+// fully rebuilt 2026-08-21 from the "Capítulo IV. Zonas grises y
+// clarificaciones de uso clínico" reference document (a real academic
+// manuscript with embedded editorial review comments, [Ui12]-[Ui13]) —
+// same treatment as Chapter 3's rebuild. Consumed by insertChapter4.js.
+// See project-context.md for what changed and why.
 
 export const lessons = [
   {
     lesson_number: 1,
     order_index: 1,
-    title: 'Caso 1 — Fumador fuerte + diabetes severa: un cambio radical',
+    title: 'Qué son las zonas grises y por qué importan',
     content_html: `<div class="lesson-container">
-  <h2>🚬 Carlos M., 52 años, operario industrial</h2>
-  <p><strong>Motivo de consulta:</strong> "Dientes se mueven; encías sangran; me duele al masticar." Derivado por su médico general tras un hallazgo casual en el examen anual.</p>
-
-  <h3>Historia clínica</h3>
-  <ul>
-    <li><strong>Médica:</strong> diabetes tipo 2 hace 8 años, no medicado con regularidad ("tomo metformina cuando recuerdo"); hipertensión tratada; sobrepeso (IMC 31); sedentario</li>
-    <li><strong>Dental:</strong> higiene deficiente ("cepillo cuando me acuerdo; hilo dental nunca"); última limpieza hace 4 años; "nunca tuve problemas de encías hasta hace 1 año"</li>
-    <li><strong>Hábitos:</strong> tabaquismo 22-25 cigarrillos/día × 30 años = 30 paquetes-año; estrés laboral alto</li>
-  </ul>
-
-  <h3>Examen clínico (Mes 0)</h3>
-  <table>
-    <tr><th>Parámetro</th><th>Hallazgo</th></tr>
-    <tr><td>PPS máximo</td><td>9-10mm posterior</td></tr>
-    <tr><td>CAL máximo</td><td>7-8mm</td></tr>
-    <tr><td>BOP</td><td>75% de sitios</td></tr>
-    <tr><td>Supuración</td><td>Presente, molares</td></tr>
-    <tr><td>Movilidad</td><td>Grado 2 incisivos inferiores; Grado 1 molares</td></tr>
-    <tr><td>Furcación</td><td>Grado 2 superiores; Grado 2-3 inferiores</td></tr>
-  </table>
-  <p><strong>Radiografía:</strong> RBL 55-60%, patrón circunferencial en posteriores con defectos angulares 2-3 paredes. Sin radiografía comparativa disponible.</p>
-
-  <div class="calc-box">
-    <p><strong>Estimación de Grado sin radiografía histórica (puntuación de modificadores)</strong></p>
-    <p class="formula">Tabaquismo fuerte (+2) + diabetes mal controlada (+1.5) + microbiota presumida Pg+ (+1) = 4.5</p>
-    <p>Puntuación ≥1.5 → <span class="result">Grado C</span></p>
-  </div>
-
-  <div class="definition-box">
-    <p><strong>Diagnóstico:</strong> Periodontitis Estadio IV, Grado C. Modificadores: tabaquismo fuerte, diabetes tipo 2 no controlada, estrés moderado, higiene deficiente. Pronóstico inicial con el cumplimiento actual: muy pobre.</p>
-  </div>
-
-  <h3>Plan y evolución</h3>
-  <div class="timeline-interactive">
-    <div class="timeline-item">
-      <h3>Semana 1 — Educación honesta</h3>
-      <p>"Sin cambios mayores, perderás muchos dientes en 2-3 años. Puedo ayudarte si estás dispuesto a cambiar." Se muestra la radiografía, se identifican los 3 modificadores (cigarrillo, diabetes, higiene) y se inicia cesación de tabaco (parches de nicotina) + referencia urgente a endocrinología. Paciente acepta.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 1-2 — Fase no quirúrgica</h3>
-      <p>RAR en 2 sesiones + clorhexidina 0.12%. Microbiología: Pg+ (35%), Tf-, Td- → azitromicina 500mg TID × 4 semanas. Endocrinología confirma HbA1c 8.9% e intensifica tratamiento (metformina + sitagliptina). Paciente reduce a 10 cigarrillos/día.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Mes 3 — Re-evaluación</h3>
-      <p>PPS mejora 1-2mm; BOP 75%→40-50%; movilidad mejora a Grado 1; supuración resuelta por completo. Excelente respuesta a Fase 1, pero PPS posterior sigue en 7-8mm → Fase 2 quirúrgica indicada.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 4-6 — Cirugía</h3>
-      <p>Colgajo de acceso bilateral en molares superiores e inferiores + región anterior inferior. GTR con membrana de colágeno absorbible + aloinjerto óseo mineral en defectos favorables. Tabaquismo reducido a 5 cig/día; HbA1c 8.2% (mejorando).</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 6-24 — Mantenimiento</h3>
-      <p>Cada 4 semanas el primer año, luego cada 8 semanas. Microbiología repetida a los 11 meses: Pg negativizó. HbA1c 7.1% al mes 20 (objetivo alcanzado). Tabaquismo completamente cesado a los 21 meses.</p>
-    </div>
-  </div>
-
-  <div class="cases">
-    <div class="case-card">
-      <h3>Complicación — exposición parcial de membrana GTR (Mes 5)</h3>
-      <details>
-        <summary>Ver manejo</summary>
-        <p>Sutura aflojada expuso la membrana de colágeno en un molar superior. Se resuturó bajo anestesia local con sutura 5-0 absorbible y se extendió la clorhexidina a 3 semanas. Cicatrización secundaria normal, sin secuelas.</p>
-      </details>
-    </div>
-    <div class="case-card">
-      <h3>Complicación — falta de regeneración ósea observable (Mes 12)</h3>
-      <details>
-        <summary>Ver manejo</summary>
-        <p>El aloinjerto era visible pero el RBL permanecía en 55-60% (esperábamos 30-50% de regeneración; se obtuvo 0-10%, por defectos circunferenciales complejos e historia de tabaquismo severo). Comunicación al paciente: "la meta no era recuperar el hueso de hace 25 años, era PARAR la enfermedad — eso lo logramos."</p>
-      </details>
-    </div>
-  </div>
-
-  <h3>Resultados a 24 meses</h3>
-  <table>
-    <tr><th>Parámetro</th><th>Mes 0</th><th>Mes 24</th></tr>
-    <tr><td>PPS máximo</td><td>9-10mm</td><td>4-5mm</td></tr>
-    <tr><td>BOP</td><td>75%</td><td>&lt;5%</td></tr>
-    <tr><td>Movilidad</td><td>Grado 2</td><td>Grado 0</td></tr>
-    <tr><td>Supuración / halitosis</td><td>Presentes</td><td>Ausentes</td></tr>
-  </table>
-  <p><strong>Radiografía:</strong> RBL estable 55-60% (enfermedad detenida; sin más progresión, sin regeneración significativa).</p>
+  <h2>🌗 Dominar la tabla no es lo mismo que saber diagnosticar</h2>
+  <p>La fortaleza de la clasificación AAP/EFP 2018 es también su principal desafío: ofrece un marco clínicamente potente, pero exige atribución causal correcta, juicio diagnóstico y capacidad para integrar información heterogénea. Por eso varios autores subrayaron desde muy temprano la existencia de <strong>"gray zones" o zonas grises</strong> — escenarios en los que la aplicación mecánica de la tabla puede conducir a errores si no se interpreta el contexto clínico completo.</p>
 
   <div class="key-principle">
-    <h3>🎯 Reclasificación a los 24 meses</h3>
-    <p>De <strong>Estadio IV, Grado C</strong> a <strong>Estadio IV, Grado A probable</strong>: tabaquismo cesado, HbA1c en objetivo, RBL estable (&lt;1%/año) y Pg negativizado. El pronóstico de preservación pasó de 20-40% a 70-80% — una mejora dramática, aunque el Estadio no cambia: el paciente sigue en la categoría de mayor severidad acumulada (Estadio IV se define por el daño ya ocurrido, incluida la pérdida de hueso, no por la actividad actual), por lo que su techo de pronóstico permanece el de Estadio IV incluso con Grado A.</p>
+    <h3>🎯 La diferencia entre clasificar y diagnosticar</h3>
+    <p>Un estudiante que aprende solo la tabla <strong>puede clasificar</strong>. Uno que entiende las zonas grises <strong>realmente sabe diagnosticar</strong>. Eso incluye saber cuándo una CAL no debe atribuirse a periodontitis, cuándo la pérdida dentaria modifica de verdad el estadio, cómo diferenciar un periodonto reducido pero sano de gingivitis en un paciente tratado, y cómo trazar la frontera entre Estadio III y IV.</p>
   </div>
 
-  <h3>Lecciones clave</h3>
-  <ul class="checklist">
-    <li>Los modificadores lo son todo: un Grado C puede transformarse en Grado A si el paciente cambia tabaco y control glicémico</li>
-    <li>La charla honesta inicial fue el motivador decisivo para la cesación de tabaco</li>
-    <li>La coordinación médica (endocrinología) fue tan crítica como la cirugía misma</li>
-    <li>La regeneración ósea es un "beneficio adicional", no la meta — parar la enfermedad es el éxito real en Grado C severo</li>
-    <li>El mantenimiento a largo plazo (4 semanas × 1 año, luego 6-8 semanas) es lo que sostiene el resultado</li>
-  </ul>
+  <h3>Objetivos de este capítulo</h3>
+  <div class="evidence-cards">
+    <div class="card">
+      <h3>1. Reconocer las zonas grises</h3>
+      <p>Identificar las principales zonas grises descritas en la implementación clínica de la clasificación.</p>
+    </div>
+    <div class="card">
+      <h3>2. Atribuir correctamente</h3>
+      <p>Atribuir correctamente la pérdida de inserción y la pérdida dentaria a periodontitis o a otras causas.</p>
+    </div>
+    <div class="card">
+      <h3>3. Distinguir activa de gingival</h3>
+      <p>Distinguir periodontitis activa de inflamación gingival sobre periodonto reducido.</p>
+    </div>
+    <div class="card">
+      <h3>4. Argumentar casos límite</h3>
+      <p>Desarrollar un criterio narrativo y argumentado para reportar casos complejos o limítrofes, en vez de forzar una casilla.</p>
+    </div>
+  </div>
+
+  <h3>Panorama: las cuatro zonas grises frecuentes</h3>
+  <div class="decision-tree">
+    <h3>🧭 Dónde aparecen con más frecuencia</h3>
+    <ul>
+      <li><span class="outcome">Atribución de CAL</span> — ¿la pérdida de inserción es realmente por periodontitis, o por otra causa?</li>
+      <li><span class="outcome">Pseudobolsas y periodonto reducido</span> — ¿profundidad de sondaje aumentada = periodontitis activa, o edema/historia previa?</li>
+      <li><span class="outcome">Atribución de pérdida dentaria</span> — ¿ese diente se perdió por periodontitis, o por otra causa?</li>
+      <li><span class="outcome">Límite Estadio III / IV</span> — ¿la dentición entró en inestabilidad funcional, o sigue siendo manejable?</li>
+    </ul>
+  </div>
+  <p style="font-size:0.9rem;color:var(--text-light);">Las próximas lecciones recorren cada una de estas cuatro zonas en profundidad, con reglas prácticas y casos clínicos breves para practicar el criterio.</p>
 
   <div class="reference">
-    📚 Caso clínico basado en manejo real documentado a 24 meses de seguimiento
+    📚 Lectura sugerida: Kornman KS, Papapanou PN. Clinical application of the new classification of periodontal diseases: Ground rules, clarifications and "gray zones". J Periodontol. 2020.
   </div>
 </div>`,
   },
   {
     lesson_number: 2,
     order_index: 2,
-    title: 'Caso 2 — Periodontitis agresiva en joven: una lucha permanente',
+    title: 'Zona gris 1 — CAL no atribuible a periodontitis',
     content_html: `<div class="lesson-container">
-  <h2>🧬 Daniela R., 27 años, estudiante de posgrado</h2>
-  <p><strong>Motivo de consulta:</strong> "Tengo periodontitis agresiva; me dijeron que es genética; quiero saber qué puedo hacer." Autoderivación — su hermana fue tratada de una periodontitis similar a los 24 años.</p>
-
-  <h3>Historia clínica</h3>
-  <ul>
-    <li><strong>Médica:</strong> completamente sana; anticonceptivos orales hace 3 años; sin diabetes ni comorbilidades</li>
-    <li><strong>Dental:</strong> higiene excelente autorreportada (cepillado 3×/día, hilo dental diario); "siempre dientes perfectos"</li>
-    <li><strong>Antecedente familiar crítico:</strong> hermana diagnosticada con periodontitis agresiva a los 24 años; padre con "problemas de encías" en los 40s, nunca tratado</li>
-    <li><strong>Hábitos:</strong> no fuma, estrés bajo, actividad física regular</li>
-  </ul>
-
-  <h3>Examen clínico (Mes 0)</h3>
-  <table>
-    <tr><th>Parámetro</th><th>Hallazgo</th></tr>
-    <tr><td>PPS máximo</td><td>8-9mm, molares bilaterales (patrón localizado)</td></tr>
-    <tr><td>CAL máximo</td><td>6-7mm</td></tr>
-    <tr><td>BOP</td><td>60%, principalmente molares</td></tr>
-    <tr><td>Movilidad</td><td>Grado 1 incipiente en molares inferiores</td></tr>
-    <tr><td>Furcación</td><td>Grado 2 bilateral en molares inferiores</td></tr>
-    <tr><td>Placa visible</td><td>Mínima — no explica la severidad por higiene</td></tr>
-  </table>
-  <p><strong>Radiografía:</strong> defectos angulares localizados (2-3 paredes) en molares y región 31-32; RBL 35-40%. Sin radiografía comparativa (primer examen periodontal formal).</p>
-
-  <div class="decision-tree">
-    <h3>🧭 ¿Por qué severa en una joven asintomática con higiene excelente?</h3>
-    <ul>
-      <li>Periodontitis agresiva clásica (joven + severidad + antecedente familiar) → <span class="outcome">hipótesis principal</span></li>
-      <li>Defecto de PMN → a descartar</li>
-      <li>Susceptibilidad genética específica (IL-1) → a investigar</li>
-      <li>Factores locales (anatomía, trauma oclusal) → poco probables dado el patrón bilateral simétrico</li>
-    </ul>
-  </div>
-
-  <h3>Evaluación inmunológica (Semana 1)</h3>
-  <table>
-    <tr><th>Prueba</th><th>Resultado</th></tr>
-    <tr><td>CBC + diferencial</td><td>Normal</td></tr>
-    <tr><td>Función PMN (nitroblue tetrazolium)</td><td>Normal</td></tr>
-    <tr><td>Genotipo IL-1α +4845</td><td><strong>G/G — alto riesgo</strong></td></tr>
-    <tr><td>TNF-α -308</td><td>Heterocigoto, riesgo moderado</td></tr>
-    <tr><td>Microbiología (PCR)</td><td>Pg++ (55%), Tf+ (22%), Td-</td></tr>
-  </table>
+  <h2>🔍 No toda pérdida de inserción equivale a periodontitis</h2>
+  <p>Esta afirmación, simple en apariencia, resuelve una de las zonas grises más importantes. La clasificación exige excluir escenarios en los que la CAL se explique por recesión traumática, caries cervical o radicular extensa, fractura vertical, lesión endodóntica drenando hacia el margen, o malposición asociada a terceros molares. Si el clínico no hace esta atribución causal, corre el riesgo de <strong>sobrediagnosticar periodontitis</strong>.</p>
 
   <div class="definition-box">
-    <p><strong>Diagnóstico:</strong> Periodontitis Estadio III (CAL 6-7mm + furcación Grado 2, que escala automáticamente a Estadio III), Grado C (edad joven + Estadio III = "discordancia de edad", antecedente familiar, Pg++, progresión clínica documentada en 6-12 meses). Explicada por genética IL-1 de alto riesgo heredada del padre + microbiota agresiva.</p>
+    <p><strong>La secuencia correcta:</strong> primero se constata la pérdida de inserción; <em>después</em> se pregunta por su causa. La clasificación no autoriza convertir toda recesión en periodontitis. Lo que define la periodontitis es una pérdida de inserción ligada a inflamación periodontal y destrucción del aparato de soporte — no una simple variación de la posición gingival.</p>
   </div>
 
-  <h3>Plan y evolución</h3>
-  <div class="timeline-interactive">
-    <div class="timeline-item">
-      <h3>Meses 1-3 — Fase no quirúrgica intensiva</h3>
-      <p>RAR en 2 sesiones + clorhexidina 6 semanas + azitromicina 500mg TID × 4 semanas (iniciada de inmediato dado Pg++ y Grado C). Mes 3: PPS 8-9mm → 6-7mm, BOP 60%→30%, microbiología Pg reducida de 55% a 30%.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 4-5 — Cirugía</h3>
-      <p>Colgajo de acceso bilateral en molares inferiores (con GTR + factores de crecimiento rhPDGF-BB dado defectos favorables) y superiores (GTR sin factores de crecimiento). Aloinjerto + β-TCP.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Mes 6 — Post-quirúrgico</h3>
-      <p>PPS 5-6mm, BOP 10-15%, movilidad Grado 0 (recuperación completa desde Grado 1).</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 6-24 — Mantenimiento cada 6-8 semanas</h3>
-      <p>Microbiología repetida cada 6-12 meses por el antecedente. Pg negativizó al mes 9-12 y se mantuvo negativo.</p>
-    </div>
-  </div>
+  <h3>Causas no periodontales de CAL a descartar</h3>
+  <table>
+    <tr><th>Causa</th><th>Cómo se diferencia</th></tr>
+    <tr><td>Recesión traumática (cepillado agresivo)</td><td>Patrón localizado en caras vestibulares, sin pérdida ósea interdental, historia de técnica de cepillado agresiva</td></tr>
+    <tr><td>Caries cervical o radicular extensa</td><td>Lesión visible clínica y radiográficamente en el sitio de la "pérdida de inserción"</td></tr>
+    <tr><td>Fractura radicular vertical</td><td>Bolsa estrecha y profunda muy localizada, a menudo con signo de "halo" radiográfico</td></tr>
+    <tr><td>Lesión endodóntica drenando al margen</td><td>Vitalidad pulpar negativa, trayecto fistuloso, radiolucencia apical</td></tr>
+    <tr><td>Malposición por terceros molares</td><td>Pérdida ósea localizada distal a segundos molares, sin patrón periodontal generalizado</td></tr>
+  </table>
 
+  <h3>Casos clínicos</h3>
   <div class="cases">
     <div class="case-card">
-      <h3>Complicación — recurrencia de Pg pese a cumplimiento perfecto (Mes 9)</h3>
+      <h3>Caso — recesiones múltiples por trauma de cepillado</h3>
       <details>
-        <summary>Ver manejo</summary>
-        <p>Microbiología a los 9 meses mostró Pg+ (25%) nuevamente, tras haber sido negativo. Cumplimiento de higiene confirmado como excelente — la recolonización probablemente vino de reservorios no tratados (amígdalas, dorso de lengua). Se decidió NO repetir antibióticos (riesgo de resistencia); se intensificó el RAR y se agregó irrigador oral con clorhexidina diluida. Pg volvió a negativizar al mes 12.</p>
+        <summary>Ver caso</summary>
+        <p>Paciente con recesiones vestibulares múltiples, sin pérdida ósea interdental ni historia compatible con periodontitis. El patrón es localizado a las caras vestibulares de dientes prominentes en el arco, con cepillado horizontal agresivo reportado.</p>
+        <p><strong>Análisis:</strong> hay CAL medible (por la recesión), pero no hay inflamación periodontal ni destrucción del aparato de soporte interdental que la explique.</p>
+        <p><strong>Conclusión:</strong> la CAL no debe convertirse automáticamente en diagnóstico de periodontitis. Se documenta como recesión traumática — con indicación de corregir la técnica de cepillado, no de estadificar como periodontitis.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Caso — pérdida de inserción localizada en un solo diente</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Diente 21 con CAL de 6mm mesial, mientras el resto de la dentición no muestra CAL &gt;2mm. Al explorar, se detecta línea de fractura radicular vertical en la radiografía y una bolsa estrecha, profunda, muy localizada a esa cara.</p>
+        <p><strong>Análisis:</strong> un hallazgo aislado, desproporcionado respecto al resto de la boca, es una señal de alarma para buscar una causa local — no periodontal.</p>
+        <p><strong>Conclusión:</strong> se atribuye a fractura radicular vertical, no a periodontitis. Ese diente individual tiene mal pronóstico por la fractura, pero no debe elevar el Estadio general del paciente.</p>
       </details>
     </div>
   </div>
 
-  <h3>Resultados a 24 meses</h3>
-  <table>
-    <tr><th>Parámetro</th><th>Mes 0</th><th>Mes 24</th></tr>
-    <tr><td>PPS máximo</td><td>8-9mm</td><td>5-6mm</td></tr>
-    <tr><td>BOP</td><td>60%</td><td>&lt;5%</td></tr>
-    <tr><td>Furcación</td><td>Grado 2</td><td>Grado 1</td></tr>
-    <tr><td>Movilidad</td><td>Grado 1</td><td>Grado 0</td></tr>
-  </table>
-  <p>Regeneración ósea observada: solo aproximadamente 10% (vs. 20-40% teórico esperado en defectos favorables) — atribuible a la severidad de los defectos y la historia agresiva de la enfermedad.</p>
-
-  <div class="key-principle">
-    <h3>🎯 Reclasificación a los 24 meses</h3>
-    <p>De <strong>Estadio III, Grado C</strong> a <strong>Estadio III, Grado B</strong> (microbiología transformada, progresión detenida). <strong>Pero la genética IL-1 de alto riesgo no cambia</strong> — a diferencia del Caso 1, esta paciente requiere mantenimiento permanente cada 6-8 semanas indefinidamente, sin poder "graduarse" a intervalos anuales.</p>
+  <div class="checklist">
+    <h3 style="margin-top:0;">Regla práctica</h3>
+    <ul>
+      <li>Atribuya la CAL antes de clasificar — nunca clasifique primero y busque la causa después.</li>
+    </ul>
   </div>
 
-  <h3>Lecciones clave</h3>
-  <ul class="checklist">
-    <li>Severidad en joven asintomática con higiene excelente exige investigar más allá del biofilm: genética, inmunología, microbiología</li>
-    <li>El antecedente familiar es un predictor fuerte de susceptibilidad genética</li>
-    <li>La excelente higiene no protege contra la periodontitis agresiva cuando la microbiota y la genética dominan</li>
-    <li>La microbiología seriada documenta el éxito y motiva al paciente</li>
-    <li>El riesgo genético no se modifica con el tratamiento — el mantenimiento aquí es de por vida, no un objetivo temporal</li>
-  </ul>
-
   <div class="reference">
-    📚 Caso clínico basado en manejo real documentado a 24 meses de seguimiento
+    📚 Basado en: Kornman &amp; Papapanou 2020 (J Periodontol) — "gray zones" de atribución de CAL
   </div>
 </div>`,
   },
   {
     lesson_number: 3,
     order_index: 3,
-    title: 'Caso 3 — Lesión combinada endo-periodontal: decisión de preservación',
+    title: 'Zona gris 2 — Periodonto reducido: sano, inflamado, o periodontitis activa',
     content_html: `<div class="lesson-container">
-  <h2>🦷 Roberto L., 48 años, abogado</h2>
-  <p><strong>Motivo de consulta:</strong> "Dolor en la muela 16; se mueve; la radiografía mostró un problema." Derivado por su odontólogo general tras un hallazgo radiográfico.</p>
+  <h2>🩺 Un paciente tratado sigue siendo un paciente con periodontitis, de por vida</h2>
+  <p>La clasificación y los documentos de implementación subrayan que el paciente con periodontitis <strong>sigue siendo un paciente con periodontitis de por vida</strong>, aunque tras el tratamiento alcance estabilidad clínica. Esto no significa actividad permanente, sino <strong>susceptibilidad histórica</strong> y necesidad de mantenimiento específico.</p>
 
-  <h3>Examen del diente 16</h3>
+  <div class="key-principle">
+    <h3>🎯 El Estadio no retrocede</h3>
+    <p>El Estadio inicialmente asignado se conserva incluso después de una mejoría post-terapia. Puede subir si el caso empeora, pero no debe retroceder automáticamente después del tratamiento — porque refleja daño acumulado, no el estado inflamatorio del día de hoy.</p>
+  </div>
+
+  <h3>Tres situaciones que el estudiante debe diferenciar</h3>
   <table>
-    <tr><th>Área</th><th>Hallazgo periodontal</th><th>Hallazgo endodóntico</th></tr>
-    <tr><td>Mesial</td><td>PPS 8mm, CAL 7mm, BOP+</td><td rowspan="4">Prueba térmica <strong>negativa</strong>; prueba eléctrica <strong>negativa</strong>; percusión sensible; trayecto fistuloso lingual-distal detectado</td></tr>
-    <tr><td>Distal</td><td>PPS 7mm, CAL 6mm, BOP+</td></tr>
-    <tr><td>Bucal</td><td>PPS 5mm, sin BOP</td></tr>
-    <tr><td>Lingual</td><td>PPS 4mm, sin BOP</td></tr>
+    <tr><th>Situación</th><th>BOP</th><th>PPS</th><th>CAL vs. registros previos</th><th>Enfoque</th></tr>
+    <tr><td><strong>Periodonto reducido y sano</strong></td><td>Ausente o mínimo (&lt;10%)</td><td>Normal o estable, ≤3-4mm</td><td>Estable — sin cambios</td><td>Mantenimiento de rutina</td></tr>
+    <tr><td><strong>Gingivitis sobre periodonto reducido</strong></td><td>Presente, puede ser generalizado</td><td>Puede estar algo aumentado por edema</td><td>Estable — sin nueva pérdida</td><td>Control de biofilm; NO es un caso nuevo de periodontitis</td></tr>
+    <tr><td><strong>Periodontitis activa (recurrencia)</strong></td><td>Presente</td><td>Aumentado, con bolsas nuevas o profundizadas</td><td>Progresiva — nueva pérdida documentada</td><td>Retratamiento activo; reclasificar Grado si corresponde</td></tr>
   </table>
-  <p><strong>Radiografía:</strong> radiolucencia perirradicular apical de 4-5mm (típica endodóntica) + RBL horizontal generalizado 30-35% en la zona (periodontal). Furcación Grado 0-1, preservada.</p>
+  <p style="font-size:0.9rem;color:var(--text-light);">Confundir estas tres situaciones produce tanto sobretratamiento (tratar como activa una gingivitis estable) como infratratamiento (ignorar una recurrencia real). El sangrado, la profundidad de sondaje, la estabilidad del nivel de inserción, y la comparación con registros previos son las claves para diferenciarlas.</p>
 
-  <div class="decision-tree">
-    <h3>🧭 ¿Lesión endo primaria, perio primaria, o combinada?</h3>
+  <h3>Caso clínico</h3>
+  <div class="cases">
+    <div class="case-card">
+      <h3>Caso — paciente tratado hace tres años</h3>
+      <details>
+        <summary>Ver caso</summary>
+        <p>Paciente tratado hace tres años, con periodonto reducido, bolsas residuales de 3-4mm y sangrado en el 18% de los sitios. No hay registros que muestren nueva pérdida de inserción desde el alta del tratamiento activo.</p>
+        <p><strong>Análisis:</strong> el BOP moderado sin progresión de CAL respecto a los registros previos NO define un caso nuevo de periodontitis activa por definición.</p>
+        <p><strong>Conclusión:</strong> corresponde a gingivitis en paciente con periodontitis tratada (periodonto reducido, con inflamación gingival superpuesta) — el diagnóstico sigue siendo "periodontitis Estadio [previo], actualmente estable, con gingivitis localizada". Esto cambia el enfoque: se intensifica el control de biofilm en esa cita, sin necesariamente reabrir tratamiento activo ni reclasificar el Grado todavía. Se documenta el hallazgo y se re-evalúa en el próximo control.</p>
+      </details>
+    </div>
+  </div>
+
+  <div class="checklist">
+    <h3 style="margin-top:0;">Regla práctica</h3>
     <ul>
-      <li>Vitalidad pulpar negativa → <span class="outcome">sugiere origen endodóntico</span></li>
-      <li>PPS localizado 7-8mm solo mesial/distal (no circunferencial) + CAL real → <span class="outcome">sugiere componente periodontal genuino</span></li>
-      <li>Radiolucencia apical + RBL horizontal generalizado en el resto de la boca → <span class="outcome">ambos procesos coexisten</span></li>
+      <li>Compare siempre contra el registro previo del paciente — sin ese punto de referencia, no se puede distinguir estabilidad de recurrencia.</li>
     </ul>
   </div>
 
-  <div class="definition-box">
-    <p><strong>Diagnóstico:</strong> lesión combinada endodóntico-periodontal en el 16 — necrosis pulpar primaria con radiolucencia apical y trayecto fistuloso, sobre una periodontitis crónica generalizada de base (Estadio II, Grado A en el resto de la dentición: RBL 25-30%, PPS 5-6mm posterior, BOP aproximadamente 40%).</p>
-  </div>
-
-  <h3>Plan y evolución</h3>
-  <div class="timeline-interactive">
-    <div class="timeline-item">
-      <h3>Semana 1 — Endodoncia primero</h3>
-      <p>La pulpa necrótica se trata antes que cualquier cirugía periodontal agresiva: sin tratar el origen apical, el manejo periodontal solo no resolverá la radiolucencia.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 1-2 — RCT + RAR en paralelo</h3>
-      <p>Tratamiento de conductos completo en el 16 (obturación con gutapercha y sellador libre de eugenol) simultáneo con RAR general del resto de la dentición. Post-RCT, el PPS del 16 sigue en 8-9mm mesial/distal — esperado, el RCT no resuelve el defecto periodontal.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Mes 3 — Decisión: monitoreo, no cirugía</h3>
-      <p>La radiolucencia apical es pequeña, el RCT quedó bien adaptado, la furcación está preservada y el paciente prefiere el abordaje conservador. Se opta por monitorear la cicatrización antes de decidir cirugía perio + apicoectomía.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 3-12 — Monitoreo</h3>
-      <p>Mes 6: radiolucencia apical disminuyendo, PPS M=6/D=5mm. Mes 12: radiolucencia esencialmente resuelta, PPS M=5/D=4mm. Se descarta la cirugía — el diente respondió bien.</p>
-    </div>
-  </div>
-
-  <div class="cases">
-    <div class="case-card">
-      <h3>Complicación — fístula recurrente (Mes 5)</h3>
-      <details>
-        <summary>Ver manejo</summary>
-        <p>Reaparece drenaje lingual-distal. El endodoncista sospecha un conducto lateral no tratado en el RCT original y realiza una apicoectomía (resección de 3mm del ápice + retro-obturación con SuperEBA). La fístula resuelve completamente sin recurrencia.</p>
-      </details>
-    </div>
-    <div class="case-card">
-      <h3>¿Cirugía para el defecto residual? (Mes 12)</h3>
-      <details>
-        <summary>Ver decisión</summary>
-        <p>Con la radiolucencia apical resuelta pero un PPS residual de 5mm mesial/distal, se decide NO operar: el defecto es tejido cicatricial de la lesión endo-perio (potencial regenerativo limitado, distinto de un defecto perio primario), el PPS es funcional, y la radiografía muestra estabilidad. Se opta por monitoreo permanente en vez de cirugía.</p>
-      </details>
-    </div>
-  </div>
-
-  <h3>Resultados a 24 meses (diente 16)</h3>
-  <table>
-    <tr><th>Parámetro</th><th>Mes 0</th><th>Mes 24</th></tr>
-    <tr><td>PPS mesial / distal</td><td>8 / 7mm</td><td>5 / 4mm</td></tr>
-    <tr><td>CAL mesial / distal</td><td>7 / 6mm</td><td>4 / 3mm</td></tr>
-    <tr><td>Movilidad</td><td>Grado 1</td><td>Grado 0</td></tr>
-    <tr><td>Radiolucencia apical</td><td>4-5mm</td><td>Ausente</td></tr>
-  </table>
-
-  <h3>Lecciones clave</h3>
-  <ul class="checklist">
-    <li>La prueba de vitalidad pulpar es el diferenciador clave entre origen endo, perio, o combinado</li>
-    <li>En lesiones combinadas: RCT primero, periodoncia después — nunca cirugía perio agresiva antes de resolver el origen endodóntico</li>
-    <li>No toda lesión endo-perio necesita cirugía periodontal: si la radiolucencia resuelve y el PPS mejora, el monitoreo es suficiente</li>
-    <li>La radiografía seriada es la herramienta que justifica esperar en vez de operar</li>
-    <li>Si el RCT convencional no resuelve la fístula, la apicoectomía está indicada — no repetir el RCT sin más</li>
-  </ul>
-
   <div class="reference">
-    📚 Caso clínico basado en manejo real documentado a 24 meses de seguimiento
+    📚 Basado en: Kornman &amp; Papapanou 2020 (J Periodontol); Chapple et al. 2018 (definición de salud gingival en periodonto reducido)
   </div>
 </div>`,
   },
   {
     lesson_number: 4,
     order_index: 4,
-    title: 'Caso 4 — Estadio IV: decisión de preservación vs. extracción',
+    title: 'Zona gris 3 — Pseudobolsas y profundidad de sondaje',
     content_html: `<div class="lesson-container">
-  <h2>🦷 Teresa G., 61 años, jubilada</h2>
-  <p><strong>Motivo de consulta:</strong> "He perdido varios dientes; no quiero perder más; ¿puedo salvar lo que me queda?" Derivada por su prostodoncista, que planea una rehabilitación y requiere evaluación periodontal previa.</p>
-
-  <h3>Historia clínica</h3>
-  <ul>
-    <li><strong>Médica:</strong> diabetes tipo 2 (HbA1c 8.7%, subóptima), hipertensión controlada, <strong>osteoporosis</strong> (T-score -2.8, en alendronato), depresión crónica (en sertralina)</li>
-    <li><strong>Dental:</strong> ya perdió 8 dientes por periodontitis en los últimos 10 años (17, 27, 37, 47, 18, 28 y otros); RAR hace 10 años sin seguimiento posterior</li>
-    <li><strong>Hábitos:</strong> ex-fumadora (cesó hace 8 años); sedentaria</li>
-  </ul>
-
-  <h3>Examen clínico (Mes 0) — 20 dientes presentes</h3>
-  <table>
-    <tr><th>Parámetro</th><th>Hallazgo</th></tr>
-    <tr><td>PPS máximo</td><td>11-12mm (región anterosuperior 11-12-13)</td></tr>
-    <tr><td>CAL máximo</td><td>8-9mm</td></tr>
-    <tr><td>BOP</td><td>70%</td></tr>
-    <tr><td>Movilidad</td><td>Grado 2 en 11, 12, 13; Grado 1 en molares</td></tr>
-    <tr><td>Furcación</td><td>Grado 2-3 en molares presentes, bilateral</td></tr>
-  </table>
-  <p><strong>Radiografía:</strong> RBL 55-70% generalizado, hueso osteoporótico. Sin radiografía comparativa útil (demasiado antigua).</p>
-
-  <div class="calc-box">
-    <p><strong>Estimación de Grado</strong></p>
-    <p class="formula">Diabetes subóptima (+1.5) + depresión crónica (+1) + ex-fumadora (+0) + pérdida lenta documentada (aproximadamente 1.5-2 dientes/5 años ≈ 3%/año)</p>
-    <p><span class="result">Grado B probable</span> (no Grado C — la progresión histórica es lenta, no rápida)</p>
-  </div>
+  <h2>📏 La profundidad de sondaje, por sí sola, no clasifica la periodontitis</h2>
+  <p>Esta idea merece repetirse porque es una fuente clásica de error. Un paciente con inflamación gingival marcada puede exhibir bolsas aparentes o <strong>pseudobolsas</strong> sin pérdida equivalente de inserción. Si el clínico usa exclusivamente el número de milímetros de sondaje para "subir" el Estadio, la clasificación queda distorsionada.</p>
 
   <div class="definition-box">
-    <p><strong>Diagnóstico:</strong> Periodontitis Estadio IV (CAL 8-9mm + RBL 55-70% + 8 dientes perdidos por periodontitis), Grado B. Pronóstico: 40-50% de preservación — la decisión central del plan es <strong>cuáles</strong> dientes preservar y cuáles extraer.</p>
+    <p><strong>Por qué ocurre:</strong> el margen gingival puede desplazarse hacia coronal por edema inflamatorio (hiperplasia, embarazo, medicamentos como nifedipina o ciclosporina), aumentando el PPS medido sin que exista pérdida real de inserción respecto a la unión amelocementaria (UAC).</p>
   </div>
 
-  <h3>Evaluación diente por diente</h3>
+  <p>Cuando las profundidades parecen desproporcionadas respecto al resto del cuadro clínico, debe revisarse: la posición del margen gingival, la presencia de agrandamiento inflamatorio, y la consistencia del tejido (edematosa vs. fibrosa). <strong>La tabla no reemplaza el examen clínico fino; lo presupone.</strong></p>
+
+  <h3>Cómo diferenciar pseudobolsa de bolsa real</h3>
   <table>
-    <tr><th>Diente(s)</th><th>Hallazgo clave</th><th>Decisión</th></tr>
-    <tr><td>11, 12</td><td>PPS 11-12mm, movilidad Grado 2, sin furcación</td><td>Borderline — se intenta preservar inicialmente</td></tr>
-    <tr><td>13-16, 21-25</td><td>PPS 6-10mm, movilidad Grado 0-1</td><td>Preservar</td></tr>
-    <tr><td>Incisivos y premolares inferiores</td><td>PPS 5-7mm, movilidad Grado 0-1</td><td>Preservar</td></tr>
-    <tr><td>36, 46</td><td>PPS 7-8mm, furcación Grado 2-3, movilidad Grado 1</td><td>Borderline — evaluar tras RAR antes de decidir</td></tr>
+    <tr><th>Hallazgo</th><th>Pseudobolsa</th><th>Bolsa real</th></tr>
+    <tr><td>Margen gingival</td><td>Coronal a la UAC (desplazado por edema)</td><td>En o apical a la UAC</td></tr>
+    <tr><td>CAL</td><td>Mínimo o ausente</td><td>Presente, proporcional al PPS</td></tr>
+    <tr><td>Radiografía</td><td>Cresta ósea normal, lámina dura intacta</td><td>RBL visible, pérdida de lámina dura</td></tr>
+    <tr><td>Consistencia del tejido</td><td>Edematosa, blanda</td><td>Variable — puede ser fibrosa o edematosa</td></tr>
   </table>
 
-  <h3>Plan y evolución</h3>
-  <div class="timeline-interactive">
-    <div class="timeline-item">
-      <h3>Meses 1-3 — Fase no quirúrgica</h3>
-      <p>RAR en 3 sesiones + clorhexidina + educación adaptada (cepillo eléctrico de cerdas suaves, dado la osteoporosis y movilidad; picks interdentales en vez de hilo dental). Referencia a endocrinología (control de HbA1c) y a psicología (seguimiento de la depresión). Microbiología: Pg+ (40%) → azitromicina 4 semanas.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Mes 4 — Decisión diente por diente</h3>
-      <p>11 y 12: PPS sigue en 10-11mm pese al RAR, movilidad Grado 2 persistente → <strong>extracción</strong> (mejor pronóstico con implante que con cirugía compleja). 36 y 46: PPS mejoró a 6-7mm → se decide monitorear 6 meses más antes de decidir cirugía vs. extracción, dado el riesgo quirúrgico elevado (osteoporosis + edad + HbA1c).</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Mes 5 — Extracciones</h3>
-      <p>Extracción atraumática de 11 y 12 con prótesis interina mientras cicatriza el hueso (6-12 meses) antes de colocar implantes.</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 6-12 — Mantenimiento intensivo</h3>
-      <p>36 y 46 se estabilizan en PPS 6mm sin necesidad de cirugía — la extracción se difiere indefinidamente. Mes 12: éxito documentado. HbA1c mejora de 8.7% a 7.8% (mejor, pero no en objetivo &lt;7%).</p>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="timeline-item">
-      <h3>Meses 12-18 — Rehabilitación protésica</h3>
-      <p>Colocación de implantes en 11 y 12 (mes 13-14) tras la cicatrización ósea; coronas entregadas al mes 20; oseointegración exitosa documentada.</p>
-    </div>
-  </div>
-
+  <h3>Caso clínico</h3>
   <div class="cases">
     <div class="case-card">
-      <h3>Complicación — sangrado quirúrgico prolongado (Mes 5)</h3>
+      <h3>Caso — PPS profundo con CAL mínimo</h3>
       <details>
-        <summary>Ver manejo</summary>
-        <p>Hemorragia leve persistente &gt;2 horas tras la extracción (paciente en alendronato; INR normal). Manejo con presión sostenida, colágeno hemostático y sutura. Sin osteonecrosis mandibular (rara con bifosfonatos orales, más asociada a la vía IV).</p>
-      </details>
-    </div>
-    <div class="case-card">
-      <h3>Cumplimiento subóptimo (Meses 12-18)</h3>
-      <details>
-        <summary>Ver manejo</summary>
-        <p>La paciente faltó a varias citas de mantenimiento por recurrencia de la depresión y confusión con el calendario tras la jubilación. Se intensificó la dosis de SSRI, se implementaron recordatorios telefónicos automáticos y se involucró a la familia (la hija acompaña a las citas). El cumplimiento mejoró a &gt;90% desde el mes 18.</p>
+        <summary>Ver caso</summary>
+        <p>Mujer de 34 años, embarazada (segundo trimestre), refiere sangrado abundante. PPS de 6-7mm generalizado en el sector anterosuperior, encía muy edematosa y eritematosa. CAL medido cuidadosamente: 0-1mm. Radiografía: cresta ósea normal, lámina dura intacta.</p>
+        <p><strong>Análisis:</strong> el PPS elevado se explica completamente por el desplazamiento coronal del margen gingival (hiperplasia gingival del embarazo) — no hay pérdida real de inserción que lo respalde.</p>
+        <p><strong>Conclusión:</strong> gingivitis (relacionada con el embarazo), NO periodontitis. Clasificar este caso como periodontitis por el PPS aislado sería un sobrediagnóstico clásico.</p>
       </details>
     </div>
   </div>
 
-  <h3>Resultados a 24 meses</h3>
-  <table>
-    <tr><th>Parámetro</th><th>Mes 0</th><th>Mes 24</th></tr>
-    <tr><td>Dientes naturales / implantes</td><td>20 / 0</td><td>18 / 3</td></tr>
-    <tr><td>PPS máximo</td><td>12mm</td><td>6mm</td></tr>
-    <tr><td>BOP</td><td>70%</td><td>&lt;5%</td></tr>
-    <tr><td>Movilidad</td><td>Grado 2</td><td>Grado 0</td></tr>
-    <tr><td>36 / 46</td><td>PPS 7-8mm, furcación Gr. 2-3</td><td>PPS 6mm, estabilizados sin cirugía</td></tr>
-  </table>
-
-  <div class="key-principle">
-    <h3>🎯 Extracción selectiva no es un fracaso</h3>
-    <p>En Estadio IV, no todos los dientes pueden salvarse. Extraer los dientes "sin esperanza" (movilidad severa + PPS &gt;10mm) para rehabilitar con implantes fue mejor decisión clínica que forzar una cirugía compleja en una paciente de 61 años con osteoporosis y diabetes. Al mismo tiempo, molares con hallazgos similares (36, 46) se estabilizaron sin cirugía — cada diente se evalúa individualmente, no por regla general.</p>
+  <div class="checklist">
+    <h3 style="margin-top:0;">Regla práctica</h3>
+    <ul>
+      <li>No use la profundidad de sondaje aislada como criterio de Estadio — siempre correlacione con CAL, posición del margen y radiografía.</li>
+    </ul>
   </div>
-
-  <div class="definition-box">
-    <p><strong>¿Cambió el Grado a los 24 meses?</strong> A diferencia del Caso 1 (donde el Grado sí mejoró de C a A), aquí el Grado probablemente <strong>permanece B</strong>: la HbA1c mejoró (8.7%→7.8%) pero no alcanzó el objetivo &lt;7%, así que el modificador metabólico sigue activo aunque atenuado. El resultado clínico excelente (PPS, BOP, estabilidad de 36/46) se explica más por el cumplimiento casi perfecto del mantenimiento que por un cambio de categoría de Grado — son dos cosas distintas: la respuesta real de un paciente puede superar el pronóstico "de tabla" sin que eso implique una reclasificación formal.</p>
-  </div>
-
-  <h3>Lecciones clave</h3>
-  <ul class="checklist">
-    <li>Estadio IV exige una decisión clara de preservación vs. extracción, diente por diente</li>
-    <li>Movilidad Grado 2 en incisivos anteriores con PPS extrema suele predecir mejor resultado con implante que con cirugía de preservación</li>
-    <li>No todo PPS &gt;6mm requiere cirugía — el monitoreo post-RAR de 6 meses puede documentar estabilización espontánea</li>
-    <li>Las comorbilidades (diabetes, osteoporosis, depresión) reducen la tolerancia quirúrgica y justifican el conservadurismo</li>
-    <li>La coordinación con prostodoncia es crítica: los implantes no pueden colocarse antes de que cicatrice el hueso post-extracción</li>
-    <li>Incluso un paciente motivado puede fallar el cumplimiento por depresión — el apoyo psicológico y los recordatorios son parte del plan periodontal</li>
-    <li>Un resultado clínico excelente no siempre implica una reclasificación de Grado — si el modificador metabólico no llega a objetivo, el Grado puede permanecer igual aunque el cumplimiento haya sido perfecto</li>
-  </ul>
 
   <div class="reference">
-    📚 Caso clínico basado en manejo real documentado a 24 meses de seguimiento
+    📚 Basado en: Kornman &amp; Papapanou 2020 (J Periodontol)
   </div>
 </div>`,
   },
   {
     lesson_number: 5,
     order_index: 5,
-    title: 'Casos 5 y 6 — Peri-implantitis y una complicación de GTR',
+    title: 'Zona gris 4 — Atribución de pérdida dentaria',
     content_html: `<div class="lesson-container">
-  <h2>⚠️ Dos escenarios donde el tratamiento previo no es garantía de éxito permanente</h2>
+  <h2>🦷 "Razonablemente" es la palabra decisiva</h2>
+  <p>La pérdida dentaria modifica el Estadio <strong>solo cuando puede atribuirse razonablemente a periodontitis</strong>. Ese adverbio — razonablemente — es decisivo. En el mundo real, muchos pacientes han perdido dientes por caries extensas, fracturas, indicaciones protésicas antiguas, trauma, o extracciones de causa mixta. Si toda ausencia dentaria se registra como pérdida por periodontitis, el caso será <strong>sobrestadiado</strong>.</p>
 
+  <div class="definition-box">
+    <p><strong>Para un contexto de formación avanzada:</strong> conviene documentar explícitamente el criterio de atribución utilizado. Cuando la causa no es segura, debe consignarse esa incertidumbre en la narrativa clínica. El diagnóstico serio no es el que aparenta certeza absoluta, sino el que explicita con honestidad sus límites probatorios.</p>
+  </div>
+
+  <h3>Preguntas para atribuir con criterio</h3>
+  <ul class="checklist">
+    <li>¿Hay evidencia previa de pérdida de inserción o pérdida ósea en el sitio del diente ausente (radiografías antiguas, historia clínica)?</li>
+    <li>¿El patrón de los dientes remanentes es compatible con periodontitis (RBL generalizado, furcaciones, CAL interdental)?</li>
+    <li>¿Existe una causa alternativa documentada — caries extensa, endodoncia fallida, indicación protésica, trauma?</li>
+    <li>¿El paciente o los registros previos dan cuenta de la razón de la extracción?</li>
+  </ul>
+
+  <h3>Caso clínico</h3>
   <div class="cases">
     <div class="case-card">
-      <h3>Caso 5 — Peri-implantitis tras periodontitis resuelta: salvación del implante</h3>
+      <h3>Caso — cuatro dientes perdidos, sin colapso funcional</h3>
       <details>
-        <summary>Ver caso completo</summary>
-        <p><strong>Paciente:</strong> Juan P., 58 años, varón, historia de periodontitis Grado B resuelta hace 5 años, con 3 implantes molares.</p>
-        <p><strong>Presentación (mes 60 desde los implantes):</strong> BOP peri-implantar en el implante 36; radiografía muestra pérdida ósea peri-implantar de 3-4mm en 6 meses.</p>
-        <p><strong>Diagnóstico:</strong> peri-implantitis incipiente. Etiología: higiene deficiente peri-implantar (dificultad de acceso) + microbiota similar a la periodontitis previa (Pg+).</p>
-        <p><strong>Plan:</strong> RAR peri-implantar exhaustivo con puntas ultrasónicas no metálicas; microbiología confirma Pg+ → azitromicina; cirugía de colgajo de acceso con debridement de biofilm y aplicación local de clorhexidina (sin GTR — contraindicada en implantes); mantenimiento cada 6-8 semanas permanente.</p>
-        <p><strong>Resultado (24m):</strong> peri-implantitis controlada, BOP resuelto, PPS peri-implantar mejorado a 3-4mm, radiografía estable sin más pérdida ósea.</p>
-        <p><strong>Lección:</strong> la periodontitis previa es un factor de riesgo alto para peri-implantitis — la misma microbiota (Pg) que causó la enfermedad natural puede atacar los implantes, y estos requieren vigilancia más frecuente que los dientes naturales.</p>
+        <summary>Ver caso</summary>
+        <p>Paciente con cuatro dientes perdidos, defectos óseos severos en los dientes remanentes, pero sin colapso funcional y con pares oclusales suficientes. La historia clínica indica que dos de los cuatro dientes se extrajeron por caries extensa no restaurable, y los otros dos por periodontitis documentada (radiografías previas con RBL avanzado en esos sitios).</p>
+        <p><strong>Análisis:</strong> de los cuatro dientes perdidos, solo <strong>dos</strong> se atribuyen razonablemente a periodontitis — los otros dos tienen causa alternativa documentada.</p>
+        <p><strong>Conclusión:</strong> aun con destrucción marcada en el resto de la dentición, el caso puede seguir siendo <strong>Estadio III</strong> (no IV) — porque la pérdida dentaria atribuible a periodontitis (2 dientes) no alcanza el umbral de Estadio IV (≥5), y la necesidad rehabilitadora no alcanza la magnitud de un colapso funcional. Atribuir los cuatro dientes a periodontitis sin este análisis habría llevado a un sobrediagnóstico de Estadio IV.</p>
       </details>
     </div>
-
     <div class="case-card">
-      <h3>Caso 6 — Complicación de GTR: membrana expuesta e infectada</h3>
+      <h3>Caso — pérdida dentaria de causa protésica antigua</h3>
       <details>
-        <summary>Ver caso completo</summary>
-        <p><strong>Paciente:</strong> Gabriela T., 44 años, mujer, Estadio II-III, Grado B.</p>
-        <p><strong>Cirugía:</strong> GTR con membrana de colágeno + aloinjerto en un defecto molar de 2 paredes.</p>
-        <p><strong>Complicación (mes 3):</strong> exposición parcial de la membrana con infección y supuración.</p>
-        <p><strong>Manejo:</strong> resutura, clorhexidina intensificada, consideración de retratamiento.</p>
-        <p><strong>Resultado:</strong> cicatrización secundaria, sin regeneración ósea observable tras la infección.</p>
-        <p><strong>Lección:</strong> la exposición de la membrana compromete la función regenerativa; la resutura puede salvar el sitio de una infección mayor, pero la regeneración queda limitada — la prevención (sutura adecuada, seguimiento cercano en las primeras 2 semanas) vale más que el tratamiento de la infección una vez ocurrida.</p>
+        <summary>Ver caso</summary>
+        <p>Paciente de 58 años sin dos premolares, extraídos hace 25 años "para tratamiento de ortodoncia", según refiere. El resto de la dentición muestra CAL 2-3mm generalizado, RBL &lt;20%.</p>
+        <p><strong>Análisis:</strong> la historia (extracción por ortodoncia, hace décadas, en dientes específicos con indicación conocida) es una causa alternativa razonable y coherente con el patrón — no hay evidencia de que esos sitios tuvieran periodontitis.</p>
+        <p><strong>Conclusión:</strong> esos dos dientes NO se cuentan como pérdida por periodontitis. El Estadio se determina solo por los hallazgos actuales de CAL/RBL (compatibles con Estadio I-II), no por el número total de dientes ausentes.</p>
       </details>
     </div>
   </div>
 
-  <div class="key-principle">
-    <h3>🎯 El hilo común</h3>
-    <p>Ambos casos muestran que el éxito inicial de un tratamiento (implantes bien integrados, cirugía regenerativa bien planeada) no elimina el riesgo a largo plazo. La vigilancia continua — y la prevención de complicaciones evitables como la exposición de membranas — son tan importantes como el procedimiento inicial.</p>
+  <div class="checklist">
+    <h3 style="margin-top:0;">Regla práctica</h3>
+    <ul>
+      <li>Solo adjudique pérdida dentaria a periodontitis cuando exista base clínica razonable — y documente el razonamiento, no solo la conclusión.</li>
+    </ul>
   </div>
 
   <div class="reference">
-    📚 Casos clínicos basados en manejo real documentado
+    📚 Basado en: Kornman &amp; Papapanou 2020 (J Periodontol)
   </div>
 </div>`,
   },
   {
     lesson_number: 6,
     order_index: 6,
-    title: 'Casos 7 y 8 — El cumplimiento como predictor #1 del pronóstico',
+    title: 'Zona gris 5 — La frontera entre Estadio III y Estadio IV',
     content_html: `<div class="lesson-container">
-  <h2>⚖️ Dos pacientes, dos decisiones de cumplimiento, dos destinos muy distintos</h2>
+  <h2>🚧 No es una frontera numérica; es una frontera funcional</h2>
+  <p>Tal vez la zona gris más conocida es el límite entre Estadio III y IV. Ambos comparten destrucción severa; la diferencia no depende solo de cuántos milímetros de inserción se hayan perdido, sino de si la dentición <strong>ha entrado en una fase de inestabilidad funcional</strong> que requiere rehabilitación compleja.</p>
 
+  <div class="key-principle">
+    <h3>🎯 La pregunta correcta</h3>
+    <p>En la práctica, la pregunta correcta no es "¿se ve muy destruido?", sino <strong>"¿el caso ya demanda reconstrucción compleja de la función, además del control periodontal?"</strong> Esta distinción exige pensamiento rehabilitador, no solo periodontal.</p>
+  </div>
+
+  <h3>Dos pacientes, misma severidad aparente, Estadios distintos</h3>
   <div class="cases">
     <div class="case-card">
-      <h3>Caso 7 — Cumplimiento excelente: transformación notable</h3>
+      <h3>Paciente A — destrucción severa, función conservada → Estadio III</h3>
       <details>
-        <summary>Ver caso completo</summary>
-        <p><strong>Paciente:</strong> Miguel S., 45 años, varón, Estadio II, Grado C al inicio (tabaquismo 20 cig/día + HbA1c 9.0%).</p>
-        <p><strong>Cambio:</strong> al mes 3 post-RAR, el paciente cesó el tabaco por completo y su HbA1c mejoró a 7.5%.</p>
-        <p><strong>Resultado:</strong> respuesta a la terapia dramáticamente mejor de lo esperado; el PPS mejoró más de lo predicho y la radiografía mostró una ligera regeneración ósea espontánea.</p>
-        <p><strong>Reclasificación (mes 12):</strong> Grado B probable — ya no Grado C, gracias a la mejora de los modificadores.</p>
-        <p><strong>Lección:</strong> cuando el paciente cambia sus modificadores, el Grado puede cambiar, y esto transforma el pronóstico dramáticamente. La educación y la motivación tempranas son críticas.</p>
+        <summary>Ver caso</summary>
+        <p>Varón 55a, defectos óseos profundos en varios molares, furcaciones Grado II-III bilaterales, CAL hasta 7mm. Ha perdido 3 dientes por periodontitis. Conserva pares oclusales suficientes, sin migración patológica, sin colapso de mordida, masticación funcional reportada como adecuada.</p>
+        <p><strong>Análisis:</strong> destrucción severa y factores de complejidad marcados (furcaciones, defectos), pero la función general de la dentición sigue siendo razonable.</p>
+        <p><strong>Conclusión:</strong> <strong>Estadio III</strong> — sigue siendo severo, con potencial de deterioro y necesidad de cirugía compleja, pero no ha cruzado hacia la inestabilidad funcional que define el Estadio IV.</p>
       </details>
     </div>
-
     <div class="case-card">
-      <h3>Caso 8 — Incumplimiento severo: fallo de la terapia</h3>
+      <h3>Paciente B — menos dientes perdidos, colapso funcional → Estadio IV</h3>
       <details>
-        <summary>Ver caso completo</summary>
-        <p><strong>Paciente:</strong> Víctor R., 52 años, varón, Estadio III, Grado B, plan de tratamiento agresivo iniciado.</p>
-        <p><strong>Cumplimiento:</strong> faltó a las citas de los meses 4-6; regresó al mes 7 sin previo aviso.</p>
-        <p><strong>Estado al mes 7:</strong> PPS aumentó de 6mm (mes 3) a 8mm; el BOP recurrió; la radiografía mostró progresión del RBL.</p>
-        <p><strong>Rediagnóstico:</strong> recurrencia de la enfermedad, posiblemente ahora Grado C dada la velocidad de la progresión durante el período sin seguimiento.</p>
-        <p><strong>Manejo:</strong> re-educación intensiva, retratamiento considerado; pero dado el patrón de incumplimiento, se evaluó extracción selectiva de los dientes más comprometidos en vez de prolongar una lucha con baja probabilidad de éxito sostenido.</p>
-        <p><strong>Lección:</strong> el cumplimiento es el predictor pronóstico #1 — el mismo tipo de caso clínico puede tener resultados radicalmente distintos según si el paciente se mantiene en el plan de mantenimiento. Cuando el patrón de incumplimiento es evidente y persistente, extraer selectivamente puede ser más realista que prolongar un tratamiento que no se sostendrá.</p>
+        <summary>Ver caso</summary>
+        <p>Mujer 61a, ha perdido solo 2 dientes por periodontitis (menos que el Paciente A tiene en pérdida), pero presenta colapso de mordida posterior, migración patológica de incisivos superiores con diastemas nuevos, movilidad Grado 2 generalizada, y necesidad evidente de rehabilitación protésica extensa para restaurar la dimensión vertical.</p>
+        <p><strong>Análisis:</strong> aunque el número de dientes perdidos es menor que en el Paciente A, la dentición completa ya perdió estabilidad funcional.</p>
+        <p><strong>Conclusión:</strong> <strong>Estadio IV</strong> — el criterio decisivo no fue el conteo de dientes perdidos, sino el colapso funcional y la necesidad de rehabilitación compleja de toda la dentición.</p>
       </details>
     </div>
   </div>
 
-  <div class="key-principle">
-    <h3>🎯 El contraste que define el capítulo</h3>
-    <p>Miguel y Víctor podrían haber tenido el mismo Estadio y Grado al inicio del tratamiento. Lo que determinó su resultado no fue la severidad inicial, sino si sostuvieron el plan. Esto es la razón por la que la comunicación honesta, la motivación y el mantenimiento accesible (recordatorios, horarios flexibles) son parte del tratamiento periodontal, no un extra.</p>
+  <div class="definition-box">
+    <p><strong>La lección del contraste:</strong> el Paciente A tiene destrucción periodontal objetivamente más severa en varios dientes individuales, pero el Paciente B es el que está en Estadio IV — porque el criterio decisivo es la amenaza a <strong>toda la dentición</strong>, no la severidad de un sitio o un grupo de dientes.</p>
+  </div>
+
+  <div class="checklist">
+    <h3 style="margin-top:0;">Regla práctica</h3>
+    <ul>
+      <li>En el límite III-IV, piense en función, oclusión y necesidad rehabilitadora — no solo en milímetros de CAL o RBL.</li>
+    </ul>
   </div>
 
   <div class="reference">
-    📚 Casos clínicos basados en manejo real documentado
+    📚 Basado en: Kornman &amp; Papapanou 2020 (J Periodontol); Tonetti et al. 2018
   </div>
 </div>`,
   },
   {
     lesson_number: 7,
     order_index: 7,
-    title: 'Síntesis de lecciones cruzadas: los 8 casos',
+    title: 'Reglas prácticas para navegar las zonas grises',
     content_html: `<div class="lesson-container">
-  <h2>🧩 Lo que se repite a través de casos completamente distintos</h2>
-  <p>Estos 10 patrones emergen consistentemente al comparar los 8 casos del capítulo — no son reglas teóricas, son observaciones repetidas en la práctica real.</p>
+  <h2>🧭 Cinco reglas para llevar a la clínica</h2>
+  <p>Las cinco lecciones anteriores se resumen en cinco reglas prácticas — pensadas para revisarse antes de cerrar cualquier diagnóstico periodontal límite o complejo.</p>
 
-  <div class="evidence-cards">
-    <div class="card">
-      <h3>1. Los modificadores lo son todo</h3>
-      <p>Casos 1, 2, 7 — si tabaco/diabetes mejoran, el pronóstico se transforma; si permanecen, el pronóstico pobre es prácticamente inevitable.</p>
-    </div>
-    <div class="card">
-      <h3>2. La genética es permanente</h3>
-      <p>Caso 2 — el genotipo de riesgo IL-1 no cambia; requiere mantenimiento cada 6-8 semanas indefinidamente, sin excepción.</p>
-    </div>
-    <div class="card">
-      <h3>3. Estadio IV exige decisión clara</h3>
-      <p>Caso 4 — no todos los dientes pueden salvarse; movilidad severa + PPS profundo suele significar extracción.</p>
-    </div>
-    <div class="card">
-      <h3>4. Lesión endo-perio = coordinación</h3>
-      <p>Caso 3 — RCT primero, periodoncia después; la radiografía seriada documenta el éxito antes de decidir cirugía.</p>
-    </div>
-    <div class="card">
-      <h3>5. El cumplimiento predice todo</h3>
-      <p>Caso 8 (vs. Caso 7) — el mismo tipo de caso, con y sin cumplimiento, produce resultados opuestos.</p>
-    </div>
-    <div class="card">
-      <h3>6. La cirugía no siempre es necesaria</h3>
-      <p>Casos 3, 4 — monitorear 6 meses post-RAR documenta si el sitio se estabiliza espontáneamente.</p>
-    </div>
-    <div class="card">
-      <h3>7. La regeneración ósea es un "beneficio adicional"</h3>
-      <p>Casos 1, 2, 6 — la meta primaria es parar la enfermedad; la regeneración es secundaria.</p>
-    </div>
-    <div class="card">
-      <h3>8. Las comorbilidades afectan el pronóstico</h3>
-      <p>Caso 4 — diabetes, osteoporosis, edad, depresión reducen la tolerancia quirúrgica y exigen conservadurismo.</p>
-    </div>
-    <div class="card">
-      <h3>9. El mantenimiento es permanente</h3>
-      <p>Todos los casos — periodontitis no se "cura", se controla. El incumplimiento del mantenimiento significa recurrencia probable.</p>
-    </div>
-    <div class="card">
-      <h3>10. La comunicación honesta paga</h3>
-      <p>Todos los casos — una expectativa realista desde el inicio produce mejor cumplimiento y satisfacción del paciente.</p>
+  <ol class="checklist" style="list-style:none;">
+    <li><strong>1) Atribuya la CAL antes de clasificar.</strong> Constate la pérdida de inserción, y solo después pregúntese la causa — nunca al revés.</li>
+    <li><strong>2) No use la profundidad de sondaje aislada como criterio de Estadio.</strong> Correlacione siempre con CAL, posición del margen gingival y radiografía.</li>
+    <li><strong>3) Solo adjudique pérdida dentaria a periodontitis cuando exista base clínica razonable.</strong> Documente el razonamiento, no solo la conclusión.</li>
+    <li><strong>4) En el límite III-IV, piense en función, oclusión y necesidad rehabilitadora.</strong> La pregunta no es "cuánto daño hay", sino "la dentición completa perdió estabilidad".</li>
+    <li><strong>5) Cuando exista incertidumbre genuina, explíquela en la narrativa diagnóstica.</strong> Un diagnóstico honesto sobre sus límites probatorios es más valioso que uno que aparenta certeza absoluta.</li>
+  </ol>
+
+  <h3>Cómo se ve la Regla 5 en la práctica</h3>
+  <div class="cases">
+    <div class="case-card">
+      <h3>Documentación deficiente vs. documentación honesta</h3>
+      <details>
+        <summary>Ver comparación</summary>
+        <p><strong>Deficiente:</strong> "Periodontitis Estadio IV, Grado B. Pérdida de 6 dientes."</p>
+        <p><strong>Honesta y argumentada:</strong> "Periodontitis Estadio III (no IV): de los 6 dientes ausentes, solo 3 tienen evidencia razonable de pérdida por periodontitis (radiografías previas con RBL avanzado en esos sitios); los otros 3 se atribuyen a caries extensa según refiere el paciente, sin poder confirmarse con registros. Función masticatoria conservada, sin colapso de mordida. Se reevaluará la atribución si aparece nueva información."</p>
+        <p>La segunda versión no es más larga por capricho — es más <strong>defendible</strong>: explicita el criterio usado, deja constancia de la incertidumbre, y permite que otro clínico entienda por qué se llegó a esa conclusión.</p>
+      </details>
     </div>
   </div>
 
   <div class="key-principle">
-    <h3>🎯 El hilo que conecta los 8 casos</h3>
-    <p>Ningún caso siguió el "plan de libro" exactamente. Cada uno tuvo complicaciones, decisiones intermedias y ajustes basados en la respuesta real del paciente. El marco Estadio/Grado orienta el punto de partida — pero el manejo real exige reevaluar constantemente con datos clínicos, radiográficos y microbiológicos actualizados.</p>
+    <h3>🎯 Por qué esto importa para un trabajo de tesis o un caso real</h3>
+    <p>Este capítulo es crucial porque muestra que dominar la clasificación no significa memorizar números, sino comprender sus límites operativos. Las cinco reglas no reemplazan el juicio clínico — lo estructuran, para que ese juicio sea reproducible y comunicable.</p>
   </div>
 
   <div class="reference">
-    📚 Síntesis basada en los 8 casos clínicos documentados en este capítulo
+    📚 Basado en: Kornman &amp; Papapanou 2020 (J Periodontol)
   </div>
 </div>`,
   },
   {
     lesson_number: 8,
     order_index: 8,
-    title: 'Herramienta clínica: árbol de decisión integrado',
+    title: 'Síntesis: casos integrados de zonas grises',
     content_html: `<div class="lesson-container">
-  <h2>🗺️ De la teoría de los Capítulos 1-3 a la práctica de un caso nuevo</h2>
-  <p>Este es el proceso completo, de principio a fin, para abordar cualquier paciente nuevo con periodontitis — integrando todo lo recorrido en el curso.</p>
+  <h2>🧩 Cuando varias zonas grises aparecen en el mismo paciente</h2>
+  <p>En la consulta real, las zonas grises rara vez aparecen aisladas. Estos casos de cierre combinan más de una a la vez — para practicar el criterio integrado que este capítulo buscó desarrollar.</p>
 
-  <div class="decision-tree">
-    <h3>🧭 1. Diagnóstico (Estadio/Grado) — ver Capítulo 3</h3>
-    <ul>
-      <li>Compilar CAL, RBL, furcación, movilidad, pérdida dentaria → <span class="outcome">Estadio</span></li>
-      <li>Compilar velocidad de progresión (radiografía comparativa o proxies) → <span class="outcome">Grado</span></li>
-      <li>Listar todos los modificadores presentes</li>
-    </ul>
+  <div class="cases">
+    <div class="case-card">
+      <h3>Caso integrado 1 — atribución de CAL + atribución de pérdida dentaria</h3>
+      <details>
+        <summary>Ver caso completo</summary>
+        <p>Varón 63a, refiere haber perdido "varios dientes por las encías". Examen: 5 dientes ausentes, CAL 4-5mm generalizado en los dientes remanentes, RBL 25-30%, un diente con CAL aislado de 8mm en distal (sin correlato en el resto de la boca).</p>
+        <p><strong>Zona gris 1 (CAL):</strong> el diente con CAL aislado de 8mm no encaja con el patrón generalizado del resto — la radiografía muestra una imagen compatible con lesión endodóntica. Se excluye ese sitio de la lectura de CAL interdental representativa.</p>
+        <p><strong>Zona gris 4 (pérdida dentaria):</strong> de los 5 dientes ausentes, la historia y las radiografías disponibles solo confirman periodontitis como causa en 3 de ellos; los otros 2 se perdieron según refiere "por una infección de la muela" — compatible con causa endodóntica, no periodontal.</p>
+        <p><strong>Conclusión:</strong> Estadio III (CAL representativo 4-5mm, RBL 25-30%, 3 dientes — no 5 — atribuibles a periodontitis), no Estadio IV. El diente con lesión endodóntica se maneja y documenta aparte.</p>
+      </details>
+    </div>
+    <div class="case-card">
+      <h3>Caso integrado 2 — periodonto reducido + frontera III/IV</h3>
+      <details>
+        <summary>Ver caso completo</summary>
+        <p>Mujer 70a, tratada por periodontitis hace 15 años (Estadio III documentado en su momento), en mantenimiento irregular desde entonces. Hoy: periodonto reducido generalizado, BOP 12%, sin nueva pérdida de inserción respecto al último registro (hace 4 años). Ha perdido 2 dientes adicionales en ese período por fractura (no periodontitis, según historia clínica). Función masticatoria conservada, sin colapso de mordida.</p>
+        <p><strong>Zona gris 2 (periodonto reducido):</strong> sin progresión documentada y BOP bajo — corresponde a periodonto reducido estable, no a periodontitis activa recurrente.</p>
+        <p><strong>Zona gris 5 (frontera III/IV):</strong> aunque el Estadio histórico era III, los 2 dientes perdidos recientemente no se atribuyen a periodontitis (fractura), y la función se mantiene conservada — el Estadio permanece III, sin evidencia para escalarlo a IV.</p>
+        <p><strong>Conclusión:</strong> "Periodontitis Estadio III, actualmente estable (periodonto reducido sano), en mantenimiento" — se retoma el mantenimiento regular, sin reabrir tratamiento activo.</p>
+      </details>
+    </div>
   </div>
 
+  <h3>Repaso de las cinco zonas grises</h3>
   <div class="decision-tree">
-    <h3>🧭 2. Evaluación de pronóstico individual</h3>
     <ul>
-      <li>Cumplimiento probable: ¿excelente, bueno, o pobre? (basado en la conversación inicial)</li>
-      <li>Comorbilidades presentes que afecten la tolerancia quirúrgica</li>
-      <li>Edad (afecta el riesgo quirúrgico y la velocidad de cicatrización)</li>
-      <li>Motivación real del paciente para el cambio de modificadores</li>
-    </ul>
-  </div>
-
-  <div class="decision-tree">
-    <h3>🧭 3. Planificación de Fase 1</h3>
-    <ul>
-      <li>RAR: 2-4 sesiones (según Estadio/Grado)</li>
-      <li>Antibióticos sistémicos: Grado A/B generalmente NO; Grado C usualmente SÍ</li>
-      <li>Clorhexidina: 2-6 semanas</li>
-      <li>Intervención en modificadores: iniciar desde la primera visita, no esperar</li>
-    </ul>
-  </div>
-
-  <div class="decision-tree">
-    <h3>🧭 4. Re-evaluación (Mes 2-4)</h3>
-    <ul>
-      <li>¿Cuánto mejoró el PPS?</li>
-      <li>¿Cuánto se redujo el BOP?</li>
-      <li>Microbiología (si se realizó): ¿Pg positivo o negativo ahora?</li>
-      <li>¿Se sostiene el cumplimiento del paciente?</li>
-    </ul>
-  </div>
-
-  <div class="decision-tree">
-    <h3>🧭 5. Decisión de Fase 2</h3>
-    <ul>
-      <li>PPS ≤4mm + BOP &lt;10% → <span class="outcome">fin de Fase 1, solo monitoreo</span></li>
-      <li>PPS 5-6mm + Estadio I-II → <span class="outcome">cirugía de acceso localizada</span></li>
-      <li>PPS 7-9mm + Estadio III → <span class="outcome">cirugía extensiva + GTR probable</span></li>
-      <li>PPS &gt;9mm + movilidad severa + Estadio IV → <span class="outcome">extracción selectiva ± cirugía de preservación</span></li>
-      <li>Incumplimiento evidente → <span class="outcome">re-educación intensiva o referencia quirúrgica directa</span></li>
-    </ul>
-  </div>
-
-  <div class="decision-tree">
-    <h3>🧭 6. Mantenimiento (permanente)</h3>
-    <ul>
-      <li>Frecuencia: Grado A → 6-12 meses · Grado B → 3-4 meses · Grado C → 6-8 semanas</li>
-      <li>Radiografías: anuales × 2 años, luego cada 3-5 años (Grado A) o cada 1-2 años (Grado C)</li>
-      <li>Microbiología: seriada si Grado C, cada 6-12 meses</li>
-      <li>Re-evaluación anual: ¿cumplimiento sostenido? ¿modificadores controlados? ¿radiografía estable?</li>
+      <li><strong>1. CAL no atribuible a periodontitis</strong> → descartar causas locales antes de clasificar</li>
+      <li><strong>2. Periodonto reducido</strong> → comparar contra el registro previo, no contra un ideal de "boca sana"</li>
+      <li><strong>3. Pseudobolsas</strong> → el PPS aislado no clasifica; correlacionar con CAL y radiografía</li>
+      <li><strong>4. Pérdida dentaria</strong> → atribuir solo con base razonable, documentando la incertidumbre</li>
+      <li><strong>5. Frontera III/IV</strong> → pensar en función y necesidad rehabilitadora, no solo en milímetros</li>
     </ul>
   </div>
 
   <div class="key-principle">
-    <h3>🎯 Cierre del curso</h3>
-    <p>El sistema AAP/EFP 2018 (Capítulos 1-3) da el lenguaje y la estructura. Los 8 casos de este capítulo muestran que el manejo real nunca es lineal — hay complicaciones, decisiones intermedias, pacientes que cambian y pacientes que no. La destreza clínica está en aplicar el marco con criterio, reevaluando siempre con los datos reales del paciente que tienes enfrente, no con el caso "de libro".</p>
+    <h3>🎯 Cierre del capítulo</h3>
+    <p>Las zonas grises no son excepciones raras — son parte habitual de la práctica clínica real. Reconocerlas y navegarlas con criterio explícito es lo que separa a quien aplica una tabla de quien ejerce juicio diagnóstico.</p>
   </div>
 
   <div class="reference">
-    📚 Herramienta de síntesis basada en AAP/EFP 2018 y los 8 casos clínicos de este capítulo
+    📚 Basado en: Kornman &amp; Papapanou 2020 (J Periodontol); Tonetti et al. 2018
   </div>
 </div>`,
   },

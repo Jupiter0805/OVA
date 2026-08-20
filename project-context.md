@@ -149,7 +149,7 @@ one (this bit DashboardPage once already: the link existed in code but only in
 | 1 — El cambio que transformó la periodoncia | ✅ | **8/8**, postgrado-level academic depth + 3 real figures | 4 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 | 2 — Estadios | ✅ | **8/8**, postgrado-level academic depth | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 | 3 — Grados | ✅ | **8/8**, rebuilt 2026-08-21 around Grado-determination framework (direct/indirect/modifier evidence, RBL/edad, Estadio×Grado application) | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
-| 4 — Zonas Grises y clarificaciones de uso clínico | ✅ | **8/8**, 4 fully worked 24-month cases + 4 brief cases + synthesis + decision tool | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
+| 4 — Zonas Grises y clarificaciones de uso clínico | ✅ | **8/8**, rebuilt 2026-08-21 around the 5 "gray zones" (CAL attribution, periodonto reducido, pseudobolsas, tooth-loss attribution, Estadio III/IV boundary) — now actually matches the DB title | 5 Q (UNICOC-approved) | 5 Q (UNICOC-approved, ≥70% to pass) |
 
 Chapter titles (`chapters.title`, the DB row, distinct from each chapter's
 internal lesson-title style) were renamed 2026-08-20 per explicit user
@@ -709,7 +709,7 @@ worth keeping fixed regardless of the above:
   (`if (attempt) {...}`); `PreTestComponent` now does the same, with a visible
   Spanish error message and the button re-enabled for retry.
 
-### Chapter 4 revision (2026-08-20) — from `PROMPT_CAPITULO_4_CASOS_REALES_FINAL.md`
+### Chapter 4 revision (2026-08-20, first pass — lesson content later fully replaced 2026-08-21, see below)
 
 Same pattern as Chapters 2-3, applied to Chapter 4:
 
@@ -741,6 +741,80 @@ Same pattern as Chapters 2-3, applied to Chapter 4:
   judgment call as Chapter 2/3's "already consistent, don't duplicate."
   Removed the file's 3 remaining `~` approximation symbols per the doc's
   checklist; `SRP`/`denso` were already not present in the live content.
+
+### Chapter 4 full rebuild, 8 new "zonas grises" lessons (2026-08-21, supersedes the pass above)
+
+Immediately after Chapter 3's full rebuild (see above), the user asked for
+"lo mismo con el capítulo IV" and pasted a *different* reference document —
+not more 24-month case studies, but "Capítulo IV. Zonas grises y
+clarificaciones de uso clínico" (also a real manuscript with embedded
+editorial comments, `[Ui12]`-`[Ui13]`), covering 5 specific diagnostic gray
+zones: CAL attribution, periodonto reducido (sano vs. gingivitis vs. activa),
+pseudobolsas, tooth-loss attribution, and the Estadio III/IV functional
+boundary. Same instruction pattern as Chapter 3: replace what's there,
+rebuild around the new doc, keep the density/interactivity.
+
+**This fully discarded the old Lessons 1-8** (the 8 detailed 24-month
+clinical cases: fumador+DM, periodontitis agresiva joven, endo-perio,
+Estadio IV, peri-implantitis, GTR complication, compliance contrast,
+cross-case synthesis) — none of that case content survived, per the explicit
+"reemplaza lo que hay ahora" instruction. `chapter4Content.js` was rewritten
+in one shot (`Write`) into 8 new lessons matching the doc's own 5-gray-zone
+structure, expanded for density:
+
+1. **Qué son las zonas grises y por qué importan** — objetivos de
+   aprendizaje (`[Ui13]`'s comment flagged the original phrasing as not
+   reading like real objectives — tightened "Aprender a atribuir..." to
+   "Atribuir correctamente..." to drop the redundant "aprender a" under an
+   already-labeled "objetivos" heading), intro, and a decision-tree panorama
+   of the 4-5 gray-zone areas standing in for the doc's Figura 3 (no image
+   asset supplied).
+2. **Zona gris 1 — CAL no atribuible a periodontitis** — non-periodontal
+   causes table, 2 cases (one from the doc — recesión por trauma de
+   cepillado — one newly constructed for depth — fractura radicular
+   aislada).
+3. **Zona gris 2 — Periodonto reducido: sano, inflamado, o periodontitis
+   activa** — a 3-way comparison table (periodonto reducido sano / gingivitis
+   sobre periodonto reducido / periodontitis activa), the doc's own case
+   (paciente tratado hace 3 años, BOP 18%, sin nueva pérdida).
+4. **Zona gris 3 — Pseudobolsas y profundidad de sondaje** — differentiation
+   table, a newly constructed pregnancy-gingivitis case (the doc didn't
+   supply a dedicated case for this zone, so one was built to match its
+   own worked-example style).
+5. **Zona gris 4 — Atribución de pérdida dentaria** — the doc's case (4
+   dientes perdidos, sin colapso funcional → stays Estadio III) plus one
+   more constructed case (old orthodontic extractions misattributed to
+   periodontitis).
+6. **Zona gris 5 — La frontera entre Estadio III y Estadio IV** — two
+   contrasting newly constructed cases (more individual tooth destruction
+   but functional = III; less destruction but functional collapse = IV),
+   built specifically to teach the doc's "function, not just numbers" point
+   the doc argues in prose but doesn't illustrate with a paired example.
+7. **Reglas prácticas para navegar las zonas grises** — the doc's 5 numbered
+   rules verbatim, plus a "deficient vs. honest documentation" side-by-side
+   example illustrating Rule 5 (document genuine uncertainty).
+8. **Síntesis: casos integrados de zonas grises** — 2 newly constructed
+   cases that each combine multiple gray zones at once (not in the source
+   doc, built as a capstone), plus a recap of all 5 zones.
+
+Pretest/posttest **unchanged** — already verbatim-matching the committee set
+from the 2026-08-20 pass (confirmed by direct text comparison against this
+new doc's own pretest, which is identical). PDF resource (Kornman 2020,
+already wired 2026-08-20) needed no changes — this document's own "Lectura
+Sugerida" line names the same paper (its citation was malformed in the
+source doc, `[Ui12]` flags this — used the already-correct citation already
+in the app instead of reproducing the doc's "Korman 2019" typo/wrong year).
+
+Also worth noting: this rebuild finally makes the chapter's lesson content
+actually match its DB title ("Zonas Grises y clarificaciones de uso
+clínico") — previously flagged in this doc as an intentional mismatch (the
+title was renamed 2026-08-20 but the lessons underneath were still the old
+24-month-case content). That mismatch note above is now stale/resolved for
+Chapter 4 specifically, though not for Chapters 2-3 (their titles still
+don't literally describe their lesson content, which remains intentional).
+
+Verified all 8 lessons' HTML tags balance and pretest/posttest counts via
+script before reseeding, same as the Chapter 3 rebuild.
 
 ### PDF viewer (Caton 2018, Tonetti 2018, Periodontitis-01 + Decision Tree, Kornman 2020) — Chapters 1-4
 
