@@ -308,6 +308,41 @@ Same pattern as the Chapter 2 revision, applied to Chapter 3:
   bolting on a redundant standalone table — same call made for Chapter 2's
   already-consistent terminology.
 
+### Two bugs found/fixed after a "PDF viewer doesn't appear" report (2026-08-20)
+
+The user reported the Chapter 3 PDF step never showed — pretest completed,
+straight to lessons. Root-caused via direct Supabase queries (service-role
+one-off script, not guessed): `test_attempts`/`user_progress` for Chapter 3
+were completely empty, while a Chapter 2 pretest attempt existed from minutes
+earlier. Conclusion: the user tested Chapter 3 in the brief window before the
+PDF-wiring deployment finished propagating — the old code had no
+`PDF_RESOURCES_BY_CHAPTER[3]` entry yet, and the same commit's
+`insert:chapter3` reseed wiped any attempt made against the old test row, so
+there was no DB trace left. The already-deployed code was correct; no fix was
+needed for that specific report, just a retry after a hard refresh. Confirmed
+via `vercel ls` that a fresh Production deployment existed before troubleshooting further.
+
+Two real, independent bugs were found and fixed while investigating, both
+worth keeping fixed regardless of the above:
+
+- **Resume-state skip (`ChapterPage.tsx`):** if a user reloads the chapter
+  page after submitting the pretest but before finishing the PDF step (or
+  before starting any lesson), the load-time resume logic used to route
+  straight to `'lessons'` whenever `pretestAttempts.length > 0`, regardless of
+  whether the PDF resource had been shown. Fixed: now checks
+  `PDF_RESOURCES_BY_CHAPTER[chapterData.chapter_number]` and
+  `lessons_completed === 0` and re-shows `'pdf-resource'` in that case,
+  falling through to `'lessons'` only once the user has actually started a
+  lesson.
+- **Silent pretest-submission failure (`PreTestComponent.tsx`):** `handleSubmit`
+  called `testsService.submitAttempt` (which swallows DB errors and returns
+  `null` on failure — see its try/catch) but never checked the result, always
+  flipping to the "submitted, continue" screen. A failed insert meant the
+  user's pretest attempt vanished with no error shown and no record in
+  `test_attempts`. `PostTestComponent` already guarded this correctly
+  (`if (attempt) {...}`); `PreTestComponent` now does the same, with a visible
+  Spanish error message and the button re-enabled for retry.
+
 ### PDF viewer (Caton 2018, Tonetti 2018, Periodontitis-01 + Decision Tree) — Chapters 1-3
 
 After each chapter's pretest, before the lessons, there's now a `PDFViewer`

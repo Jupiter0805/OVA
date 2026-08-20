@@ -16,6 +16,7 @@ export function PreTestComponent({ test, questions, onComplete }: PreTestCompone
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [startTime] = useState(() => Date.now());
 
   const allAnswered = questions.every((q) => answers[q.id]);
@@ -23,10 +24,15 @@ export function PreTestComponent({ test, questions, onComplete }: PreTestCompone
   const handleSubmit = async () => {
     if (!user?.id) return;
     setSubmitting(true);
+    setSubmitError(false);
     const timeSpent = Math.round((Date.now() - startTime) / 1000);
-    await testsService.submitAttempt(user.id, test, questions, answers, timeSpent);
+    const attempt = await testsService.submitAttempt(user.id, test, questions, answers, timeSpent);
     setSubmitting(false);
-    setSubmitted(true);
+    if (attempt) {
+      setSubmitted(true);
+    } else {
+      setSubmitError(true);
+    }
   };
 
   return (
@@ -52,15 +58,22 @@ export function PreTestComponent({ test, questions, onComplete }: PreTestCompone
       ))}
 
       {!submitted ? (
-        <motion.button
-          whileHover={allAnswered ? { scale: 1.02 } : undefined}
-          whileTap={allAnswered ? { scale: 0.98 } : undefined}
-          disabled={!allAnswered || submitting}
-          onClick={handleSubmit}
-          className="w-full bg-gradient-to-r from-unicoc-red to-unicoc-red-dark text-white py-3 rounded-lg font-bold text-lg hover:shadow-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {submitting ? 'Enviando...' : 'Enviar Pretest'}
-        </motion.button>
+        <>
+          {submitError && (
+            <p className="text-sm text-red-600 font-medium mb-3">
+              No se pudo guardar tu pretest. Revisá tu conexión e intentá de nuevo.
+            </p>
+          )}
+          <motion.button
+            whileHover={allAnswered ? { scale: 1.02 } : undefined}
+            whileTap={allAnswered ? { scale: 0.98 } : undefined}
+            disabled={!allAnswered || submitting}
+            onClick={handleSubmit}
+            className="w-full bg-gradient-to-r from-unicoc-red to-unicoc-red-dark text-white py-3 rounded-lg font-bold text-lg hover:shadow-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {submitting ? 'Enviando...' : 'Enviar Pretest'}
+          </motion.button>
+        </>
       ) : (
         <motion.button
           initial={{ opacity: 0, y: 10 }}

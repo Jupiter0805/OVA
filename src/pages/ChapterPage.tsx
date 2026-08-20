@@ -126,8 +126,21 @@ export function ChapterPage() {
         } else if (pretestData) {
           const pretestAttempts = await testsService.getUserAttempts(user.id, pretestData.id);
           if (pretestAttempts.length > 0) {
-            const allLessonsDone = lessonsData.length > 0 && (progress?.lessons_completed || 0) >= lessonsData.length;
-            setPageState(allLessonsDone ? 'posttest' : 'lessons');
+            const lessonsCompleted = progress?.lessons_completed || 0;
+            const allLessonsDone = lessonsData.length > 0 && lessonsCompleted >= lessonsData.length;
+            const pdfResourcesForChapter = PDF_RESOURCES_BY_CHAPTER[chapterData.chapter_number];
+            if (allLessonsDone) {
+              setPageState('posttest');
+            } else if (pdfResourcesForChapter && lessonsCompleted === 0) {
+              // Pretest already attempted but no lesson started yet — the
+              // user hasn't necessarily seen the PDF resource step (e.g. they
+              // reloaded right after submitting the pretest), so show it
+              // again rather than skipping straight to lessons.
+              setSelectedPdfIndex(0);
+              setPageState('pdf-resource');
+            } else {
+              setPageState('lessons');
+            }
           } else {
             setPageState('pretest');
           }
