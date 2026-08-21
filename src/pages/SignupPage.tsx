@@ -52,7 +52,7 @@ export function SignupPage() {
             ¡Registro exitoso!
           </h3>
           <p className="text-text-dark mb-4 font-medium">
-            Te hemos enviado un email de confirmación. Por favor verifica tu correo.
+            Tu cuenta fue creada correctamente.
           </p>
           <p className="text-sm text-text-light animate-pulse">
             Redirigiendo a login en 3 segundos...
