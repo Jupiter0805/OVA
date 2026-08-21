@@ -178,6 +178,66 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Glossary panel — available on every chapter (2026-08-21)
+
+`src/components/glossary/GlossaryPanel.tsx` + `glossaryData.ts` — a
+persistent collapsible glossary (9 terms: CAL, BOP, PPD, RBL, CEJ, HbA1c,
+AAP/EFP, OVA, COL gingival), mounted once inside `ChapterPage.tsx` so it's
+present regardless of which chapter or pageState (`pretest`/`pdf-resource`/
+`lessons`/`posttest`/`completed`) the student is on — a `fixed`-position
+component doesn't care where in the JSX tree it's rendered.
+
+- **Collapsed by default, always**: a slim docked tab on the right edge
+  (vertically centered, `fixed`, brand-red) is the only thing rendered when
+  closed — it never overlaps content. There's no persisted "last open state"
+  across reloads by design, since the user's requirement was "siempre debe
+  aparecer colapsado."
+- **Expand/collapse on demand**: clicking the tab slides a `w-full
+  sm:w-[380px]` panel in from the right (`framer-motion`, `x: '100%' → 0`),
+  with a click-to-close backdrop and an explicit ✕ button. On mobile it
+  takes the full width (there's no room to dock a 380px panel beside
+  content on a phone) — verified both breakpoints visually, see below.
+  Includes a live search/filter input (not requested explicitly, but the
+  9-term list will only grow, and it was near-zero extra cost).
+- Static data, no DB table — the glossary content doesn't change per-chapter
+  or per-user, so a plain TS array in `glossaryData.ts` was simpler than
+  adding a `glossary_terms` table + service + RLS for content that's
+  effectively fixed reference material.
+- **Verified visually**, not just via build success: added a temporary
+  `/__glossary-preview` route in `App.tsx`, ran the dev server, and used the
+  project's established Playwright-via-cached-npx-package pattern to
+  screenshot collapsed/expanded states at both desktop (1280px) and mobile
+  (390px) widths, and confirmed the search filter narrows results correctly
+  — then reverted the temporary route before committing (confirmed via
+  `git diff` that `App.tsx` has no leftover diff).
+
+### Admin panel: per-chapter pretest/posttest visibility (2026-08-21)
+
+The user wants admins to monitor student progress with pretest/posttest
+results per chapter, not just the existing aggregate "N completados / N en
+progreso" count.
+
+- `adminService.getUserChapterDetails(userId)` (new) — for one user, joins
+  `chapters` (all 4, always) against that user's `user_progress` and
+  `test_attempts` rows (both already readable by admins via existing RLS
+  policies from `001_admin_panel_setup.sql` — no new migration needed) and
+  returns, per chapter: completion %, status, the **latest** pretest
+  attempt's percentage (pretest has no passing score — it's explicitly a
+  non-graded reflection exercise, so "latest" rather than "best" is the
+  meaningful number here), and the **best** posttest attempt's percentage +
+  whether any attempt passed + attempt count (posttest has a real passing
+  threshold and a `max_attempts` cap, so best-attempt-so-far and pass/fail
+  are what matters).
+- `AdminPage.tsx` — added a "▼ Ver pretest/posttest por capítulo" toggle
+  under each user's progress summary. Expands an inline detail row (fetched
+  lazily on first click, then cached in state — not eagerly loaded for every
+  user up front, to avoid N+1-style over-fetching on page load for a table
+  that could grow). Shows a per-chapter table: avance %, pretest score, and
+  posttest score/pass-fail with attempt counts.
+- Needed `Fragment` (not `<>...</>`) for the per-user map because each user
+  now renders two sibling `<tr>`s (the main row + the conditional detail
+  row) and fragments need a `key` when returned from `.map()`.
+
 ### Chapter 3 post-rebuild cleanup: bad case removed, Extensión added to all diagnoses (2026-08-21)
 
 After the full rebuild (see below), the user flagged one specific case as

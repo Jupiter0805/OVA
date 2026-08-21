@@ -11,6 +11,7 @@ import type { Test, Question } from '../services/testsService';
 import { PreTestComponent } from '../components/tests/PreTestComponent';
 import { PostTestComponent } from '../components/tests/PostTestComponent';
 import { LessonsFlow } from '../components/lessons/LessonsFlow';
+import { GlossaryPanel } from '../components/glossary/GlossaryPanel';
 
 // Lazy-loaded: react-pdf + pdfjs-dist add ~1MB, only worth paying for
 // once a user actually reaches Chapter 1's PDF step, not on every page load.
@@ -232,6 +233,7 @@ export function ChapterPage() {
 
   return (
     <div className="min-h-screen bg-bg-light">
+      <GlossaryPanel />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

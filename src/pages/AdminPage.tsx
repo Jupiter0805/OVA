@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { adminService } from '../services/adminService';
-import type { AdminUserSummary } from '../services/adminService';
+import type { AdminUserSummary, ChapterProgressDetail } from '../services/adminService';
 import type { UserType } from '../services/profileService';
 import { useAuth } from '../context/AuthContext';
 
@@ -36,6 +36,10 @@ export function AdminPage() {
 
   const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  const [expandedUserId, setExpandedUserId] = useState<string | null>(null);
+  const [loadingDetailId, setLoadingDetailId] = useState<string | null>(null);
+  const [chapterDetails, setChapterDetails] = useState<Record<string, ChapterProgressDetail[]>>({});
 
   const viewerIsMaster = profile?.user_type === 'master';
 
@@ -85,6 +89,20 @@ export function AdminPage() {
       await loadUsers();
     } else {
       setActionError(error || 'No se pudo cambiar el rol.');
+    }
+  };
+
+  const handleToggleDetail = async (userId: string) => {
+    if (expandedUserId === userId) {
+      setExpandedUserId(null);
+      return;
+    }
+    setExpandedUserId(userId);
+    if (!chapterDetails[userId]) {
+      setLoadingDetailId(userId);
+      const details = await adminService.getUserChapterDetails(userId);
+      setChapterDetails((prev) => ({ ...prev, [userId]: details }));
+      setLoadingDetailId(null);
     }
   };
 
@@ -166,7 +184,8 @@ export function AdminPage() {
                     const manageable = canManage(u);
 
                     return (
-                      <tr key={u.id} className="border-t border-border-light align-top">
+                      <Fragment key={u.id}>
+                      <tr className="border-t border-border-light align-top">
                         <td className="px-6 py-4">
                           <p className="font-semibold text-text-dark">
                             {u.full_name || '(sin nombre)'} {isSelf && <span className="text-xs text-text-light font-normal">(tú)</span>}
@@ -184,7 +203,13 @@ export function AdminPage() {
                           )}
                         </td>
                         <td className="px-6 py-4 text-sm text-text-dark">
-                          {u.chaptersCompleted} completados · {u.chaptersInProgress} en progreso
+                          <p>{u.chaptersCompleted} completados · {u.chaptersInProgress} en progreso</p>
+                          <button
+                            onClick={() => handleToggleDetail(u.id)}
+                            className="text-unicoc-red text-xs font-bold hover:underline mt-1"
+                          >
+                            {expandedUserId === u.id ? '▲ Ocultar detalle' : '▼ Ver pretest/posttest por capítulo'}
+                          </button>
                         </td>
                         <td className="px-6 py-4 text-sm text-text-light">
                           {u.lastActivity ? new Date(u.lastActivity).toLocaleDateString('es-CO') : '—'}
@@ -300,6 +325,56 @@ export function AdminPage() {
                           </div>
                         </td>
                       </tr>
+                      {expandedUserId === u.id && (
+                        <tr className="border-t border-border-light bg-bg-light">
+                          <td colSpan={5} className="px-6 py-5">
+                            {loadingDetailId === u.id ? (
+                              <p className="text-text-light text-sm">Cargando progreso por capítulo...</p>
+                            ) : (
+                              <div className="overflow-x-auto">
+                                <table className="w-full text-left text-sm">
+                                  <thead>
+                                    <tr className="text-text-light">
+                                      <th className="pr-4 py-2 font-semibold">Capítulo</th>
+                                      <th className="pr-4 py-2 font-semibold">Avance</th>
+                                      <th className="pr-4 py-2 font-semibold">Pretest</th>
+                                      <th className="pr-4 py-2 font-semibold">Posttest</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {(chapterDetails[u.id] || []).map((c) => (
+                                      <tr key={c.chapterId} className="border-t border-border-light">
+                                        <td className="pr-4 py-2 font-medium text-text-dark">
+                                          Cap. {c.chapterNumber}: {c.chapterTitle}
+                                        </td>
+                                        <td className="pr-4 py-2 text-text-dark">
+                                          {c.completionPercentage}%
+                                          {c.status === 'completed' && <span className="text-green-700 font-bold"> ✓</span>}
+                                        </td>
+                                        <td className="pr-4 py-2 text-text-dark">
+                                          {c.pretestPercentage === null
+                                            ? '— sin intentar'
+                                            : `${c.pretestPercentage}% (${c.pretestAttempts} intento${c.pretestAttempts === 1 ? '' : 's'})`}
+                                        </td>
+                                        <td className="pr-4 py-2">
+                                          {c.posttestBestPercentage === null ? (
+                                            <span className="text-text-dark">— sin intentar</span>
+                                          ) : (
+                                            <span className={c.posttestPassed ? 'text-green-700 font-semibold' : 'text-red-700 font-semibold'}>
+                                              {c.posttestBestPercentage}% ({c.posttestAttempts} intento{c.posttestAttempts === 1 ? '' : 's'}) — {c.posttestPassed ? 'Aprobado' : 'No aprobado'}
+                                            </span>
+                                          )}
+                                        </td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+                            )}
+                          </td>
+                        </tr>
+                      )}
+                      </Fragment>
                     );
                   })}
                 </tbody>
