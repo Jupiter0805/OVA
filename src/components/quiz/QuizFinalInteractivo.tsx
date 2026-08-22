@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import { quizService } from '../../services/quizService';
@@ -7,6 +7,35 @@ import type { QuizPaciente } from '../../services/quizService';
 const ESTADIOS = [1, 2, 3, 4];
 const EXTENSIONES = ['Localizada', 'Generalizada'];
 const GRADOS = ['A', 'B', 'C'];
+
+function SeccionExpandible({ titulo, children }: { titulo: string; children: ReactNode }) {
+  const [abierta, setAbierta] = useState(false);
+  return (
+    <div className="bg-bg-light rounded-lg overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setAbierta((a) => !a)}
+        className="w-full flex items-center justify-between p-3 text-left"
+      >
+        <span className="text-xs font-bold text-text-dark uppercase tracking-wide">{titulo}</span>
+        <span className={`text-text-light transition-transform ${abierta ? 'rotate-180' : ''}`}>▼</span>
+      </button>
+      <AnimatePresence initial={false}>
+        {abierta && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="px-3 pb-3"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 function ImagePlaceholder({ label, small }: { label: string; small?: boolean }) {
   return (
@@ -158,7 +187,7 @@ export function QuizFinalInteractivo() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         {/* Columna 1: datos del paciente */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4">
+        <div key={indice} className="bg-white rounded-2xl shadow-lg p-6 space-y-4">
           <div>
             <h3 className="text-xl font-bold text-unicoc-red">{pacienteActual.nombre}</h3>
             <p className="text-sm text-text-light">
@@ -209,6 +238,94 @@ export function QuizFinalInteractivo() {
                 ))}
               </div>
             </div>
+          )}
+
+          {pacienteActual.dificultad_caso && (
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold text-text-dark uppercase tracking-wide">Dificultad del caso:</span>
+              <span className="text-xs font-bold px-2 py-1 rounded-full bg-unicoc-red/10 text-unicoc-red">
+                {pacienteActual.dificultad_caso}
+              </span>
+            </div>
+          )}
+
+          {pacienteActual.valores_comorbilidades && Object.keys(pacienteActual.valores_comorbilidades).length > 0 && (
+            <SeccionExpandible titulo="Valores y comorbilidades">
+              <div className="space-y-1">
+                {Object.entries(pacienteActual.valores_comorbilidades).map(([key, value]) => (
+                  <p key={key} className="text-sm text-text-dark">
+                    <strong className="capitalize">{key.replace(/_/g, ' ')}:</strong> {String(value)}
+                  </p>
+                ))}
+              </div>
+            </SeccionExpandible>
+          )}
+
+          {pacienteActual.datos_sextantes && Object.keys(pacienteActual.datos_sextantes).length > 0 && (
+            <SeccionExpandible titulo="Datos por sextante">
+              <div className="space-y-2">
+                {Object.entries(pacienteActual.datos_sextantes).map(([key, sext]) => (
+                  <div key={key} className="bg-white border border-border-light rounded-lg p-2.5">
+                    <p className="text-sm font-bold text-unicoc-red mb-1">{sext.nombre}</p>
+                    <p className="text-xs text-text-dark">
+                      CAL {sext.cal_maximo}mm · BOP {sext.bop}% · PPS {sext.pps_maximo}mm
+                    </p>
+                    <p className="text-xs text-text-light mt-1 leading-relaxed">{sext.hallazgos}</p>
+                  </div>
+                ))}
+              </div>
+            </SeccionExpandible>
+          )}
+
+          {(pacienteActual.fenotipo_gingival || pacienteActual.recesion_gingival) && (
+            <SeccionExpandible titulo="Fenotipo gingival y recesión">
+              <div className="space-y-1">
+                {pacienteActual.fenotipo_gingival && (
+                  <p className="text-sm text-text-dark"><strong>Fenotipo:</strong> {pacienteActual.fenotipo_gingival}</p>
+                )}
+                {pacienteActual.recesion_gingival && (
+                  <p className="text-sm text-text-dark">
+                    <strong>Recesión:</strong>{' '}
+                    {pacienteActual.recesion_gingival.presente
+                      ? pacienteActual.recesion_gingival.zonas
+                      : 'No presente'}
+                  </p>
+                )}
+              </div>
+            </SeccionExpandible>
+          )}
+
+          {(pacienteActual.trauma_oclusal_primario || pacienteActual.trauma_oclusal_secundario || pacienteActual.furcacion_presente !== null) && (
+            <SeccionExpandible titulo="Trauma oclusal y furcación">
+              <div className="space-y-1">
+                {pacienteActual.trauma_oclusal_primario && (
+                  <p className="text-sm text-text-dark"><strong>Trauma oclusal primario:</strong> {pacienteActual.trauma_oclusal_primario}</p>
+                )}
+                {pacienteActual.trauma_oclusal_secundario && (
+                  <p className="text-sm text-text-dark"><strong>Trauma oclusal secundario:</strong> {pacienteActual.trauma_oclusal_secundario}</p>
+                )}
+                <p className="text-sm text-text-dark">
+                  <strong>Furcación:</strong>{' '}
+                  {pacienteActual.furcacion_presente ? (pacienteActual.furcacion_detalle || 'Presente') : 'No presente'}
+                </p>
+              </div>
+            </SeccionExpandible>
+          )}
+
+          {(pacienteActual.hallazgos_radiograficos || pacienteActual.patron_perdida_osea || pacienteActual.ligamento_periodontal_estado) && (
+            <SeccionExpandible titulo="Hallazgos radiográficos descriptivos">
+              <div className="space-y-1.5">
+                {pacienteActual.patron_perdida_osea && (
+                  <p className="text-sm text-text-dark"><strong>Patrón de pérdida ósea:</strong> {pacienteActual.patron_perdida_osea}</p>
+                )}
+                {pacienteActual.ligamento_periodontal_estado && (
+                  <p className="text-sm text-text-dark"><strong>Ligamento periodontal:</strong> {pacienteActual.ligamento_periodontal_estado}</p>
+                )}
+                {pacienteActual.hallazgos_radiograficos && (
+                  <p className="text-sm text-text-dark leading-relaxed">{pacienteActual.hallazgos_radiograficos}</p>
+                )}
+              </div>
+            </SeccionExpandible>
           )}
         </div>
 

@@ -22,6 +22,25 @@ export interface QuizPaciente {
   dientes_presentes: number | null;
   dientes_ausentes: number | null;
   otros_hallazgos: Record<string, string | number> | null;
+  valores_comorbilidades: Record<string, string | number> | null;
+  dientes_ausentes_lista: string | null;
+  datos_sextantes: Record<string, {
+    nombre: string;
+    cal_maximo: number;
+    bop: number;
+    pps_maximo: number;
+    hallazgos: string;
+  }> | null;
+  fenotipo_gingival: string | null;
+  recesion_gingival: { presente: boolean; zonas: string } | null;
+  trauma_oclusal_primario: string | null;
+  trauma_oclusal_secundario: string | null;
+  furcacion_presente: boolean | null;
+  furcacion_detalle: string | null;
+  hallazgos_radiograficos: string | null;
+  patron_perdida_osea: string | null;
+  ligamento_periodontal_estado: string | null;
+  dificultad_caso: string | null;
   periodontograma_url: string | null;
   radiografia_panoramica_url: string | null;
   radiografia_sextante_1_vestibular: string | null;

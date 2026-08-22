@@ -250,6 +250,73 @@ Feature is live end-to-end at `/quiz-final` for admin/master accounts.
 Still pending: real periodontograma + sextant radiograph images for all
 5 cases (only Marta has one image, the panoramic).
 
+#### Quiz Final expansion — richer per-case clinical detail (2026-08-22)
+
+The user pasted a much more detailed reference doc for the same 5 cases
+(comorbidity values, per-sextant CAL/BOP/PPS findings, gingival phenotype,
+recession, primary/secondary occlusal trauma, furcation, descriptive
+radiographic findings, bone-loss pattern, periodontal-ligament status, case
+difficulty) and asked to incorporate it, on top of an explicit,
+three-times-repeated correction: **"Daniel DEBE SER Periodontitis estadio
+III localizada grado C."**
+
+- **Additive migration** `supabase/sql/005_quiz_final_expand.sql` — 13 new
+  nullable columns on `quiz_pacientes` (`valores_comorbilidades jsonb`,
+  `dientes_ausentes_lista`, `datos_sextantes jsonb`, `fenotipo_gingival`,
+  `recesion_gingival jsonb`, `trauma_oclusal_primario`,
+  `trauma_oclusal_secundario`, `furcacion_presente boolean`,
+  `furcacion_detalle`, `hallazgos_radiograficos`, `patron_perdida_osea`,
+  `ligamento_periodontal_estado`, `dificultad_caso`). No columns renamed or
+  dropped from `004`. **Applied by the user.**
+- `scripts/quizFinalContent.js` rewritten with the full expanded dataset for
+  all 5 cases, field names translated to this course's terminology
+  including inside the nested `datos_sextantes` objects (`nic_maximo`→
+  `cal_maximo`, `sondaje_maximo`→`pps_maximo`).
+- `src/services/quizService.ts` — `QuizPaciente` interface extended with all
+  13 new fields.
+- `src/components/quiz/QuizFinalInteractivo.tsx` — added a reusable
+  `SeccionExpandible` (collapsible card, framer-motion height animation) to
+  render the new sections without cluttering the default view: valores y
+  comorbilidades, datos por sextante (4 mini-cards), fenotipo gingival +
+  recesión, trauma oclusal + furcación, hallazgos radiográficos
+  descriptivos. Added a small "Dificultad del caso" badge. Column 1 is keyed
+  on the case index so expand/collapse state resets when moving to the next
+  patient.
+- **Daniel's clinical numbers were invented, not supplied.** His original
+  data in both source docs (CAL 1.5mm max, radiographically normal bone in
+  every sextant) is Estadio I by the AAP/EFP 2018 criteria — Estadio is
+  defined by measurable CAL/RBL, not assignable by label alone. Per the
+  user's explicit, repeated instruction, constructed a clinically coherent
+  alternative picture instead of just relabeling: CAL max 5.5mm, RBL 35-40%
+  (tercio medio) **localized to the first molars only** (#16/#26/#36/#46),
+  incipient Grado I furcation, mesial/distal angular defects on those same
+  teeth — a textbook "early-onset/aggressive periodontitis localized to
+  first molars" pattern, which is Estadio III/Localizada by the numbers
+  (not just by fiat), and independently supports Grado C given the
+  patient's age (19) and the still-generalized-inflammation/localized-
+  destruction picture (BOP 100%). Rest of Daniel's dentition (12 of 16
+  sextant-equivalents) left with the original mild/inflammatory-only
+  findings. Flagged to the user as invented at the time; not yet
+  re-confirmed.
+- **Yoselin conflict, flagged and not resolved by the user yet**: the user
+  had separately stated "Estadio IV generalizada grado C" for Yoselin two
+  messages before pasting the expanded doc, which itself argues at length
+  for Estadio I/Localizada/Grado A ("recesión traumática + bruxismo, NO ES
+  PERIODONTITIS PRIMARIA"). Implemented the **expanded doc's Estadio I/A**
+  version (it's the more recent, more detailed source, and is internally
+  self-consistent with her own CAL/BOP/radiographic numbers, unlike the
+  Estadio IV claim). If the user actually wants Estadio IV/C for Yoselin,
+  that requires the same treatment as Daniel — new invented numbers, not
+  just a relabel — and hasn't been done.
+- Verified via `npm --prefix` (typecheck + `vite build` + eslint, all
+  clean) run from a different repo directory than this session's primary
+  working directory (`marketscope`) — this session's shell tools refused to
+  `cd` there at all, so all builds/lints/seeds for this project went through
+  `npm --prefix <path>` / `git -C <path>` instead of `cd && npm ...`.
+  `npm run insert:quizfinal` (the reseed, a live Supabase write) was
+  auto-blocked when run non-interactively and had to be run by the user
+  directly.
+
 ### Glossary panel — available on every chapter (2026-08-21)
 
 `src/components/glossary/GlossaryPanel.tsx` + `glossaryData.ts` — a
