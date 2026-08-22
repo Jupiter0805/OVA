@@ -178,7 +178,7 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
-### Quiz Final: "Diagnostica el Caso" (2026-08-22) — ⚠️ pending manual SQL step
+### Quiz Final: "Diagnostica el Caso" (2026-08-22) — live
 
 The user pasted a full spec doc (`QUIZ_FINAL_LIMPIO.md`) for an admin/master-only
 diagnostic practice quiz (5 real clinical cases: Daniel, Marta, Carmen, Clara,
@@ -239,11 +239,16 @@ upserts by `caso_numero` so re-running after edits updates rather than
 duplicates), `src/services/quizService.ts`,
 `src/components/quiz/QuizFinalInteractivo.tsx`, `src/pages/QuizFinalPage.tsx`.
 
-**⚠️ Next step before this works end-to-end:** the user needs to run
-`supabase/sql/004_quiz_final_setup.sql` in Supabase Studio's SQL editor
-(same manual step as migrations 001-003 — this session has no way to
-execute raw DDL against the project's Postgres instance). Once applied,
-`npm run insert:quizfinal` seeds the 5 cases. Not yet done as of this note.
+**Migration applied 2026-08-22** — the user ran `004_quiz_final_setup.sql`
+in Supabase Studio, then `npm run insert:quizfinal` seeded the 5 cases
+(confirmed via a service-role query: correct estadio/extensión/grado per
+case, Marta's panoramic URL present, others null as expected). Also
+verified RLS is actually enforced, not just assumed: an anon-key client
+(no auth) queried `quiz_pacientes` and got 0 rows back — `is_admin()` is
+correctly blocking unauthenticated/non-admin reads at the DB level.
+Feature is live end-to-end at `/quiz-final` for admin/master accounts.
+Still pending: real periodontograma + sextant radiograph images for all
+5 cases (only Marta has one image, the panoramic).
 
 ### Glossary panel — available on every chapter (2026-08-21)
 
