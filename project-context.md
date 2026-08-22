@@ -178,6 +178,73 @@ user first.
 **All 4 chapters are now content-complete.** No further chapter-content work is
 pending unless the user requests revisions or a 5th chapter.
 
+### Quiz Final: "Diagnostica el Caso" (2026-08-22) — ⚠️ pending manual SQL step
+
+The user pasted a full spec doc (`QUIZ_FINAL_LIMPIO.md`) for an admin/master-only
+diagnostic practice quiz (5 real clinical cases: Daniel, Marta, Carmen, Clara,
+Yoselin) and asked to implement it. Built following this project's actual
+conventions rather than the doc's as given — several things in the source
+spec didn't match this codebase:
+
+- **The doc's access-check used a `user_roles` table that doesn't exist in
+  this project** — this project's real role field is `profiles.user_type`
+  (student/admin/master), already gated everywhere via `AdminRoute` in
+  `App.tsx` and the `is_admin()` Postgres function from
+  `001_admin_panel_setup.sql`. Reused both instead of duplicating a custom
+  auth check inside the component — the route is wrapped in the existing
+  `<AdminRoute>`, and RLS enforces the same restriction at the DB level (the
+  doc's schema had **no RLS at all**, which would have made `quiz_pacientes`
+  and `quiz_intentos` openly readable/writable to any authenticated user
+  including students, contradicting "Bloqueado estudiantes" from the doc's
+  own spec).
+- **Renamed fields to match this course's established terminology** (the
+  same anglicism/consistency pass applied to all 4 chapters earlier):
+  `nic_maximo`→`cal_maximo`, `sondaje_maximo`→`pps_maximo`,
+  `stage_correcto`/`stage_seleccionado`→`estadio_correcto`/`estadio_seleccionado`,
+  `grade_correcto`/`grade_seleccionado`→`grado_correcto`/`grado_seleccionado`.
+  `extension_correcta`/`extension_seleccionada` were already Spanish, kept.
+- **Restyled entirely** — the doc shipped its own plain-CSS file with an
+  off-brand blue (`#0066cc`) palette; rebuilt with Tailwind + `framer-motion`
+  matching `unicoc-red` and the existing card/button conventions used
+  throughout the app (same call made for the PDFViewer component earlier).
+- **Routed through the existing service-layer pattern** (`quizService.ts`,
+  mirroring `testsService.ts`/`adminService.ts`) instead of calling
+  `supabase` directly from the component, and used `@/lib/supabase` →
+  `../../services/supabase` (the doc's import path doesn't exist in this
+  project's structure).
+- Image URLs (periodontograma + 3 radiografías per case) are genuinely
+  pending, per the doc's own note — left `null` in `quizFinalContent.js`;
+  the UI renders a dashed-border placeholder for any null URL. Update
+  directly in Supabase (or re-run the seed script after editing the content
+  file) once the images exist.
+  - **One image had already been dropped into the working tree** while this
+    was being built: `public/Marta/radiografia.png` (untracked, appeared
+    mid-task). It's a full panoramic radiograph, not a sextant-specific
+    periapical/bitewing view like the doc's 3 `radiografia_sextante_*`
+    fields assume — added a 5th image field, `radiografia_panoramica_url`,
+    rather than force-fitting it into a misleadingly-named "sextante 1
+    vestibular" slot. Renamed/moved the file to
+    `public/quiz-marta-radiografia-panoramica.png` to match this project's
+    flat-filename convention for `public/` assets (no subfolders elsewhere),
+    and wired it into Caso 2 (Marta) only — the other 4 cases have this
+    field `null` until their own images arrive.
+- Added a "Quiz Final" button next to "Admin" on `DashboardPage.tsx`
+  (admin/master-only, same `isAdmin` gate) since the doc didn't specify an
+  entry point beyond the bare `/quiz-final` route.
+
+**Files added:** `supabase/sql/004_quiz_final_setup.sql` (schema + RLS,
+**not yet applied**), `scripts/quizFinalContent.js` (the 5 cases),
+`scripts/insertQuizFinal.js` (seed script, `npm run insert:quizfinal`,
+upserts by `caso_numero` so re-running after edits updates rather than
+duplicates), `src/services/quizService.ts`,
+`src/components/quiz/QuizFinalInteractivo.tsx`, `src/pages/QuizFinalPage.tsx`.
+
+**⚠️ Next step before this works end-to-end:** the user needs to run
+`supabase/sql/004_quiz_final_setup.sql` in Supabase Studio's SQL editor
+(same manual step as migrations 001-003 — this session has no way to
+execute raw DDL against the project's Postgres instance). Once applied,
+`npm run insert:quizfinal` seeds the 5 cases. Not yet done as of this note.
+
 ### Glossary panel — available on every chapter (2026-08-21)
 
 `src/components/glossary/GlossaryPanel.tsx` + `glossaryData.ts` — a

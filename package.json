@@ -12,7 +12,8 @@
     "insert:chapter1": "node scripts/insertChapter1.js",
     "insert:chapter2": "node scripts/insertChapter2.js",
     "insert:chapter3": "node scripts/insertChapter3.js",
-    "insert:chapter4": "node scripts/insertChapter4.js"
+    "insert:chapter4": "node scripts/insertChapter4.js",
+    "insert:quizfinal": "node scripts/insertQuizFinal.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.3",

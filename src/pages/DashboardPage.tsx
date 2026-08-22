@@ -82,14 +82,24 @@ export function DashboardPage() {
           </div>
           <div className="flex items-center gap-3">
             {isAdmin && (
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/admin')}
-                className="border-2 border-unicoc-red text-unicoc-red px-8 py-3 rounded-lg font-bold hover:bg-unicoc-red hover:text-white transition"
-              >
-                Admin
-              </motion.button>
+              <>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate('/quiz-final')}
+                  className="border-2 border-unicoc-red text-unicoc-red px-8 py-3 rounded-lg font-bold hover:bg-unicoc-red hover:text-white transition"
+                >
+                  Quiz Final
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate('/admin')}
+                  className="border-2 border-unicoc-red text-unicoc-red px-8 py-3 rounded-lg font-bold hover:bg-unicoc-red hover:text-white transition"
+                >
+                  Admin
+                </motion.button>
+              </>
             )}
             <motion.button
               whileHover={{ scale: 1.05 }}

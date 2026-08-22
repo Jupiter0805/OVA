@@ -8,6 +8,7 @@ import { SignupPage } from './pages/SignupPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { ChapterPage } from './pages/ChapterPage';
 import { AdminPage } from './pages/AdminPage';
+import { QuizFinalPage } from './pages/QuizFinalPage';
 import './App.css';
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
@@ -80,6 +81,14 @@ function AppRoutes() {
         element={
           <AdminRoute>
             <AdminPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/quiz-final"
+        element={
+          <AdminRoute>
+            <QuizFinalPage />
           </AdminRoute>
         }
       />
