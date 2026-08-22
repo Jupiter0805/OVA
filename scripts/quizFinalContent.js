@@ -41,7 +41,7 @@ export const pacientes = [
     cal_maximo: 5.5,
     bop_porcentaje: 100,
     pps_maximo: 7,
-    rbl_estimado: '35-40% (tercio medio) en primeros molares; <15% en el resto de la dentición',
+    rbl_estimado: '35-40% en molares; <15% resto',
     movilidad: 'Grado I incipiente en primeros molares (#16, #26, #36, #46)',
     dientes_presentes: 32,
     dientes_ausentes: 0,
@@ -100,8 +100,8 @@ export const pacientes = [
     extension_correcta: 'Localizada',
     grado_correcto: 'C',
     notas_diagnostico:
-      'Estadio III: CAL máximo 5.5mm + RBL 35-40% (tercio medio) en primeros molares, con defectos angulares y furcación incipiente — destrucción real y significativa, no solo inflamación. Localizado (afecta específicamente primeros molares, patrón clásico de periodontitis de inicio temprano). Grado C: un paciente de 19 años con esta magnitud de destrucción ya establecida implica progresión muy rápida — la discordancia edad/severidad es, por definición, un criterio de Grado C. El BOP 100% confirma actividad inflamatoria activa consistente con progresión en curso.',
-    dificultad_caso: 'Alta — el desafío es no subestimar el Estadio solo porque el paciente es joven y la inflamación gingival domina el cuadro visible: ya existe destrucción real y localizada (CAL≥5mm, defectos angulares) en primeros molares. La discordancia edad/severidad es precisamente lo que define el Grado C.',
+      'Estadio III: CAL máximo 5.5mm + RBL 35-40% (tercio medio) en primeros molares, con defectos angulares y furcación incipiente — destrucción real y significativa, no solo inflamación. Localizado (afecta específicamente primeros molares, patrón clásico de periodontitis de inicio temprano). Grado C: un paciente de 19 años con esta magnitud de destrucción ya establecida implica progresión muy rápida — la discordancia edad/severidad es, por definición, un criterio de Grado C. El BOP 100% confirma actividad inflamatoria activa consistente con progresión en curso. Desafío del caso: no subestimar el Estadio solo porque el paciente es joven y la inflamación gingival domina el cuadro visible — ya existe destrucción real y localizada en primeros molares, y esa discordancia edad/severidad es precisamente lo que define el Grado C.',
+    dificultad_caso: 'Alta',
   },
   {
     caso_numero: 2,
@@ -188,9 +188,8 @@ export const pacientes = [
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
     notas_diagnostico:
-      'Estadio II: CAL 3-4mm en zona posteroinferior + RBL 15-25% tercio coronal + defecto angular distal a 38 + 1 diente ausente (caries, no periodontitis). Localizado (concentrado en el sextante posteroinferior). Grado B: edad 36 + sin comorbilidades + sin tabaco + control glucémico normal + higiene deficiente pero mejorable = progresión moderada esperada. El trauma oclusal secundario en 18 es un factor contribuyente, no el criterio que define el Estadio.',
-    dificultad_caso:
-      'Alta — no atribuir la ausencia de #36 a periodontitis (fue caries); reconocer el defecto angular como factor de complejidad; interpretar la movilidad en 18 como trauma oclusal secundario, no como elevador primario del Estadio; reconocer correctamente la extensión "localizada".',
+      'Estadio II: CAL 3-4mm en zona posteroinferior + RBL 15-25% tercio coronal + defecto angular distal a 38 + 1 diente ausente (caries, no periodontitis). Localizado (concentrado en el sextante posteroinferior). Grado B: edad 36 + sin comorbilidades + sin tabaco + control glucémico normal + higiene deficiente pero mejorable = progresión moderada esperada. El trauma oclusal secundario en 18 es un factor contribuyente, no el criterio que define el Estadio. Desafío del caso: no atribuir la ausencia de #36 a periodontitis (fue caries); reconocer el defecto angular como factor de complejidad; interpretar la movilidad en 18 como trauma oclusal secundario, no como elevador primario del Estadio.',
+    dificultad_caso: 'Alta',
   },
   {
     caso_numero: 3,
@@ -278,9 +277,8 @@ export const pacientes = [
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
     notas_diagnostico:
-      'Estadio IV: CAL 6.4mm + RBL >33% + defectos verticales + pérdida de 8 dientes + movilidad Grado II + furcación severa + amenaza a la dentición completa. Localizado (la pérdida se concentra en zonas posteriores, no es uniforme). Grado B: edad 70 + comorbilidades sistémicas múltiples (hipertensión, dislipidemia, apnea) + respiración oral nocturna son modificadores significativos, pero sin tabaquismo — Grado B, no C. Pronóstico pobre sin intervención urgente.',
-    dificultad_caso:
-      'Muy alta — reconocer Estadio IV por la furcación + movilidad + defectos verticales; no confundir "generalizada" porque la pérdida está concentrada en sitios posteriores; reconocer las comorbilidades como modificadores de Grado sin llegar a Grado C (no fuma); interpretar la prótesis antigua como factor contribuyente; ver el trauma oclusal secundario como consecuencia, no causa.',
+      'Estadio IV: CAL 6.4mm + RBL >33% + defectos verticales + pérdida de 8 dientes + movilidad Grado II + furcación severa + amenaza a la dentición completa. Localizado (la pérdida se concentra en zonas posteriores, no es uniforme). Grado B: edad 70 + comorbilidades sistémicas múltiples (hipertensión, dislipidemia, apnea) + respiración oral nocturna son modificadores significativos, pero sin tabaquismo — Grado B, no C. Pronóstico pobre sin intervención urgente. Desafío del caso: reconocer Estadio IV por la furcación + movilidad + defectos verticales; no confundir "generalizada" porque la pérdida está concentrada en sitios posteriores; reconocer las comorbilidades como modificadores de Grado sin llegar a Grado C (no fuma).',
+    dificultad_caso: 'Muy alta',
   },
   {
     caso_numero: 4,
@@ -309,7 +307,7 @@ export const pacientes = [
     cal_maximo: 5.4,
     bop_porcentaje: 18,
     pps_maximo: 5,
-    rbl_estimado: 'Leve a moderada (múltiples dientes con RBL distribuida)',
+    rbl_estimado: 'Leve a moderada, distribuida',
     movilidad: 'Presente en dientes posteriores (Grado I)',
     dientes_presentes: 28,
     dientes_ausentes: 4,
@@ -373,9 +371,8 @@ export const pacientes = [
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
     notas_diagnostico:
-      'Estadio III: CAL 5.4mm + RBL leve-moderada + defectos verticales pequeños + recesión generalizada + 4 dientes ausentes (2 por implantes, 2 de causa no periodontal documentada) + movilidad Grado I extensa (por trauma, no por periodontitis primaria) + implantes 45-46 estables sin periimplantitis. Localizado (concentrado en zonas posteriores, no uniforme). Grado B: edad 62 + xerostomía moderada + comorbilidades múltiples (hipertensión, reflujo, disfunción de ATM) + sin tabaco = Grado B. La movilidad extensa es por trauma oclusal secundario a la disfunción de ATM, no por periodontitis primaria severa; los implantes son un factor de complejidad añadido, pero están estables.',
-    dificultad_caso:
-      'Muy alta — reconocer Estadio III (no IV) por la ausencia de furcación y por defectos pequeños; reconocer correctamente "localizada" (no generalizada); separar el trauma oclusal de la periodontitis primaria; reconocer los implantes como complicación añadida pero no como criterio que define el Estadio; considerar xerostomía y ATM como modificadores de Grado; recordar la alergia a penicilina.',
+      'Estadio III: CAL 5.4mm + RBL leve-moderada + defectos verticales pequeños + recesión generalizada + 4 dientes ausentes (2 por implantes, 2 de causa no periodontal documentada) + movilidad Grado I extensa (por trauma, no por periodontitis primaria) + implantes 45-46 estables sin periimplantitis. Localizado (concentrado en zonas posteriores, no uniforme). Grado B: edad 62 + xerostomía moderada + comorbilidades múltiples (hipertensión, reflujo, disfunción de ATM) + sin tabaco = Grado B. La movilidad extensa es por trauma oclusal secundario a la disfunción de ATM, no por periodontitis primaria severa; los implantes son un factor de complejidad añadido, pero están estables. Desafío del caso: reconocer Estadio III (no IV) por la ausencia de furcación y por defectos pequeños; separar el trauma oclusal de la periodontitis primaria; recordar la alergia a penicilina.',
+    dificultad_caso: 'Muy alta',
   },
   {
     caso_numero: 5,
@@ -464,8 +461,7 @@ export const pacientes = [
     extension_correcta: 'Localizada',
     grado_correcto: 'A',
     notas_diagnostico:
-      'Estadio I: CAL máximo 4.4mm, pero localizado en zona anteroinferior lingual, con un patrón recesionario, no un patrón periodontal generalizado. Localizado (afecta solo la zona anteroinferior lingual). Grado A: 26 años + velocidad de progresión lenta (≈0.19mm/año) + BOP bajo (19%) + sin comorbilidades sistémicas + sin tabaco = baja velocidad de progresión esperada. El problema principal no es periodontitis severa, sino recesión traumática por bruxismo, cepillado agresivo y respiración oral. Tratamiento: corrección de la técnica de cepillado, protector nocturno para el bruxismo, posible injerto gingival a futuro.',
-    dificultad_caso:
-      'Muy alta — es el verdadero desafío diagnóstico del quiz: el caso puede parecer "grave" por las recesiones visibles, pero es Estadio I, Grado A. El estudiante debe reconocer el patrón de pérdida ósea (horizontal leve + defecto pequeño), el patrón de la CAL (lingual, no proximal), la causa real (trauma + bruxismo + técnica), y no confundirlo con periodontitis primaria. El caso enseña la importancia del patrón de pérdida ósea, no solo de la cantidad.',
+      'Estadio I: CAL máximo 4.4mm, pero localizado en zona anteroinferior lingual, con un patrón recesionario, no un patrón periodontal generalizado. Localizado (afecta solo la zona anteroinferior lingual). Grado A: 26 años + velocidad de progresión lenta (≈0.19mm/año) + BOP bajo (19%) + sin comorbilidades sistémicas + sin tabaco = baja velocidad de progresión esperada. El problema principal no es periodontitis severa, sino recesión traumática por bruxismo, cepillado agresivo y respiración oral. Tratamiento: corrección de la técnica de cepillado, protector nocturno para el bruxismo, posible injerto gingival a futuro. Este es el verdadero desafío diagnóstico del quiz: el caso puede parecer "grave" por las recesiones visibles, pero es Estadio I, Grado A — hay que reconocer el patrón de pérdida ósea y de CAL (lingual, no proximal) y no confundirlo con periodontitis primaria.',
+    dificultad_caso: 'Muy alta',
   },
 ];
