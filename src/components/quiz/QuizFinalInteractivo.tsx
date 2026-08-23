@@ -37,6 +37,32 @@ function SeccionExpandible({ titulo, children }: { titulo: string; children: Rea
   );
 }
 
+function ZoomableImage({
+  src,
+  alt,
+  className,
+  onZoom,
+}: {
+  src: string;
+  alt: string;
+  className: string;
+  onZoom: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onZoom}
+      className="group relative w-full cursor-zoom-in"
+      aria-label={`Ampliar imagen: ${alt}`}
+    >
+      <img src={src} alt={alt} className={className} />
+      <span className="absolute bottom-2 right-2 flex items-center justify-center w-7 h-7 rounded-full bg-black/60 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+        🔍
+      </span>
+    </button>
+  );
+}
+
 function ImagePlaceholder({ label, small }: { label: string; small?: boolean }) {
   return (
     <div
@@ -66,6 +92,7 @@ export function QuizFinalInteractivo() {
   const [ultimoResultado, setUltimoResultado] = useState<boolean | null>(null);
   const [puntuacion, setPuntuacion] = useState(0);
   const [completado, setCompletado] = useState(false);
+  const [imagenAmpliada, setImagenAmpliada] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
     quizService.getPacientes().then((data) => {
@@ -73,6 +100,15 @@ export function QuizFinalInteractivo() {
       setLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    if (!imagenAmpliada) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setImagenAmpliada(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [imagenAmpliada]);
 
   const pacienteActual = pacientes[indice];
 
@@ -334,10 +370,16 @@ export function QuizFinalInteractivo() {
           <div>
             <p className="text-xs font-bold text-text-dark uppercase tracking-wide mb-2">Periodontograma</p>
             {pacienteActual.periodontograma_url ? (
-              <img
+              <ZoomableImage
                 src={pacienteActual.periodontograma_url}
                 alt={`Periodontograma de ${pacienteActual.nombre}`}
                 className="w-full rounded-xl border border-border-light max-h-[400px] object-contain"
+                onZoom={() =>
+                  setImagenAmpliada({
+                    src: pacienteActual.periodontograma_url as string,
+                    alt: `Periodontograma de ${pacienteActual.nombre}`,
+                  })
+                }
               />
             ) : (
               <ImagePlaceholder label="Periodontograma" />
@@ -350,10 +392,16 @@ export function QuizFinalInteractivo() {
               {pacienteActual.radiografia_panoramica_url && (
                 <div>
                   <p className="text-xs font-semibold text-text-light mb-1">Panorámica</p>
-                  <img
+                  <ZoomableImage
                     src={pacienteActual.radiografia_panoramica_url}
-                    alt="Radiografía panorámica"
+                    alt={`Radiografía panorámica de ${pacienteActual.nombre}`}
                     className="w-full rounded-lg border border-border-light max-h-[220px] object-contain"
+                    onZoom={() =>
+                      setImagenAmpliada({
+                        src: pacienteActual.radiografia_panoramica_url as string,
+                        alt: `Radiografía panorámica de ${pacienteActual.nombre}`,
+                      })
+                    }
                   />
                 </div>
               )}
@@ -365,7 +413,12 @@ export function QuizFinalInteractivo() {
                 <div key={rad.label}>
                   <p className="text-xs font-semibold text-text-light mb-1">{rad.label}</p>
                   {rad.url ? (
-                    <img src={rad.url} alt={rad.label} className="w-full rounded-lg border border-border-light max-h-[200px] object-contain" />
+                    <ZoomableImage
+                      src={rad.url}
+                      alt={`${rad.label} de ${pacienteActual.nombre}`}
+                      className="w-full rounded-lg border border-border-light max-h-[200px] object-contain"
+                      onZoom={() => setImagenAmpliada({ src: rad.url as string, alt: `${rad.label} de ${pacienteActual.nombre}` })}
+                    />
                   ) : (
                     <ImagePlaceholder label={rad.label} small />
                   )}
@@ -486,6 +539,38 @@ export function QuizFinalInteractivo() {
           </AnimatePresence>
         </div>
       </div>
+
+      <AnimatePresence>
+        {imagenAmpliada && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setImagenAmpliada(null)}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
+          >
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              src={imagenAmpliada.src}
+              alt={imagenAmpliada.alt}
+              className="max-w-[95vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            />
+            <button
+              type="button"
+              onClick={() => setImagenAmpliada(null)}
+              aria-label="Cerrar imagen ampliada"
+              className="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors"
+            >
+              ✕
+            </button>
+            <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/70 text-sm text-center px-4">
+              {imagenAmpliada.alt}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
