@@ -7,6 +7,8 @@ import type { QuizPaciente } from '../../services/quizService';
 const ESTADIOS = [1, 2, 3, 4];
 const EXTENSIONES = ['Localizada', 'Generalizada'];
 const GRADOS = ['A', 'B', 'C'];
+const NUMEROS_ROMANOS: Record<number, string> = { 1: 'I', 2: 'II', 3: 'III', 4: 'IV' };
+const romano = (n: number) => NUMEROS_ROMANOS[n] ?? String(n);
 
 function SeccionExpandible({ titulo, children }: { titulo: string; children: ReactNode }) {
   const [abierta, setAbierta] = useState(false);
@@ -445,7 +447,7 @@ export function QuizFinalInteractivo() {
                     estadio === s ? 'bg-unicoc-red text-white border-unicoc-red' : 'border-border-light text-text-dark hover:border-unicoc-red hover:text-unicoc-red'
                   }`}
                 >
-                  Estadio {s}
+                  Estadio {romano(s)}
                 </button>
               ))}
             </div>
@@ -518,7 +520,7 @@ export function QuizFinalInteractivo() {
                 </p>
                 {!ultimoResultado && (
                   <p className="text-sm text-red-800 mb-2">
-                    Correcto: Estadio {pacienteActual.estadio_correcto}, {pacienteActual.extension_correcta}, Grado {pacienteActual.grado_correcto}.
+                    Correcto: Estadio {romano(pacienteActual.estadio_correcto)}, {pacienteActual.extension_correcta}, Grado {pacienteActual.grado_correcto}.
                   </p>
                 )}
                 {pacienteActual.notas_diagnostico && (
