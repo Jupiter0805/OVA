@@ -318,7 +318,7 @@ export const lessons = [
   </div>
 
   <h3>Los cuatro Estadios, uno por uno</h3>
-  <p>La estadificación traduce la gravedad acumulada de la destrucción periodontal y la complejidad del manejo clínico en una categoría diagnóstica. Responde a dos preguntas: cuánto daño existe y qué tan difícil será conservar o rehabilitar esa dentición. Por diseño, el Estadio <strong>no</strong> describe la velocidad de progresión — esa es función del Grado (Capítulo 3).</p>
+  <p>La estadificación traduce la severidad acumulada de la destrucción periodontal y la complejidad del manejo clínico en una categoría diagnóstica. Responde a dos preguntas: cuánto daño existe y qué tan difícil será conservar o rehabilitar esa dentición. Por diseño, el Estadio <strong>no</strong> describe la velocidad de progresión — esa es función del Grado (Capítulo 3).</p>
 
   <div class="cases">
     <div class="case-card">
@@ -510,7 +510,7 @@ export const lessons = [
   <h3>Comunicación con el paciente</h3>
   <p><strong>Evitar:</strong> "Tienes periodontitis Estadio III Grado B con modificadores."</p>
   <p><strong>Preferir:</strong> "Tienes una enfermedad de encías moderadamente severa que está progresando a un ritmo moderado. El hueso está bajando poco a poco. El cigarrillo lo está empeorando — si lo dejas, vas a mejorar mucho."</p>
-  <p>Estructura de la explicación: ¿qué tiene? → ¿qué tan grave (Estadio)? → ¿qué tan rápido progresa (Grado)? → ¿qué lo causó? → ¿qué podemos hacer? → ¿qué necesitas hacer vos?</p>
+  <p>Estructura de la explicación: ¿qué tiene? → ¿qué tan severo (Estadio)? → ¿qué tan rápido progresa (Grado)? → ¿qué lo causó? → ¿qué podemos hacer? → ¿qué necesitas hacer vos?</p>
 
   <h3>Checklist de diagnóstico completo</h3>
   <ul class="checklist">
