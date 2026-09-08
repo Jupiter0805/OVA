@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import { quizService } from '../../services/quizService';
@@ -62,6 +62,155 @@ function ZoomableImage({
         🔍
       </span>
     </button>
+  );
+}
+
+function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+  const [scale, setScale] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [interacting, setInteracting] = useState(false);
+  const pointers = useRef(new Map<number, { x: number; y: number }>());
+  const dragState = useRef<{ startOffset: { x: number; y: number }; startPoint: { x: number; y: number } } | null>(null);
+  const pinchState = useRef<{ startDist: number; startScale: number } | null>(null);
+
+  const clamp = (s: number) => Math.min(6, Math.max(1, s));
+
+  const applyScale = (next: number) => {
+    const clamped = clamp(next);
+    setScale(clamped);
+    if (clamped === 1) setOffset({ x: 0, y: 0 });
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    applyScale(scale - e.deltaY * 0.0025);
+  };
+
+  const handleDoubleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    applyScale(scale > 1 ? 1 : 2.5);
+  };
+
+  const getDistance = () => {
+    const pts = Array.from(pointers.current.values());
+    if (pts.length < 2) return 0;
+    return Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    (e.currentTarget as Element).setPointerCapture(e.pointerId);
+    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    setInteracting(true);
+    if (pointers.current.size === 2) {
+      pinchState.current = { startDist: getDistance(), startScale: scale };
+      dragState.current = null;
+    } else if (pointers.current.size === 1 && scale > 1) {
+      dragState.current = { startOffset: offset, startPoint: { x: e.clientX, y: e.clientY } };
+    }
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!pointers.current.has(e.pointerId)) return;
+    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.current.size === 2 && pinchState.current) {
+      const dist = getDistance();
+      if (pinchState.current.startDist > 0) {
+        applyScale(pinchState.current.startScale * (dist / pinchState.current.startDist));
+      }
+    } else if (dragState.current) {
+      const dx = e.clientX - dragState.current.startPoint.x;
+      const dy = e.clientY - dragState.current.startPoint.y;
+      setOffset({ x: dragState.current.startOffset.x + dx, y: dragState.current.startOffset.y + dy });
+    }
+  };
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    pointers.current.delete(e.pointerId);
+    if (pointers.current.size < 2) pinchState.current = null;
+    if (pointers.current.size === 0) {
+      dragState.current = null;
+      setInteracting(false);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 overflow-hidden"
+    >
+      <div
+        className={scale > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'}
+        onClick={(e) => e.stopPropagation()}
+        onWheel={handleWheel}
+        onDoubleClick={handleDoubleClick}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
+        style={{ touchAction: 'none' }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          draggable={false}
+          className="max-w-[95vw] max-h-[90vh] object-contain rounded-lg shadow-2xl select-none"
+          style={{
+            transform: `translate(${offset.x}px, ${offset.y}px) scale(${scale})`,
+            transition: interacting ? 'none' : 'transform 0.15s ease-out',
+          }}
+        />
+      </div>
+
+      <div
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={() => applyScale(scale - 0.5)}
+          aria-label="Alejar"
+          className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg font-bold transition-colors"
+        >
+          −
+        </button>
+        <span className="text-white/80 text-sm w-14 text-center select-none">{Math.round(scale * 100)}%</span>
+        <button
+          type="button"
+          onClick={() => applyScale(scale + 0.5)}
+          aria-label="Acercar"
+          className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg font-bold transition-colors"
+        >
+          +
+        </button>
+        {scale > 1 && (
+          <button
+            type="button"
+            onClick={() => applyScale(1)}
+            className="px-3 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors"
+          >
+            Restablecer
+          </button>
+        )}
+      </div>
+
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        aria-label="Cerrar imagen ampliada"
+        className="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors"
+      >
+        ✕
+      </button>
+
+      <p className="absolute top-4 left-4 right-16 text-white/70 text-sm">{alt}</p>
+    </motion.div>
   );
 }
 
@@ -386,46 +535,76 @@ export function QuizFinalInteractivo() {
             ) : (
               <ImagePlaceholder label="Periodontograma" />
             )}
+
+            {pacienteActual.nombre === 'Marta' && (
+              <div className="mt-2">
+                <p className="text-xs text-text-light mb-1">
+                  Periodontograma parcial — fragmentos disponibles:
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    pacienteActual.radiografia_sextante_1_vestibular,
+                    pacienteActual.radiografia_sextante_1_palatino,
+                    pacienteActual.radiografia_sextante_2_vestibular,
+                  ]
+                    .filter((url): url is string => Boolean(url))
+                    .map((url, i) => (
+                      <ZoomableImage
+                        key={url}
+                        src={url}
+                        alt={`Fragmento ${i + 1} del periodontograma de Marta`}
+                        className="w-full rounded-lg border border-border-light h-24 object-contain"
+                        onZoom={() =>
+                          setImagenAmpliada({ src: url, alt: `Fragmento ${i + 1} del periodontograma de Marta` })
+                        }
+                      />
+                    ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div>
             <p className="text-xs font-bold text-text-dark uppercase tracking-wide mb-2">Radiografías</p>
             <div className="space-y-3">
-              {pacienteActual.radiografia_panoramica_url && (
-                <div>
-                  <p className="text-xs font-semibold text-text-light mb-1">Panorámica</p>
-                  <ZoomableImage
-                    src={pacienteActual.radiografia_panoramica_url}
-                    alt={`Radiografía panorámica de ${pacienteActual.nombre}`}
-                    className="w-full rounded-lg border border-border-light max-h-[220px] object-contain"
-                    onZoom={() =>
-                      setImagenAmpliada({
-                        src: pacienteActual.radiografia_panoramica_url as string,
-                        alt: `Radiografía panorámica de ${pacienteActual.nombre}`,
-                      })
-                    }
-                  />
-                </div>
+              {pacienteActual.radiografia_panoramica_url ? (
+                <ZoomableImage
+                  src={pacienteActual.radiografia_panoramica_url}
+                  alt={`Radiografía de ${pacienteActual.nombre}`}
+                  className="w-full rounded-lg border border-border-light max-h-[220px] object-contain"
+                  onZoom={() =>
+                    setImagenAmpliada({
+                      src: pacienteActual.radiografia_panoramica_url as string,
+                      alt: `Radiografía de ${pacienteActual.nombre}`,
+                    })
+                  }
+                />
+              ) : (
+                <ImagePlaceholder label="Radiografía" />
               )}
-              {[
-                { label: 'Sextante I — Vestibular', url: pacienteActual.radiografia_sextante_1_vestibular },
-                { label: 'Sextante I — Palatino', url: pacienteActual.radiografia_sextante_1_palatino },
-                { label: 'Sextante II — Vestibular', url: pacienteActual.radiografia_sextante_2_vestibular },
-              ].map((rad) => (
-                <div key={rad.label}>
-                  <p className="text-xs font-semibold text-text-light mb-1">{rad.label}</p>
-                  {rad.url ? (
-                    <ZoomableImage
-                      src={rad.url}
-                      alt={`${rad.label} de ${pacienteActual.nombre}`}
-                      className="w-full rounded-lg border border-border-light max-h-[200px] object-contain"
-                      onZoom={() => setImagenAmpliada({ src: rad.url as string, alt: `${rad.label} de ${pacienteActual.nombre}` })}
-                    />
-                  ) : (
-                    <ImagePlaceholder label={rad.label} small />
-                  )}
-                </div>
-              ))}
+
+              {pacienteActual.nombre !== 'Marta' &&
+                [
+                  pacienteActual.radiografia_sextante_1_vestibular,
+                  pacienteActual.radiografia_sextante_1_palatino,
+                  pacienteActual.radiografia_sextante_2_vestibular,
+                ]
+                  .filter((url): url is string => Boolean(url))
+                  .map((url, i) => (
+                    <div key={url}>
+                      <p className="text-xs font-semibold text-text-light mb-1">
+                        Radiografía adicional{i > 0 ? ` ${i + 2}` : ' 2'}
+                      </p>
+                      <ZoomableImage
+                        src={url}
+                        alt={`Radiografía adicional de ${pacienteActual.nombre}`}
+                        className="w-full rounded-lg border border-border-light max-h-[200px] object-contain"
+                        onZoom={() =>
+                          setImagenAmpliada({ src: url, alt: `Radiografía adicional de ${pacienteActual.nombre}` })
+                        }
+                      />
+                    </div>
+                  ))}
             </div>
           </div>
         </div>
@@ -544,33 +723,12 @@ export function QuizFinalInteractivo() {
 
       <AnimatePresence>
         {imagenAmpliada && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setImagenAmpliada(null)}
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
-          >
-            <motion.img
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              src={imagenAmpliada.src}
-              alt={imagenAmpliada.alt}
-              className="max-w-[95vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
-            />
-            <button
-              type="button"
-              onClick={() => setImagenAmpliada(null)}
-              aria-label="Cerrar imagen ampliada"
-              className="absolute top-4 right-4 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors"
-            >
-              ✕
-            </button>
-            <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/70 text-sm text-center px-4">
-              {imagenAmpliada.alt}
-            </p>
-          </motion.div>
+          <Lightbox
+            key={imagenAmpliada.src}
+            src={imagenAmpliada.src}
+            alt={imagenAmpliada.alt}
+            onClose={() => setImagenAmpliada(null)}
+          />
         )}
       </AnimatePresence>
     </div>
