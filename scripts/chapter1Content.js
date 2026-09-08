@@ -273,6 +273,29 @@ export const lessons = [
     </div>
   </div>
 
+  <h3>Cuatro sistemas, cuatro formas de nombrar la misma enfermedad</h3>
+  <p>La tabla siguiente resume cómo las categorías diagnósticas mismas cambiaron de un sistema a otro — no solo el criterio para asignarlas.</p>
+  <div style="overflow-x:auto;">
+    <table>
+      <tr><th style="background:var(--text-light);">Año</th><th style="background:var(--text-light);">1986</th><th style="background:var(--text-light);">1989</th><th style="background:var(--text-light);">1999</th><th>2018</th></tr>
+      <tr>
+        <td><strong>Clasificación</strong></td>
+        <td style="background:var(--bg-light);">Enfoque clínico</td>
+        <td style="background:var(--bg-light);">AAP Workshop (Armitage)</td>
+        <td style="background:var(--bg-light);">Consenso AAP-EFP (Caton et al.)</td>
+        <td><strong>AAP-EFP Revisión (Tonetti et al.)</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Categorías diagnósticas</strong></td>
+        <td style="background:var(--bg-light);">Periodontitis juvenil · Periodontitis del adulto · Gingivoperiodontitis ulceronecrosante · Periodontitis refractaria</td>
+        <td style="background:var(--bg-light);">Periodontitis de inicio temprano (prepuberal, juvenil, rápidamente progresiva) · Periodontitis del adulto · Periodontitis ulceronecrosante · Periodontitis asociada a enfermedad sistémica</td>
+        <td style="background:var(--bg-light);">Periodontitis crónica · Periodontitis agresiva · Enfermedades periodontales necrosantes · Periodontitis como manifestación de enfermedades sistémicas · Periodontitis asociada a lesiones endodónticas</td>
+        <td><strong>Periodontitis por Estadio y Grado</strong> · Enfermedades periodontales necrosantes · Lesión endo-periodontal · Absceso periodontal</td>
+      </tr>
+    </table>
+  </div>
+  <p style="font-size:0.9rem;color:var(--text-light);">La columna 2018 es la única vigente — las categorías de 1986/1989/1999 se citan aquí solo como contexto histórico, no deben usarse para diagnosticar.</p>
+
   <h3>Los datos que forzaron el cambio (2000-2018)</h3>
   <div class="evidence-cards">
     <div class="card">

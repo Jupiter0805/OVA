@@ -178,6 +178,12 @@ export const lessons = [
     </ul>
   </div>
 
+  <h3>Aspecto clínico de la furcación</h3>
+  <figure class="embedded-figure">
+    <img src="/Cap2_l3.jpeg" alt="Exploración clínica de una furcación con sonda curva desde el área bucal y desde el área lingual/palatina" />
+    <figcaption>Exploración de una furcación con sonda curva. <strong>A y B (área bucal):</strong> la sonda entra por la cara bucal; el punto oscuro marca la entrada a la furcación. <strong>C, D y E (área lingual/palatino):</strong> el mismo defecto explorado desde la cara lingual/palatina — se identifica la raíz palatina y el asterisco (*) marca el punto de entrada de la sonda en cada toma. Solo una sonda curva (tipo Naber) alcanza este espacio interradicular; en boca, esta zona es prácticamente invisible sin cirugía.</figcaption>
+  </figure>
+
   <figure class="embedded-figure">
     <img src="/sonda-naber.jpeg" alt="Sonda de Naber, sonda curva de doble extremo usada para explorar furcaciones" style="max-width: 220px;" />
     <figcaption>Sonda de Naber — su extremo curvo permite acceder al espacio interradicular de la furcación, algo que una sonda periodontal recta convencional no logra.</figcaption>
