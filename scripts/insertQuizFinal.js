@@ -72,10 +72,10 @@ async function main() {
     .sort((a, b) => a.caso_numero - b.caso_numero)
     .forEach((p) => console.log(`   ├─ Caso ${p.caso_numero}: ${p.nombre}`));
 
-  const pending = pacientes.filter((p) => !p.periodontograma_url).length;
+  const pending = pacientes.filter((p) => (p.periodontograma_urls || []).length === 0).length;
   if (pending > 0) {
     console.log(
-      `\n⚠️  ${pending} de ${pacientes.length} casos todavía no tienen URLs de imágenes (periodontograma/radiografías) — la UI muestra un placeholder hasta que se actualicen en Supabase.`,
+      `\n⚠️  ${pending} de ${pacientes.length} casos todavía no tienen periodontograma — la UI muestra un placeholder hasta que se actualice en Supabase.`,
     );
   }
 }
