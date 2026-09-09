@@ -43,7 +43,6 @@ export interface QuizPaciente {
   dificultad_caso: string | null;
   periodontograma_urls: { label: string; url: string }[] | null;
   radiografia_urls: { label: string; url: string }[] | null;
-  fotos_clinicas_urls: { label: string; url: string }[] | null;
   estadio_correcto: number;
   extension_correcta: string;
   grado_correcto: string;

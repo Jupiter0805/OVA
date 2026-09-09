@@ -563,32 +563,6 @@ export function QuizFinalInteractivo() {
               );
             })()}
           </div>
-
-          {pacienteActual.fotos_clinicas_urls && pacienteActual.fotos_clinicas_urls.length > 0 && (
-            <div>
-              <p className="text-xs font-bold text-text-dark uppercase tracking-wide mb-2">Fotografías clínicas</p>
-              {(() => {
-                const fotos = pacienteActual.fotos_clinicas_urls;
-                return (
-                  <div className={fotos.length > 1 ? 'grid grid-cols-2 gap-2' : ''}>
-                    {fotos.map(({ label, url }) => (
-                      <div key={url}>
-                        {fotos.length > 1 && (
-                          <p className="text-xs font-semibold text-text-light mb-1">{label}</p>
-                        )}
-                        <ZoomableImage
-                          src={url}
-                          alt={`${label} de ${pacienteActual.nombre}`}
-                          className="w-full rounded-lg border border-border-light max-h-[220px] object-contain"
-                          onZoom={() => setImagenAmpliada({ src: url, alt: `${label} de ${pacienteActual.nombre}` })}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                );
-              })()}
-            </div>
-          )}
         </div>
 
         {/* Columna 3: selectores + resultado */}

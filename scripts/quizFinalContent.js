@@ -36,13 +36,26 @@
 //
 // Image fields (2026-09-09, migration 006): switched every case from the
 // old fixed periodontograma_url/radiografia_panoramica_url/
-// radiografia_sextante_* columns to periodontograma_urls/radiografia_urls/
-// fotos_clinicas_urls — jsonb arrays of {label, url}. Forced by the 6 new
-// cases: several have the periodontogram split into separate superior/
-// inferior files, a variable-length radiograph series (up to 6 images),
-// and clinical photographs, none of which fit the old fixed slots. The
-// old columns are left populated as null going forward but not removed
-// (no migration drops them).
+// radiografia_sextante_* columns to periodontograma_urls/radiografia_urls —
+// jsonb arrays of {label, url}. Forced by the 6 new cases: several have the
+// periodontogram split into separate superior/inferior files and a
+// variable-length radiograph series (up to 9 images). The old columns are
+// left populated as null going forward but not removed (no migration drops
+// them).
+//
+// fotos_clinicas_urls (added same day for a "clinical photos" category,
+// removed later that day per the user: "las fotos clinicas las
+// quitaremos") — every case's clinical photo files were deleted from
+// public/ and the field dropped from every case object, the QuizPaciente
+// interface, and the UI. The quiz_pacientes.fotos_clinicas_urls column
+// itself is left in place (unused) rather than migrated away, same
+// treatment as the older deprecated single-URL columns.
+//
+// 2026-09-09 (later same day): Ricardo Peña, Camila Duarte and Marcela
+// Ortiz got real radiografia_urls (6, 6, and 9 images respectively) to
+// replace their earlier empty arrays, and Santiago Rueda's periodontograma
+// image file was replaced with an updated version (same filename, no code
+// change needed).
 
 export const pacientes = [
   {
@@ -124,7 +137,6 @@ export const pacientes = [
     radiografia_urls: [
       { label: 'Radiografía', url: '/Daniel/radiografia_daniel.jpeg' },
     ],
-    fotos_clinicas_urls: [],
     estadio_correcto: 3,
     extension_correcta: 'Localizada',
     grado_correcto: 'C',
@@ -216,7 +228,6 @@ export const pacientes = [
       { label: 'Radiografía', url: '/Carmen/carmen-radiografia.png' },
       { label: 'Radiografía adicional', url: '/Carmen/radiografia2_carmen.jpeg' },
     ],
-    fotos_clinicas_urls: [],
     estadio_correcto: 4,
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
@@ -313,7 +324,6 @@ export const pacientes = [
       { label: 'Radiografía', url: '/Clara/clara-radiografia.png' },
       { label: 'Radiografía adicional', url: '/Clara/radiografia2_clara.jpeg' },
     ],
-    fotos_clinicas_urls: [],
     estadio_correcto: 3,
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
@@ -405,7 +415,6 @@ export const pacientes = [
     radiografia_urls: [
       { label: 'Radiografía', url: '/Yoselin/radiografia_yoselin.jpeg' },
     ],
-    fotos_clinicas_urls: [],
     estadio_correcto: 1,
     extension_correcta: 'Localizada',
     grado_correcto: 'A',
@@ -493,10 +502,6 @@ export const pacientes = [
     ],
     radiografia_urls: [
       { label: 'Radiografía panorámica', url: '/Santiago Rueda/radiografia_panoramica.png' },
-    ],
-    fotos_clinicas_urls: [
-      { label: 'Foto clínica 1', url: '/Santiago Rueda/foto_clinica_1.jpg' },
-      { label: 'Foto clínica 2', url: '/Santiago Rueda/foto_clinica_2.jpg' },
     ],
     estadio_correcto: 1,
     extension_correcta: 'Localizada',
@@ -593,9 +598,6 @@ export const pacientes = [
       { label: 'Radiografía 5', url: '/Mateo Salcedo/radiografias/slide26_5.png' },
       { label: 'Radiografía 6', url: '/Mateo Salcedo/radiografias/slide26_6.png' },
     ],
-    fotos_clinicas_urls: [
-      { label: 'Foto clínica', url: '/Mateo Salcedo/foto_clinica.png' },
-    ],
     estadio_correcto: 3,
     extension_correcta: 'Localizada',
     grado_correcto: 'C',
@@ -691,10 +693,6 @@ export const pacientes = [
       { label: 'Radiografía 5', url: '/Alvaro restrepo/radiografias/slide11_5.png' },
       { label: 'Radiografía 6', url: '/Alvaro restrepo/radiografias/slide11_6.png' },
     ],
-    fotos_clinicas_urls: [
-      { label: 'Foto frontal', url: '/Alvaro restrepo/foto_frontal.png' },
-      { label: 'Foto oclusal', url: '/Alvaro restrepo/foto_oclusal.png' },
-    ],
     estadio_correcto: 3,
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
@@ -782,10 +780,13 @@ export const pacientes = [
       { label: 'Periodontograma superior', url: '/Ricardo Peña/periodontograma_superior.png' },
       { label: 'Periodontograma inferior', url: '/Ricardo Peña/periodontograma_inferior.png' },
     ],
-    radiografia_urls: [],
-    fotos_clinicas_urls: [
-      { label: 'Foto clínica 1', url: '/Ricardo Peña/foto_clinica_1.png' },
-      { label: 'Foto clínica 2', url: '/Ricardo Peña/foto_clinica_2.png' },
+    radiografia_urls: [
+      { label: 'Radiografía 1', url: '/Ricardo Peña/radiografias/slide16_1.png' },
+      { label: 'Radiografía 2', url: '/Ricardo Peña/radiografias/slide16_2.png' },
+      { label: 'Radiografía 3', url: '/Ricardo Peña/radiografias/slide16_3.png' },
+      { label: 'Radiografía 4', url: '/Ricardo Peña/radiografias/slide16_4.png' },
+      { label: 'Radiografía 5', url: '/Ricardo Peña/radiografias/slide16_5.png' },
+      { label: 'Radiografía 6', url: '/Ricardo Peña/radiografias/slide16_6.png' },
     ],
     estadio_correcto: 3,
     extension_correcta: 'Generalizada',
@@ -874,9 +875,13 @@ export const pacientes = [
       { label: 'Periodontograma superior', url: '/Camila Duarte/periodontograma_superior.png' },
       { label: 'Periodontograma inferior', url: '/Camila Duarte/periodontograma_inferior.png' },
     ],
-    radiografia_urls: [],
-    fotos_clinicas_urls: [
-      { label: 'Foto clínica', url: '/Camila Duarte/foto_clinica.png' },
+    radiografia_urls: [
+      { label: 'Radiografía 1', url: '/Camila Duarte/radiografias/slide37_1.png' },
+      { label: 'Radiografía 2', url: '/Camila Duarte/radiografias/slide37_2.png' },
+      { label: 'Radiografía 3', url: '/Camila Duarte/radiografias/slide37_3.png' },
+      { label: 'Radiografía 4', url: '/Camila Duarte/radiografias/slide37_4.png' },
+      { label: 'Radiografía 5', url: '/Camila Duarte/radiografias/slide37_5.png' },
+      { label: 'Radiografía 6', url: '/Camila Duarte/radiografias/slide37_6.png' },
     ],
     estadio_correcto: 4,
     extension_correcta: 'Localizada',
@@ -964,9 +969,16 @@ export const pacientes = [
     periodontograma_urls: [
       { label: 'Periodontograma', url: '/Marcela Ortiz/periodontograma_completo.png' },
     ],
-    radiografia_urls: [],
-    fotos_clinicas_urls: [
-      { label: 'Foto clínica', url: '/Marcela Ortiz/foto_clinica.jpg' },
+    radiografia_urls: [
+      { label: 'Radiografía 1', url: '/Marcela Ortiz/radiografias/slide67_1.jpg' },
+      { label: 'Radiografía 2', url: '/Marcela Ortiz/radiografias/slide67_2.jpg' },
+      { label: 'Radiografía 3', url: '/Marcela Ortiz/radiografias/slide67_3.jpg' },
+      { label: 'Radiografía 4', url: '/Marcela Ortiz/radiografias/slide67_4.jpg' },
+      { label: 'Radiografía 5', url: '/Marcela Ortiz/radiografias/slide67_5.jpg' },
+      { label: 'Radiografía 6', url: '/Marcela Ortiz/radiografias/slide67_6.jpg' },
+      { label: 'Radiografía 7', url: '/Marcela Ortiz/radiografias/slide67_7.jpg' },
+      { label: 'Radiografía 8', url: '/Marcela Ortiz/radiografias/slide67_8.jpg' },
+      { label: 'Radiografía 9', url: '/Marcela Ortiz/radiografias/slide67_9.jpg' },
     ],
     estadio_correcto: 4,
     extension_correcta: 'Generalizada',
