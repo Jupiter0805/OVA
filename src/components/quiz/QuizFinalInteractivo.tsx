@@ -535,33 +535,6 @@ export function QuizFinalInteractivo() {
             ) : (
               <ImagePlaceholder label="Periodontograma" />
             )}
-
-            {pacienteActual.nombre === 'Marta' && (
-              <div className="mt-2">
-                <p className="text-xs text-text-light mb-1">
-                  Periodontograma parcial — fragmentos disponibles:
-                </p>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    pacienteActual.radiografia_sextante_1_vestibular,
-                    pacienteActual.radiografia_sextante_1_palatino,
-                    pacienteActual.radiografia_sextante_2_vestibular,
-                  ]
-                    .filter((url): url is string => Boolean(url))
-                    .map((url, i) => (
-                      <ZoomableImage
-                        key={url}
-                        src={url}
-                        alt={`Fragmento ${i + 1} del periodontograma de Marta`}
-                        className="w-full rounded-lg border border-border-light h-24 object-contain"
-                        onZoom={() =>
-                          setImagenAmpliada({ src: url, alt: `Fragmento ${i + 1} del periodontograma de Marta` })
-                        }
-                      />
-                    ))}
-                </div>
-              </div>
-            )}
           </div>
 
           <div>
@@ -583,14 +556,13 @@ export function QuizFinalInteractivo() {
                 <ImagePlaceholder label="Radiografía" />
               )}
 
-              {pacienteActual.nombre !== 'Marta' &&
-                [
-                  pacienteActual.radiografia_sextante_1_vestibular,
-                  pacienteActual.radiografia_sextante_1_palatino,
-                  pacienteActual.radiografia_sextante_2_vestibular,
-                ]
-                  .filter((url): url is string => Boolean(url))
-                  .map((url, i) => (
+              {[
+                pacienteActual.radiografia_sextante_1_vestibular,
+                pacienteActual.radiografia_sextante_1_palatino,
+                pacienteActual.radiografia_sextante_2_vestibular,
+              ]
+                .filter((url): url is string => Boolean(url))
+                .map((url, i) => (
                     <div key={url}>
                       <p className="text-xs font-semibold text-text-light mb-1">
                         Radiografía adicional{i > 0 ? ` ${i + 2}` : ' 2'}

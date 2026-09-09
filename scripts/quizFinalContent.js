@@ -1,7 +1,8 @@
-// Data for the Quiz Final ("Diagnostica el Caso") — 5 real de-identified
-// clinical cases, expanded 2026-08-22 with per-sextant findings, gingival
-// phenotype/recession, occlusal trauma, furcation, descriptive radiographic
-// findings and case difficulty. Consumed by insertQuizFinal.js.
+// Data for the Quiz Final ("Diagnostica el Caso") — 4 real de-identified
+// clinical cases (Marta removed 2026-09-09, unusable per the user), with
+// per-sextant findings, gingival phenotype/recession, occlusal trauma,
+// furcation, descriptive radiographic findings and case difficulty.
+// Consumed by insertQuizFinal.js.
 //
 // Field names translated to match this course's established terminology
 // (cal not nic, pps not sondaje, estadio/grado not stage/grade) — including
@@ -13,9 +14,14 @@
 // that Daniel must be Estadio III — see project-context.md for the exact
 // values invented and why. Everyone else's numbers are as supplied.
 //
-// Image URLs are null except Marta's panoramic radiograph (already placed
-// in public/ before this expansion). Update directly in Supabase (or
-// re-run the seed script after editing this file) once more images exist.
+// `rbl_estimado` (2026-09-09): the user supplied one whole-mouth RBL % per
+// case (Daniel 15, Carmen 30, Clara 50, Yoselin 5). Where that headline
+// number sits below a stated per-sextant/localized figure already in the
+// case (Daniel's 35-40% in molars, Carmen's >33% "severe" description),
+// kept both — the localized figure explains the focal destruction driving
+// the Estadio, the new number is the whole-mouth average. Carmen's Estadio
+// IV no longer needs RBL>=33% to hold since her tooth-loss count (8) alone
+// satisfies that criterion per the AAP/EFP table.
 
 export const pacientes = [
   {
@@ -41,7 +47,7 @@ export const pacientes = [
     cal_maximo: 5.5,
     bop_porcentaje: 100,
     pps_maximo: 7,
-    rbl_estimado: '35-40% en molares; <15% resto',
+    rbl_estimado: '15% general (35-40% en molares)',
     movilidad: 'Grado I incipiente en primeros molares (#16, #26, #36, #46)',
     dientes_presentes: 32,
     dientes_ausentes: 0,
@@ -104,94 +110,6 @@ export const pacientes = [
     dificultad_caso: 'Alta',
   },
   {
-    caso_numero: 2,
-    nombre: 'Marta',
-    edad: 36,
-    sexo: 'Femenino',
-    ocupacion: 'Niñera',
-    razon_consulta: 'Vengo a que revisen mi implante',
-    antecedentes_sistemicos:
-      'Ninguno sistémico. Antecedentes obstétricos: ligadura tubaria (2016), quiste ovárico izquierdo (2015).',
-    valores_comorbilidades: {
-      tension_arterial: '115/75 mmHg (normal)',
-      frecuencia_cardiaca: '68 lpm',
-      imc: 23.1,
-      estado_nutricion: 'Normopeso',
-      control_glucemico: 'No diabética (glucemia en ayuno 95 mg/dL)',
-    },
-    medicamentos: 'Anticoncepción hormonal',
-    habitos: 'Dieta equilibrada, higiene oral 1x/día (insuficiente), uso inconsistente de hilo dental',
-    antecedentes_quirurgicos: 'Exodoncia #36 por caries extensa (2012)',
-    alergias: 'No refiere',
-    hallazgos_principales:
-      'Diente #36 ausente desde 2012 (exodoncia por caries). Sangrado selectivo al sondaje en zona distal. Edema selectivo distal 37-38. Recesión gingival moderada en zona posteroinferior izquierda. Sin edema generalizado. Margen gingival festoneado en molar 37.',
-    cal_maximo: 6.4,
-    bop_porcentaje: 25,
-    pps_maximo: 7,
-    rbl_estimado: '15-25% (tercio coronal, horizontal)',
-    movilidad: 'Grado I en diente 18 (molar superior derecho)',
-    dientes_presentes: 31,
-    dientes_ausentes: 1,
-    dientes_ausentes_lista: '#36 (caries, no periodontitis)',
-    datos_sextantes: {
-      sextante_1: {
-        nombre: 'Anterosuperior',
-        cal_maximo: 2.0,
-        bop: 10,
-        pps_maximo: 3,
-        hallazgos: 'Sin sangrado. Encía rosa. Margen normal.',
-      },
-      sextante_2: {
-        nombre: 'Posterosuperior',
-        cal_maximo: 3.5,
-        bop: 30,
-        pps_maximo: 5,
-        hallazgos: 'Sangrado selectivo distal en 18. Movilidad Grado I en 18. RBL 20%.',
-      },
-      sextante_3: {
-        nombre: 'Posteroinferior',
-        cal_maximo: 6.4,
-        bop: 40,
-        pps_maximo: 7,
-        hallazgos: 'Zona crítica. CAL profunda en zona distal de 37-38. Recesión RT2. RBL 25% tercio coronal.',
-      },
-      sextante_4: {
-        nombre: 'Anteroinferior',
-        cal_maximo: 2.2,
-        bop: 15,
-        pps_maximo: 3,
-        hallazgos: 'Normal. Sin sangrado. Encía firme.',
-      },
-    },
-    fenotipo_gingival: 'Medio, festoneado',
-    recesion_gingival: { presente: true, zonas: 'RT2 en dientes 37-38 (lingual), RT1 distal 37' },
-    trauma_oclusal_primario: 'No presente',
-    trauma_oclusal_secundario: 'Presente en diente 18 (movilidad Grado I)',
-    furcacion_presente: false,
-    furcacion_detalle: 'N/A',
-    hallazgos_radiograficos:
-      'RBL horizontal moderada en molares inferiores (15-25%). Ligamento periodontal ensanchado en diente 18 (trauma oclusal secundario). Relación corona-raíz comprometida en 37-38 (~1:1). Cresta ósea angular distal a 38. Densidad ósea normal. Sin lesiones apicales.',
-    patron_perdida_osea: 'Horizontal moderada + defecto angular distal a 38',
-    ligamento_periodontal_estado: 'Ensanchado en 18 (~2.5-3mm) por trauma; normal en el resto',
-    otros_hallazgos: {
-      zona_critica: 'Sextante posteroinferior izquierdo',
-      factor_contribuyente: 'Higiene oral deficiente (1x/día) + ausencia de #36 + trauma oclusal secundario en 18',
-      relacion_corona_raiz: 'Comprometida en molares inferiores',
-      duracion_estimada: 'Progresión crónica de aproximadamente 10 años (desde la exodoncia en 2012)',
-    },
-    periodontograma_url: '/Marta/marta-periodontograma.png',
-    radiografia_panoramica_url: '/Marta/quiz-marta-radiografia-panoramica.png',
-    radiografia_sextante_1_vestibular: '/Marta/marta-vestibular-I.png',
-    radiografia_sextante_1_palatino: '/Marta/marta-palatino-I.png',
-    radiografia_sextante_2_vestibular: '/Marta/marta-vestibular-II.png',
-    estadio_correcto: 2,
-    extension_correcta: 'Localizada',
-    grado_correcto: 'B',
-    notas_diagnostico:
-      'Estadio II: CAL 3-4mm en zona posteroinferior + RBL 15-25% tercio coronal + defecto angular distal a 38 + 1 diente ausente (caries, no periodontitis). Localizado (concentrado en el sextante posteroinferior). Grado B: edad 36 + sin comorbilidades + sin tabaco + control glucémico normal + higiene deficiente pero mejorable = progresión moderada esperada. El trauma oclusal secundario en 18 es un factor contribuyente, no el criterio que define el Estadio. Desafío del caso: no atribuir la ausencia de #36 a periodontitis (fue caries); reconocer el defecto angular como factor de complejidad; interpretar la movilidad en 18 como trauma oclusal secundario, no como elevador primario del Estadio.',
-    dificultad_caso: 'Alta',
-  },
-  {
     caso_numero: 3,
     nombre: 'Carmen',
     edad: 70,
@@ -217,7 +135,7 @@ export const pacientes = [
     cal_maximo: 6.4,
     bop_porcentaje: 47,
     pps_maximo: 6,
-    rbl_estimado: '>33% (horizontal severa + defectos verticales)',
+    rbl_estimado: '30% general (severa, defectos verticales)',
     movilidad: 'Diente 33 Grado II, diente 32 Grado I, dientes 44-45 presentes pero comprometidos',
     dientes_presentes: 24,
     dientes_ausentes: 8,
@@ -259,8 +177,8 @@ export const pacientes = [
     furcacion_presente: true,
     furcacion_detalle: 'Grado 2-3 en molares remanentes, muy comprometidos',
     hallazgos_radiograficos:
-      'RBL horizontal severa >33% en todos los sextantes. Pérdida ósea generalizada. Defectos verticales en zonas posteriores inferiores. Ligamento periodontal ensanchado en dientes móviles (32, 33). Relación corona-raíz severamente comprometida (~0.5:1 en molares). Densidad ósea baja (compatible con edad y comorbilidades). Cálculo subgingival generalizado visible radiográficamente.',
-    patron_perdida_osea: 'Horizontal severa (>33%) + defectos verticales en zonas posteriores inferiores',
+      'RBL horizontal severa (~30% general) en todos los sextantes. Pérdida ósea generalizada. Defectos verticales en zonas posteriores inferiores. Ligamento periodontal ensanchado en dientes móviles (32, 33). Relación corona-raíz severamente comprometida (~0.5:1 en molares). Densidad ósea baja (compatible con edad y comorbilidades). Cálculo subgingival generalizado visible radiográficamente.',
+    patron_perdida_osea: 'Horizontal severa (~30%) + defectos verticales en zonas posteriores inferiores',
     ligamento_periodontal_estado: 'Ensanchado generalizado 2-3mm por trauma, especialmente en 32 y 33',
     otros_hallazgos: {
       factores_sistemicos: 'Hipertensión, dislipidemia, respiración oral (apnea)',
@@ -277,7 +195,7 @@ export const pacientes = [
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
     notas_diagnostico:
-      'Estadio IV: CAL 6.4mm + RBL >33% + defectos verticales + pérdida de 8 dientes + movilidad Grado II + furcación severa + amenaza a la dentición completa. Localizado (la pérdida se concentra en zonas posteriores, no es uniforme). Grado B: edad 70 + comorbilidades sistémicas múltiples (hipertensión, dislipidemia, apnea) + respiración oral nocturna son modificadores significativos, pero sin tabaquismo — Grado B, no C. Pronóstico pobre sin intervención urgente. Desafío del caso: reconocer Estadio IV por la furcación + movilidad + defectos verticales; no confundir "generalizada" porque la pérdida está concentrada en sitios posteriores; reconocer las comorbilidades como modificadores de Grado sin llegar a Grado C (no fuma).',
+      'Estadio IV: CAL 6.4mm + RBL 30% general (por debajo del ≥33% de la tabla oficial por sí solo, pero la pérdida de 8 dientes atribuible a periodontitis ya define Estadio IV independientemente del RBL) + defectos verticales + movilidad Grado II + furcación severa + amenaza a la dentición completa. Localizado (la pérdida se concentra en zonas posteriores, no es uniforme). Grado B: edad 70 + comorbilidades sistémicas múltiples (hipertensión, dislipidemia, apnea) + respiración oral nocturna son modificadores significativos, pero sin tabaquismo — Grado B, no C. Pronóstico pobre sin intervención urgente. Desafío del caso: reconocer Estadio IV por la furcación + movilidad + defectos verticales; no confundir "generalizada" porque la pérdida está concentrada en sitios posteriores; reconocer las comorbilidades como modificadores de Grado sin llegar a Grado C (no fuma).',
     dificultad_caso: 'Muy alta',
   },
   {
@@ -307,7 +225,7 @@ export const pacientes = [
     cal_maximo: 5.4,
     bop_porcentaje: 18,
     pps_maximo: 5,
-    rbl_estimado: 'Leve a moderada, distribuida',
+    rbl_estimado: '50% general, distribuida',
     movilidad: 'Presente en dientes posteriores (Grado I)',
     dientes_presentes: 28,
     dientes_ausentes: 4,
@@ -325,7 +243,7 @@ export const pacientes = [
         cal_maximo: 4.5,
         bop: 20,
         pps_maximo: 4,
-        hallazgos: 'RBL leve-moderada. Diente 16 con trauma oclusal secundario (movilidad Grado I).',
+        hallazgos: 'RBL extensa (~50%). Diente 16 con trauma oclusal secundario (movilidad Grado I).',
       },
       sextante_3: {
         nombre: 'Posteroinferior',
@@ -352,8 +270,8 @@ export const pacientes = [
     furcacion_presente: false,
     furcacion_detalle: 'N/A',
     hallazgos_radiograficos:
-      'RBL leve a moderada, horizontal. Múltiples defectos verticales, no profundos. Recesión gingival observable radiográficamente. Implantes 45-46 con cresta ósea circundante normal (~2-3mm). Ligamento periodontal ensanchado en múltiples dientes (trauma oclusal secundario). Relación corona-raíz comprometida en molares (~1:1). Densidad ósea normal para la edad. Sin lesiones apicales.',
-    patron_perdida_osea: 'Horizontal leve a moderada, distribuida, + defectos verticales pequeños',
+      'RBL 50% general, horizontal. Múltiples defectos verticales, no profundos. Recesión gingival observable radiográficamente. Implantes 45-46 con cresta ósea circundante normal (~2-3mm). Ligamento periodontal ensanchado en múltiples dientes (trauma oclusal secundario). Relación corona-raíz comprometida en molares (~1:1). Densidad ósea normal para la edad. Sin lesiones apicales.',
+    patron_perdida_osea: 'Horizontal extensa (50%), distribuida, + defectos verticales pequeños',
     ligamento_periodontal_estado: 'Ensanchado 2-3mm, generalizado en molares y posteriores, por trauma oclusal crónico',
     otros_hallazgos: {
       factor_atm: 'Disfunción de ATM bilateral con crepitación y probable desplazamiento discal',
@@ -371,7 +289,7 @@ export const pacientes = [
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
     notas_diagnostico:
-      'Estadio III: CAL 5.4mm + RBL leve-moderada + defectos verticales pequeños + recesión generalizada + 4 dientes ausentes (2 por implantes, 2 de causa no periodontal documentada) + movilidad Grado I extensa (por trauma, no por periodontitis primaria) + implantes 45-46 estables sin periimplantitis. Localizado (concentrado en zonas posteriores, no uniforme). Grado B: edad 62 + xerostomía moderada + comorbilidades múltiples (hipertensión, reflujo, disfunción de ATM) + sin tabaco = Grado B. La movilidad extensa es por trauma oclusal secundario a la disfunción de ATM, no por periodontitis primaria severa; los implantes son un factor de complejidad añadido, pero están estables. Desafío del caso: reconocer Estadio III (no IV) por la ausencia de furcación y por defectos pequeños; separar el trauma oclusal de la periodontitis primaria; recordar la alergia a penicilina.',
+      'Estadio III: CAL 5.4mm + RBL 50% general + defectos verticales pequeños + recesión generalizada + 4 dientes ausentes (2 por implantes, 2 de causa no periodontal documentada) + movilidad Grado I extensa (por trauma, no por periodontitis primaria) + implantes 45-46 estables sin periimplantitis. Localizado (concentrado en zonas posteriores, no uniforme). Grado B: edad 62 + xerostomía moderada + comorbilidades múltiples (hipertensión, reflujo, disfunción de ATM) + sin tabaco = Grado B. La movilidad extensa es por trauma oclusal secundario a la disfunción de ATM, no por periodontitis primaria severa; los implantes son un factor de complejidad añadido, pero están estables. Desafío del caso: reconocer Estadio III (no IV) por la ausencia de furcación y por defectos pequeños; separar el trauma oclusal de la periodontitis primaria; recordar la alergia a penicilina.',
     dificultad_caso: 'Muy alta',
   },
   {
@@ -400,7 +318,7 @@ export const pacientes = [
     cal_maximo: 4.4,
     bop_porcentaje: 19,
     pps_maximo: 5,
-    rbl_estimado: 'Leve a moderada, horizontal (sin RBL severa)',
+    rbl_estimado: '5% general, horizontal (leve, sin RBL severa)',
     movilidad: 'No reportada — dientes firmes',
     dientes_presentes: 28,
     dientes_ausentes: 0,

@@ -1,4 +1,4 @@
-// Seeds the 5 Quiz Final clinical cases into Supabase. Run once (or
+// Seeds the Quiz Final clinical cases into Supabase. Run once (or
 // re-run to reset/update the cases) via `npm run insert:quizfinal`.
 // Requires supabase/sql/004_quiz_final_setup.sql to have been applied
 // already (creates quiz_pacientes / quiz_intentos + RLS).
@@ -23,6 +23,37 @@ async function main() {
   });
 
   console.log(`📝 Insertando/actualizando ${pacientes.length} casos del Quiz Final...`);
+
+  // Delete any case no longer present in quizFinalContent.js (e.g. Marta,
+  // removed 2026-09-09) — upsert alone never removes stale rows. Cascades
+  // to quiz_intentos via the FK, same reset-on-content-change behavior as
+  // the chapter reseed scripts.
+  const currentCasoNumeros = pacientes.map((p) => p.caso_numero);
+  const { data: stale, error: staleError } = await supabase
+    .from('quiz_pacientes')
+    .select('id, caso_numero, nombre')
+    .not('caso_numero', 'in', `(${currentCasoNumeros.join(',')})`);
+
+  if (staleError) {
+    console.error('❌ Error buscando casos obsoletos:', staleError.message);
+    process.exit(1);
+  }
+
+  if (stale.length > 0) {
+    const { error: deleteError } = await supabase
+      .from('quiz_pacientes')
+      .delete()
+      .in('id', stale.map((s) => s.id));
+
+    if (deleteError) {
+      console.error('❌ Error eliminando casos obsoletos:', deleteError.message);
+      process.exit(1);
+    }
+
+    console.log(
+      `🗑️  Eliminados ${stale.length} caso(s) obsoleto(s): ${stale.map((s) => s.nombre).join(', ')}`,
+    );
+  }
 
   // Upsert by caso_numero so re-running this after editing quizFinalContent.js
   // updates existing rows instead of duplicating them.

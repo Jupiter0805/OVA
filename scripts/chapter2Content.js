@@ -318,7 +318,7 @@ export const lessons = [
   </div>
 
   <h3>Los cuatro Estadios, uno por uno</h3>
-  <p>La estadificación traduce la severidad acumulada de la destrucción periodontal y la complejidad del manejo clínico en una categoría diagnóstica. Responde a dos preguntas: cuánto daño existe y qué tan difícil será conservar o rehabilitar esa dentición. Por diseño, el Estadio <strong>no</strong> describe la velocidad de progresión — esa es función del Grado (Capítulo 3).</p>
+  <p>La estadificación traduce la gravedad acumulada de la destrucción periodontal y la complejidad del manejo clínico en una categoría diagnóstica. Responde a dos preguntas: cuánto daño existe y qué tan difícil será conservar o rehabilitar esa dentición. Por diseño, el Estadio <strong>no</strong> describe la velocidad de progresión — esa es función del Grado (Capítulo 3).</p>
 
   <div class="cases">
     <div class="case-card">
@@ -345,7 +345,7 @@ export const lessons = [
   <table>
     <tr><th></th><th></th><th>Estadio I</th><th>Estadio II</th><th>Estadio III</th><th>Estadio IV</th></tr>
     <tr>
-      <td rowspan="3"><strong>Severidad</strong></td>
+      <td rowspan="3"><strong>Gravedad</strong></td>
       <td>CAL interdental<br /><span style="font-size:0.85em;color:var(--text-light);">(en el sitio de mayor pérdida)</span></td>
       <td>1-2mm</td>
       <td>3-4mm</td>
@@ -613,7 +613,7 @@ export const pretestQuestions = [
     question_type: 'multiple_choice',
     options: [
       { key: 'a', text: 'Calcular la razón pérdida ósea/edad del paciente' },
-      { key: 'b', text: 'Clasificar la severidad, extensión y complejidad del caso periodontal' },
+      { key: 'b', text: 'Clasificar la gravedad, extensión y complejidad del caso periodontal' },
       { key: 'c', text: 'Medir solamente el sangrado al sondaje' },
       { key: 'd', text: 'Diagnosticar caries cervicales' },
     ],
@@ -622,7 +622,7 @@ export const pretestQuestions = [
     order_index: 1,
   },
   {
-    question_text: '¿Cuál de los siguientes datos es un criterio primario para determinar la severidad del estadio de periodontitis?',
+    question_text: '¿Cuál de los siguientes datos es un criterio primario para determinar la gravedad del estadio de periodontitis?',
     question_type: 'multiple_choice',
     options: [
       { key: 'a', text: 'Sangrado al sondaje (BOP)' },
@@ -631,7 +631,7 @@ export const pretestQuestions = [
       { key: 'd', text: 'Profundidad de sondaje periodontal (PPS)' },
     ],
     correct_answer: 'c',
-    explanation: 'La pérdida de inserción clínica (CAL), valorada en el sitio interdental con mayor pérdida, es el criterio primario para orientar la severidad del estadio. CAL refleja la pérdida acumulada, no el estado inflamatorio actual (PPS).',
+    explanation: 'La pérdida de inserción clínica (CAL), valorada en el sitio interdental con mayor pérdida, es el criterio primario para orientar la gravedad del estadio. CAL refleja la pérdida acumulada, no el estado inflamatorio actual (PPS).',
     order_index: 2,
   },
   {
@@ -648,7 +648,7 @@ export const pretestQuestions = [
     order_index: 3,
   },
   {
-    question_text: '¿Qué factor de complejidad puede elevar un caso hacia estadio III aunque la severidad inicial sugiera un estadio menor?',
+    question_text: '¿Qué factor de complejidad puede elevar un caso hacia estadio III aunque la gravedad inicial sugiera un estadio menor?',
     question_type: 'multiple_choice',
     options: [
       { key: 'a', text: 'PPS máxima de 5mm con pérdida horizontal' },
