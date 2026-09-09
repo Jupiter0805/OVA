@@ -520,18 +520,20 @@ export function QuizFinalInteractivo() {
         <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4">
           <div>
             <p className="text-xs font-bold text-text-dark uppercase tracking-wide mb-2">Periodontograma</p>
-            {pacienteActual.periodontograma_url ? (
-              <ZoomableImage
-                src={pacienteActual.periodontograma_url}
-                alt={`Periodontograma de ${pacienteActual.nombre}`}
-                className="w-full rounded-xl border border-border-light max-h-[400px] object-contain"
-                onZoom={() =>
-                  setImagenAmpliada({
-                    src: pacienteActual.periodontograma_url as string,
-                    alt: `Periodontograma de ${pacienteActual.nombre}`,
-                  })
-                }
-              />
+            {pacienteActual.periodontograma_urls && pacienteActual.periodontograma_urls.length > 0 ? (
+              <div className={pacienteActual.periodontograma_urls.length > 1 ? 'grid grid-cols-2 gap-2' : ''}>
+                {pacienteActual.periodontograma_urls.map(({ label, url }) => (
+                  <div key={url}>
+                    <p className="text-xs font-semibold text-text-light mb-1">{label}</p>
+                    <ZoomableImage
+                      src={url}
+                      alt={`${label} de ${pacienteActual.nombre}`}
+                      className="w-full rounded-xl border border-border-light max-h-[380px] object-contain"
+                      onZoom={() => setImagenAmpliada({ src: url, alt: `${label} de ${pacienteActual.nombre}` })}
+                    />
+                  </div>
+                ))}
+              </div>
             ) : (
               <ImagePlaceholder label="Periodontograma" />
             )}
@@ -539,46 +541,54 @@ export function QuizFinalInteractivo() {
 
           <div>
             <p className="text-xs font-bold text-text-dark uppercase tracking-wide mb-2">Radiografías</p>
-            <div className="space-y-3">
-              {pacienteActual.radiografia_panoramica_url ? (
-                <ZoomableImage
-                  src={pacienteActual.radiografia_panoramica_url}
-                  alt={`Radiografía de ${pacienteActual.nombre}`}
-                  className="w-full rounded-lg border border-border-light max-h-[220px] object-contain"
-                  onZoom={() =>
-                    setImagenAmpliada({
-                      src: pacienteActual.radiografia_panoramica_url as string,
-                      alt: `Radiografía de ${pacienteActual.nombre}`,
-                    })
-                  }
-                />
-              ) : (
-                <ImagePlaceholder label="Radiografía" />
-              )}
-
-              {[
-                pacienteActual.radiografia_sextante_1_vestibular,
-                pacienteActual.radiografia_sextante_1_palatino,
-                pacienteActual.radiografia_sextante_2_vestibular,
-              ]
-                .filter((url): url is string => Boolean(url))
-                .map((url, i) => (
+            {(() => {
+              const radiografias = pacienteActual.radiografia_urls ?? [];
+              if (radiografias.length === 0) return <ImagePlaceholder label="Radiografía" />;
+              return (
+                <div className={radiografias.length > 1 ? 'grid grid-cols-2 gap-2' : ''}>
+                  {radiografias.map(({ label, url }) => (
                     <div key={url}>
-                      <p className="text-xs font-semibold text-text-light mb-1">
-                        Radiografía adicional{i > 0 ? ` ${i + 2}` : ' 2'}
-                      </p>
+                      {radiografias.length > 1 && (
+                        <p className="text-xs font-semibold text-text-light mb-1">{label}</p>
+                      )}
                       <ZoomableImage
                         src={url}
-                        alt={`Radiografía adicional de ${pacienteActual.nombre}`}
-                        className="w-full rounded-lg border border-border-light max-h-[200px] object-contain"
-                        onZoom={() =>
-                          setImagenAmpliada({ src: url, alt: `Radiografía adicional de ${pacienteActual.nombre}` })
-                        }
+                        alt={`${label} de ${pacienteActual.nombre}`}
+                        className="w-full rounded-lg border border-border-light max-h-[220px] object-contain"
+                        onZoom={() => setImagenAmpliada({ src: url, alt: `${label} de ${pacienteActual.nombre}` })}
                       />
                     </div>
                   ))}
-            </div>
+                </div>
+              );
+            })()}
           </div>
+
+          {pacienteActual.fotos_clinicas_urls && pacienteActual.fotos_clinicas_urls.length > 0 && (
+            <div>
+              <p className="text-xs font-bold text-text-dark uppercase tracking-wide mb-2">Fotografías clínicas</p>
+              {(() => {
+                const fotos = pacienteActual.fotos_clinicas_urls;
+                return (
+                  <div className={fotos.length > 1 ? 'grid grid-cols-2 gap-2' : ''}>
+                    {fotos.map(({ label, url }) => (
+                      <div key={url}>
+                        {fotos.length > 1 && (
+                          <p className="text-xs font-semibold text-text-light mb-1">{label}</p>
+                        )}
+                        <ZoomableImage
+                          src={url}
+                          alt={`${label} de ${pacienteActual.nombre}`}
+                          className="w-full rounded-lg border border-border-light max-h-[220px] object-contain"
+                          onZoom={() => setImagenAmpliada({ src: url, alt: `${label} de ${pacienteActual.nombre}` })}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
+            </div>
+          )}
         </div>
 
         {/* Columna 3: selectores + resultado */}

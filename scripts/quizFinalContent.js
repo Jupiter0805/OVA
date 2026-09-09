@@ -33,6 +33,16 @@
 // the Estadio, the new number is the whole-mouth average. Carmen's Estadio
 // IV no longer needs RBL>=33% to hold since her tooth-loss count (8) alone
 // satisfies that criterion per the AAP/EFP table.
+//
+// Image fields (2026-09-09, migration 006): switched every case from the
+// old fixed periodontograma_url/radiografia_panoramica_url/
+// radiografia_sextante_* columns to periodontograma_urls/radiografia_urls/
+// fotos_clinicas_urls — jsonb arrays of {label, url}. Forced by the 6 new
+// cases: several have the periodontogram split into separate superior/
+// inferior files, a variable-length radiograph series (up to 6 images),
+// and clinical photographs, none of which fit the old fixed slots. The
+// old columns are left populated as null going forward but not removed
+// (no migration drops them).
 
 export const pacientes = [
   {
@@ -108,11 +118,13 @@ export const pacientes = [
       tipo_periodontitis: 'Periodontitis Estadio III localizada (patrón de primeros molares) — clásicamente descrita como "inicio temprano/agresiva localizada"',
       respuesta_inflamatoria: 'Exagerada para la edad, con destrucción real concomitante, no solo inflamación gingival',
     },
-    periodontograma_url: '/Daniel/periodontograma_daniel.jpeg',
-    radiografia_panoramica_url: '/Daniel/radiografia_daniel.jpeg',
-    radiografia_sextante_1_vestibular: null,
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma', url: '/Daniel/periodontograma_daniel.jpeg' },
+    ],
+    radiografia_urls: [
+      { label: 'Radiografía', url: '/Daniel/radiografia_daniel.jpeg' },
+    ],
+    fotos_clinicas_urls: [],
     estadio_correcto: 3,
     extension_correcta: 'Localizada',
     grado_correcto: 'C',
@@ -197,11 +209,14 @@ export const pacientes = [
       higiene_oral: 'Deficiente (1x/día, sin dispositivos complementarios)',
       pronostico_sin_intervencion: 'Muy pobre; pérdida dentaria progresiva prácticamente inevitable',
     },
-    periodontograma_url: '/Carmen/Periodontograma_carmen.jpeg',
-    radiografia_panoramica_url: '/Carmen/carmen-radiografia.png',
-    radiografia_sextante_1_vestibular: '/Carmen/radiografia2_carmen.jpeg',
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma', url: '/Carmen/Periodontograma_carmen.jpeg' },
+    ],
+    radiografia_urls: [
+      { label: 'Radiografía', url: '/Carmen/carmen-radiografia.png' },
+      { label: 'Radiografía adicional', url: '/Carmen/radiografia2_carmen.jpeg' },
+    ],
+    fotos_clinicas_urls: [],
     estadio_correcto: 4,
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
@@ -291,11 +306,14 @@ export const pacientes = [
       duracion_estimada: 'Progresión crónica de 15-20 años. La exodoncia de 45-46 fue por periodontitis severa, no por trauma.',
       nota_alergia: 'Alergia a penicilina crítica — usar antimicrobianos alternativos si son necesarios',
     },
-    periodontograma_url: '/Clara/periodontograma_clara.png',
-    radiografia_panoramica_url: '/Clara/clara-radiografia.png',
-    radiografia_sextante_1_vestibular: '/Clara/radiografia2_clara.jpeg',
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma', url: '/Clara/periodontograma_clara.png' },
+    ],
+    radiografia_urls: [
+      { label: 'Radiografía', url: '/Clara/clara-radiografia.png' },
+      { label: 'Radiografía adicional', url: '/Clara/radiografia2_clara.jpeg' },
+    ],
+    fotos_clinicas_urls: [],
     estadio_correcto: 3,
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
@@ -381,11 +399,13 @@ export const pacientes = [
       indice_biopelicula: '64% en la zona lingual (higiene deficiente en el área, especialmente sin uso regular de hilo dental)',
       factor_inflamatorio: 'Mínimo — BOP solo 19%; encía relativamente sana pese a la recesión',
     },
-    periodontograma_url: '/Yoselin/periodontograma_yoselin.png',
-    radiografia_panoramica_url: '/Yoselin/radiografia_yoselin.jpeg',
-    radiografia_sextante_1_vestibular: null,
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma', url: '/Yoselin/periodontograma_yoselin.png' },
+    ],
+    radiografia_urls: [
+      { label: 'Radiografía', url: '/Yoselin/radiografia_yoselin.jpeg' },
+    ],
+    fotos_clinicas_urls: [],
     estadio_correcto: 1,
     extension_correcta: 'Localizada',
     grado_correcto: 'A',
@@ -468,11 +488,16 @@ export const pacientes = [
       sextante_mas_afectado: 'Posterosuperior derecho (sextante 2)',
       duracion_estimada: 'Agudo, secundario al tratamiento ortodóncico',
     },
-    periodontograma_url: null,
-    radiografia_panoramica_url: null,
-    radiografia_sextante_1_vestibular: null,
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma', url: '/Santiago Rueda/periodontograma.png' },
+    ],
+    radiografia_urls: [
+      { label: 'Radiografía panorámica', url: '/Santiago Rueda/radiografia_panoramica.png' },
+    ],
+    fotos_clinicas_urls: [
+      { label: 'Foto clínica 1', url: '/Santiago Rueda/foto_clinica_1.jpg' },
+      { label: 'Foto clínica 2', url: '/Santiago Rueda/foto_clinica_2.jpg' },
+    ],
     estadio_correcto: 1,
     extension_correcta: 'Localizada',
     grado_correcto: 'A',
@@ -556,11 +581,21 @@ export const pacientes = [
       discordancia_biofilm_destruccion: 'Sí — BOP bajo (18%) con destrucción severa, compatible con progresión rápida (Grado C)',
       duracion_estimada: 'Progresión probable desde la adolescencia',
     },
-    periodontograma_url: null,
-    radiografia_panoramica_url: null,
-    radiografia_sextante_1_vestibular: null,
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma superior', url: '/Mateo Salcedo/periodontograma_superior.png' },
+      { label: 'Periodontograma inferior', url: '/Mateo Salcedo/periodontograma_inferior.png' },
+    ],
+    radiografia_urls: [
+      { label: 'Radiografía 1', url: '/Mateo Salcedo/radiografias/slide26_1.png' },
+      { label: 'Radiografía 2', url: '/Mateo Salcedo/radiografias/slide26_2.png' },
+      { label: 'Radiografía 3', url: '/Mateo Salcedo/radiografias/slide26_3.png' },
+      { label: 'Radiografía 4', url: '/Mateo Salcedo/radiografias/slide26_4.png' },
+      { label: 'Radiografía 5', url: '/Mateo Salcedo/radiografias/slide26_5.png' },
+      { label: 'Radiografía 6', url: '/Mateo Salcedo/radiografias/slide26_6.png' },
+    ],
+    fotos_clinicas_urls: [
+      { label: 'Foto clínica', url: '/Mateo Salcedo/foto_clinica.png' },
+    ],
     estadio_correcto: 3,
     extension_correcta: 'Localizada',
     grado_correcto: 'C',
@@ -644,11 +679,22 @@ export const pacientes = [
       factor_antecedente: 'Antecedente familiar de diabetes — vigilancia recomendada',
       discordancia_biofilm_destruccion: 'No — el sangrado generalizado correlaciona con un CAL localizado (proporcional)',
     },
-    periodontograma_url: null,
-    radiografia_panoramica_url: null,
-    radiografia_sextante_1_vestibular: null,
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma superior', url: '/Alvaro restrepo/periodontograma_superior.png' },
+      { label: 'Periodontograma inferior', url: '/Alvaro restrepo/periodontograma_inferior.png' },
+    ],
+    radiografia_urls: [
+      { label: 'Radiografía 1', url: '/Alvaro restrepo/radiografias/slide11_1.png' },
+      { label: 'Radiografía 2', url: '/Alvaro restrepo/radiografias/slide11_2.png' },
+      { label: 'Radiografía 3', url: '/Alvaro restrepo/radiografias/slide11_3.png' },
+      { label: 'Radiografía 4', url: '/Alvaro restrepo/radiografias/slide11_4.png' },
+      { label: 'Radiografía 5', url: '/Alvaro restrepo/radiografias/slide11_5.png' },
+      { label: 'Radiografía 6', url: '/Alvaro restrepo/radiografias/slide11_6.png' },
+    ],
+    fotos_clinicas_urls: [
+      { label: 'Foto frontal', url: '/Alvaro restrepo/foto_frontal.png' },
+      { label: 'Foto oclusal', url: '/Alvaro restrepo/foto_oclusal.png' },
+    ],
     estadio_correcto: 3,
     extension_correcta: 'Localizada',
     grado_correcto: 'B',
@@ -732,11 +778,15 @@ export const pacientes = [
         '¿Movilidad ≥2 + furcación III + CAL >8mm generalizado = Estadio IV? Sin movilidad exacta ni pérdida dentaria documentadas, se mantiene Estadio III según los datos disponibles — zona gris.',
       duracion_estimada: 'Progresión crónica de 20+ años',
     },
-    periodontograma_url: null,
-    radiografia_panoramica_url: null,
-    radiografia_sextante_1_vestibular: null,
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma superior', url: '/Ricardo Peña/periodontograma_superior.png' },
+      { label: 'Periodontograma inferior', url: '/Ricardo Peña/periodontograma_inferior.png' },
+    ],
+    radiografia_urls: [],
+    fotos_clinicas_urls: [
+      { label: 'Foto clínica 1', url: '/Ricardo Peña/foto_clinica_1.png' },
+      { label: 'Foto clínica 2', url: '/Ricardo Peña/foto_clinica_2.png' },
+    ],
     estadio_correcto: 3,
     extension_correcta: 'Generalizada',
     grado_correcto: 'C',
@@ -820,11 +870,14 @@ export const pacientes = [
       pronostico: 'La pieza 21 muy probablemente requiere extracción; el resto de la dentición tiene excelente pronóstico',
       duracion_estimada: 'Lesión focal, crónica o aguda reciente — indeterminada sin historia clínica',
     },
-    periodontograma_url: null,
-    radiografia_panoramica_url: null,
-    radiografia_sextante_1_vestibular: null,
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma superior', url: '/Camila Duarte/periodontograma_superior.png' },
+      { label: 'Periodontograma inferior', url: '/Camila Duarte/periodontograma_inferior.png' },
+    ],
+    radiografia_urls: [],
+    fotos_clinicas_urls: [
+      { label: 'Foto clínica', url: '/Camila Duarte/foto_clinica.png' },
+    ],
     estadio_correcto: 4,
     extension_correcta: 'Localizada',
     grado_correcto: 'A',
@@ -908,11 +961,13 @@ export const pacientes = [
       duracion_estimada: 'Progresión crónica de 20-30 años (pérdida de 3 dientes + movilidad generalizada)',
       pronostico_sin_tratamiento: 'Muy pobre; pérdida dentaria progresiva casi segura',
     },
-    periodontograma_url: null,
-    radiografia_panoramica_url: null,
-    radiografia_sextante_1_vestibular: null,
-    radiografia_sextante_1_palatino: null,
-    radiografia_sextante_2_vestibular: null,
+    periodontograma_urls: [
+      { label: 'Periodontograma', url: '/Marcela Ortiz/periodontograma_completo.png' },
+    ],
+    radiografia_urls: [],
+    fotos_clinicas_urls: [
+      { label: 'Foto clínica', url: '/Marcela Ortiz/foto_clinica.jpg' },
+    ],
     estadio_correcto: 4,
     extension_correcta: 'Generalizada',
     grado_correcto: 'B',

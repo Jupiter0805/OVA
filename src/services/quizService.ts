@@ -41,11 +41,9 @@ export interface QuizPaciente {
   patron_perdida_osea: string | null;
   ligamento_periodontal_estado: string | null;
   dificultad_caso: string | null;
-  periodontograma_url: string | null;
-  radiografia_panoramica_url: string | null;
-  radiografia_sextante_1_vestibular: string | null;
-  radiografia_sextante_1_palatino: string | null;
-  radiografia_sextante_2_vestibular: string | null;
+  periodontograma_urls: { label: string; url: string }[] | null;
+  radiografia_urls: { label: string; url: string }[] | null;
+  fotos_clinicas_urls: { label: string; url: string }[] | null;
   estadio_correcto: number;
   extension_correcta: string;
   grado_correcto: string;
