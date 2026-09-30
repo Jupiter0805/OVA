@@ -1,10 +1,17 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { profileService } from '../services/profileService';
 
 export function Hero() {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
+  const [userCount, setUserCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    profileService.getUserCount().then(setUserCount);
+  }, []);
 
   const handleAccess = () => navigate(isAuthenticated ? '/dashboard' : '/login');
   const handleSeeFeatures = () => {
@@ -78,6 +85,20 @@ export function Hero() {
             Ver Características
           </motion.button>
         </motion.div>
+
+        {userCount !== null && (
+          <motion.p
+            className="mt-8 text-lg md:text-xl text-gray-100"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="font-bold text-white text-2xl md:text-3xl">
+              {userCount.toLocaleString('es-CO')}
+            </span>{' '}
+            {userCount === 1 ? 'estudiante' : 'estudiantes'} ya aprenden con el OVA
+          </motion.p>
+        )}
       </div>
     </motion.section>
   );

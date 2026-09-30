@@ -31,4 +31,14 @@ export const profileService = {
       return null;
     }
   },
+
+  // Total de usuarios registrados (público, vía RPC security definer).
+  async getUserCount(): Promise<number | null> {
+    const { data, error } = await supabase.rpc('get_user_count');
+    if (error) {
+      console.error('Error fetching user count:', error);
+      return null;
+    }
+    return Number(data);
+  },
 };
